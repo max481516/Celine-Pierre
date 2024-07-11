@@ -1,6 +1,15 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+//COLOR VARIABLES
+:root {
+  --color-dark-blue: HSL(176, 33%, 25%);
+  --color-light-blue: HSL(183, 94%, 25%);
+  --color-lighter-blue: HSL(179, 35%, 50%);
+  --color-lighter-sand: HSL(19, 34%, 90%);
+  --color-light-sand: HSL(14, 30%, 83%);
+  --color-dark-sand: HSL(25, 28%, 77%);
+}
 
 //CSS RESET
   *,
@@ -128,6 +137,11 @@ form [type="reset"]:focus {
 
 form select {
   text-transform: none;
+}
+
+//Global Styles
+body {
+    background-color: var(--color-lighter-sand);
 }
 
 `;
