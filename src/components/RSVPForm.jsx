@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { BiErrorCircle } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { LuHeartCrack, LuHeart } from "react-icons/lu";
 import styled from "styled-components";
+import seaDoodle1 from "../media/Anchor.svg";
 
 const YesIcon = ({ selected }) => (
   <LuHeart
@@ -20,15 +22,28 @@ const NoIcon = ({ selected }) => (
 );
 
 export default function RSVPForm() {
-  const [state, handleSubmit] = useForm("movavqpz");
+  const [state, handleSubmit] = useForm("movavqp");
   const [attendance, setAttendance] = useState("");
 
   if (state.succeeded) {
     return (
-      <Wrapper>
-        <FaRegCheckCircle color="green" size={50} />
+      <ConfirmationWrapper>
+        <FaRegCheckCircle color="green" size={40} />
         <ConfirmationMessage>Thank you for your message!</ConfirmationMessage>
-      </Wrapper>
+      </ConfirmationWrapper>
+    );
+  }
+  if (!state.succeeded && state.errors) {
+    return (
+      <ErrorWrapper>
+        <BiErrorCircle color="red" size={40} />
+        <ErrorMessage>
+          There was an error. Please try again, or write us a message at:{" "}
+          <ErrorMailLink href="mailto:celine.pierre2025@gmail.com">
+            celine.pierre2025@gmail.com
+          </ErrorMailLink>
+        </ErrorMessage>
+      </ErrorWrapper>
     );
   }
 
@@ -185,6 +200,7 @@ export default function RSVPForm() {
           />
         </InputMessageWrapper>
       </fieldset>
+      <Img src={seaDoodle1} alt="sea doodle"></Img>
       <SubmitButton type="submit" disabled={state.submitting}>
         Submit
       </SubmitButton>
@@ -193,9 +209,12 @@ export default function RSVPForm() {
 }
 
 const FormContainer = styled.form`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
+  max-width: 500px;
   padding: 3rem 3rem 1rem;
   gap: 1rem;
 `;
@@ -321,15 +340,49 @@ const SubmitButton = styled.button`
   }
 `;
 
-const Wrapper = styled.div`
+const ConfirmationWrapper = styled.div`
+  background-color: var(--color-lighter-sand);
+  border: 1px solid var(--color-light-blue);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 15dvh;
   gap: 1rem;
+  max-width: 300px;
+  height: 15dvh;
+  margin: 30dvh auto;
+  border-radius: 4px;
+  /* height: 76.725vh; */
+`;
+
+const ErrorWrapper = styled(ConfirmationWrapper)`
+  height: 20dvh;
+  margin: 29dvh auto;
 `;
 
 const ConfirmationMessage = styled.p`
-  font-size: 1.5rem;
+  font-size: calc(20rem / 16);
+`;
+
+const ErrorMessage = styled.p`
+  text-align: center;
+`;
+
+const ErrorMailLink = styled.a`
+  color: var(--color-lighter-blue);
+  text-decoration: none;
+  transition: color 0.4s ease-in-out;
+
+  &:hover {
+    color: var(--color-dark-blue);
+  }
+`;
+
+const Img = styled.img`
+  color: var(--color-lighter-blue);
+  width: 20%;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  z-index: -1;
 `;
