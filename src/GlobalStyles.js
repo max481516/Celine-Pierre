@@ -11,6 +11,10 @@ const GlobalStyles = createGlobalStyle`
   --color-dark-sand: HSL(25, 28%, 77%);
 }
 
+//FONTS
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+
 //CSS RESET
   *,
 *::before,
@@ -142,6 +146,7 @@ form select {
 //Global Styles
 body {
     background-color: var(--color-lighter-sand);
+    font-family: 'Inter', sans-serif;
 }
 
 `;
