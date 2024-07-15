@@ -6,10 +6,9 @@ export default function App() {
   return (
     <main>
       <Router>
-        <RSVP />
         <Routes>
-          {/* <Route path="/" exact element={<Home />} /> */}
-          <Route path="/RSVP" exact element={<RSVP />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/RSVP" element={<RSVP />} />
         </Routes>
       </Router>
     </main>
