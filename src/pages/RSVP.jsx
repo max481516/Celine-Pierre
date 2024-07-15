@@ -6,7 +6,7 @@ export default function RSVP() {
   return (
     <>
       <Wrapper>
-        <Title>R.S.V.P.</Title>
+        <Title to="/RSVP">R.S.V.P.</Title>
         <RSVPForm />
         <HomeLink to="/">Back to Home Page</HomeLink>
       </Wrapper>
@@ -16,7 +16,9 @@ export default function RSVP() {
 
 const Wrapper = styled.div``;
 
-const Title = styled.h2`
+const Title = styled(Link)`
+  cursor: pointer;
+  text-decoration: none;
   display: flex;
   justify-content: center;
   font-family: "Playwrite CU", cursive;

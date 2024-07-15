@@ -145,7 +145,7 @@ form select {
 
 //Global Styles
 body {
-    background-color: var(--color-lighter-sand);
+    background-color: var(--color-light-sand);
     font-family: 'Inter', sans-serif;
 }
 
