@@ -34,7 +34,6 @@ export default function RSVPForm() {
 
   return (
     <FormContainer onSubmit={handleSubmit}>
-      <Title>R.S.V.P.</Title>
       <fieldset id="fs-frm-inputs">
         <RadioGroup>
           <Legend>Will you attend?</Legend>
@@ -193,21 +192,11 @@ export default function RSVPForm() {
   );
 }
 
-const Title = styled.h2`
-  font-family: "Playwrite CU", cursive;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  color: var(--color-lighter-blue);
-  font-size: 3rem;
-  margin-bottom: 1rem;
-`;
-
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem;
+  padding: 3rem 3rem 1rem;
   gap: 1rem;
 `;
 
@@ -282,8 +271,8 @@ const Select = styled.select`
 const IconWrapper = styled.div`
   position: absolute;
   right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 35%;
+  transform: translateY(-35%);
   pointer-events: none;
 `;
 
