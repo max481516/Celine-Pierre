@@ -1,0 +1,20 @@
+{
+  "RSVP": {
+    "FinalDate": "Please complete by 30th September 2024",
+    "Attendence": "Will you be attending?",
+    "Yes": "Yes",
+    "No": "No",
+    "Name": "Full name",
+    "NamePlaceholder": "Enter your full name",
+    "Email": "Email address",
+    "NumberGuests": "Number of guests",
+    "NumberChildren": "Any children?",
+    "Restrictions": "Dietary restrictions",
+    "RestrictionsPlaceholder": "Specify any dietary restrictions",
+    "Address": "Physical address",
+    "AddressPlaceholder": "Enter your physical address",
+    "Message": "Leave a message",
+    "MessagePlaceholder": "Any questions?",
+    "Submit": "Submit"
+  }
+}

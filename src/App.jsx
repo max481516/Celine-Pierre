@@ -1,4 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import "./i18n/i18n";
 import RSVP from "./pages/RSVP";
 import Home from "./pages/Home";
 
