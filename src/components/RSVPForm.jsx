@@ -225,24 +225,25 @@ export default function RSVPForm() {
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-
   max-width: 550px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
   background-color: var(--color-light-sand);
-  border: 1px solid black;
+  transition: all 0.4s;
+
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  border-radius: 8px;
 
   @media ${QUERIES.tabletAndUp} {
     width: 60%;
     height: 800px;
     min-width: 400px;
     overflow-y: scroll;
+    border: 1px solid black;
+    border-radius: 8px;
   }
 `;
 
@@ -414,9 +415,11 @@ const ConfirmationWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   gap: 1rem;
-  max-width: 300px;
-  height: 15dvh;
+  width: 300px;
+  padding: 8px 0;
+  height: 20dvh;
   margin: 30dvh auto;
   border-radius: 4px;
   /* height: 76.725vh; */
