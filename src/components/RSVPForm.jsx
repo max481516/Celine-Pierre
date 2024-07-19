@@ -6,6 +6,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { LuHeartCrack, LuHeart } from "react-icons/lu";
 import styled from "styled-components";
 import seaDoodle1 from "../media/Anchor.svg";
+import { useTranslation } from "react-i18next";
 
 const YesIcon = ({ selected }) => (
   <LuHeart
@@ -24,6 +25,7 @@ const NoIcon = ({ selected }) => (
 export default function RSVPForm() {
   const [state, handleSubmit] = useForm("movavqp");
   const [attendance, setAttendance] = useState("");
+  const { t } = useTranslation();
 
   if (state.succeeded) {
     return (
@@ -51,10 +53,10 @@ export default function RSVPForm() {
     <FormContainer onSubmit={handleSubmit}>
       <fieldset id="fs-frm-inputs">
         <RadioGroup>
-          <Legend>Will you attend?</Legend>
+          <Legend>{t("RSVP.Attendence")}</Legend>
           <Label>
             <YesIcon selected={attendance === "Yes"} />
-            Yes
+            {t("RSVP.Yes")}
             <InputRadio
               type="radio"
               name="attendance"
@@ -66,7 +68,7 @@ export default function RSVPForm() {
           </Label>
           <Label>
             <NoIcon selected={attendance === "No"} />
-            No
+            {t("RSVP.No")}
             <InputRadio
               type="radio"
               name="attendance"
@@ -82,18 +84,18 @@ export default function RSVPForm() {
           />
         </RadioGroup>
 
-        <Label htmlFor="full-name">Full Name</Label>
+        <Label htmlFor="full-name">{t("RSVP.Name")}</Label>
         <Input
           type="text"
           name="name"
           id="full-name"
-          placeholder="First and Last"
+          placeholder={t("RSVP.NamePlaceholder")}
           required
         />
         <ValidationError prefix="Name" field="name" errors={state.errors} />
 
         <InputEmailWrapper>
-          <Label htmlFor="email-address">Email Address</Label>
+          <Label htmlFor="email-address">{t("RSVP.Email")}</Label>
           <Input
             type="email"
             name="email"
@@ -106,7 +108,7 @@ export default function RSVPForm() {
 
         <InputNumberWrapper>
           <InputNumberLabel htmlFor="num-guests">
-            Number of Guests
+            {t("RSVP.NumberGuests")}
           </InputNumberLabel>
           <SelectWrapper>
             <Select name="guests" id="num-guests" required>
@@ -132,7 +134,7 @@ export default function RSVPForm() {
 
         <InputNumberWrapper>
           <InputNumberLabel htmlFor="num-children">
-            Number of Children
+            {t("RSVP.NumberChildren")}
           </InputNumberLabel>
           <SelectWrapper>
             <Select name="children" id="num-children" required>
@@ -156,14 +158,12 @@ export default function RSVPForm() {
           />
         </InputNumberWrapper>
 
-        <Label htmlFor="dietary-restrictions">
-          Dietary or Religious Restrictions
-        </Label>
+        <Label htmlFor="dietary-restrictions">{t("RSVP.Restrictions")}</Label>
         <Textarea
           rows="4"
           name="dietary-restrictions"
           id="dietary-restrictions"
-          placeholder="Specify any dietary restrictions here"
+          placeholder={t("RSVP.RestrictionsPlaceholder")}
         />
         <ValidationError
           prefix="Dietary or Religious Restrictions"
@@ -171,12 +171,12 @@ export default function RSVPForm() {
           errors={state.errors}
         />
 
-        <Label htmlFor="address">Physical Address</Label>
+        <Label htmlFor="address">{t("RSVP.Address")}</Label>
         <Textarea
           rows="4"
           name="address"
           id="address"
-          placeholder="Enter your physical address"
+          placeholder={t("RSVP.AddressPlaceholder")}
           required
         />
         <ValidationError
@@ -186,12 +186,12 @@ export default function RSVPForm() {
         />
 
         <InputMessageWrapper>
-          <Label htmlFor="message">Message</Label>
+          <Label htmlFor="message">{t("RSVP.Message")}</Label>
           <Textarea
             rows="5"
             name="message"
             id="message"
-            placeholder="Any Questions?"
+            placeholder={t("RSVP.MessagePlaceholder")}
           />
           <ValidationError
             prefix="Message"
@@ -202,7 +202,7 @@ export default function RSVPForm() {
       </fieldset>
       <Img src={seaDoodle1} alt="sea doodle"></Img>
       <SubmitButton type="submit" disabled={state.submitting}>
-        Submit
+        {t("RSVP.Submit")}
       </SubmitButton>
     </FormContainer>
   );
