@@ -7,6 +7,9 @@ import { LuHeartCrack, LuHeart } from "react-icons/lu";
 import styled from "styled-components";
 import seaDoodle1 from "../media/Anchor.svg";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import LanguageSelector from "./LanguageSelector";
+import { QUERIES } from "../constants.js";
 
 const YesIcon = ({ selected }) => (
   <LuHeart
@@ -50,172 +53,236 @@ export default function RSVPForm() {
   }
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
-      <fieldset id="fs-frm-inputs">
-        <RadioGroup>
-          <Legend>{t("RSVP.Attendence")}</Legend>
-          <Label>
-            <YesIcon selected={attendance === "Yes"} />
-            {t("RSVP.Yes")}
-            <InputRadio
-              type="radio"
-              name="attendance"
-              value="Yes"
-              checked={attendance === "Yes"}
-              onChange={() => setAttendance("Yes")}
-              required
+    <Wrapper>
+      <Header>
+        <RSVPLanguageSelector />
+        <Title to="/RSVP">R.S.V.P.</Title>
+        <FinalDate>{t("RSVP.FinalDate")}</FinalDate>
+      </Header>
+      <FormContainer onSubmit={handleSubmit}>
+        <fieldset id="fs-frm-inputs">
+          <RadioGroup>
+            <Legend>{t("RSVP.Attendence")}</Legend>
+            <Label>
+              <YesIcon selected={attendance === "Yes"} />
+              {t("RSVP.Yes")}
+              <InputRadio
+                type="radio"
+                name="attendance"
+                value="Yes"
+                checked={attendance === "Yes"}
+                onChange={() => setAttendance("Yes")}
+                required
+              />
+            </Label>
+            <Label>
+              <NoIcon selected={attendance === "No"} />
+              {t("RSVP.No")}
+              <InputRadio
+                type="radio"
+                name="attendance"
+                value="No"
+                checked={attendance === "No"}
+                onChange={() => setAttendance("No")}
+              />
+            </Label>
+            <ValidationError
+              prefix="Attendance"
+              field="attendance"
+              errors={state.errors}
             />
-          </Label>
-          <Label>
-            <NoIcon selected={attendance === "No"} />
-            {t("RSVP.No")}
-            <InputRadio
-              type="radio"
-              name="attendance"
-              value="No"
-              checked={attendance === "No"}
-              onChange={() => setAttendance("No")}
-            />
-          </Label>
-          <ValidationError
-            prefix="Attendance"
-            field="attendance"
-            errors={state.errors}
-          />
-        </RadioGroup>
+          </RadioGroup>
 
-        <Label htmlFor="full-name">{t("RSVP.Name")}</Label>
-        <Input
-          type="text"
-          name="name"
-          id="full-name"
-          placeholder={t("RSVP.NamePlaceholder")}
-          required
-        />
-        <ValidationError prefix="Name" field="name" errors={state.errors} />
-
-        <InputEmailWrapper>
-          <Label htmlFor="email-address">{t("RSVP.Email")}</Label>
+          <Label htmlFor="full-name">{t("RSVP.Name")}</Label>
           <Input
-            type="email"
-            name="email"
-            id="email-address"
-            placeholder="email@domain.com"
+            type="text"
+            name="name"
+            id="full-name"
+            placeholder={t("RSVP.NamePlaceholder")}
             required
           />
-          <ValidationError prefix="Email" field="email" errors={state.errors} />
-        </InputEmailWrapper>
+          <ValidationError prefix="Name" field="name" errors={state.errors} />
 
-        <InputNumberWrapper>
-          <InputNumberLabel htmlFor="num-guests">
-            {t("RSVP.NumberGuests")}
-          </InputNumberLabel>
-          <SelectWrapper>
-            <Select name="guests" id="num-guests" required>
-              {Array.from({ length: 10 }, (_, i) => (
-                <option key={i + 1} value={i + 1}>
-                  {i + 1}
-                </option>
-              ))}
-            </Select>
-            <IconWrapper>
-              <MdOutlineKeyboardArrowDown
-                size={15}
-                style={{ opacity: "0.5" }}
-              />
-            </IconWrapper>
-          </SelectWrapper>
-          <ValidationError
-            prefix="Guests"
-            field="guests"
-            errors={state.errors}
-          />
-        </InputNumberWrapper>
+          <InputEmailWrapper>
+            <Label htmlFor="email-address">{t("RSVP.Email")}</Label>
+            <Input
+              type="email"
+              name="email"
+              id="email-address"
+              placeholder="email@domain.com"
+              required
+            />
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
+            />
+          </InputEmailWrapper>
 
-        <InputNumberWrapper>
-          <InputNumberLabel htmlFor="num-children">
-            {t("RSVP.NumberChildren")}
-          </InputNumberLabel>
-          <SelectWrapper>
-            <Select name="children" id="num-children" required>
-              {Array.from({ length: 11 }, (_, i) => (
-                <option key={i} value={i}>
-                  {i}
-                </option>
-              ))}
-            </Select>
-            <IconWrapper>
-              <MdOutlineKeyboardArrowDown
-                size={15}
-                style={{ opacity: "0.5" }}
-              />
-            </IconWrapper>
-          </SelectWrapper>
-          <ValidationError
-            prefix="Children"
-            field="children"
-            errors={state.errors}
-          />
-        </InputNumberWrapper>
+          <InputNumberWrapper>
+            <InputNumberLabel htmlFor="num-guests">
+              {t("RSVP.NumberGuests")}
+            </InputNumberLabel>
+            <SelectWrapper>
+              <Select name="guests" id="num-guests" required>
+                {Array.from({ length: 10 }, (_, i) => (
+                  <option key={i + 1} value={i + 1}>
+                    {i + 1}
+                  </option>
+                ))}
+              </Select>
+              <IconWrapper>
+                <MdOutlineKeyboardArrowDown
+                  size={15}
+                  style={{ opacity: "0.5" }}
+                />
+              </IconWrapper>
+            </SelectWrapper>
+            <ValidationError
+              prefix="Guests"
+              field="guests"
+              errors={state.errors}
+            />
+          </InputNumberWrapper>
 
-        <Label htmlFor="dietary-restrictions">{t("RSVP.Restrictions")}</Label>
-        <Textarea
-          rows="4"
-          name="dietary-restrictions"
-          id="dietary-restrictions"
-          placeholder={t("RSVP.RestrictionsPlaceholder")}
-        />
-        <ValidationError
-          prefix="Dietary or Religious Restrictions"
-          field="dietary-restrictions"
-          errors={state.errors}
-        />
+          <InputNumberWrapper>
+            <InputNumberLabel htmlFor="num-children">
+              {t("RSVP.NumberChildren")}
+            </InputNumberLabel>
+            <SelectWrapper>
+              <Select name="children" id="num-children" required>
+                {Array.from({ length: 11 }, (_, i) => (
+                  <option key={i} value={i}>
+                    {i}
+                  </option>
+                ))}
+              </Select>
+              <IconWrapper>
+                <MdOutlineKeyboardArrowDown
+                  size={15}
+                  style={{ opacity: "0.5" }}
+                />
+              </IconWrapper>
+            </SelectWrapper>
+            <ValidationError
+              prefix="Children"
+              field="children"
+              errors={state.errors}
+            />
+          </InputNumberWrapper>
 
-        <Label htmlFor="address">{t("RSVP.Address")}</Label>
-        <Textarea
-          rows="4"
-          name="address"
-          id="address"
-          placeholder={t("RSVP.AddressPlaceholder")}
-          required
-        />
-        <ValidationError
-          prefix="Address"
-          field="address"
-          errors={state.errors}
-        />
-
-        <InputMessageWrapper>
-          <Label htmlFor="message">{t("RSVP.Message")}</Label>
+          <Label htmlFor="dietary-restrictions">{t("RSVP.Restrictions")}</Label>
           <Textarea
-            rows="5"
-            name="message"
-            id="message"
-            placeholder={t("RSVP.MessagePlaceholder")}
+            rows="4"
+            name="dietary-restrictions"
+            id="dietary-restrictions"
+            placeholder={t("RSVP.RestrictionsPlaceholder")}
           />
           <ValidationError
-            prefix="Message"
-            field="message"
+            prefix="Dietary or Religious Restrictions"
+            field="dietary-restrictions"
             errors={state.errors}
           />
-        </InputMessageWrapper>
-      </fieldset>
-      <Img src={seaDoodle1} alt="sea doodle"></Img>
-      <SubmitButton type="submit" disabled={state.submitting}>
-        {t("RSVP.Submit")}
-      </SubmitButton>
-    </FormContainer>
+
+          <Label htmlFor="address">{t("RSVP.Address")}</Label>
+          <Textarea
+            rows="4"
+            name="address"
+            id="address"
+            placeholder={t("RSVP.AddressPlaceholder")}
+            required
+          />
+          <ValidationError
+            prefix="Address"
+            field="address"
+            errors={state.errors}
+          />
+
+          <InputMessageWrapper>
+            <Label htmlFor="message">{t("RSVP.Message")}</Label>
+            <Textarea
+              rows="5"
+              name="message"
+              id="message"
+              placeholder={t("RSVP.MessagePlaceholder")}
+            />
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={state.errors}
+            />
+          </InputMessageWrapper>
+        </fieldset>
+        <Img src={seaDoodle1} alt="sea doodle"></Img>
+        <SubmitButton type="submit" disabled={state.submitting}>
+          {t("RSVP.Submit")}
+        </SubmitButton>
+      </FormContainer>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--color-light-sand);
+  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 8px;
+
+  @media ${QUERIES.tabletAndUp} {
+    width: 60%;
+    height: 800px;
+    min-width: 400px;
+    overflow-y: scroll;
+  }
+`;
+
+const RSVPLanguageSelector = styled(LanguageSelector)`
+  opacity: 0.3;
+`;
+
+const Header = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Playwrite CU", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+`;
+
+const Title = styled(Link)`
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-lighter-blue);
+  font-size: 3rem;
+
+  @media ${QUERIES.laptopAndUp} {
+    font-size: 4rem;
+  }
+`;
+
+const FinalDate = styled.p`
+  text-align: center;
+  color: var(--color-lighter-blue);
+`;
 
 const FormContainer = styled.form`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
-  max-width: 500px;
-  padding: 3rem 3rem 1rem;
+  width: 100%;
+  padding: 2rem 1rem 1rem;
   gap: 1rem;
 `;
 
