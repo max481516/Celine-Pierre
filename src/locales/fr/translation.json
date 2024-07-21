@@ -15,6 +15,8 @@
     "AddressPlaceholder": "Entrez votre adresse physique",
     "Message": "Laissez un message:",
     "MessagePlaceholder": "Avez-vous des questions?",
-    "Submit": "Soumettre"
+    "Submit": "Soumettre",
+    "Confirmation": "Merci pour votre réponse!",
+    "Error": "Il y a eu une erreur. Veuillez réessayer, ou écrivez-nous un message sur:"
   }
 }
