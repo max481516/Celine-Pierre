@@ -1,28 +1,33 @@
 import { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { QUERIES } from "../constants.js";
+import styled from "styled-components";
+
+//COMPONENT IMPORTS
+import LanguageSelector from "./LanguageSelector";
+
+//MEDIA IMPORTS
 import { FaRegCheckCircle } from "react-icons/fa";
 import { BiErrorCircle } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import { LuHeartCrack, LuHeart } from "react-icons/lu";
-import styled from "styled-components";
-import seaDoodle1 from "../media/Anchor.svg";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import LanguageSelector from "./LanguageSelector";
-import { QUERIES } from "../constants.js";
+import Anchor from "../media/Anchor.svg?react";
+import Shell1 from "../media/Shell 1.svg?react";
+import Shrimp from "../media/shrimp.svg?react";
+import Crab from "../media/crab.svg?react";
 
 const YesIcon = ({ selected }) => (
-  <LuHeart
-    fill={selected ? "var(--color-lighter-blue)" : "var(--color-light-sand)"}
-    size={45}
-  />
+  <StyledShrimp
+    fill={selected ? "var(--color-lighter-blue)" : "var(--color-dark-blue)"}
+  ></StyledShrimp>
 );
 
 const NoIcon = ({ selected }) => (
-  <LuHeartCrack
-    fill={selected ? "var(--color-dark-blue)" : "var(--color-light-sand)"}
+  <StyledCrab
+    fill={selected ? "var(--color-lighter-blue)" : "var(--color-dark-blue)"}
     size={47}
-  />
+  ></StyledCrab>
 );
 
 export default function RSVPForm() {
@@ -34,7 +39,7 @@ export default function RSVPForm() {
     return (
       <ConfirmationWrapper>
         <FaRegCheckCircle color="green" size={40} />
-        <ConfirmationMessage>Thank you for your message!</ConfirmationMessage>
+        <ConfirmationMessage>{t("RSVP.Confirmation")}</ConfirmationMessage>
       </ConfirmationWrapper>
     );
   }
@@ -43,7 +48,7 @@ export default function RSVPForm() {
       <ErrorWrapper>
         <BiErrorCircle color="red" size={40} />
         <ErrorMessage>
-          There was an error. Please try again, or write us a message at:{" "}
+          {t("RSVP.Error")}{" "}
           <ErrorMailLink href="mailto:celine.pierre2025@gmail.com">
             celine.pierre2025@gmail.com
           </ErrorMailLink>
@@ -213,7 +218,8 @@ export default function RSVPForm() {
             />
           </InputMessageWrapper>
         </fieldset>
-        <Img src={seaDoodle1} alt="sea doodle"></Img>
+        <StyledAnchor></StyledAnchor>
+        <StyledShell1></StyledShell1>
         <SubmitButton type="submit" disabled={state.submitting}>
           {t("RSVP.Submit")}
         </SubmitButton>
@@ -223,26 +229,24 @@ export default function RSVPForm() {
 }
 
 const Wrapper = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
   max-width: 550px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  background-color: var(--color-light-sand);
+  padding: 1rem 2rem 2rem;
+  background-color: var(--color-lighter-sand);
   transition: all 0.4s;
-
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 54px 55px,
+    rgba(255, 255, 255, 0.12) 0px -12px 30px,
+    rgba(255, 255, 255, 0.12) 0px 4px 6px,
+    rgba(255, 255, 255, 0.17) 0px 12px 13px,
+    rgba(255, 255, 255, 0.09) 0px -3px 5px;
   @media ${QUERIES.tabletAndUp} {
     width: 60%;
     height: 800px;
     min-width: 400px;
     overflow-y: scroll;
-    border: 1px solid black;
+    border: 1px solid var(--color-dark-sand);
     border-radius: 8px;
   }
 `;
@@ -264,7 +268,7 @@ const Header = styled.header`
 const Title = styled(Link)`
   cursor: pointer;
   text-decoration: none;
-  color: var(--color-lighter-blue);
+  color: var(--color-light-blue);
   font-size: 3rem;
 
   @media ${QUERIES.laptopAndUp} {
@@ -274,11 +278,10 @@ const Title = styled(Link)`
 
 const FinalDate = styled.p`
   text-align: center;
-  color: var(--color-lighter-blue);
+  color: var(--color-light-blue);
 `;
 
 const FormContainer = styled.form`
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -304,15 +307,11 @@ const Input = styled.input`
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: HSL(14, 30%, 88%);
+  background-color: var(--color-light-sand);
 `;
 
 const InputRadio = styled.input`
   display: none;
-
-  &:checked + svg {
-    fill: var(--color-lighter-blue);
-  }
 `;
 
 const RadioGroup = styled.fieldset`
@@ -320,6 +319,10 @@ const RadioGroup = styled.fieldset`
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
+
+  @media ${QUERIES.laptopAndUp} {
+    gap: 32px;
+  }
 
   > label {
     display: flex;
@@ -351,7 +354,7 @@ const Select = styled.select`
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: HSL(14, 30%, 88%);
+  background-color: var(--color-light-sand);
   appearance: none;
 `;
 
@@ -380,7 +383,7 @@ const Textarea = styled.textarea`
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: HSL(14, 30%, 88%);
+  background-color: var(--color-light-sand);
 
   &::placeholder {
     opacity: 0.8;
@@ -396,7 +399,7 @@ const Legend = styled.legend`
 
 const SubmitButton = styled.button`
   padding: 0.75rem 1.5rem;
-  background-color: var(--color-lighter-blue);
+  background-color: var(--color-light-blue);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -404,13 +407,18 @@ const SubmitButton = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: var(--color-light-blue);
+    background-color: var(--color-lighter-blue);
   }
 `;
 
 const ConfirmationWrapper = styled.div`
   background-color: var(--color-lighter-sand);
-  border: 1px solid var(--color-light-blue);
+  border: 1px solid var(--color-dark-sand);
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 54px 55px,
+    rgba(255, 255, 255, 0.12) 0px -12px 30px,
+    rgba(255, 255, 255, 0.12) 0px 4px 6px,
+    rgba(255, 255, 255, 0.17) 0px 12px 13px,
+    rgba(255, 255, 255, 0.09) 0px -3px 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -422,12 +430,12 @@ const ConfirmationWrapper = styled.div`
   height: 20dvh;
   margin: 30dvh auto;
   border-radius: 4px;
-  /* height: 76.725vh; */
 `;
 
 const ErrorWrapper = styled(ConfirmationWrapper)`
   height: 20dvh;
   margin: 29dvh auto;
+  padding: 0 8px;
 `;
 
 const ConfirmationMessage = styled.p`
@@ -448,11 +456,53 @@ const ErrorMailLink = styled.a`
   }
 `;
 
-const Img = styled.img`
-  color: var(--color-lighter-blue);
-  width: 20%;
+const StyledAnchor = styled(Anchor)`
   position: absolute;
-  bottom: 20px;
+  top: 10px;
   right: 10px;
-  z-index: -1;
+  width: 100px;
+  height: 100px;
+  color: var(--color-light-blue);
+
+  @media ${QUERIES.bigTabletAndUp} {
+    width: 125px;
+    height: 125px;
+  }
+`;
+
+const StyledShell1 = styled(Shell1)`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  height: 100px;
+  color: var(--color-light-blue);
+
+  @media ${QUERIES.bigTabletAndUp} {
+    width: 125px;
+    height: 125px;
+  }
+`;
+
+const StyledShrimp = styled(Shrimp)`
+  width: 75px;
+  height: 75px;
+  transition: fill 0.2s ease-in-out;
+
+  @media ${QUERIES.laptopAndUp} {
+    width: 127px;
+    height: 127px;
+  }
+`;
+
+const StyledCrab = styled(Crab)`
+  width: 80px;
+  height: 80px;
+  transform: rotate(-20deg);
+  transition: fill 0.2s ease-in-out;
+
+  @media ${QUERIES.laptopAndUp} {
+    width: 127px;
+    height: 127px;
+  }
 `;
