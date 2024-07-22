@@ -11,10 +11,6 @@ const GlobalStyles = createGlobalStyle`
   --color-dark-sand: HSL(25, 28%, 77%);
 }
 
-//FONTS
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
-
 //KEYFRAMES
 @keyframes fadeIn {
   0% { opacity: 0; }
@@ -152,7 +148,7 @@ form select {
 //Global Styles
 body {
     background-color: var(--color-light-sand);
-    font-family: 'Inter', sans-serif;
+    font-family: "Raleway", sans-serif;
 }
 
 `;

@@ -42,7 +42,7 @@ const LanguageSelectorContainer = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   background: transparent;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
   cursor: pointer;
   margin-right: -1rem;
 `;
