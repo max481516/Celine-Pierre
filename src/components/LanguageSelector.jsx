@@ -24,14 +24,18 @@ export default function LanguageSelector({ className }) {
         <option value="en">English</option>
         <option value="ru">Русский</option>
       </LanguageSelectorContainer>
-      <MdOutlineKeyboardArrowDown opacity={0.3} />
+      <IconContainer>
+        <MdOutlineKeyboardArrowDown opacity={0.3} />
+      </IconContainer>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
+  width: 100%;
   margin-top: 1rem;
 `;
 
@@ -42,7 +46,9 @@ const LanguageSelectorContainer = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   background: transparent;
-  padding: 0 1rem;
   cursor: pointer;
-  margin-right: -1rem;
+`;
+
+const IconContainer = styled.div`
+  margin-bottom: -4px;
 `;

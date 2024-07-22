@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -36,7 +36,16 @@ export default function RSVPForm() {
   const [state, handleSubmit] = useForm("movavqpz");
   const [attendance, setAttendance] = useState("");
   const [numRows, setNumRows] = useState(1);
+  const [textareaValue, setTextareaValue] = useState("");
   const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    const placeholder = t("RSVP.NamePlaceholder");
+    const newValue = Array.from({ length: numRows }, () => placeholder).join(
+      "\n"
+    );
+    setTextareaValue(newValue);
+  }, [numRows, t]);
 
   if (state.succeeded) {
     return (
@@ -63,7 +72,7 @@ export default function RSVPForm() {
   return (
     <Wrapper>
       <Header lang={i18n.language}>
-        <RSVPLanguageSelector />
+        <RSVPLanguageSelector lang={i18n.language} />
         <Title lang={i18n.language} to="/RSVP">
           R.S.V.P.
         </Title>
@@ -72,7 +81,7 @@ export default function RSVPForm() {
       <FormContainer onSubmit={handleSubmit}>
         <fieldset id="fs-frm-inputs">
           {/* ATTENDENCE RADIO BUTTONS */}
-          <RadioGroup>
+          <RadioGroup lang={i18n.language}>
             <Legend>{t("RSVP.Attendence")}</Legend>
             <Label>
               <YesIcon selected={attendance === "Yes"} />
@@ -167,7 +176,8 @@ export default function RSVPForm() {
             rows={numRows}
             name="name"
             id="full-name"
-            placeholder={t("RSVP.NamePlaceholder")}
+            placeholder={textareaValue}
+            onChange={(e) => setTextareaValue(e.target.value)}
             required
           />
           <ValidationError prefix="Name" field="name" errors={state.errors} />
@@ -367,12 +377,6 @@ const Textarea = styled.textarea`
   }
 `;
 
-const Legend = styled.legend`
-  font-size: 1rem;
-  text-align: center;
-  margin-bottom: 1rem;
-`;
-
 //HEADER STYLES
 const Header = styled.header`
   display: flex;
@@ -396,6 +400,22 @@ const Header = styled.header`
 const RSVPLanguageSelector = styled(LanguageSelector)`
   opacity: 0.3;
   font-size: calc(18rem / 16);
+
+  &:first-child {
+    width: 54px;
+
+    ${({ lang }) =>
+      lang === "en" &&
+      `
+    width: 46px;
+  `}
+
+    ${({ lang }) =>
+      lang === "ru" &&
+      `
+    width: 52px;
+  `}
+  }
 `;
 
 const Title = styled(Link)`
@@ -412,6 +432,7 @@ const Title = styled(Link)`
     lang === "ru" &&
     `
     font-size: 3.5rem;
+    margin-top: -8px;
   `}
 `;
 
@@ -421,6 +442,12 @@ const FinalDate = styled.p`
 `;
 
 //ATTENDANCE RADIO BUTTONS STYLES
+const Legend = styled.legend`
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+`;
+
 const InputRadio = styled.input`
   display: none;
 `;
@@ -429,7 +456,8 @@ const RadioGroup = styled.fieldset`
   border: none;
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  width: 80%;
+  margin: 0 auto 2rem;
 
   // different label styles to position the svg's without breaking the layout
   > label:first-of-type {
@@ -446,6 +474,12 @@ const RadioGroup = styled.fieldset`
     align-items: center;
     cursor: pointer;
     gap: 0;
+
+    ${({ lang }) =>
+      lang === "ru" &&
+      `
+    margin-top: -3px;
+  `}
   }
 `;
 
@@ -569,22 +603,20 @@ const StyledShell1 = styled(Shell1)`
 
 const StyledCocktail = styled(Cocktail)`
   position: absolute;
-  bottom: 60px;
+  bottom: 50px;
   right: 10px;
   width: 100px;
   height: 100px;
   color: var(--color-light-blue);
 
   @media ${QUERIES.tabletAndUp} {
-    bottom: -520px;
+    bottom: -530px;
     right: 20px;
   }
 
   @media ${QUERIES.bigTabletAndUp} {
     bottom: -585px;
     right: 30px;
-    width: 120px;
-    height: 120px;
   }
 
   @media ${QUERIES.laptopAndUp} {
@@ -609,8 +641,6 @@ const StyledTurtle = styled(Turtle)`
   @media ${QUERIES.bigTabletAndUp} {
     bottom: -600px;
     left: 30px;
-    width: 125px;
-    height: 125px;
   }
 
   @media ${QUERIES.laptopAndUp} {
