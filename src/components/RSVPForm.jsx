@@ -33,8 +33,9 @@ const NoIcon = ({ selected }) => (
 );
 
 export default function RSVPForm() {
-  const [state, handleSubmit] = useForm("movavqp");
+  const [state, handleSubmit] = useForm("movavqpz");
   const [attendance, setAttendance] = useState("");
+  const [numRows, setNumRows] = useState(1);
   const { t } = useTranslation();
 
   if (state.succeeded) {
@@ -68,6 +69,7 @@ export default function RSVPForm() {
       </Header>
       <FormContainer onSubmit={handleSubmit}>
         <fieldset id="fs-frm-inputs">
+          {/* ATTENDENCE RADIO BUTTONS */}
           <RadioGroup>
             <Legend>{t("RSVP.Attendence")}</Legend>
             <Label>
@@ -100,38 +102,18 @@ export default function RSVPForm() {
             />
           </RadioGroup>
 
-          <Label htmlFor="full-name">{t("RSVP.Name")}</Label>
-          <Input
-            type="text"
-            name="name"
-            id="full-name"
-            placeholder={t("RSVP.NamePlaceholder")}
-            required
-          />
-          <ValidationError prefix="Name" field="name" errors={state.errors} />
-
-          <InputEmailWrapper>
-            <Label htmlFor="email-address">{t("RSVP.Email")}</Label>
-            <Input
-              type="email"
-              name="email"
-              id="email-address"
-              placeholder="email@domain.com"
-              required
-            />
-            <ValidationError
-              prefix="Email"
-              field="email"
-              errors={state.errors}
-            />
-          </InputEmailWrapper>
-
+          {/* NUMBER OF GUESTS AND CHILDREN */}
           <InputNumberWrapper>
             <InputNumberLabel htmlFor="num-guests">
               {t("RSVP.NumberGuests")}
             </InputNumberLabel>
             <SelectWrapper>
-              <Select name="guests" id="num-guests" required>
+              <Select
+                name="guests"
+                id="num-guests"
+                required
+                onChange={(e) => setNumRows(e.target.value)}
+              >
                 {Array.from({ length: 10 }, (_, i) => (
                   <option key={i + 1} value={i + 1}>
                     {i + 1}
@@ -151,7 +133,6 @@ export default function RSVPForm() {
               errors={state.errors}
             />
           </InputNumberWrapper>
-
           <InputNumberWrapper>
             <InputNumberLabel htmlFor="num-children">
               {t("RSVP.NumberChildren")}
@@ -178,6 +159,35 @@ export default function RSVPForm() {
             />
           </InputNumberWrapper>
 
+          {/* NAMES INPUT */}
+          <Label htmlFor="full-name">{t("RSVP.Name")}</Label>
+          <Textarea
+            rows={numRows}
+            name="name"
+            id="full-name"
+            placeholder={t("RSVP.NamePlaceholder")}
+            required
+          />
+          <ValidationError prefix="Name" field="name" errors={state.errors} />
+
+          {/* EMAIL INPUT */}
+          <InputEmailWrapper>
+            <Label htmlFor="email-address">{t("RSVP.Email")}</Label>
+            <Input
+              type="email"
+              name="email"
+              id="email-address"
+              placeholder="email@domain.com"
+              required
+            />
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
+            />
+          </InputEmailWrapper>
+
+          {/* DIETARY RESTRICTIONS INPUT */}
           <Label htmlFor="dietary-restrictions">{t("RSVP.Restrictions")}</Label>
           <Textarea
             rows="4"
@@ -191,6 +201,7 @@ export default function RSVPForm() {
             errors={state.errors}
           />
 
+          {/* ADDRESS INPUT */}
           <Label htmlFor="address">{t("RSVP.Address")}</Label>
           <Textarea
             rows="4"
@@ -205,6 +216,7 @@ export default function RSVPForm() {
             errors={state.errors}
           />
 
+          {/* MESSAGE INPUT */}
           <InputMessageWrapper>
             <Label htmlFor="message">{t("RSVP.Message")}</Label>
             <Textarea
@@ -220,13 +232,15 @@ export default function RSVPForm() {
             />
           </InputMessageWrapper>
         </fieldset>
+        <SubmitButton type="submit" disabled={state.submitting}>
+          {t("RSVP.Submit")}
+        </SubmitButton>
+
+        {/* DECORATIONS */}
         <StyledAnchor></StyledAnchor>
         <StyledShell1></StyledShell1>
         <StyledCocktail></StyledCocktail>
         <StyledTurtle></StyledTurtle>
-        <SubmitButton type="submit" disabled={state.submitting}>
-          {t("RSVP.Submit")}
-        </SubmitButton>
       </FormContainer>
       <ContactText>
         {t("RSVP.ContactText")} <br></br>
@@ -238,194 +252,7 @@ export default function RSVPForm() {
   );
 }
 
-const Wrapper = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  max-width: 550px;
-  padding: 1rem 2rem 2rem;
-  background-color: var(--color-lighter-sand);
-  transition: all 0.4s;
-  box-shadow: rgba(255, 255, 255, 0.25) 0px 54px 55px,
-    rgba(255, 255, 255, 0.12) 0px -12px 30px,
-    rgba(255, 255, 255, 0.12) 0px 4px 6px,
-    rgba(255, 255, 255, 0.17) 0px 12px 13px,
-    rgba(255, 255, 255, 0.09) 0px -3px 5px;
-  animation: fadeIn 1.7s ease-in-out;
-
-  @media ${QUERIES.tabletAndUp} {
-    width: 60%;
-    height: 800px;
-    min-width: 400px;
-    overflow-y: scroll;
-    border: 1px solid var(--color-dark-sand);
-    border-radius: 8px;
-  }
-`;
-
-const RSVPLanguageSelector = styled(LanguageSelector)`
-  opacity: 0.3;
-`;
-
-const Header = styled.header`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: "Playwrite CU", cursive;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-`;
-
-const Title = styled(Link)`
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--color-light-blue);
-  font-size: 3rem;
-
-  @media ${QUERIES.laptopAndUp} {
-    font-size: 4rem;
-  }
-`;
-
-const FinalDate = styled.p`
-  text-align: center;
-  color: var(--color-light-blue);
-`;
-
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 2rem 1rem 1rem;
-  gap: 1rem;
-`;
-
-const Label = styled.label`
-  position: relative;
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Input = styled.input`
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: var(--color-light-sand);
-`;
-
-const InputRadio = styled.input`
-  display: none;
-`;
-
-const RadioGroup = styled.fieldset`
-  border: none;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-
-  // different label styles to position the svg's without breaking the layout
-  > label:first-of-type {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    gap: calc(18rem / 16);
-  }
-
-  > label:last-of-type {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    gap: 0;
-  }
-`;
-
-const InputEmailWrapper = styled.div`
-  margin-bottom: 2rem;
-`;
-
-const InputMessageWrapper = styled.div``;
-
-const SelectWrapper = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 3rem;
-`;
-
-const Select = styled.select`
-  width: 3rem;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: var(--color-light-sand);
-  appearance: none;
-`;
-
-const IconWrapper = styled.div`
-  position: absolute;
-  right: 8px;
-  top: 35%;
-  transform: translateY(-35%);
-  pointer-events: none;
-`;
-
-const InputNumberLabel = styled.label`
-  font-size: 1rem;
-  width: 100px;
-`;
-const InputNumberWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-basis: 150px;
-  margin-bottom: 1rem;
-`;
-
-const Textarea = styled.textarea`
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: var(--color-light-sand);
-
-  &::placeholder {
-    opacity: 0.8;
-  }
-`;
-
-const Legend = styled.legend`
-  font-size: 1rem;
-  text-align: center;
-  font-weight: 500;
-  margin-bottom: 1rem;
-`;
-
-const SubmitButton = styled.button`
-  padding: 0.75rem 1.5rem;
-  background-color: var(--color-light-blue);
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: var(--color-lighter-blue);
-  }
-`;
-
+//CONFIRMATION AND ERROR MESSAGES STYLES
 const ConfirmationWrapper = styled.div`
   background-color: var(--color-lighter-sand);
   border: 1px solid var(--color-dark-sand);
@@ -471,6 +298,228 @@ const ErrorMailLink = styled.a`
   }
 `;
 
+//RSVP MAIN FORM STYLES
+const Wrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 550px;
+  padding: 1rem 2rem 2rem;
+  background-color: var(--color-lighter-sand);
+  transition: all 0.4s;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 54px 55px,
+    rgba(255, 255, 255, 0.12) 0px -12px 30px,
+    rgba(255, 255, 255, 0.12) 0px 4px 6px,
+    rgba(255, 255, 255, 0.17) 0px 12px 13px,
+    rgba(255, 255, 255, 0.09) 0px -3px 5px;
+  animation: fadeIn 1.7s ease-in-out;
+
+  @media ${QUERIES.tabletAndUp} {
+    width: 60%;
+    height: 800px;
+    min-width: 400px;
+    overflow-y: scroll;
+    border: 1px solid var(--color-dark-sand);
+    border-radius: 8px;
+  }
+`;
+
+const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 1rem 1rem;
+  gap: 1rem;
+`;
+
+const Label = styled.label`
+  position: relative;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: var(--color-light-sand);
+`;
+
+const Textarea = styled.textarea`
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: var(--color-light-sand);
+
+  &::placeholder {
+    opacity: 0.8;
+  }
+`;
+
+const Legend = styled.legend`
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 1rem;
+`;
+
+//HEADER STYLES
+const Header = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Playwrite CU", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+`;
+
+const RSVPLanguageSelector = styled(LanguageSelector)`
+  opacity: 0.3;
+`;
+
+const Title = styled(Link)`
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-light-blue);
+  font-size: 3rem;
+
+  @media ${QUERIES.laptopAndUp} {
+    font-size: 4rem;
+  }
+`;
+
+const FinalDate = styled.p`
+  text-align: center;
+  color: var(--color-light-blue);
+`;
+
+//ATTENDANCE RADIO BUTTONS STYLES
+const InputRadio = styled.input`
+  display: none;
+`;
+
+const RadioGroup = styled.fieldset`
+  border: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  // different label styles to position the svg's without breaking the layout
+  > label:first-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    gap: calc(18rem / 16);
+  }
+
+  > label:last-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    gap: 0;
+  }
+`;
+
+const StyledShrimp = styled(Shrimp)`
+  margin-top: calc(-10rem / 16);
+  margin-left: -12px;
+  width: 80px;
+  height: 80px;
+  transform: rotate(-60deg);
+  transition: fill 0.2s ease-in-out;
+
+  @media ${QUERIES.bigTabletAndUp} {
+    width: 127px;
+    height: 127px;
+  }
+`;
+
+const StyledCrab = styled(Crab)`
+  margin-top: calc(10rem / 16);
+  width: 80px;
+  height: 80px;
+  transform: rotate(-20deg);
+  transition: fill 0.2s ease-in-out;
+
+  @media ${QUERIES.bigTabletAndUp} {
+    width: 127px;
+    height: 127px;
+  }
+`;
+
+//NUMBER OF GUESTS AND CHILDREN SELECT STYLES
+const SelectWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 3rem;
+`;
+
+const Select = styled.select`
+  width: 3rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: var(--color-light-sand);
+  appearance: none;
+`;
+
+const IconWrapper = styled.div`
+  position: absolute;
+  right: 8px;
+  top: 35%;
+  transform: translateY(-35%);
+  pointer-events: none;
+`;
+
+const InputNumberLabel = styled.label`
+  font-size: 1rem;
+  width: 100px;
+`;
+const InputNumberWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-basis: 150px;
+  margin-bottom: 1rem;
+`;
+
+//OTHER INPUTS STYLES
+const InputEmailWrapper = styled.div`
+  margin-bottom: 2rem;
+`;
+
+const InputMessageWrapper = styled.div``;
+
+//SUBMIT BUTTON STYLES
+const SubmitButton = styled.button`
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-light-blue);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--color-lighter-blue);
+  }
+`;
+
+//DECORATIONS STYLES
 const StyledAnchor = styled(Anchor)`
   position: absolute;
   top: 10px;
@@ -551,37 +600,12 @@ const StyledTurtle = styled(Turtle)`
   }
 `;
 
-const StyledShrimp = styled(Shrimp)`
-  margin-top: calc(-10rem / 16);
-  margin-left: -12px;
-  width: 80px;
-  height: 80px;
-  transform: rotate(-60deg);
-  transition: fill 0.2s ease-in-out;
-
-  @media ${QUERIES.bigTabletAndUp} {
-    width: 127px;
-    height: 127px;
-  }
-`;
-
-const StyledCrab = styled(Crab)`
-  margin-top: calc(10rem / 16);
-  width: 80px;
-  height: 80px;
-  transform: rotate(-20deg);
-  transition: fill 0.2s ease-in-out;
-
-  @media ${QUERIES.bigTabletAndUp} {
-    width: 127px;
-    height: 127px;
-  }
-`;
-
+//CONTACT TEXT STYLES
 const ContactText = styled.p`
   text-align: center;
   font-size: calc(10rem / 16);
-  margin-top: calc(8rem / 16);
+  margin-top: calc(22rem / 16);
+  margin-bottom: calc(-22rem / 16);
 `;
 
 const MailLink = styled.a`
