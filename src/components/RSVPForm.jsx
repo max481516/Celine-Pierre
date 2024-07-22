@@ -241,6 +241,8 @@ const Wrapper = styled.div`
     rgba(255, 255, 255, 0.12) 0px 4px 6px,
     rgba(255, 255, 255, 0.17) 0px 12px 13px,
     rgba(255, 255, 255, 0.09) 0px -3px 5px;
+  animation: fadeIn 1.7s ease-in-out;
+
   @media ${QUERIES.tabletAndUp} {
     width: 60%;
     height: 800px;
@@ -291,6 +293,7 @@ const FormContainer = styled.form`
 `;
 
 const Label = styled.label`
+  position: relative;
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
@@ -298,7 +301,6 @@ const Label = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
 `;
 
 const Input = styled.input`
@@ -320,18 +322,21 @@ const RadioGroup = styled.fieldset`
   justify-content: center;
   margin-bottom: 1rem;
 
-  @media ${QUERIES.laptopAndUp} {
-    gap: 32px;
-  }
-
-  > label {
+  // different label styles to position the svg's without breaking the layout
+  > label:first-of-type {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 100px;
-    max-width: 130px;
-    gap: 0.5rem;
     cursor: pointer;
+    gap: calc(18rem / 16);
+  }
+
+  > label:last-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    gap: 0;
   }
 `;
 
@@ -485,23 +490,27 @@ const StyledShell1 = styled(Shell1)`
 `;
 
 const StyledShrimp = styled(Shrimp)`
-  width: 75px;
-  height: 75px;
+  margin-top: calc(-10rem / 16);
+  margin-left: -12px;
+  width: 80px;
+  height: 80px;
+  transform: rotate(-60deg);
   transition: fill 0.2s ease-in-out;
 
-  @media ${QUERIES.laptopAndUp} {
+  @media ${QUERIES.bigTabletAndUp} {
     width: 127px;
     height: 127px;
   }
 `;
 
 const StyledCrab = styled(Crab)`
+  margin-top: calc(10rem / 16);
   width: 80px;
   height: 80px;
   transform: rotate(-20deg);
   transition: fill 0.2s ease-in-out;
 
-  @media ${QUERIES.laptopAndUp} {
+  @media ${QUERIES.bigTabletAndUp} {
     width: 127px;
     height: 127px;
   }
