@@ -36,7 +36,7 @@ export default function RSVPForm() {
   const [state, handleSubmit] = useForm("movavqpz");
   const [attendance, setAttendance] = useState("");
   const [numRows, setNumRows] = useState(1);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   if (state.succeeded) {
     return (
@@ -62,9 +62,11 @@ export default function RSVPForm() {
 
   return (
     <Wrapper>
-      <Header>
+      <Header lang={i18n.language}>
         <RSVPLanguageSelector />
-        <Title to="/RSVP">R.S.V.P.</Title>
+        <Title lang={i18n.language} to="/RSVP">
+          R.S.V.P.
+        </Title>
         <FinalDate>{t("RSVP.FinalDate")}</FinalDate>
       </Header>
       <FormContainer onSubmit={handleSubmit}>
@@ -336,7 +338,6 @@ const FormContainer = styled.form`
 const Label = styled.label`
   position: relative;
   font-size: 1rem;
-  font-weight: 500;
   margin-bottom: 0.5rem;
   cursor: pointer;
   display: flex;
@@ -369,7 +370,6 @@ const Textarea = styled.textarea`
 const Legend = styled.legend`
   font-size: 1rem;
   text-align: center;
-  font-weight: 500;
   margin-bottom: 1rem;
 `;
 
@@ -378,14 +378,24 @@ const Header = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Playwrite CU", cursive;
+  font-family: "Dancing Script", cursive;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+
+  ${({ lang }) =>
+    lang === "ru" &&
+    `
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  `}
 `;
 
 const RSVPLanguageSelector = styled(LanguageSelector)`
   opacity: 0.3;
+  font-size: calc(18rem / 16);
 `;
 
 const Title = styled(Link)`
@@ -397,6 +407,12 @@ const Title = styled(Link)`
   @media ${QUERIES.laptopAndUp} {
     font-size: 4rem;
   }
+
+  ${({ lang }) =>
+    lang === "ru" &&
+    `
+    font-size: 3.5rem;
+  `}
 `;
 
 const FinalDate = styled.p`
@@ -490,7 +506,10 @@ const InputNumberLabel = styled.label`
   font-size: 1rem;
   width: 100px;
 `;
+
 const InputNumberWrapper = styled.div`
+  gap: 1rem;
+
   display: flex;
   justify-content: center;
   flex-basis: 150px;
