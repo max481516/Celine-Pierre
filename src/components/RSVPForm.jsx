@@ -16,6 +16,8 @@ import Anchor from "../media/Anchor.svg?react";
 import Shell1 from "../media/Shell 1.svg?react";
 import Shrimp from "../media/shrimp.svg?react";
 import Crab from "../media/crab.svg?react";
+import Cocktail from "../media/CoconutCocktail.svg?react";
+import Turtle from "../media/Turtle.svg?react";
 
 const YesIcon = ({ selected }) => (
   <StyledShrimp
@@ -220,10 +222,18 @@ export default function RSVPForm() {
         </fieldset>
         <StyledAnchor></StyledAnchor>
         <StyledShell1></StyledShell1>
+        <StyledCocktail></StyledCocktail>
+        <StyledTurtle></StyledTurtle>
         <SubmitButton type="submit" disabled={state.submitting}>
           {t("RSVP.Submit")}
         </SubmitButton>
       </FormContainer>
+      <ContactText>
+        {t("RSVP.ContactText")} <br></br>
+        <MailLink href="mailto:celine.pierre2025@gmail.com">
+          celine.pierre2025@gmail.com
+        </MailLink>
+      </ContactText>
     </Wrapper>
   );
 }
@@ -489,6 +499,58 @@ const StyledShell1 = styled(Shell1)`
   }
 `;
 
+const StyledCocktail = styled(Cocktail)`
+  position: absolute;
+  bottom: 60px;
+  right: 10px;
+  width: 100px;
+  height: 100px;
+  color: var(--color-light-blue);
+
+  @media ${QUERIES.tabletAndUp} {
+    bottom: -520px;
+    right: 20px;
+  }
+
+  @media ${QUERIES.bigTabletAndUp} {
+    bottom: -585px;
+    right: 30px;
+    width: 120px;
+    height: 120px;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    bottom: -610px;
+    right: 30px;
+  }
+`;
+
+const StyledTurtle = styled(Turtle)`
+  position: absolute;
+  bottom: 50px;
+  left: 10px;
+  width: 100px;
+  height: 100px;
+  color: var(--color-light-blue);
+
+  @media ${QUERIES.tabletAndUp} {
+    bottom: -530px;
+    left: 20px;
+  }
+
+  @media ${QUERIES.bigTabletAndUp} {
+    bottom: -600px;
+    left: 30px;
+    width: 125px;
+    height: 125px;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    bottom: -620px;
+    left: 30px;
+  }
+`;
+
 const StyledShrimp = styled(Shrimp)`
   margin-top: calc(-10rem / 16);
   margin-left: -12px;
@@ -513,5 +575,21 @@ const StyledCrab = styled(Crab)`
   @media ${QUERIES.bigTabletAndUp} {
     width: 127px;
     height: 127px;
+  }
+`;
+
+const ContactText = styled.p`
+  text-align: center;
+  font-size: calc(10rem / 16);
+  margin-top: calc(8rem / 16);
+`;
+
+const MailLink = styled.a`
+  color: var(--color-lighter-blue);
+  text-decoration: none;
+  transition: color 0.4s ease-in-out;
+
+  &:hover {
+    color: var(--color-dark-blue);
   }
 `;

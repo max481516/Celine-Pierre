@@ -17,6 +17,7 @@
     "MessagePlaceholder": "Avez-vous des questions?",
     "Submit": "Soumettre",
     "Confirmation": "Merci pour votre réponse!",
-    "Error": "Il y a eu une erreur. Veuillez réessayer, ou écrivez-nous un message sur:"
+    "Error": "Il y a eu une erreur. Veuillez réessayer, ou écrivez-nous un message sur:",
+    "ContactText": "Si vous rencontrez des problèmes avec le formulaire, veuillez nous contacter sur:"
   }
 }

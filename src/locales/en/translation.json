@@ -17,6 +17,7 @@
     "MessagePlaceholder": "Any questions?",
     "Submit": "Submit",
     "Confirmation": "Thank you for your answer!",
-    "Error": "There was an error. Please try again, or write us a message at:"
+    "Error": "There was an error. Please try again, or write us a message at:",
+    "ContactText": "If you encounter any problems with the form, please contact us at:"
   }
 }
