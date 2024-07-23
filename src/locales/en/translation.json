@@ -1,11 +1,11 @@
 {
   "RSVP": {
-    "FinalDate": "Please complete by 30th September 2024",
-    "Attendence": "Will you be attending?",
+    "FinalDate": "Kindly RSVP by September 30, 2024",
+    "Attendance": "Will you be attending?",
     "Yes": "Yes",
     "No": "No",
-    "Name": "Full name(s):",
-    "NamePlaceholder": "Enter your full name",
+    "Name": "Name(s) of guests:",
+    "NamePlaceholder": "Enter your full name(s)",
     "Email": "Email address:",
     "NumberGuests": "Number of guests:",
     "NumberChildren": "Number of children:",

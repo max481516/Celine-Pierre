@@ -22,14 +22,14 @@ import Turtle from "../media/Turtle.svg?react";
 const YesIcon = ({ selected }) => (
   <StyledShrimp
     fill={selected ? "var(--color-lighter-blue)" : "var(--color-dark-blue)"}
-  ></StyledShrimp>
+  />
 );
 
 const NoIcon = ({ selected }) => (
   <StyledCrab
     fill={selected ? "var(--color-lighter-blue)" : "var(--color-dark-blue)"}
     size={47}
-  ></StyledCrab>
+  />
 );
 
 export default function RSVPForm() {
@@ -77,12 +77,14 @@ export default function RSVPForm() {
           R.S.V.P.
         </Title>
         <FinalDate>{t("RSVP.FinalDate")}</FinalDate>
+        <StyledAnchor />
+        <StyledShell1 />
       </Header>
       <FormContainer onSubmit={handleSubmit}>
         <fieldset id="fs-frm-inputs">
           {/* ATTENDENCE RADIO BUTTONS */}
           <RadioGroup lang={i18n.language}>
-            <Legend>{t("RSVP.Attendence")}</Legend>
+            <Legend>{t("RSVP.Attendance")}</Legend>
             <Label>
               <YesIcon selected={attendance === "Yes"} />
               {t("RSVP.Yes")}
@@ -244,15 +246,13 @@ export default function RSVPForm() {
             />
           </InputMessageWrapper>
         </fieldset>
-        <SubmitButton type="submit" disabled={state.submitting}>
-          {t("RSVP.Submit")}
-        </SubmitButton>
-
-        {/* DECORATIONS */}
-        <StyledAnchor></StyledAnchor>
-        <StyledShell1></StyledShell1>
-        <StyledCocktail></StyledCocktail>
-        <StyledTurtle></StyledTurtle>
+        <SubmitButtonContainer>
+          <StyledTurtle />
+          <SubmitButton type="submit" disabled={state.submitting}>
+            {t("RSVP.Submit")}
+          </SubmitButton>
+          <StyledCocktail />
+        </SubmitButtonContainer>
       </FormContainer>
       <ContactText>
         {t("RSVP.ContactText")} <br></br>
@@ -328,7 +328,8 @@ const Wrapper = styled.div`
 
   @media ${QUERIES.tabletAndUp} {
     width: 60%;
-    height: 800px;
+    height: 91dvh;
+    height: 91vh;
     min-width: 400px;
     overflow-y: scroll;
     border: 1px solid var(--color-dark-sand);
@@ -341,8 +342,11 @@ const FormContainer = styled.form`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 2rem 1rem 1rem;
-  gap: 1rem;
+  padding: 2rem 1rem 0;
+
+  @media ${QUERIES.bigTabletAndUp} {
+    padding-bottom: 1rem;
+  }
 `;
 
 const Label = styled.label`
@@ -558,8 +562,20 @@ const InputEmailWrapper = styled.div`
 const InputMessageWrapper = styled.div``;
 
 //SUBMIT BUTTON STYLES
+const SubmitButtonContainer = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.5rem;
+  gap: 1rem;
+`;
+
 const SubmitButton = styled.button`
+  align-self: start;
   padding: 0.75rem 1.5rem;
+  height: 3rem;
   background-color: var(--color-light-blue);
   color: #fff;
   border: none;
@@ -603,49 +619,49 @@ const StyledShell1 = styled(Shell1)`
 
 const StyledCocktail = styled(Cocktail)`
   position: absolute;
-  bottom: 50px;
-  right: 10px;
+  right: -30px;
   width: 100px;
   height: 100px;
   color: var(--color-light-blue);
 
   @media ${QUERIES.tabletAndUp} {
-    bottom: -530px;
-    right: 20px;
+    right: -20px;
   }
 
   @media ${QUERIES.bigTabletAndUp} {
-    bottom: -585px;
-    right: 30px;
+    top: -15px;
+    right: -10px;
+    width: 115px;
+    height: 115px;
   }
 
   @media ${QUERIES.laptopAndUp} {
-    bottom: -610px;
-    right: 30px;
+    width: 125px;
+    height: 125px;
   }
 `;
 
 const StyledTurtle = styled(Turtle)`
   position: absolute;
-  bottom: 50px;
-  left: 10px;
+  left: -30px;
   width: 100px;
   height: 100px;
   color: var(--color-light-blue);
 
   @media ${QUERIES.tabletAndUp} {
-    bottom: -530px;
-    left: 20px;
+    left: -20px;
   }
 
   @media ${QUERIES.bigTabletAndUp} {
-    bottom: -600px;
-    left: 30px;
+    top: -15px;
+    left: -10px;
+    width: 115px;
+    height: 115px;
   }
 
   @media ${QUERIES.laptopAndUp} {
-    bottom: -620px;
-    left: 30px;
+    width: 125px;
+    height: 125px;
   }
 `;
 
@@ -655,6 +671,14 @@ const ContactText = styled.p`
   font-size: calc(10rem / 16);
   margin-top: calc(22rem / 16);
   margin-bottom: calc(-22rem / 16);
+
+  @media ${QUERIES.bigTabletAndUp} {
+    margin-top: calc(26rem / 16);
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    margin-top: calc(36rem / 16);
+  }
 `;
 
 const MailLink = styled.a`
