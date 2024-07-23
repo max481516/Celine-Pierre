@@ -106,6 +106,7 @@ export default function RSVPForm() {
                 value="No"
                 checked={attendance === "No"}
                 onChange={() => setAttendance("No")}
+                required
               />
             </Label>
             <ValidationError
