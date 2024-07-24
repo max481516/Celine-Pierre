@@ -387,7 +387,7 @@ const Header = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "TitleFont", cursive;
+  /* font-family: "TitleFont", cursive; */
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -398,8 +398,8 @@ const RSVPLanguageSelector = styled(LanguageSelector)`
   font-size: calc(18rem / 16);
 
   &:first-child {
-    width: 62px;
-
+    width: 100px;
+    /* 
     ${({ lang }) =>
       lang === "en" &&
       `
@@ -411,7 +411,7 @@ const RSVPLanguageSelector = styled(LanguageSelector)`
       lang === "ru" &&
       `
     width: 60px;
-  `}
+  `} */
   }
 `;
 
