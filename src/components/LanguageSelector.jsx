@@ -15,14 +15,16 @@ export default function LanguageSelector({ className }) {
 
   return (
     <Wrapper>
-      <LanguageSelectorContainer
-        defaultValue={selectedLanguage}
-        onChange={chooseLanguage}
-        className={className}
-      >
-        <option value="fr">Français</option>
-        <option value="en">English</option>
-        <option value="ru">Русский</option>
+      <LanguageSelectorContainer>
+        <Selector
+          defaultValue={selectedLanguage}
+          onChange={chooseLanguage}
+          className={className}
+        >
+          <option value="fr">Français</option>
+          <option value="en">English</option>
+          <option value="ru">Русский</option>
+        </Selector>
       </LanguageSelectorContainer>
       <IconContainer>
         <MdOutlineKeyboardArrowDown opacity={0.3} />
@@ -39,15 +41,14 @@ const Wrapper = styled.div`
   margin-top: 1rem;
 `;
 
-const LanguageSelectorContainer = styled.select`
+const LanguageSelectorContainer = styled.div``;
+
+const Selector = styled.select`
   color: black;
   border: none;
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   background: transparent;
   cursor: pointer;
-  width: 90px;
 `;
 
 const IconContainer = styled.div`
