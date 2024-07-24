@@ -12,12 +12,12 @@ import LanguageSelector from "./LanguageSelector";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { BiErrorCircle } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import Anchor from "../../public/media/Anchor.svg?react";
-import Shell1 from "../../public/media/Shell 1.svg?react";
-import Shrimp from "../../public/media/shrimp.svg?react";
-import Crab from "../../public/media/crab.svg?react";
-import Cocktail from "../../public/media/CoconutCocktail.svg?react";
-import Turtle from "../../public/media/Turtle.svg?react";
+import Anchor from "../media/Anchor.svg?react";
+import Shell1 from "../media/Shell 1.svg?react";
+import Shrimp from "../media/shrimp.svg?react";
+import Crab from "../media/crab.svg?react";
+import Cocktail from "../media/CoconutCocktail.svg?react";
+import Turtle from "../media/Turtle.svg?react";
 
 const YesIcon = ({ selected }) => (
   <StyledShrimp
@@ -73,7 +73,7 @@ export default function RSVPForm() {
     <Wrapper>
       <Header lang={i18n.language}>
         <RSVPLanguageSelector lang={i18n.language} />
-        <Title lang={i18n.language} to="/RSVP">
+        <Title lang={i18n.language} to="/">
           R.S.V.P.
         </Title>
         <FinalDate lang={i18n.language}>{t("RSVP.FinalDate")}</FinalDate>
@@ -399,11 +399,15 @@ const RSVPLanguageSelector = styled(LanguageSelector)`
 
   &:first-child {
     width: 62px;
+    @-moz-document url-prefix() {
+      width: 69px;
+    }
 
     ${({ lang }) =>
       lang === "en" &&
       `
     width: 54px;
+    
   `}
 
     ${({ lang }) =>
@@ -447,7 +451,8 @@ const FinalDate = styled.p`
 const Legend = styled.legend`
   font-size: 1rem;
   text-align: center;
-  margin-bottom: 2rem;
+  justify-content: center;
+  margin: 0 auto 2rem; //needed to add auto for firefox bug
 `;
 
 const InputRadio = styled.input`
