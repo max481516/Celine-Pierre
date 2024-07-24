@@ -399,9 +399,6 @@ const RSVPLanguageSelector = styled(LanguageSelector)`
 
   &:first-child {
     width: 62px;
-    @-moz-document url-prefix() {
-      width: 69px;
-    }
 
     ${({ lang }) =>
       lang === "en" &&
