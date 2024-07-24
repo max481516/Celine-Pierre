@@ -76,7 +76,7 @@ export default function RSVPForm() {
         <Title lang={i18n.language} to="/RSVP">
           R.S.V.P.
         </Title>
-        <FinalDate>{t("RSVP.FinalDate")}</FinalDate>
+        <FinalDate lang={i18n.language}>{t("RSVP.FinalDate")}</FinalDate>
         <StyledAnchor />
         <StyledShell1 />
       </Header>
@@ -427,10 +427,6 @@ const Title = styled(Link)`
   ${({ lang }) =>
     lang === "ru" &&
     `
-    font-family: "TitleFont", cursive;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: italic;
     margin-top: -8px;
   `}
 `;
@@ -438,6 +434,13 @@ const Title = styled(Link)`
 const FinalDate = styled.p`
   text-align: center;
   color: var(--color-light-blue);
+  word-spacing: -2px;
+
+  ${({ lang }) =>
+    lang === "ru" &&
+    `
+   width: 70%;
+  `}
 `;
 
 //ATTENDANCE RADIO BUTTONS STYLES
@@ -448,7 +451,11 @@ const Legend = styled.legend`
 `;
 
 const InputRadio = styled.input`
-  display: none;
+  opacity: 0;
+  position: absolute;
+  width: 30px;
+  top: 50px;
+  left: 55px;
 `;
 
 const RadioGroup = styled.fieldset`
