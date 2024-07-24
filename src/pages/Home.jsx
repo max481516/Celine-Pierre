@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import beachBackground from "../media/plage-corse-2.webp";
+import beachBackground from "../../public/media//plage-corse-2.webp";
 
 export default function Home() {
   return (
