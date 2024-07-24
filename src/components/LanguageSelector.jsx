@@ -49,6 +49,7 @@ const Selector = styled.select`
   appearance: none;
   background: transparent;
   cursor: pointer;
+  padding: 0;
 `;
 
 const IconContainer = styled.div`
