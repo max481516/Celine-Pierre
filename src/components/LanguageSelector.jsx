@@ -50,5 +50,5 @@ const LanguageSelectorContainer = styled.select`
 `;
 
 const IconContainer = styled.div`
-  margin-bottom: -4px;
+  margin-top: -4px;
 `;

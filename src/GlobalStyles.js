@@ -11,6 +11,17 @@ const GlobalStyles = createGlobalStyle`
   --color-dark-sand: HSL(25, 28%, 77%);
 }
 
+//FONTS
+
+
+@font-face {
+  font-family: 'TitleFont';
+  src: url('public/fonts/adventure.woff2') format('woff2'),
+       url('public/fonts/adventure.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 //KEYFRAMES
 @keyframes fadeIn {
   0% { opacity: 0; }

@@ -12,12 +12,12 @@ import LanguageSelector from "./LanguageSelector";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { BiErrorCircle } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import Anchor from "../media/Anchor.svg?react";
-import Shell1 from "../media/Shell 1.svg?react";
-import Shrimp from "../media/shrimp.svg?react";
-import Crab from "../media/crab.svg?react";
-import Cocktail from "../media/CoconutCocktail.svg?react";
-import Turtle from "../media/Turtle.svg?react";
+import Anchor from "../../public/media/Anchor.svg?react";
+import Shell1 from "../../public/media/Shell 1.svg?react";
+import Shrimp from "../../public/media/shrimp.svg?react";
+import Crab from "../../public/media/crab.svg?react";
+import Cocktail from "../../public/media/CoconutCocktail.svg?react";
+import Turtle from "../../public/media/Turtle.svg?react";
 
 const YesIcon = ({ selected }) => (
   <StyledShrimp
@@ -387,19 +387,10 @@ const Header = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Dancing Script", cursive;
+  font-family: "TitleFont", cursive;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-
-  ${({ lang }) =>
-    lang === "ru" &&
-    `
-    font-family: "Caveat", cursive;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  `}
 `;
 
 const RSVPLanguageSelector = styled(LanguageSelector)`
@@ -407,18 +398,18 @@ const RSVPLanguageSelector = styled(LanguageSelector)`
   font-size: calc(18rem / 16);
 
   &:first-child {
-    width: 54px;
+    width: 62px;
 
     ${({ lang }) =>
       lang === "en" &&
       `
-    width: 46px;
+    width: 54px;
   `}
 
     ${({ lang }) =>
       lang === "ru" &&
       `
-    width: 52px;
+    width: 60px;
   `}
   }
 `;
@@ -436,7 +427,10 @@ const Title = styled(Link)`
   ${({ lang }) =>
     lang === "ru" &&
     `
-    font-size: 3.5rem;
+    font-family: "TitleFont", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
     margin-top: -8px;
   `}
 `;

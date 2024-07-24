@@ -1,6 +1,6 @@
 import RSVPForm from "../components/RSVPForm";
 import styled from "styled-components";
-import backgroundImage from "../media/backgroundRSVP.jpeg";
+import backgroundImage from "../../public/media//backgroundRSVP.jpeg";
 
 export default function RSVP() {
   return (
