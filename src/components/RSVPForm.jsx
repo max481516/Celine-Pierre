@@ -400,7 +400,7 @@ const RSVPLanguageSelector = styled(LanguageSelector)`
   &:first-child {
     width: 62px;
 
-    /*     ${({ lang }) =>
+    ${({ lang }) =>
       lang === "en" &&
       `
     width: 54px;
@@ -411,7 +411,7 @@ const RSVPLanguageSelector = styled(LanguageSelector)`
       lang === "ru" &&
       `
     width: 60px;
-  `} */
+  `}
   }
 `;
 
