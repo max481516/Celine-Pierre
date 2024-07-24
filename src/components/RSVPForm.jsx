@@ -398,20 +398,20 @@ const RSVPLanguageSelector = styled(LanguageSelector)`
   font-size: calc(18rem / 16);
 
   &:first-child {
-    width: 100px;
-    /* 
+    width: 73px;
+
     ${({ lang }) =>
       lang === "en" &&
       `
-    width: 54px;
+    width: 62px;
     
   `}
 
     ${({ lang }) =>
       lang === "ru" &&
       `
-    width: 60px;
-  `} */
+    width: 70px;
+  `}
   }
 `;
 
