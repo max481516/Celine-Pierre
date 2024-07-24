@@ -47,6 +47,7 @@ const LanguageSelectorContainer = styled.select`
   -moz-appearance: none;
   background: transparent;
   cursor: pointer;
+  width: 90px;
 `;
 
 const IconContainer = styled.div`
