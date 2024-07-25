@@ -259,10 +259,12 @@ export default function RSVPForm() {
           </SubmitButton>
           <StyledCocktail />
         </SubmitButtonContainer>
-        <ReCAPTCHA
-          sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
-          onChange={onChange}
-        />
+        <ReCAPTCHAContainer>
+          <ReCAPTCHA
+            sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
+            onChange={onChange}
+          />
+        </ReCAPTCHAContainer>
       </FormContainer>
       <ContactText>
         {t("RSVP.ContactText")} <br></br>
@@ -600,6 +602,8 @@ const SubmitButton = styled.button`
     background-color: var(--color-lighter-blue);
   }
 `;
+
+const ReCAPTCHAContainer = styled.div``;
 
 //DECORATIONS STYLES
 const StyledAnchor = styled(Anchor)`
