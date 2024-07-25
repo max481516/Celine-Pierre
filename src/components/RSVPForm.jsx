@@ -41,6 +41,7 @@ export default function RSVPForm() {
   const [showRecaptcha, setShowRecaptcha] = useState(false);
   const { t, i18n } = useTranslation();
   const formRef = useRef(null);
+  const recaptchaRef = useRef(null);
 
   useEffect(() => {
     const placeholder = t("RSVP.NamePlaceholder");
@@ -52,7 +53,6 @@ export default function RSVPForm() {
 
   function onChange(value) {
     if (value) {
-      // Programmatically submit the form once the captcha is verified
       formRef.current.submit();
     }
   }
@@ -95,10 +95,7 @@ export default function RSVPForm() {
         <StyledAnchor />
         <StyledShell1 />
       </Header>
-      <FormContainer
-        ref={formRef}
-        onSubmit={showRecaptcha ? handleSubmit : handleFormSubmit}
-      >
+      <FormContainer ref={formRef} onSubmit={handleSubmit && handleFormSubmit}>
         <fieldset id="fs-frm-inputs">
           {/* ATTENDENCE RADIO BUTTONS */}
           <RadioGroup lang={i18n.language}>
@@ -275,6 +272,7 @@ export default function RSVPForm() {
         {showRecaptcha && (
           <RecaptchaWrapper>
             <ReCAPTCHA
+              ref={recaptchaRef}
               sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
               onChange={onChange}
             />
