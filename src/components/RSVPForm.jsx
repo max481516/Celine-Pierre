@@ -53,11 +53,7 @@ export default function RSVPForm() {
   function onChange(value) {
     console.log("Captcha value:", value);
     if (value) {
-      handleSubmit(
-        formRef.current.dispatchEvent(
-          new Event("submit", { cancelable: true, bubbles: true })
-        )
-      );
+      handleSubmit({ preventDefault: () => {} }); // Automatically submit the form using handleSubmit
     }
   }
 
