@@ -6,10 +6,10 @@ import { QUERIES } from "../constants.js";
 import styled from "styled-components";
 import ReCAPTCHA from "react-google-recaptcha";
 
-//COMPONENT IMPORTS
+// COMPONENT IMPORTS
 import LanguageSelector from "./LanguageSelector";
 
-//MEDIA IMPORTS
+// MEDIA IMPORTS
 import { FaRegCheckCircle } from "react-icons/fa";
 import { BiErrorCircle } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
@@ -38,6 +38,7 @@ export default function RSVPForm() {
   const [attendance, setAttendance] = useState("");
   const [numRows, setNumRows] = useState(1);
   const [textareaValue, setTextareaValue] = useState("");
+  const [showRecaptcha, setShowRecaptcha] = useState(false);
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -50,6 +51,11 @@ export default function RSVPForm() {
 
   function onChange(value) {
     console.log("Captcha value:", value);
+  }
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    setShowRecaptcha(true);
   }
 
   if (state.succeeded) {
@@ -85,7 +91,7 @@ export default function RSVPForm() {
         <StyledAnchor />
         <StyledShell1 />
       </Header>
-      <FormContainer onSubmit={handleSubmit}>
+      <FormContainer onSubmit={showRecaptcha ? handleSubmit : handleFormSubmit}>
         <fieldset id="fs-frm-inputs">
           {/* ATTENDENCE RADIO BUTTONS */}
           <RadioGroup lang={i18n.language}>
@@ -259,12 +265,14 @@ export default function RSVPForm() {
           </SubmitButton>
           <StyledCocktail />
         </SubmitButtonContainer>
-        <ReCAPTCHAContainer>
-          <ReCAPTCHA
-            sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
-            onChange={onChange}
-          />
-        </ReCAPTCHAContainer>
+        {showRecaptcha && (
+          <RecaptchaWrapper>
+            <ReCAPTCHA
+              sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
+              onChange={onChange}
+            />
+          </RecaptchaWrapper>
+        )}
       </FormContainer>
       <ContactText>
         {t("RSVP.ContactText")} <br></br>
@@ -603,7 +611,7 @@ const SubmitButton = styled.button`
   }
 `;
 
-const ReCAPTCHAContainer = styled.div`
+const RecaptchaWrapper = styled.div`
   margin-top: 1rem;
   z-index: 10;
   position: relative;
