@@ -245,6 +245,10 @@ export default function RSVPForm() {
               field="message"
               errors={state.errors}
             />
+            <div
+              className="g-recaptcha"
+              data-sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
+            ></div>
           </InputMessageWrapper>
         </fieldset>
         <SubmitButtonContainer>
