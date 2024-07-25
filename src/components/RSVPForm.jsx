@@ -336,6 +336,13 @@ const Wrapper = styled.div`
     border: 1px solid var(--color-dark-sand);
     border-radius: 8px;
   }
+
+  @media only screen and (orientation: landscape) {
+    .wrapper {
+      height: 91dvh;
+      height: 91vh;
+    }
+  }
 `;
 
 const FormContainer = styled.form`
