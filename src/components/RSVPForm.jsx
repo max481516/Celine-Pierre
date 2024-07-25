@@ -39,6 +39,7 @@ export default function RSVPForm() {
   const [numRows, setNumRows] = useState(1);
   const [textareaValue, setTextareaValue] = useState("");
   const [showRecaptcha, setShowRecaptcha] = useState(false);
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -50,12 +51,21 @@ export default function RSVPForm() {
   }, [numRows, t]);
 
   function onChange(value) {
-    console.log("Captcha value:", value);
+    setRecaptchaValue(value);
+    if (value) {
+      handleSubmitForm();
+    }
   }
 
   function handleFormSubmit(event) {
     event.preventDefault();
     setShowRecaptcha(true);
+  }
+
+  function handleSubmitForm() {
+    if (recaptchaValue) {
+      handleSubmit();
+    }
   }
 
   if (state.succeeded) {
@@ -91,7 +101,7 @@ export default function RSVPForm() {
         <StyledAnchor />
         <StyledShell1 />
       </Header>
-      <FormContainer onSubmit={showRecaptcha ? handleSubmit : handleFormSubmit}>
+      <FormContainer onSubmit={handleFormSubmit}>
         <fieldset id="fs-frm-inputs">
           {/* ATTENDENCE RADIO BUTTONS */}
           <RadioGroup lang={i18n.language}>
@@ -613,8 +623,8 @@ const SubmitButton = styled.button`
 
 const RecaptchaWrapper = styled.div`
   margin-top: 1rem;
-  z-index: 10;
-  position: relative;
+  z-index: 10; /* Ensure it is above other elements */
+  position: relative; /* Make sure the position is relative to avoid overlaps */
 `;
 
 //DECORATIONS STYLES
