@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { QUERIES } from "../constants.js";
 import styled from "styled-components";
+import ReCAPTCHA from "react-google-recaptcha";
 
 //COMPONENT IMPORTS
 import LanguageSelector from "./LanguageSelector";
@@ -37,6 +38,7 @@ export default function RSVPForm() {
   const [attendance, setAttendance] = useState("");
   const [numRows, setNumRows] = useState(1);
   const [textareaValue, setTextareaValue] = useState("");
+  const [showRecaptcha, setShowRecaptcha] = useState(false);
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -46,6 +48,15 @@ export default function RSVPForm() {
     );
     setTextareaValue(newValue);
   }, [numRows, t]);
+
+  function onChange(value) {
+    console.log("Captcha value:", value);
+  }
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    setShowRecaptcha(true);
+  }
 
   if (state.succeeded) {
     return (
@@ -80,7 +91,7 @@ export default function RSVPForm() {
         <StyledAnchor />
         <StyledShell1 />
       </Header>
-      <FormContainer onSubmit={handleSubmit}>
+      <FormContainer onSubmit={showRecaptcha ? handleSubmit : handleFormSubmit}>
         <fieldset id="fs-frm-inputs">
           {/* ATTENDENCE RADIO BUTTONS */}
           <RadioGroup lang={i18n.language}>
@@ -245,10 +256,6 @@ export default function RSVPForm() {
               field="message"
               errors={state.errors}
             />
-            <div
-              className="g-recaptcha"
-              data-sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
-            ></div>
           </InputMessageWrapper>
         </fieldset>
         <SubmitButtonContainer>
@@ -258,6 +265,12 @@ export default function RSVPForm() {
           </SubmitButton>
           <StyledCocktail />
         </SubmitButtonContainer>
+        {showRecaptcha && (
+          <ReCAPTCHA
+            sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
+            onChange={onChange}
+          />
+        )}
       </FormContainer>
       <ContactText>
         {t("RSVP.ContactText")} <br></br>
