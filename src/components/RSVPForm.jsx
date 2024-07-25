@@ -234,6 +234,7 @@ export default function RSVPForm() {
             name="address"
             id="address"
             placeholder={t("RSVP.AddressPlaceholder")}
+            autoComplete="street-address"
             required
           />
           <ValidationError
@@ -267,6 +268,7 @@ export default function RSVPForm() {
         </SubmitButtonContainer>
         {showRecaptcha && (
           <RecaptchaWrapper>
+            <Info>{t("RSVP.Info")}</Info>
             <ReCAPTCHA
               sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
               onChange={onChange}
@@ -612,9 +614,14 @@ const SubmitButton = styled.button`
 `;
 
 const RecaptchaWrapper = styled.div`
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   z-index: 10;
   position: relative;
+`;
+
+const Info = styled.p`
+  text-align: center;
+  font-size: 0.5rem;
 `;
 
 //DECORATIONS STYLES

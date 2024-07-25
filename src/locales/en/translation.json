@@ -18,6 +18,7 @@
     "Submit": "Submit",
     "Confirmation": "Thank you for your answer!",
     "Error": "There was an error. Please try again, or write us a message at:",
-    "ContactText": "If you encounter any problems with the form, please contact us at:"
+    "ContactText": "If you encounter any problems with the form, please contact us at:",
+    "Info": "Please verify that you are not a robot and click on submit:"
   }
 }
