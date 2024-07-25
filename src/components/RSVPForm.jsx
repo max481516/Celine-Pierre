@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -38,8 +38,8 @@ export default function RSVPForm() {
   const [attendance, setAttendance] = useState("");
   const [numRows, setNumRows] = useState(1);
   const [textareaValue, setTextareaValue] = useState("");
+  const [showRecaptcha, setShowRecaptcha] = useState(false);
   const { t, i18n } = useTranslation();
-  const recaptchaRef = useRef(null);
 
   useEffect(() => {
     const placeholder = t("RSVP.NamePlaceholder");
@@ -49,16 +49,14 @@ export default function RSVPForm() {
     setTextareaValue(newValue);
   }, [numRows, t]);
 
-  const handleSubmitWithCaptcha = (e) => {
-    e.preventDefault();
-    recaptchaRef.current.execute();
-  };
+  function onChange(value) {
+    console.log("Captcha value:", value);
+  }
 
-  const onReCAPTCHAChange = (captchaValue) => {
-    if (captchaValue) {
-      handleSubmit();
-    }
-  };
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    setShowRecaptcha(true);
+  }
 
   if (state.succeeded) {
     return (
@@ -93,9 +91,9 @@ export default function RSVPForm() {
         <StyledAnchor />
         <StyledShell1 />
       </Header>
-      <FormContainer onSubmit={handleSubmitWithCaptcha}>
+      <FormContainer onSubmit={showRecaptcha ? handleSubmit : handleFormSubmit}>
         <fieldset id="fs-frm-inputs">
-          {/* ATTENDANCE RADIO BUTTONS */}
+          {/* ATTENDENCE RADIO BUTTONS */}
           <RadioGroup lang={i18n.language}>
             <Legend>{t("RSVP.Attendance")}</Legend>
             <Label>
@@ -267,12 +265,14 @@ export default function RSVPForm() {
           </SubmitButton>
           <StyledCocktail />
         </SubmitButtonContainer>
-        <ReCAPTCHA
-          ref={recaptchaRef}
-          sitekey="6LcwXBgqAAAAAINcIClKXutKjViryzenn4qGwqS8"
-          size="invisible"
-          onChange={onReCAPTCHAChange}
-        />
+        {showRecaptcha && (
+          <RecaptchaWrapper>
+            <ReCAPTCHA
+              sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
+              onChange={onChange}
+            />
+          </RecaptchaWrapper>
+        )}
       </FormContainer>
       <ContactText>
         {t("RSVP.ContactText")} <br></br>
@@ -609,6 +609,12 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: var(--color-lighter-blue);
   }
+`;
+
+const RecaptchaWrapper = styled.div`
+  margin-top: 1rem;
+  z-index: 10;
+  position: relative;
 `;
 
 //DECORATIONS STYLES
