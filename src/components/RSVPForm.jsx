@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -40,6 +40,7 @@ export default function RSVPForm() {
   const [textareaValue, setTextareaValue] = useState("");
   const [showRecaptcha, setShowRecaptcha] = useState(false);
   const { t, i18n } = useTranslation();
+  const formRef = useRef(null);
 
   useEffect(() => {
     const placeholder = t("RSVP.NamePlaceholder");
@@ -50,7 +51,10 @@ export default function RSVPForm() {
   }, [numRows, t]);
 
   function onChange(value) {
-    console.log("Captcha value:", value);
+    if (value) {
+      // Programmatically submit the form once the captcha is verified
+      formRef.current.submit();
+    }
   }
 
   function handleFormSubmit(event) {
@@ -91,7 +95,10 @@ export default function RSVPForm() {
         <StyledAnchor />
         <StyledShell1 />
       </Header>
-      <FormContainer onSubmit={showRecaptcha ? handleSubmit : handleFormSubmit}>
+      <FormContainer
+        ref={formRef}
+        onSubmit={showRecaptcha ? handleSubmit : handleFormSubmit}
+      >
         <fieldset id="fs-frm-inputs">
           {/* ATTENDENCE RADIO BUTTONS */}
           <RadioGroup lang={i18n.language}>
