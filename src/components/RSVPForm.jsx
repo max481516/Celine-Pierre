@@ -38,10 +38,8 @@ export default function RSVPForm() {
   const [attendance, setAttendance] = useState("");
   const [numRows, setNumRows] = useState(1);
   const [textareaValue, setTextareaValue] = useState("");
-  const [showRecaptcha, setShowRecaptcha] = useState(false);
   const { t, i18n } = useTranslation();
-  const formRef = useRef(null);
-  const [captchaVerified, setCaptchaVerified] = useState(false);
+  const recaptchaRef = useRef(null);
 
   useEffect(() => {
     const placeholder = t("RSVP.NamePlaceholder");
@@ -51,21 +49,16 @@ export default function RSVPForm() {
     setTextareaValue(newValue);
   }, [numRows, t]);
 
-  function onCaptchaChange(value) {
-    console.log("Captcha value:", value);
-    if (value) {
-      setCaptchaVerified(true);
-    }
-  }
+  const handleSubmitWithCaptcha = (e) => {
+    e.preventDefault();
+    recaptchaRef.current.execute();
+  };
 
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (captchaVerified) {
-      handleSubmit(event); // Use Formspree's handleSubmit for actual form submission
-    } else {
-      setShowRecaptcha(true);
+  const onReCAPTCHAChange = (captchaValue) => {
+    if (captchaValue) {
+      handleSubmit();
     }
-  }
+  };
 
   if (state.succeeded) {
     return (
@@ -100,9 +93,9 @@ export default function RSVPForm() {
         <StyledAnchor />
         <StyledShell1 />
       </Header>
-      <FormContainer ref={formRef} onSubmit={handleFormSubmit}>
+      <FormContainer onSubmit={handleSubmitWithCaptcha}>
         <fieldset id="fs-frm-inputs">
-          {/* ATTENDENCE RADIO BUTTONS */}
+          {/* ATTENDANCE RADIO BUTTONS */}
           <RadioGroup lang={i18n.language}>
             <Legend>{t("RSVP.Attendance")}</Legend>
             <Label>
@@ -274,14 +267,12 @@ export default function RSVPForm() {
           </SubmitButton>
           <StyledCocktail />
         </SubmitButtonContainer>
-        {showRecaptcha && (
-          <RecaptchaWrapper>
-            <ReCAPTCHA
-              sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
-              onChange={onCaptchaChange}
-            />
-          </RecaptchaWrapper>
-        )}
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          sitekey="6LcwXBgqAAAAAINcIClKXutKjViryzenn4qGwqS8"
+          size="invisible"
+          onChange={onReCAPTCHAChange}
+        />
       </FormContainer>
       <ContactText>
         {t("RSVP.ContactText")} <br></br>
@@ -292,8 +283,6 @@ export default function RSVPForm() {
     </Wrapper>
   );
 }
-
-// ... (styles)
 
 //CONFIRMATION AND ERROR MESSAGES STYLES
 const ConfirmationWrapper = styled.div`
@@ -620,12 +609,6 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: var(--color-lighter-blue);
   }
-`;
-
-const RecaptchaWrapper = styled.div`
-  margin-top: 1rem;
-  z-index: 10;
-  position: relative;
 `;
 
 //DECORATIONS STYLES
