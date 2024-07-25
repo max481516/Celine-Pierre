@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -39,9 +39,8 @@ export default function RSVPForm() {
   const [numRows, setNumRows] = useState(1);
   const [textareaValue, setTextareaValue] = useState("");
   const [showRecaptcha, setShowRecaptcha] = useState(false);
+  const formRef = useRef(null); // Add a reference to the form
   const { t, i18n } = useTranslation();
-  const formRef = useRef(null);
-  const recaptchaRef = useRef(null);
 
   useEffect(() => {
     const placeholder = t("RSVP.NamePlaceholder");
@@ -52,8 +51,9 @@ export default function RSVPForm() {
   }, [numRows, t]);
 
   function onChange(value) {
+    console.log("Captcha value:", value);
     if (value) {
-      formRef.current.submit();
+      handleSubmit(formRef.current); // Automatically submit the form using handleSubmit
     }
   }
 
@@ -95,7 +95,10 @@ export default function RSVPForm() {
         <StyledAnchor />
         <StyledShell1 />
       </Header>
-      <FormContainer ref={formRef} onSubmit={handleSubmit && handleFormSubmit}>
+      <FormContainer
+        ref={formRef} // Attach the form reference
+        onSubmit={handleFormSubmit} // Always call handleFormSubmit
+      >
         <fieldset id="fs-frm-inputs">
           {/* ATTENDENCE RADIO BUTTONS */}
           <RadioGroup lang={i18n.language}>
@@ -272,7 +275,6 @@ export default function RSVPForm() {
         {showRecaptcha && (
           <RecaptchaWrapper>
             <ReCAPTCHA
-              ref={recaptchaRef}
               sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
               onChange={onChange}
             />
