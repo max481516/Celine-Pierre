@@ -38,7 +38,6 @@ export default function RSVPForm() {
   const [attendance, setAttendance] = useState("");
   const [numRows, setNumRows] = useState(1);
   const [textareaValue, setTextareaValue] = useState("");
-  const [showRecaptcha, setShowRecaptcha] = useState(false);
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -51,11 +50,6 @@ export default function RSVPForm() {
 
   function onChange(value) {
     console.log("Captcha value:", value);
-  }
-
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    setShowRecaptcha(true);
   }
 
   if (state.succeeded) {
@@ -91,7 +85,7 @@ export default function RSVPForm() {
         <StyledAnchor />
         <StyledShell1 />
       </Header>
-      <FormContainer onSubmit={showRecaptcha ? handleSubmit : handleFormSubmit}>
+      <FormContainer onSubmit={handleSubmit}>
         <fieldset id="fs-frm-inputs">
           {/* ATTENDENCE RADIO BUTTONS */}
           <RadioGroup lang={i18n.language}>
@@ -265,12 +259,10 @@ export default function RSVPForm() {
           </SubmitButton>
           <StyledCocktail />
         </SubmitButtonContainer>
-        {showRecaptcha && (
-          <ReCAPTCHA
-            sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
-            onChange={onChange}
-          />
-        )}
+        <ReCAPTCHA
+          sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
+          onChange={onChange}
+        />
       </FormContainer>
       <ContactText>
         {t("RSVP.ContactText")} <br></br>
