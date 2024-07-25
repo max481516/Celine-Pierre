@@ -41,6 +41,7 @@ export default function RSVPForm() {
   const [showRecaptcha, setShowRecaptcha] = useState(false);
   const { t, i18n } = useTranslation();
   const formRef = useRef(null);
+  const [captchaVerified, setCaptchaVerified] = useState(false);
 
   useEffect(() => {
     const placeholder = t("RSVP.NamePlaceholder");
@@ -50,16 +51,20 @@ export default function RSVPForm() {
     setTextareaValue(newValue);
   }, [numRows, t]);
 
-  function onChange(value) {
+  function onCaptchaChange(value) {
     console.log("Captcha value:", value);
     if (value) {
-      handleSubmit({ preventDefault: () => {} }); // Automatically submit the form using handleSubmit
+      setCaptchaVerified(true);
     }
   }
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    setShowRecaptcha(true);
+    if (captchaVerified) {
+      handleSubmit(event); // Use Formspree's handleSubmit for actual form submission
+    } else {
+      setShowRecaptcha(true);
+    }
   }
 
   if (state.succeeded) {
@@ -273,7 +278,7 @@ export default function RSVPForm() {
           <RecaptchaWrapper>
             <ReCAPTCHA
               sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
-              onChange={onChange}
+              onChange={onCaptchaChange}
             />
           </RecaptchaWrapper>
         )}
@@ -287,6 +292,8 @@ export default function RSVPForm() {
     </Wrapper>
   );
 }
+
+// ... (styles)
 
 //CONFIRMATION AND ERROR MESSAGES STYLES
 const ConfirmationWrapper = styled.div`
