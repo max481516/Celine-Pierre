@@ -603,7 +603,11 @@ const SubmitButton = styled.button`
   }
 `;
 
-const ReCAPTCHAContainer = styled.div``;
+const ReCAPTCHAContainer = styled.div`
+  margin-top: 1rem;
+  z-index: 10;
+  position: relative;
+`;
 
 //DECORATIONS STYLES
 const StyledAnchor = styled(Anchor)`
