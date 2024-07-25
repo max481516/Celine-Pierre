@@ -39,8 +39,8 @@ export default function RSVPForm() {
   const [numRows, setNumRows] = useState(1);
   const [textareaValue, setTextareaValue] = useState("");
   const [showRecaptcha, setShowRecaptcha] = useState(false);
-  const formRef = useRef(null); // Add a reference to the form
   const { t, i18n } = useTranslation();
+  const formRef = useRef(null);
 
   useEffect(() => {
     const placeholder = t("RSVP.NamePlaceholder");
@@ -53,7 +53,11 @@ export default function RSVPForm() {
   function onChange(value) {
     console.log("Captcha value:", value);
     if (value) {
-      handleSubmit(formRef.current); // Automatically submit the form using handleSubmit
+      handleSubmit(
+        formRef.current.dispatchEvent(
+          new Event("submit", { cancelable: true, bubbles: true })
+        )
+      );
     }
   }
 
@@ -95,10 +99,7 @@ export default function RSVPForm() {
         <StyledAnchor />
         <StyledShell1 />
       </Header>
-      <FormContainer
-        ref={formRef} // Attach the form reference
-        onSubmit={handleFormSubmit} // Always call handleFormSubmit
-      >
+      <FormContainer ref={formRef} onSubmit={handleFormSubmit}>
         <fieldset id="fs-frm-inputs">
           {/* ATTENDENCE RADIO BUTTONS */}
           <RadioGroup lang={i18n.language}>
