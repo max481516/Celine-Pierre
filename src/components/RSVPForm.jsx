@@ -411,6 +411,7 @@ const Header = styled.header`
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  color: var(--color-light-blue);
 `;
 
 const RSVPLanguageSelector = styled(LanguageSelector)`
@@ -439,7 +440,7 @@ const RSVPLanguageSelector = styled(LanguageSelector)`
 const Title = styled(Link)`
   cursor: pointer;
   text-decoration: none;
-  color: var(--color-light-blue);
+  color: inherit;
   font-size: 3rem;
 
   @media ${QUERIES.laptopAndUp} {
@@ -455,7 +456,6 @@ const Title = styled(Link)`
 
 const FinalDate = styled.p`
   text-align: center;
-  color: var(--color-light-blue);
   word-spacing: -2px;
 
   ${({ lang }) =>
@@ -679,18 +679,18 @@ const StyledCocktail = styled(Cocktail)`
 
 const StyledTurtle = styled(Turtle)`
   position: absolute;
-  left: -30px;
+  left: -40px;
+  top: -10px;
   width: 100px;
   height: 100px;
   color: var(--color-light-blue);
 
   @media ${QUERIES.tabletAndUp} {
-    left: -20px;
+    left: -30px;
   }
 
   @media ${QUERIES.bigTabletAndUp} {
-    top: -15px;
-    left: -10px;
+    left: -20px;
     width: 115px;
     height: 115px;
   }
