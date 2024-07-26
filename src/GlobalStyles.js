@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 //COLOR VARIABLES
 :root {
+  --color-blue: hsl(216, 51%, 46%);
   --color-dark-blue: HSL(176, 33%, 25%);
   --color-light-blue: HSL(183, 94%, 25%);
   --color-lighter-blue: HSL(179, 35%, 50%);
