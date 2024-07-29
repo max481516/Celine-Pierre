@@ -259,7 +259,7 @@ export default function RSVPForm() {
             <Info>{t("RSVP.Info")}</Info>
             <ReCAPTCHA
               className="g-recaptcha"
-              sitekey="6LcbAxgqAAAAAEpgmF3uuO1oO7GcaH6apWzWUazm"
+              data-sitekey="6LcbAxgqAAAAAEpgmF3uuO1oO7GcaH6apWzWUazm"
               data-action="LOGIN"
               onChange={onChange}
             />
