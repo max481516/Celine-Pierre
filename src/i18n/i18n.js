@@ -19,18 +19,14 @@ const resources = {
   },
 };
 
-// Set default language to French if not found in localStorage
-const defaultLanguage = localStorage.getItem("lang") || "fr";
-
 i18n
   .use(HttpApi) // load translation using http
-  .use(LanguageDetector)
-  .use(initReactI18next)
+  .use(LanguageDetector) // detect user language
+  .use(initReactI18next) // pass the i18n instance to react-i18next
   .init({
     resources,
     debug: true,
     supportedLngs: ["en", "fr", "ru"],
-    lng: defaultLanguage,
     fallbackLng: "en",
     returnObjects: true,
     interpolation: {
@@ -39,6 +35,8 @@ i18n
     detection: {
       order: ["localStorage", "cookie", "navigator"],
       caches: ["localStorage", "cookie"],
+      lookupLocalStorage: "lang",
+      lookupCookie: "i18next",
     },
   });
 

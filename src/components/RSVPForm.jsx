@@ -567,6 +567,10 @@ const InputNumberWrapper = styled.div`
   justify-content: center;
   flex-basis: 150px;
   margin-bottom: 1rem;
+
+  &:nth-of-type(2) {
+    margin-bottom: 2rem;
+  }
 `;
 
 //OTHER INPUTS STYLES
@@ -646,8 +650,8 @@ const StyledShell1 = styled(Shell1)`
 const StyledCocktail = styled(Cocktail)`
   position: absolute;
   right: -30px;
-  width: 100px;
-  height: 100px;
+  width: 95px;
+  height: 95px;
   color: var(--color-light-blue);
 
   @media ${QUERIES.tabletAndUp} {
