@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { QUERIES } from "../constants.js";
@@ -33,13 +34,11 @@ const NoIcon = ({ selected }) => (
 );
 
 export default function RSVPForm() {
+  const [state, handleSubmit] = useForm("movavqpz");
   const [attendance, setAttendance] = useState("");
   const [numRows, setNumRows] = useState(1);
   const [textareaValue, setTextareaValue] = useState("");
   const [showRecaptcha, setShowRecaptcha] = useState(false);
-  const [recaptchaValue, setRecaptchaValue] = useState(null);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formError, setFormError] = useState(false);
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -51,33 +50,15 @@ export default function RSVPForm() {
   }, [numRows, t]);
 
   function onChange(value) {
-    setRecaptchaValue(value);
+    console.log("Captcha value:", value);
   }
 
-  async function handleFormSubmit(event) {
+  function handleFormSubmit(event) {
     event.preventDefault();
-    if (!recaptchaValue) {
-      setShowRecaptcha(true);
-    } else {
-      const form = event.target;
-
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (response.ok) {
-        setFormSubmitted(true);
-      } else {
-        setFormError(true);
-      }
-    }
+    setShowRecaptcha(true);
   }
 
-  if (formSubmitted) {
+  if (state.succeeded) {
     return (
       <ConfirmationWrapper>
         <FaRegCheckCircle color="green" size={40} />
@@ -85,8 +66,7 @@ export default function RSVPForm() {
       </ConfirmationWrapper>
     );
   }
-
-  if (formError) {
+  if (!state.succeeded && state.errors) {
     return (
       <ErrorWrapper>
         <BiErrorCircle color="red" size={40} />
@@ -111,11 +91,7 @@ export default function RSVPForm() {
         <StyledAnchor />
         <StyledShell1 />
       </Header>
-      <FormContainer
-        action="https://formspree.io/f/movavqpz"
-        method="POST"
-        onSubmit={handleFormSubmit}
-      >
+      <FormContainer onSubmit={showRecaptcha ? handleSubmit : handleFormSubmit}>
         <fieldset id="fs-frm-inputs">
           {/* ATTENDENCE RADIO BUTTONS */}
           <RadioGroup lang={i18n.language}>
@@ -144,6 +120,11 @@ export default function RSVPForm() {
                 required
               />
             </Label>
+            <ValidationError
+              prefix="Attendance"
+              field="attendance"
+              errors={state.errors}
+            />
           </RadioGroup>
 
           {/* NUMBER OF GUESTS AND CHILDREN */}
@@ -171,6 +152,11 @@ export default function RSVPForm() {
                 />
               </IconWrapper>
             </SelectWrapper>
+            <ValidationError
+              prefix="Guests"
+              field="guests"
+              errors={state.errors}
+            />
           </InputNumberWrapper>
           <InputNumberWrapper>
             <InputNumberLabel htmlFor="num-children">
@@ -191,6 +177,11 @@ export default function RSVPForm() {
                 />
               </IconWrapper>
             </SelectWrapper>
+            <ValidationError
+              prefix="Children"
+              field="children"
+              errors={state.errors}
+            />
           </InputNumberWrapper>
 
           {/* NAMES INPUT */}
@@ -203,6 +194,7 @@ export default function RSVPForm() {
             onChange={(e) => setTextareaValue(e.target.value)}
             required
           />
+          <ValidationError prefix="Name" field="name" errors={state.errors} />
 
           {/* EMAIL INPUT */}
           <InputEmailWrapper>
@@ -214,6 +206,11 @@ export default function RSVPForm() {
               placeholder="email@domain.com"
               required
             />
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
+            />
           </InputEmailWrapper>
 
           {/* DIETARY RESTRICTIONS INPUT */}
@@ -223,6 +220,11 @@ export default function RSVPForm() {
             name="dietary-restrictions"
             id="dietary-restrictions"
             placeholder={t("RSVP.RestrictionsPlaceholder")}
+          />
+          <ValidationError
+            prefix="Dietary or Religious Restrictions"
+            field="dietary-restrictions"
+            errors={state.errors}
           />
 
           {/* ADDRESS INPUT */}
@@ -235,6 +237,11 @@ export default function RSVPForm() {
             autoComplete="street-address"
             required
           />
+          <ValidationError
+            prefix="Address"
+            field="address"
+            errors={state.errors}
+          />
 
           {/* MESSAGE INPUT */}
           <InputMessageWrapper>
@@ -245,11 +252,16 @@ export default function RSVPForm() {
               id="message"
               placeholder={t("RSVP.MessagePlaceholder")}
             />
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={state.errors}
+            />
           </InputMessageWrapper>
         </fieldset>
         <SubmitButtonContainer>
           <StyledTurtle />
-          <SubmitButton type="submit" value="Submit">
+          <SubmitButton type="submit" disabled={state.submitting}>
             {t("RSVP.Submit")}
           </SubmitButton>
           <StyledCocktail />
@@ -258,9 +270,7 @@ export default function RSVPForm() {
           <RecaptchaWrapper>
             <Info>{t("RSVP.Info")}</Info>
             <ReCAPTCHA
-              className="g-recaptcha"
               sitekey="6LcbAxgqAAAAAEpgmF3uuO1oO7GcaH6apWzWUazm"
-              data-action="LOGIN"
               onChange={onChange}
             />
           </RecaptchaWrapper>
