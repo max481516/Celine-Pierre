@@ -37,6 +37,7 @@ export default function RSVPForm() {
   const [numRows, setNumRows] = useState(1);
   const [textareaValue, setTextareaValue] = useState("");
   const [showRecaptcha, setShowRecaptcha] = useState(false);
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState(false);
   const { t, i18n } = useTranslation();
@@ -50,30 +51,29 @@ export default function RSVPForm() {
   }, [numRows, t]);
 
   function onChange(value) {
-    console.log("Captcha value:", value);
+    setRecaptchaValue(value);
   }
 
   async function handleFormSubmit(event) {
     event.preventDefault();
-    setShowRecaptcha(true);
-  }
-
-  async function handleRecaptchaSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: new FormData(form),
-      headers: {
-        Accept: "application/json",
-      },
-    });
-
-    if (response.ok) {
-      setFormSubmitted(true);
+    if (!recaptchaValue) {
+      setShowRecaptcha(true);
     } else {
-      setFormError(true);
+      const form = event.target;
+
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setFormSubmitted(true);
+      } else {
+        setFormError(true);
+      }
     }
   }
 
@@ -114,7 +114,7 @@ export default function RSVPForm() {
       <FormContainer
         action="https://formspree.io/f/movavqpz"
         method="POST"
-        onSubmit={showRecaptcha ? handleRecaptchaSubmit : handleFormSubmit}
+        onSubmit={handleFormSubmit}
       >
         <fieldset id="fs-frm-inputs">
           {/* ATTENDENCE RADIO BUTTONS */}
@@ -259,7 +259,7 @@ export default function RSVPForm() {
             <Info>{t("RSVP.Info")}</Info>
             <ReCAPTCHA
               className="g-recaptcha"
-              data-sitekey="6LcbAxgqAAAAAEpgmF3uuO1oO7GcaH6apWzWUazm"
+              sitekey="6LcbAxgqAAAAAEpgmF3uuO1oO7GcaH6apWzWUazm"
               data-action="LOGIN"
               onChange={onChange}
             />
