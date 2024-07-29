@@ -270,7 +270,7 @@ export default function RSVPForm() {
           <RecaptchaWrapper>
             <Info>{t("RSVP.Info")}</Info>
             <ReCAPTCHA
-              sitekey="6LcbAxgqAAAAAEpgmF3uuO1oO7GcaH6apWzWUazm"
+              sitekey="6LccAxgqAAAAAOe7MPwAsnRAHKOPuj7_PU54ogFi"
               onChange={onChange}
             />
           </RecaptchaWrapper>
