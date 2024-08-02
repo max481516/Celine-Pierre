@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { QUERIES } from "../constants.js";
@@ -19,6 +19,8 @@ import Crab from "../media/crab.svg?react";
 import Cocktail from "../media/CoconutCocktail.svg?react";
 import Turtle from "../media/Turtle.svg?react";
 
+import useIOSInputScroll from "../hooks/useIOSInputScroll"; // Import the custom hook
+
 const YesIcon = ({ selected }) => (
   <StyledShrimp
     fill={selected ? "var(--color-lighter-blue)" : "var(--color-dark-blue)"}
@@ -33,6 +35,11 @@ const NoIcon = ({ selected }) => (
 );
 
 export default function RSVPForm() {
+  //IOS VALIDATION BUG FIX
+  const formRef = useRef(null); // Create a ref for the form element
+  const containerRef = useRef(null); // Create a ref for the container element
+  useIOSInputScroll(formRef, containerRef); // Use the custom hook
+
   const [attendance, setAttendance] = useState("");
   const [numRows, setNumRows] = useState(1);
   const [textareaValue, setTextareaValue] = useState("");
@@ -101,7 +108,7 @@ export default function RSVPForm() {
   }
 
   return (
-    <Wrapper>
+    <Wrapper ref={containerRef}>
       <Header lang={i18n.language}>
         <RSVPLanguageSelector lang={i18n.language} />
         <Title lang={i18n.language} to="/">
@@ -112,6 +119,7 @@ export default function RSVPForm() {
         <StyledShell1 />
       </Header>
       <FormContainer
+        ref={formRef} // Attach the ref to the form element
         action="https://formspree.io/f/movavqpz"
         method="POST"
         onSubmit={handleFormSubmit}
@@ -343,6 +351,7 @@ const Wrapper = styled.div`
     height: 91dvh;
     min-width: 400px;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     border: 1px solid var(--color-dark-sand);
     border-radius: 8px;
   }
