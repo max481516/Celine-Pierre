@@ -364,7 +364,7 @@ const FormContainer = styled.form`
   width: 100%;
   padding: 2rem 1rem 0;
 
-  @media ${QUERIES.bigTabletAndUp} {
+  @media ${QUERIES.largeTabletAndUp} {
     padding-bottom: 1rem;
   }
 `;
@@ -519,7 +519,7 @@ const StyledShrimp = styled(Shrimp)`
   transform: rotate(-60deg);
   transition: fill 0.2s ease-in-out;
 
-  @media ${QUERIES.bigTabletAndUp} {
+  @media ${QUERIES.largeTabletAndUp} {
     width: 127px;
     height: 127px;
   }
@@ -532,7 +532,7 @@ const StyledCrab = styled(Crab)`
   transform: rotate(-20deg);
   transition: fill 0.2s ease-in-out;
 
-  @media ${QUERIES.bigTabletAndUp} {
+  @media ${QUERIES.largeTabletAndUp} {
     width: 127px;
     height: 127px;
   }
@@ -636,7 +636,7 @@ const StyledAnchor = styled(Anchor)`
   height: 100px;
   color: var(--color-light-blue);
 
-  @media ${QUERIES.bigTabletAndUp} {
+  @media ${QUERIES.largeTabletAndUp} {
     width: 125px;
     height: 125px;
   }
@@ -650,7 +650,7 @@ const StyledShell1 = styled(Shell1)`
   height: 100px;
   color: var(--color-light-blue);
 
-  @media ${QUERIES.bigTabletAndUp} {
+  @media ${QUERIES.largeTabletAndUp} {
     width: 125px;
     height: 125px;
   }
@@ -667,7 +667,7 @@ const StyledCocktail = styled(Cocktail)`
     right: -20px;
   }
 
-  @media ${QUERIES.bigTabletAndUp} {
+  @media ${QUERIES.largeTabletAndUp} {
     top: -15px;
     right: -10px;
     width: 115px;
@@ -692,7 +692,7 @@ const StyledTurtle = styled(Turtle)`
     left: -30px;
   }
 
-  @media ${QUERIES.bigTabletAndUp} {
+  @media ${QUERIES.largeTabletAndUp} {
     left: -20px;
     width: 115px;
     height: 115px;
@@ -711,7 +711,7 @@ const ContactText = styled.p`
   margin-top: calc(22rem / 16);
   margin-bottom: calc(-22rem / 16);
 
-  @media ${QUERIES.bigTabletAndUp} {
+  @media ${QUERIES.largeTabletAndUp} {
     margin-top: calc(26rem / 16);
   }
 
