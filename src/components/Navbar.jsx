@@ -15,6 +15,7 @@ export default function Navbar() {
         <Bars onClick={toggle} />
         <NavMenu>
           <DesktopLanguageSelector />
+          <NavItem to="/">Home</NavItem>
           <NavItem to="/Planing">Planning</NavItem>
           <Dropdown>
             <NavItem>Infos</NavItem>
@@ -41,13 +42,14 @@ export default function Navbar() {
 }
 
 const Nav = styled.nav`
-  background: var(--color-brown);
+  background: transparent;
   height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   z-index: 10;
+  position: fixed;
   padding: 0 20px;
 `;
 

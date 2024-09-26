@@ -159,7 +159,7 @@ form select {
 
 //Global Styles
 body {
-    background-color: var(--color-light-sand);
+    background-color: transparent;
     font-family: "Raleway", sans-serif;
 }
 

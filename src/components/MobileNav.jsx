@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 export default function MobileNav({ isOpen, toggle }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -17,6 +17,9 @@ export default function MobileNav({ isOpen, toggle }) {
         <AiOutlineClose />
       </CloseButton>
       <MobileNavMenu>
+        <MobileNavItem to="/" onClick={toggle}>
+          Home
+        </MobileNavItem>
         <MobileNavItem to="/Planing" onClick={toggle}>
           Planning
         </MobileNavItem>

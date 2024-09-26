@@ -14,11 +14,13 @@ import Beauty from "./pages/Beauty";
 import Beaches from "./pages/Beaches";
 import Activities from "./pages/Activities";
 import Sitters from "./pages/Sitters";
+import Navbar from "./components/Navbar";
 
 export default function App() {
   return (
     <main>
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Planing" element={<Planing />} />
