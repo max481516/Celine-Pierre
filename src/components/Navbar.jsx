@@ -1,47 +1,39 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { QUERIES } from "../constants";
 import LanguageSelector from "./LanguageSelector";
-import MobileNav from "./MobileNav"; // Import the new MobileNav component
+import MobileNav from "./MobileNav";
+import useMobileNav from "../hooks/useMobileNav";
+import { FaBars } from "react-icons/fa6";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  // Toggle function to open/close mobile nav
-  const toggle = () => {
-    setIsOpen((prev) => !prev);
-  };
+  const { isOpen, toggle } = useMobileNav();
 
   return (
     <>
       <Nav id="nav">
         <Bars onClick={toggle} />
         <NavMenu>
+          <DesktopLanguageSelector />
           <NavItem to="/Planing">Planning</NavItem>
-
-          {/* Dropdown for Infos */}
           <Dropdown>
             <NavItem to="/Infos">Infos</NavItem>
             <DropdownContent>
-              <DropdownItem to="/page1">Info Page 1</DropdownItem>
-              <DropdownItem to="/page2">Info Page 2</DropdownItem>
-              <DropdownItem to="/page3">Info Page 3</DropdownItem>
-              <DropdownItem to="/page4">Info Page 4</DropdownItem>
-              <DropdownItem to="/page5">Info Page 5</DropdownItem>
-              <DropdownItem to="/page6">Info Page 6</DropdownItem>
-              <DropdownItem to="/page7">Info Page 7</DropdownItem>
+              <DropdownItem to="/page1">Hébergement</DropdownItem>
+              <DropdownItem to="/page2">Transports</DropdownItem>
+              <DropdownItem to="/page3">Restaurants/Bars</DropdownItem>
+              <DropdownItem to="/page4">Beauté</DropdownItem>
+              <DropdownItem to="/page5">Plages</DropdownItem>
+              <DropdownItem to="/page6">Activités</DropdownItem>
+              <DropdownItem to="/page7">Baby-sitters</DropdownItem>
             </DropdownContent>
           </Dropdown>
-
           <NavItem to="/List">Liste de Marriage</NavItem>
           <NavItem to="/Book">Livre d'or</NavItem>
           <NavItem to="/Album">Album photos</NavItem>
           <NavItem to="/RSVP">RSVP</NavItem>
-          <DesktopLanguageSelector />
         </NavMenu>
 
-        {/* MobileNav component, controlled by isOpen state */}
         <MobileNav isOpen={isOpen} toggle={toggle} />
       </Nav>
     </>
@@ -52,26 +44,35 @@ const Nav = styled.nav`
   background: var(--color-brown);
   height: 80px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   z-index: 10;
+  padding: 0 20px;
 `;
 
-const Bars = styled.div`
+const Bars = styled(FaBars)`
   display: block;
   position: absolute;
   top: 0;
   right: 0;
-  transform: translate(-100%, 75%);
   font-size: 1.8rem;
+  transform: translate(-100%, 75%);
   cursor: pointer;
   color: #fff;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    display: none;
+  }
 `;
 
 const NavMenu = styled.div`
-  display: flex;
-  align-items: center;
+  display: none;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 const NavItem = styled(Link)`
@@ -82,6 +83,7 @@ const NavItem = styled(Link)`
   height: 50%;
   cursor: pointer;
   font-size: 1rem;
+  text-decoration: none;
 
   &:hover {
     color: var(--color-green);
@@ -97,23 +99,27 @@ const NavItem = styled(Link)`
   }
 `;
 
-/* Dropdown styles */
 const Dropdown = styled.div`
   position: relative;
   display: inline-block;
-
   &:hover > div {
-    display: block;
+    max-height: 300px; /* Expand to the height of the content */
+    opacity: 1; /* Optional fade-in effect */
   }
 `;
 
 const DropdownContent = styled.div`
-  display: none;
   position: absolute;
   background-color: #fff;
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
+
+  /* Initially hidden */
+  max-height: 0; /* Start with height 0 */
+  opacity: 0; /* Optional fade-in effect */
+  overflow: hidden; /* Hide content when collapsed */
+  transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth transition */
 `;
 
 const DropdownItem = styled(Link)`
@@ -124,6 +130,7 @@ const DropdownItem = styled(Link)`
 
   &:hover {
     background-color: #ddd;
+    transition: all 0.2s ease-in-out;
   }
 `;
 

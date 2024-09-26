@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import { useState, useRef, useEffect } from "react";
 
 export default function MobileNav({ isOpen, toggle }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -11,8 +12,10 @@ export default function MobileNav({ isOpen, toggle }) {
   };
 
   return (
-    <MobileNavContainer isOpen={isOpen}>
-      <CloseButton onClick={toggle}>×</CloseButton>
+    <MobileNavContainer $isOpen={isOpen}>
+      <CloseButton onClick={toggle}>
+        <AiOutlineClose />
+      </CloseButton>
       <MobileNavMenu>
         <MobileNavItem to="/Planing" onClick={toggle}>
           Planning
@@ -21,31 +24,29 @@ export default function MobileNav({ isOpen, toggle }) {
         {/* Dropdown for Infos in Mobile Nav */}
         <MobileDropdown>
           <MobileNavItem onClick={toggleDropdown}>Infos</MobileNavItem>
-          {isDropdownOpen && (
-            <MobileDropdownContent>
-              <MobileDropdownItem to="/page1" onClick={toggle}>
-                Info Page 1
-              </MobileDropdownItem>
-              <MobileDropdownItem to="/page2" onClick={toggle}>
-                Info Page 2
-              </MobileDropdownItem>
-              <MobileDropdownItem to="/page3" onClick={toggle}>
-                Info Page 3
-              </MobileDropdownItem>
-              <MobileDropdownItem to="/page4" onClick={toggle}>
-                Info Page 4
-              </MobileDropdownItem>
-              <MobileDropdownItem to="/page5" onClick={toggle}>
-                Info Page 5
-              </MobileDropdownItem>
-              <MobileDropdownItem to="/page6" onClick={toggle}>
-                Info Page 6
-              </MobileDropdownItem>
-              <MobileDropdownItem to="/page7" onClick={toggle}>
-                Info Page 7
-              </MobileDropdownItem>
-            </MobileDropdownContent>
-          )}
+          <MobileDropdownContent $isDropdownOpen={isDropdownOpen}>
+            <MobileDropdownItem to="/page1" onClick={toggle}>
+              Hébergement
+            </MobileDropdownItem>
+            <MobileDropdownItem to="/page2" onClick={toggle}>
+              Transports
+            </MobileDropdownItem>
+            <MobileDropdownItem to="/page3" onClick={toggle}>
+              Restaurants/Bars
+            </MobileDropdownItem>
+            <MobileDropdownItem to="/page4" onClick={toggle}>
+              Beauté
+            </MobileDropdownItem>
+            <MobileDropdownItem to="/page5" onClick={toggle}>
+              Plages
+            </MobileDropdownItem>
+            <MobileDropdownItem to="/page6" onClick={toggle}>
+              Activités
+            </MobileDropdownItem>
+            <MobileDropdownItem to="/page7" onClick={toggle}>
+              Baby-sitters
+            </MobileDropdownItem>
+          </MobileDropdownContent>
         </MobileDropdown>
 
         <MobileNavItem to="/List" onClick={toggle}>
@@ -68,13 +69,14 @@ export default function MobileNav({ isOpen, toggle }) {
 const MobileNavContainer = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--color-brown);
-  display: ${(props) => (props.isOpen ? "block" : "none")};
-  z-index: 999;
+  background-color: var(--color-light-sand);
+  transform: ${(props) =>
+    props.$isOpen ? "translateX(0)" : "translateX(100%)"};
   transition: transform 0.3s ease-in-out;
+  z-index: 999;
 `;
 
 const CloseButton = styled.div`
@@ -100,7 +102,7 @@ const MobileNavItem = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    color: var(--color-green);
+    color: var(--color-blue);
   }
 `;
 
@@ -111,8 +113,13 @@ const MobileDropdown = styled.div`
 `;
 
 const MobileDropdownContent = styled.div`
-  display: block;
-  background-color: #333;
+  max-height: ${(props) =>
+    props.$isDropdownOpen
+      ? "500px"
+      : "0"}; /* Use max-height to allow for smooth animation */
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out; /* Smooth transition */
+  background-color: var(--color-blue);
   width: 100%;
 `;
 
