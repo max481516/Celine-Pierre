@@ -17,15 +17,15 @@ export default function Navbar() {
           <DesktopLanguageSelector />
           <NavItem to="/Planing">Planning</NavItem>
           <Dropdown>
-            <NavItem to="/Infos">Infos</NavItem>
+            <NavItem>Infos</NavItem>
             <DropdownContent>
-              <DropdownItem to="/page1">Hébergement</DropdownItem>
-              <DropdownItem to="/page2">Transports</DropdownItem>
-              <DropdownItem to="/page3">Restaurants/Bars</DropdownItem>
-              <DropdownItem to="/page4">Beauté</DropdownItem>
-              <DropdownItem to="/page5">Plages</DropdownItem>
-              <DropdownItem to="/page6">Activités</DropdownItem>
-              <DropdownItem to="/page7">Baby-sitters</DropdownItem>
+              <DropdownItem to="/Accomodations">Hébergement</DropdownItem>
+              <DropdownItem to="/Transports">Transports</DropdownItem>
+              <DropdownItem to="/RnB">Restaurants & Bars</DropdownItem>
+              <DropdownItem to="/Beauty">Beauté</DropdownItem>
+              <DropdownItem to="/Beaches">Plages</DropdownItem>
+              <DropdownItem to="/Activities">Activités</DropdownItem>
+              <DropdownItem to="/Sitters">Baby-sitters</DropdownItem>
             </DropdownContent>
           </Dropdown>
           <NavItem to="/List">Liste de Marriage</NavItem>

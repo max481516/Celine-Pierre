@@ -25,25 +25,25 @@ export default function MobileNav({ isOpen, toggle }) {
         <MobileDropdown>
           <MobileNavItem onClick={toggleDropdown}>Infos</MobileNavItem>
           <MobileDropdownContent $isDropdownOpen={isDropdownOpen}>
-            <MobileDropdownItem to="/page1" onClick={toggle}>
+            <MobileDropdownItem to="/Accomodations" onClick={toggle}>
               Hébergement
             </MobileDropdownItem>
-            <MobileDropdownItem to="/page2" onClick={toggle}>
+            <MobileDropdownItem to="/Transports" onClick={toggle}>
               Transports
             </MobileDropdownItem>
-            <MobileDropdownItem to="/page3" onClick={toggle}>
-              Restaurants/Bars
+            <MobileDropdownItem to="/RnB" onClick={toggle}>
+              Restaurants & Bars
             </MobileDropdownItem>
-            <MobileDropdownItem to="/page4" onClick={toggle}>
+            <MobileDropdownItem to="/Beauty" onClick={toggle}>
               Beauté
             </MobileDropdownItem>
-            <MobileDropdownItem to="/page5" onClick={toggle}>
+            <MobileDropdownItem to="/Beaches" onClick={toggle}>
               Plages
             </MobileDropdownItem>
-            <MobileDropdownItem to="/page6" onClick={toggle}>
+            <MobileDropdownItem to="/Activities" onClick={toggle}>
               Activités
             </MobileDropdownItem>
-            <MobileDropdownItem to="/page7" onClick={toggle}>
+            <MobileDropdownItem to="/Sitters" onClick={toggle}>
               Baby-sitters
             </MobileDropdownItem>
           </MobileDropdownContent>
