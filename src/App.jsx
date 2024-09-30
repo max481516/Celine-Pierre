@@ -15,6 +15,9 @@ import Beaches from "./pages/Beaches";
 import Activities from "./pages/Activities";
 import Sitters from "./pages/Sitters";
 import Navbar from "./components/Navbar";
+import Friday from "./pages/Friday";
+import Saturday from "./pages/Saturday";
+import Sunday from "./pages/Sunday";
 
 export default function App() {
   return (
@@ -36,6 +39,9 @@ export default function App() {
           <Route path="/Beaches" element={<Beaches />} />
           <Route path="/Activities" element={<Activities />} />
           <Route path="/Sitters" element={<Sitters />} />
+          <Route path="/Friday" element={<Friday />} />
+          <Route path="/Saturday" element={<Saturday />} />
+          <Route path="/Sunday" element={<Sunday />} />
         </Routes>
       </Router>
     </main>

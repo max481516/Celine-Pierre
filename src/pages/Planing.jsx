@@ -1,13 +1,6 @@
 export default function Planning() {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "black",
-      }}
-    >
+    <div style={{ background: "var(--color-light-blue", height: "100vh" }}>
       Planning
     </div>
   );

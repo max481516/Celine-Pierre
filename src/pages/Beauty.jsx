@@ -1,3 +1,7 @@
 export default function Beauty() {
-  return <div>Beauty</div>;
+  return (
+    <div style={{ background: "var(--color-light-blue", height: "100vh" }}>
+      Beauty
+    </div>
+  );
 }

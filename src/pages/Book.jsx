@@ -1,3 +1,7 @@
 export default function Book() {
-  return <div>Book</div>;
+  return (
+    <div style={{ background: "var(--color-light-blue", height: "100vh" }}>
+      Book
+    </div>
+  );
 }

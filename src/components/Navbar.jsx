@@ -15,22 +15,22 @@ export default function Navbar() {
         <Bars onClick={toggle} />
         <NavMenu>
           <DesktopLanguageSelector />
-          <NavItem to="/">Home</NavItem>
-          <NavItem to="/Planing">Planning</NavItem>
-          <Dropdown>
-            <NavItem>Infos</NavItem>
-            <DropdownContent>
-              <DropdownItem to="/Accomodations">Hébergement</DropdownItem>
-              <DropdownItem to="/Transports">Transports</DropdownItem>
-              <DropdownItem to="/RnB">Restaurants & Bars</DropdownItem>
-              <DropdownItem to="/Beauty">Beauté</DropdownItem>
-              <DropdownItem to="/Beaches">Plages</DropdownItem>
-              <DropdownItem to="/Activities">Activités</DropdownItem>
-              <DropdownItem to="/Sitters">Baby-sitters</DropdownItem>
-            </DropdownContent>
+          <NavItem to="/">Bienvenue</NavItem>
+          <Dropdown name="Événements">
+            <DropdownItem to="/Friday">Vendredi</DropdownItem>
+            <DropdownItem to="/Saturday">Samedi</DropdownItem>
+            <DropdownItem to="/Sunday">Dimanche</DropdownItem>
           </Dropdown>
-          <NavItem to="/List">Liste de Marriage</NavItem>
-          <NavItem to="/Book">Livre d'or</NavItem>
+          <Dropdown name="Infos">
+            <DropdownItem to="/Accomodations">Hébergement</DropdownItem>
+            <DropdownItem to="/Transports">Transports</DropdownItem>
+            <DropdownItem to="/RnB">Restaurants & Bars</DropdownItem>
+            <DropdownItem to="/Beauty">Beauté</DropdownItem>
+            <DropdownItem to="/Beaches">Plages</DropdownItem>
+            <DropdownItem to="/Activities">Activités</DropdownItem>
+            <DropdownItem to="/Sitters">Baby-sitters</DropdownItem>
+          </Dropdown>
+          <NavItem to="/List">Liste de Mariage</NavItem>
           <NavItem to="/Album">Album photos</NavItem>
           <NavItem to="/RSVP">RSVP</NavItem>
         </NavMenu>
@@ -101,12 +101,21 @@ const NavItem = styled(Link)`
   }
 `;
 
-const Dropdown = styled.div`
+/* Reusable Dropdown Component */
+const Dropdown = ({ name, children }) => (
+  <DropdownContainer>
+    <NavItem as="div">{name}</NavItem>
+    <DropdownContent>{children}</DropdownContent>
+  </DropdownContainer>
+);
+
+const DropdownContainer = styled.div`
   position: relative;
   display: inline-block;
+
   &:hover > div {
-    max-height: 300px; /* Expand to the height of the content */
-    opacity: 1; /* Optional fade-in effect */
+    max-height: fit-content;
+    opacity: 1;
   }
 `;
 
@@ -118,10 +127,10 @@ const DropdownContent = styled.div`
   z-index: 1;
 
   /* Initially hidden */
-  max-height: 0; /* Start with height 0 */
-  opacity: 0; /* Optional fade-in effect */
-  overflow: hidden; /* Hide content when collapsed */
-  transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
 `;
 
 const DropdownItem = styled(Link)`

@@ -1,3 +1,7 @@
 export default function Beaches() {
-  return <div>Beaches</div>;
+  return (
+    <div style={{ background: "var(--color-light-blue", height: "100vh" }}>
+      Beaches
+    </div>
+  );
 }

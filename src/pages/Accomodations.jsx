@@ -1,3 +1,7 @@
 export default function Accomodations() {
-  return <div>Accomodations</div>;
+  return (
+    <div style={{ background: "var(--color-light-blue", height: "100vh" }}>
+      Accomodations
+    </div>
+  );
 }

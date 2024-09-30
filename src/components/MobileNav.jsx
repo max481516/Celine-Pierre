@@ -4,13 +4,6 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 
 export default function MobileNav({ isOpen, toggle }) {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  // Toggle dropdown for Infos in mobile view
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
-  };
-
   return (
     <MobileNavContainer $isOpen={isOpen}>
       <CloseButton onClick={toggle}>
@@ -18,45 +11,47 @@ export default function MobileNav({ isOpen, toggle }) {
       </CloseButton>
       <MobileNavMenu>
         <MobileNavItem to="/" onClick={toggle}>
-          Home
-        </MobileNavItem>
-        <MobileNavItem to="/Planing" onClick={toggle}>
-          Planning
+          Bienvenue
         </MobileNavItem>
 
-        {/* Dropdown for Infos in Mobile Nav */}
-        <MobileDropdown>
-          <MobileNavItem onClick={toggleDropdown}>Infos</MobileNavItem>
-          <MobileDropdownContent $isDropdownOpen={isDropdownOpen}>
-            <MobileDropdownItem to="/Accomodations" onClick={toggle}>
-              Hébergement
-            </MobileDropdownItem>
-            <MobileDropdownItem to="/Transports" onClick={toggle}>
-              Transports
-            </MobileDropdownItem>
-            <MobileDropdownItem to="/RnB" onClick={toggle}>
-              Restaurants & Bars
-            </MobileDropdownItem>
-            <MobileDropdownItem to="/Beauty" onClick={toggle}>
-              Beauté
-            </MobileDropdownItem>
-            <MobileDropdownItem to="/Beaches" onClick={toggle}>
-              Plages
-            </MobileDropdownItem>
-            <MobileDropdownItem to="/Activities" onClick={toggle}>
-              Activités
-            </MobileDropdownItem>
-            <MobileDropdownItem to="/Sitters" onClick={toggle}>
-              Baby-sitters
-            </MobileDropdownItem>
-          </MobileDropdownContent>
+        <MobileDropdown name="Événements">
+          <MobileDropdownItem to="/Friday" onClick={toggle}>
+            Vendredi
+          </MobileDropdownItem>
+          <MobileDropdownItem to="/Saturday" onClick={toggle}>
+            Samedi
+          </MobileDropdownItem>
+          <MobileDropdownItem to="/Sunday" onClick={toggle}>
+            Dimanche
+          </MobileDropdownItem>
+        </MobileDropdown>
+
+        <MobileDropdown name="Infos">
+          <MobileDropdownItem to="/Accomodations" onClick={toggle}>
+            Hébergement
+          </MobileDropdownItem>
+          <MobileDropdownItem to="/Transports" onClick={toggle}>
+            Transports
+          </MobileDropdownItem>
+          <MobileDropdownItem to="/RnB" onClick={toggle}>
+            Restaurants & Bars
+          </MobileDropdownItem>
+          <MobileDropdownItem to="/Beauty" onClick={toggle}>
+            Beauté
+          </MobileDropdownItem>
+          <MobileDropdownItem to="/Beaches" onClick={toggle}>
+            Plages
+          </MobileDropdownItem>
+          <MobileDropdownItem to="/Activities" onClick={toggle}>
+            Activités
+          </MobileDropdownItem>
+          <MobileDropdownItem to="/Sitters" onClick={toggle}>
+            Baby-sitters
+          </MobileDropdownItem>
         </MobileDropdown>
 
         <MobileNavItem to="/List" onClick={toggle}>
-          Liste de Marriage
-        </MobileNavItem>
-        <MobileNavItem to="/Book" onClick={toggle}>
-          Livre d'or
+          Liste de Mariage
         </MobileNavItem>
         <MobileNavItem to="/Album" onClick={toggle}>
           Album photos
@@ -68,6 +63,26 @@ export default function MobileNav({ isOpen, toggle }) {
     </MobileNavContainer>
   );
 }
+
+/* Mobile Dropdown Component */
+const MobileDropdown = ({ name, children }) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
+  };
+
+  return (
+    <MobileDropdownContainer>
+      <MobileDropdownHeader onClick={toggleDropdown}>
+        {name}
+      </MobileDropdownHeader>
+      <MobileDropdownContent $isDropdownOpen={isDropdownOpen}>
+        {children}
+      </MobileDropdownContent>
+    </MobileDropdownContainer>
+  );
+};
 
 const MobileNavContainer = styled.div`
   position: fixed;
@@ -109,19 +124,27 @@ const MobileNavItem = styled(Link)`
   }
 `;
 
-/* Mobile dropdown styles */
-const MobileDropdown = styled.div`
+const MobileDropdownContainer = styled.div`
   width: 100%;
   text-align: center;
 `;
 
+const MobileDropdownHeader = styled.div`
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-blue);
+  }
+`;
+
 const MobileDropdownContent = styled.div`
-  max-height: ${(props) =>
-    props.$isDropdownOpen
-      ? "500px"
-      : "0"}; /* Use max-height to allow for smooth animation */
+  max-height: ${(props) => (props.$isDropdownOpen ? "500px" : "0")};
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out; /* Smooth transition */
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: ${(props) => (props.$isDropdownOpen ? "1" : "0")};
   background-color: var(--color-blue);
   width: 100%;
 `;
