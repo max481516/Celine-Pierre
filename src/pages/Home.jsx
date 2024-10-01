@@ -1,12 +1,14 @@
 import styled from "styled-components";
-import beachBackgroundVideo from "../media/beachBackground.mp4";
 import { FONTS, QUERIES } from "../constants";
 
 export default function Home() {
   return (
     <>
       <VideoBackground autoPlay muted loop>
-        <source src={beachBackgroundVideo} type="video/mp4" />
+        <source
+          src="https://max481516.b-cdn.net/beachBackground.mp4"
+          type="video/mp4"
+        />
         Your browser does not support HTML5 video.
       </VideoBackground>
       <ContentWrapper>
