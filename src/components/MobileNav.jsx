@@ -59,6 +59,9 @@ export default function MobileNav({ isOpen, toggle }) {
         <MobileNavItem to="/RSVP" onClick={toggle}>
           RSVP
         </MobileNavItem>
+        <MobileNavItem to="/Contacts" onClick={toggle}>
+          Contacts
+        </MobileNavItem>
       </MobileNavMenu>
     </MobileNavContainer>
   );

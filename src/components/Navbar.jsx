@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { QUERIES } from "../constants";
+import { QUERIES, FONTS } from "../constants";
 import LanguageSelector from "./LanguageSelector";
 import MobileNav from "./MobileNav";
 import useMobileNav from "../hooks/useMobileNav";
@@ -12,6 +12,7 @@ export default function Navbar() {
   return (
     <>
       <Nav id="nav">
+        <MobileLanguageSelector />
         <Bars onClick={toggle} />
         <NavMenu>
           <DesktopLanguageSelector />
@@ -33,6 +34,7 @@ export default function Navbar() {
           <NavItem to="/List">Liste de Mariage</NavItem>
           <NavItem to="/Album">Album photos</NavItem>
           <NavItem to="/RSVP">RSVP</NavItem>
+          <NavItem to="/Contacts">Contacts</NavItem>
         </NavMenu>
 
         <MobileNav isOpen={isOpen} toggle={toggle} />
@@ -42,6 +44,10 @@ export default function Navbar() {
 }
 
 const Nav = styled.nav`
+  position: relative; // Keeps the navbar fixed to the top
+  top: env(safe-area-inset-top, 0); // Takes the notch into account
+  left: 0;
+  right: 0;
   background: transparent;
   height: 80px;
   display: flex;
@@ -49,8 +55,20 @@ const Nav = styled.nav`
   align-items: center;
   width: 100%;
   z-index: 10;
-  position: fixed;
   padding: 0 20px;
+`;
+
+const MobileLanguageSelector = styled(LanguageSelector)`
+  ${FONTS.titleFont};
+  position: absolute;
+  color: #fff;
+  top: 0;
+  left: 0;
+  transform: translate(20%, 110%);
+
+  @media ${QUERIES.largeTabletAndUp} {
+    display: none;
+  }
 `;
 
 const Bars = styled(FaBars)`

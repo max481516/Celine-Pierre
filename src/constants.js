@@ -12,4 +12,14 @@ const QUERIES = {
   desktopAndUp: `(min-width: ${BREAKPOINTS.desktopMin / 16}rem)`,
 };
 
-export { BREAKPOINTS, QUERIES };
+// Font Constants
+const FONTS = {
+  titleFont: `
+    font-family: "TitleFont", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  `,
+};
+
+export { BREAKPOINTS, QUERIES, FONTS };

@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import Planing from "./pages/Planing";
 import Infos from "./pages/Infos";
 import List from "./pages/List";
-import Book from "./pages/Book";
 import Album from "./pages/Album";
 import Accomodations from "./pages/Accomodations";
 import Transports from "./pages/Transports";
@@ -18,6 +17,7 @@ import Navbar from "./components/Navbar";
 import Friday from "./pages/Friday";
 import Saturday from "./pages/Saturday";
 import Sunday from "./pages/Sunday";
+import Contacts from "./pages/Contacts";
 
 export default function App() {
   return (
@@ -29,9 +29,9 @@ export default function App() {
           <Route path="/Planing" element={<Planing />} />
           <Route path="/Infos" element={<Infos />} />
           <Route path="/List" element={<List />} />
-          <Route path="/Book" element={<Book />} />
           <Route path="/Album" element={<Album />} />
           <Route path="/RSVP" element={<RSVP />} />
+          <Route path="/Contacts" element={<Contacts />} />
           <Route path="/Accomodations" element={<Accomodations />} />
           <Route path="/Transports" element={<Transports />} />
           <Route path="/RnB" element={<RnB />} />
