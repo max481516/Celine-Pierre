@@ -1,16 +1,51 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../constants";
+import backgroundPhoto from "../media/plage-corse-2.webp";
 
 export default function Home() {
+  const [isLowPowerMode, setIsLowPowerMode] = useState(false);
+
+  useEffect(() => {
+    const videoElement = document.getElementById("background-video");
+    ensureVideoPlays(videoElement);
+  }, []);
+
+  const ensureVideoPlays = (video) => {
+    if (!video) return;
+    const promise = video.play();
+    promise
+      .then(() => {
+        // Autoplay successful, no need for fallback
+        setIsLowPowerMode(false);
+      })
+      .catch(() => {
+        // Autoplay failed, likely due to Low Power Mode - switch to GIF
+        setIsLowPowerMode(true);
+      });
+  };
+
   return (
     <>
-      <VideoBackground autoPlay muted playsInline webkit-playsinline loop>
-        <source
-          src="https://res.cloudinary.com/dqs3mkxnr/video/upload/q_80,dpr_2.0,f_auto/v1727863728/output_l9q8gq.mp4"
-          type="video/mp4"
-        />
-        Your browser does not support HTML5 video.
-      </VideoBackground>
+      {!isLowPowerMode ? (
+        <VideoBackground
+          id="background-video"
+          autoPlay
+          muted
+          playsInline
+          webkit-playsinline
+          loop
+        >
+          <source
+            src="https://res.cloudinary.com/dqs3mkxnr/video/upload/q_90,f_auto/v1727863728/output_l9q8gq.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support HTML5 video.
+        </VideoBackground>
+      ) : (
+        <PhotoBackground src={backgroundPhoto} />
+      )}
+
       <ContentWrapper>
         <Title>Chers amis, bonjour à tous !</Title>
         <Text>
@@ -41,21 +76,31 @@ const VideoBackground = styled.video`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
+  z-index: -1;
+`;
+
+const PhotoBackground = styled.img`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: 52% 50%;
   z-index: -1;
 `;
 
 const ContentWrapper = styled.div`
   position: relative;
   padding: 0 16px 1rem;
-  // Top padding includes safe area + navbar height to avoid overlap
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; // Prevents centering from pushing content over the top
+  justify-content: flex-start;
   color: white;
 
   @media ${QUERIES.largeTabletAndUp} {
