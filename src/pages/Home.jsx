@@ -4,9 +4,9 @@ import { FONTS, QUERIES } from "../constants";
 export default function Home() {
   return (
     <>
-      <VideoBackground autoPlay muted loop>
+      <VideoBackground autoPlay muted playsInline webkit-playsinline loop>
         <source
-          src="https://max481516.b-cdn.net/beachBackground.mp4"
+          src="https://res.cloudinary.com/dqs3mkxnr/video/upload/q_80,dpr_2.0,f_auto/v1727863728/output_l9q8gq.mp4"
           type="video/mp4"
         />
         Your browser does not support HTML5 video.
