@@ -103,8 +103,20 @@ const ContentWrapper = styled.div`
   justify-content: flex-start;
   color: white;
 
+  @media ${QUERIES.tabletAndUp} {
+    margin-top: 7rem;
+  }
+
   @media ${QUERIES.largeTabletAndUp} {
-    padding: calc(env(safe-area-inset-top, 20px) + 80px) 46px 16px;
+    padding: 46px 16px;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    padding: 46px 128px;
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    padding: 46px 256px;
   }
 `;
 
@@ -119,4 +131,8 @@ const Text = styled.p`
   color: var(--color-dark-blue);
   font-weight: 500;
   text-align: center;
+
+  @media ${QUERIES.tabletAndUp} {
+    padding: 0 128px;
+  }
 `;

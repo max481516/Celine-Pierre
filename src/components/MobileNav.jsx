@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
+import { FONTS } from "../constants";
 
 export default function MobileNav({ isOpen, toggle }) {
   return (
@@ -77,9 +78,9 @@ const MobileDropdown = ({ name, children }) => {
 
   return (
     <MobileDropdownContainer>
-      <MobileDropdownHeader onClick={toggleDropdown}>
+      <MobileNavItem as="div" onClick={toggleDropdown}>
         {name}
-      </MobileDropdownHeader>
+      </MobileNavItem>
       <MobileDropdownContent $isDropdownOpen={isDropdownOpen}>
         {children}
       </MobileDropdownContent>
@@ -117,7 +118,8 @@ const MobileNavMenu = styled.div`
 `;
 
 const MobileNavItem = styled(Link)`
-  color: #fff;
+  ${FONTS.titleFont};
+  color: var(--color-light-blue);
   font-size: 1.5rem;
   padding: 1rem;
   text-decoration: none;
@@ -130,17 +132,6 @@ const MobileNavItem = styled(Link)`
 const MobileDropdownContainer = styled.div`
   width: 100%;
   text-align: center;
-`;
-
-const MobileDropdownHeader = styled.div`
-  color: #fff;
-  font-size: 1.5rem;
-  padding: 1rem;
-  cursor: pointer;
-
-  &:hover {
-    color: var(--color-blue);
-  }
 `;
 
 const MobileDropdownContent = styled.div`

@@ -12,29 +12,33 @@ export default function Navbar() {
   return (
     <>
       <Nav id="nav">
-        <MobileLanguageSelector />
+        <LanguageSelector type="mobile" />
         <Bars onClick={toggle} />
         <NavMenu>
-          <DesktopLanguageSelector />
-          <NavItem to="/">Bienvenue</NavItem>
-          <Dropdown name="Événements">
-            <DropdownItem to="/Friday">Vendredi</DropdownItem>
-            <DropdownItem to="/Saturday">Samedi</DropdownItem>
-            <DropdownItem to="/Sunday">Dimanche</DropdownItem>
-          </Dropdown>
-          <Dropdown name="Infos">
-            <DropdownItem to="/Accomodations">Hébergement</DropdownItem>
-            <DropdownItem to="/Transports">Transports</DropdownItem>
-            <DropdownItem to="/RnB">Restaurants & Bars</DropdownItem>
-            <DropdownItem to="/Beauty">Beauté</DropdownItem>
-            <DropdownItem to="/Beaches">Plages</DropdownItem>
-            <DropdownItem to="/Activities">Activités</DropdownItem>
-            <DropdownItem to="/Sitters">Baby-sitters</DropdownItem>
-          </Dropdown>
-          <NavItem to="/List">Liste de Mariage</NavItem>
-          <NavItem to="/Album">Album photos</NavItem>
-          <NavItem to="/RSVP">RSVP</NavItem>
-          <NavItem to="/Contacts">Contacts</NavItem>
+          <LeftContainer>
+            <LanguageSelector type="desktop" />
+          </LeftContainer>
+          <RightContainer>
+            <NavItem to="/">Bienvenue</NavItem>
+            <Dropdown name="Événements">
+              <DropdownItem to="/Friday">Vendredi</DropdownItem>
+              <DropdownItem to="/Saturday">Samedi</DropdownItem>
+              <DropdownItem to="/Sunday">Dimanche</DropdownItem>
+            </Dropdown>
+            <Dropdown name="Infos">
+              <DropdownItem to="/Accomodations">Hébergement</DropdownItem>
+              <DropdownItem to="/Transports">Transports</DropdownItem>
+              <DropdownItem to="/RnB">Restaurants & Bars</DropdownItem>
+              <DropdownItem to="/Beauty">Beauté</DropdownItem>
+              <DropdownItem to="/Beaches">Plages</DropdownItem>
+              <DropdownItem to="/Activities">Activités</DropdownItem>
+              <DropdownItem to="/Sitters">Baby-sitters</DropdownItem>
+            </Dropdown>
+            <NavItem to="/List">Liste de Mariage</NavItem>
+            <NavItem to="/Album">Album photos</NavItem>
+            <NavItem to="/RSVP">RSVP</NavItem>
+            <NavItem to="/Contacts">Contacts</NavItem>
+          </RightContainer>
         </NavMenu>
 
         <MobileNav isOpen={isOpen} toggle={toggle} />
@@ -51,24 +55,10 @@ const Nav = styled.nav`
   background: transparent;
   height: 80px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   z-index: 10;
   padding: 0 20px;
-`;
-
-const MobileLanguageSelector = styled(LanguageSelector)`
-  ${FONTS.titleFont};
-  position: absolute;
-  color: #fff;
-  top: 0;
-  left: 0;
-  transform: translate(20%, 110%);
-
-  @media ${QUERIES.largeTabletAndUp} {
-    display: none;
-  }
 `;
 
 const Bars = styled(FaBars)`
@@ -91,11 +81,23 @@ const NavMenu = styled.div`
 
   @media ${QUERIES.largeTabletAndUp} {
     display: flex;
-    align-items: center;
+    align-items: baseline;
+    width: 100%;
   }
 `;
 
+const LeftContainer = styled.div`
+  display: flex;
+  margin-right: auto;
+`;
+
+const RightContainer = styled.div`
+  display: flex;
+  align-items: baseline;
+`;
+
 const NavItem = styled(Link)`
+  ${FONTS.titleFont};
   color: #fff;
   display: flex;
   align-items: center;
@@ -160,21 +162,5 @@ const DropdownItem = styled(Link)`
   &:hover {
     background-color: #ddd;
     transition: all 0.2s ease-in-out;
-  }
-`;
-
-const DesktopLanguageSelector = styled(LanguageSelector)`
-  align-items: center;
-  font-size: calc(12rem / 16);
-  width: 60px;
-
-  &:hover {
-    transition: all 0.2s ease-in-out;
-    color: var(--color-green);
-  }
-
-  &:focus {
-    outline: none;
-    color: var(--color-green);
   }
 `;

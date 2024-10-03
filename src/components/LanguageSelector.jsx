@@ -1,9 +1,10 @@
 import { useState } from "react";
 import i18n from "../i18n/i18n";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { RiArrowDownSFill } from "react-icons/ri";
+import { QUERIES, FONTS } from "../constants";
 
-export default function LanguageSelector({ className }) {
+export default function LanguageSelector({ className, type }) {
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
   const chooseLanguage = (e) => {
@@ -14,13 +15,13 @@ export default function LanguageSelector({ className }) {
   };
 
   return (
-    <LanguageSelectorContainer className={className}>
+    <LanguageSelectorContainer className={className} type={type}>
       <Selector defaultValue={selectedLanguage} onChange={chooseLanguage}>
         <option value="fr">Français</option>
         <option value="en">English</option>
         <option value="ru">Русский</option>
       </Selector>
-      <IconContainer>
+      <IconContainer type={type}>
         <RiArrowDownSFill />
       </IconContainer>
     </LanguageSelectorContainer>
@@ -28,11 +29,56 @@ export default function LanguageSelector({ className }) {
 }
 
 const LanguageSelectorContainer = styled.div`
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   cursor: pointer;
+  color: #fff;
+  font-size: calc(20rem / 16);
+  ${FONTS.titleFont};
+
+  ${({ type }) =>
+    type === "mobile" &&
+    css`
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(20%, 80%);
+
+      @media ${QUERIES.largeTabletAndUp} {
+        display: none;
+      }
+    `}
+  ${({ type }) =>
+    type === "desktop" &&
+    css`
+      padding-left: 8px;
+      align-items: center;
+      margin-right: auto;
+
+      &:hover {
+        transition: all 0.2s ease-in-out;
+        color: var(--color-dark-blue);
+      }
+
+      &:focus {
+        outline: none;
+        color: var(--color-dark-blue);
+      }
+
+      @media ${QUERIES.largeTabletAndUp} {
+        display: flex;
+      }
+
+      @media ${QUERIES.largeTabletAndUp} {
+        display: flex;
+      }
+
+      @media ${QUERIES.laptopAndUp} {
+        font-size: calc(24rem / 16);
+      }
+    `};
 `;
 
 const Selector = styled.select`
@@ -44,6 +90,13 @@ const Selector = styled.select`
 `;
 
 const IconContainer = styled.div`
-  padding: 0 0 3px 2px;
   color: white;
+
+  padding: 0 0 3px 2px;
+  ${({ type }) => type === "mobile" && css``}
+  ${({ type }) =>
+    type === "desktop" &&
+    css`
+      width: 20%;
+    `}
 `;
