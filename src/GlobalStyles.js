@@ -161,7 +161,7 @@ form select {
 
 
 body {
-    background-color: var(--color-lighter-sand);
+    background-color: var(--color-light-sand);
     font-family: "Raleway", sans-serif;
 }
 
