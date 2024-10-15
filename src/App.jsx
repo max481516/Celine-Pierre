@@ -18,6 +18,7 @@ import Friday from "./pages/Friday";
 import Saturday from "./pages/Saturday";
 import Sunday from "./pages/Sunday";
 import Contacts from "./pages/Contacts";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="/Saturday" element={<Saturday />} />
           <Route path="/Sunday" element={<Sunday />} />
         </Routes>
+        <Footer />
       </Router>
     </main>
   );

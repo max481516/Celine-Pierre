@@ -107,7 +107,7 @@ const CloseButton = styled.div`
   right: 16px;
   font-size: 2rem;
   cursor: pointer;
-  color: white;
+  color: var(--color-darker-sand);
 `;
 
 const MobileNavMenu = styled.div`

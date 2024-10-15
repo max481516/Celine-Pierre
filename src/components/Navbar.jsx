@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { QUERIES, FONTS } from "../constants";
 import LanguageSelector from "./LanguageSelector";
 import MobileNav from "./MobileNav";
@@ -9,23 +9,27 @@ import { FaBars } from "react-icons/fa6";
 export default function Navbar() {
   const { isOpen, toggle } = useMobileNav();
 
+  const $isHomePage = useLocation().pathname === "/";
+
   return (
     <>
-      <Nav id="nav">
+      <Nav id="nav" $isHomePage={$isHomePage}>
         <LanguageSelector type="mobile" />
-        <Bars onClick={toggle} />
+        <Bars onClick={toggle} $isHomePage={$isHomePage} />
         <NavMenu>
           <LeftContainer>
             <LanguageSelector type="desktop" />
           </LeftContainer>
           <RightContainer>
-            <NavItem to="/">Bienvenue</NavItem>
-            <Dropdown name="Événements">
+            <NavItem to="/" $isHomePage={$isHomePage}>
+              Bienvenue
+            </NavItem>
+            <Dropdown name="Événements" $isHomePage={$isHomePage}>
               <DropdownItem to="/Friday">Vendredi</DropdownItem>
               <DropdownItem to="/Saturday">Samedi</DropdownItem>
               <DropdownItem to="/Sunday">Dimanche</DropdownItem>
             </Dropdown>
-            <Dropdown name="Infos">
+            <Dropdown name="Infos" $isHomePage={$isHomePage}>
               <DropdownItem to="/Accomodations">Hébergement</DropdownItem>
               <DropdownItem to="/Transports">Transports</DropdownItem>
               <DropdownItem to="/RnB">Restaurants & Bars</DropdownItem>
@@ -34,10 +38,18 @@ export default function Navbar() {
               <DropdownItem to="/Activities">Activités</DropdownItem>
               <DropdownItem to="/Sitters">Baby-sitters</DropdownItem>
             </Dropdown>
-            <NavItem to="/List">Liste de Mariage</NavItem>
-            <NavItem to="/Album">Album photos</NavItem>
-            <NavItem to="/RSVP">RSVP</NavItem>
-            <NavItem to="/Contacts">Contacts</NavItem>
+            <NavItem to="/List" $isHomePage={$isHomePage}>
+              Liste de Mariage
+            </NavItem>
+            <NavItem to="/Album" $isHomePage={$isHomePage}>
+              Album photos
+            </NavItem>
+            <NavItem to="/RSVP" $isHomePage={$isHomePage}>
+              RSVP
+            </NavItem>
+            <NavItem to="/Contacts" $isHomePage={$isHomePage}>
+              Contacts
+            </NavItem>
           </RightContainer>
         </NavMenu>
 
@@ -52,7 +64,10 @@ const Nav = styled.nav`
   top: env(safe-area-inset-top, 0); // Takes the notch into account
   left: 0;
   right: 0;
-  background: transparent;
+  background: ${({ $isHomePage }) =>
+    $isHomePage ? "transparent" : "var(--color-element-sand)"};
+  border-bottom: ${({ $isHomePage }) =>
+    $isHomePage ? "none" : "1px solid var(--color-darker-sand);"};
   height: 80px;
   display: flex;
   align-items: center;
@@ -69,7 +84,8 @@ const Bars = styled(FaBars)`
   font-size: 1.8rem;
   transform: translate(-100%, 75%);
   cursor: pointer;
-  color: #fff;
+  color: ${({ $isHomePage }) =>
+    $isHomePage ? "#fff" : "var(--color-darker-sand)"};
 
   @media ${QUERIES.largeTabletAndUp} {
     display: none;
@@ -98,7 +114,8 @@ const RightContainer = styled.div`
 
 const NavItem = styled(Link)`
   ${FONTS.titleFont};
-  color: #fff;
+  color: ${({ $isHomePage }) =>
+    $isHomePage ? "#fff" : "var(--color-darker-sand)"};
   display: flex;
   align-items: center;
   padding: 0 1rem;

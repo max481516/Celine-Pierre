@@ -63,13 +63,16 @@ export default function Saturday() {
             <b>Parking :</b>
           </Text>
         </IconTextContainer>
-        <IconTextContainer>
+        {/* <IconTextContainer>
           <StyledIcon as={GiClothes} />
           <Text>
             <b>Dress code :</b>
           </Text>
-        </IconTextContainer>
+        </IconTextContainer> */}
         <DressCodeWrapper>
+          <DressCodeTitle>
+            <b>Dress code :</b>
+          </DressCodeTitle>
           <DressCodeIconTextContainer>
             <StyledIcon as={GiDress} />
             <Text>
@@ -145,13 +148,10 @@ export default function Saturday() {
             <b>Parking :</b>
           </Text>
         </IconTextContainer>
-        <IconTextContainer>
-          <StyledIcon as={GiClothes} />
-          <Text>
-            <b>Dress code :</b>
-          </Text>
-        </IconTextContainer>
         <DressCodeWrapper>
+          <DressCodeTitle>
+            <b>Dress code :</b>
+          </DressCodeTitle>
           <DressCodeIconTextContainer>
             <StyledIcon as={GiDress} />
             <Text>
@@ -174,6 +174,7 @@ export default function Saturday() {
 }
 
 const Wrapper = styled.div`
+  margin-top: 1rem;
   padding: 0 16px;
 `;
 
@@ -202,9 +203,16 @@ const LocationLink = styled.a`
 const DressCodeWrapper = styled.div`
   border: 1px solid var(--color-lighter-blue);
   border-radius: 8px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: var(--color-dark-sand);
   width: 90%;
   margin: 0.5rem auto 0;
+`;
+
+const DressCodeTitle = styled.h2`
+  text-align: center;
+  font-size: 1.2rem;
+  padding-top: 1rem;
 `;
 
 const DressCodeIconTextContainer = styled.div`
@@ -212,6 +220,10 @@ const DressCodeIconTextContainer = styled.div`
   width: 100%;
   gap: 8px;
   padding: 16px;
+
+  &:nth-child(2) {
+    padding-bottom: 0;
+  }
 `;
 
 const Text = styled.p``;

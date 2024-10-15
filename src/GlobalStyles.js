@@ -9,7 +9,9 @@ const GlobalStyles = createGlobalStyle`
   --color-lighter-blue: HSL(179, 35%, 50%);
   --color-lighter-sand: HSL(19, 34%, 93%);
   --color-light-sand: HSL(19, 34%, 90%);
-  --color-dark-sand: HSL(25, 28%, 77%);
+  --color-dark-sand: HSL(27, 20%, 80%);
+  --color-element-sand: HSL(27, 20%, 85%);
+  --color-darker-sand: HSL(27, 10%, 60%);
 }
 
 //FONTS
