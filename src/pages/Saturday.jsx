@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { IoMdClock } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
-import { GiClothes, GiDress } from "react-icons/gi";
+import { GiDress } from "react-icons/gi";
 import { FaSquareParking } from "react-icons/fa6";
 import { ImUserTie } from "react-icons/im";
 import { FONTS } from "../constants";

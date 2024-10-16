@@ -9,8 +9,8 @@ export default function InfoElement({
 }) {
   return (
     <Element>
-      <Title>{name}</Title>
-      <Picture>{picture}</Picture>
+      <Name>{name}</Name>
+      <PictureContainer>{picture}</PictureContainer>
       <Description>
         {description}
         <LocationLink
@@ -30,9 +30,9 @@ const Element = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled.h2``;
+const Name = styled.h2``;
 
-const Picture = styled.picture``;
+const PictureContainer = styled.div``;
 
 const Description = styled.p``;
 
