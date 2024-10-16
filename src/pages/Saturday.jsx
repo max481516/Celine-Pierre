@@ -10,7 +10,7 @@ export default function Saturday() {
   return (
     <Wrapper>
       <EventContainer>
-        <Title>SAMEDI : CÉREMONIE RELIGIEUSE </Title>
+        <Title>Samedi : Céremonie Religieuse </Title>
         <ImageContainer>
           <picture>
             <source
@@ -186,7 +186,8 @@ const EventContainer = styled.div`
 
 const Title = styled.h2`
   ${FONTS.titleFont};
-  color: var(--color-lighter-blue);
+  color: var(--color-primary-blue);
+  padding: 0.5rem 0;
 `;
 
 const IconTextContainer = styled.div`
@@ -197,14 +198,18 @@ const IconTextContainer = styled.div`
 `;
 
 const LocationLink = styled.a`
-  color: var(--color-light-blue);
+  color: var(--color-primary-blue);
+
+  &:hover {
+    color: var(--color-light-blue);
+  }
 `;
 
 const DressCodeWrapper = styled.div`
-  border: 1px solid var(--color-lighter-blue);
+  border: 1px solid var(--color-primary-blue);
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color: var(--color-dark-sand);
+  background-color: var(--color-element-sand);
   width: 90%;
   margin: 0.5rem auto 0;
 `;
@@ -242,7 +247,7 @@ const StyledIcon = styled.div`
   flex-grow: 0;
   width: 20px;
   height: 20px;
-  color: var(--color-lighter-blue);
+  color: var(--color-primary-blue);
 `;
 
 /* const StyledMaps = styled.iframe`

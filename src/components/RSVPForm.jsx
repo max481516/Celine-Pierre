@@ -321,12 +321,12 @@ const ErrorMessage = styled.p`
 `;
 
 const ErrorMailLink = styled.a`
-  color: var(--color-lighter-blue);
+  color: var(--color-primary-blue);
   text-decoration: none;
   transition: color 0.4s ease-in-out;
 
   &:hover {
-    color: var(--color-dark-blue);
+    color: var(--color-light-blue);
   }
 `;
 
@@ -410,7 +410,7 @@ const Header = styled.header`
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  color: var(--color-light-blue);
+  color: var(--color-primary-blue);
 `;
 
 const RSVPLanguageSelector = styled(LanguageSelector)`
@@ -604,7 +604,7 @@ const SubmitButton = styled.button`
   align-self: start;
   padding: 0.75rem 1.5rem;
   height: 3rem;
-  background-color: var(--color-light-blue);
+  background-color: var(--color-primary-blue);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -612,7 +612,7 @@ const SubmitButton = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: var(--color-lighter-blue);
+    background-color: var(--color-light-blue);
   }
 `;
 
@@ -634,7 +634,7 @@ const StyledAnchor = styled(Anchor)`
   right: 10px;
   width: 100px;
   height: 100px;
-  color: var(--color-light-blue);
+  color: var(--color-primary-blue);
 
   @media ${QUERIES.largeTabletAndUp} {
     width: 125px;
@@ -648,7 +648,7 @@ const StyledShell1 = styled(Shell1)`
   left: 10px;
   width: 100px;
   height: 100px;
-  color: var(--color-light-blue);
+  color: var(--color-primary-blue);
 
   @media ${QUERIES.largeTabletAndUp} {
     width: 125px;
@@ -661,7 +661,7 @@ const StyledCocktail = styled(Cocktail)`
   right: -30px;
   width: 95px;
   height: 95px;
-  color: var(--color-light-blue);
+  color: var(--color-primary-blue);
 
   @media ${QUERIES.tabletAndUp} {
     right: -20px;
@@ -686,7 +686,7 @@ const StyledTurtle = styled(Turtle)`
   top: -10px;
   width: 100px;
   height: 100px;
-  color: var(--color-light-blue);
+  color: var(--color-primary-blue);
 
   @media ${QUERIES.tabletAndUp} {
     left: -30px;
@@ -721,11 +721,11 @@ const ContactText = styled.p`
 `;
 
 const MailLink = styled.a`
-  color: var(--color-lighter-blue);
+  color: var(--color-primary-blue);
   text-decoration: none;
-  transition: color 0.4s ease-in-out;
+  transition: color 0.3s ease-in-out;
 
   &:hover {
-    color: var(--color-dark-blue);
+    color: var(--color-light-blue);
   }
 `;

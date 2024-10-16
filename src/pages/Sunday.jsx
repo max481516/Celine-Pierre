@@ -97,7 +97,7 @@ const EventContainer = styled.div`
 
 const Title = styled.h2`
   ${FONTS.titleFont};
-  color: var(--color-lighter-blue);
+  color: var(--color-primary-blue);
 `;
 
 const IconTextContainer = styled.div`
@@ -108,11 +108,11 @@ const IconTextContainer = styled.div`
 `;
 
 const LocationLink = styled.a`
-  color: var(--color-light-blue);
+  color: var(--color-primary-blue);
 `;
 
 const DressCodeWrapper = styled.div`
-  border: 1px solid var(--color-lighter-blue);
+  border: 1px solid var(--color-primary-blue);
   background: var(--color-dark-sand);
   border-radius: 8px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -149,7 +149,7 @@ const StyledIcon = styled.div`
   flex-grow: 0;
   width: 20px;
   height: 20px;
-  color: var(--color-lighter-blue);
+  color: var(--color-primary-blue);
 `;
 
 /* const StyledMaps = styled.iframe`

@@ -125,12 +125,12 @@ const NavItem = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    color: var(--color-green);
+    color: var(--color-primary-blue);
     transition: all 0.2s ease-in-out;
   }
 
   &.active {
-    color: var(--color-green);
+    color: var(--color-primary-blue);
   }
 
   @media ${QUERIES.laptopAndUp} {

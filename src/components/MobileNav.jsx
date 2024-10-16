@@ -119,13 +119,13 @@ const MobileNavMenu = styled.div`
 
 const MobileNavItem = styled(Link)`
   ${FONTS.titleFont};
-  color: var(--color-light-blue);
+  color: var(--color-primary-blue);
   font-size: 1.5rem;
   padding: 1rem;
   text-decoration: none;
 
   &:hover {
-    color: var(--color-blue);
+    color: var(--color-light-blue);
   }
 `;
 
@@ -139,7 +139,7 @@ const MobileDropdownContent = styled.div`
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
   opacity: ${(props) => (props.$isDropdownOpen ? "1" : "0")};
-  background-color: var(--color-blue);
+  background-color: var(--color-primary-blue);
   width: 100%;
 `;
 

@@ -15,7 +15,7 @@ export default function Footer() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (!isAnimating) {
-              iconRef.current.style.color = "var(--color-light-blue)";
+              iconRef.current.style.color = "var(--color-primary-blue)";
             }
           } else {
             if (!isAnimating) {
