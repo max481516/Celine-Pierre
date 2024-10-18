@@ -28,12 +28,25 @@ export default function InfoElement({
 const Element = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 1rem 0;
 `;
 
-const Name = styled.h2``;
+const Name = styled.h2`
+  font-size: 1.2rem;
+  font-weight: 700;
+`;
 
-const PictureContainer = styled.div``;
+const PictureContainer = styled.div`
+  padding: 0.5rem 0;
+`;
 
 const Description = styled.p``;
 
-const LocationLink = styled.a``;
+const LocationLink = styled.a`
+  text-decoration: none;
+  color: var(--color-primary-blue);
+
+  &:hover {
+    color: var(--color-light-blue);
+  }
+`;

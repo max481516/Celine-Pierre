@@ -4,11 +4,14 @@ import { MdLocationPin } from "react-icons/md";
 import { GiDress } from "react-icons/gi";
 import { FaSquareParking } from "react-icons/fa6";
 import { ImUserTie } from "react-icons/im";
-import { FONTS } from "../constants";
+import { FONTS } from "../../constants";
+import Separator from "../../media/Separator.svg?react";
+import Border from "../../media/Border.svg?react";
 
 export default function Saturday() {
   return (
     <Wrapper>
+      <StyledBorder />
       <EventContainer>
         <Title>Samedi : Céremonie Religieuse </Title>
         <ImageContainer>
@@ -90,6 +93,8 @@ export default function Saturday() {
         </DressCodeWrapper>
       </EventContainer>
 
+      <StyledSeparator />
+
       <EventContainer>
         <Title>SAMEDI : LA CÉLÉBRATION</Title>
         <ImageContainer>
@@ -169,6 +174,7 @@ export default function Saturday() {
           </DressCodeIconTextContainer>
         </DressCodeWrapper>
       </EventContainer>
+      <StyledBottomBorder />
     </Wrapper>
   );
 }
@@ -188,6 +194,8 @@ const Title = styled.h2`
   ${FONTS.titleFont};
   color: var(--color-primary-blue);
   padding: 0.5rem 0;
+  text-align: center;
+  text-transform: uppercase;
 `;
 
 const IconTextContainer = styled.div`
@@ -199,6 +207,7 @@ const IconTextContainer = styled.div`
 
 const LocationLink = styled.a`
   color: var(--color-primary-blue);
+  text-decoration: none;
 
   &:hover {
     color: var(--color-light-blue);
@@ -209,7 +218,7 @@ const DressCodeWrapper = styled.div`
   border: 1px solid var(--color-primary-blue);
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color: var(--color-element-sand);
+  background-color: var(--color-light-sand);
   width: 90%;
   margin: 0.5rem auto 0;
 `;
@@ -238,7 +247,6 @@ const ImageContainer = styled.div``;
 const StyledImage = styled.img`
   object-fit: cover;
   width: 100%;
-  border-radius: 8px;
 `;
 
 const StyledIcon = styled.div`
@@ -248,6 +256,23 @@ const StyledIcon = styled.div`
   width: 20px;
   height: 20px;
   color: var(--color-primary-blue);
+`;
+
+const StyledSeparator = styled(Separator)`
+  width: 100%;
+  color: var(--color-primary-blue);
+  margin-bottom: 1rem;
+`;
+
+const StyledBorder = styled(Border)`
+  padding-bottom: 1rem;
+  color: var(--color-primary-blue);
+`;
+
+const StyledBottomBorder = styled(StyledBorder)`
+  padding-bottom: 0;
+  padding-top: 1rem;
+  transform: rotate(180deg);
 `;
 
 /* const StyledMaps = styled.iframe`

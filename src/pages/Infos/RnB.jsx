@@ -1,13 +1,16 @@
-import InfoElement from "../components/InfoElement";
+import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
-import { FONTS } from "../constants";
+import { FONTS } from "../../constants";
+import Border from "../../media/Border.svg?react";
+import Separator2 from "../../media/Separator2.svg?react";
 
 export default function RnB() {
   return (
     <Wrapper>
+      <StyledTopBorder />
       <Title>Restaurants et Bars</Title>
       <Section>
-        <SectionTitle>Centre Ville</SectionTitle>
+        <SectionTitle>Centre Ville :</SectionTitle>
         <InfoElement
           name="Restaurant Corse FURANA"
           location="Rue de la Porte Génoise, 20137 Porto-Vecchio"
@@ -33,6 +36,7 @@ export default function RnB() {
             </picture>
           }
         />
+        <StyledSeparator2 />
         <InfoElement
           name="Pizza du Bastion"
           location="12 Rue Dr Camille de Rocca Serra, 20137 Porto-Vecchio"
@@ -58,6 +62,7 @@ export default function RnB() {
             </picture>
           }
         />
+        <StyledSeparator2 />
         <InfoElement
           name="Sushis bar"
           location="18 Rue du Général de Gaulle, 20137 Porto-Vecchio "
@@ -83,6 +88,7 @@ export default function RnB() {
             </picture>
           }
         />
+        <StyledSeparator2 />
         <InfoElement
           name="Les jardins d’Eden"
           location="18 Rue de la Prte Génoise, 20137 Porto-Vecchio"
@@ -109,8 +115,8 @@ export default function RnB() {
           }
         />
       </Section>
-      <Section>
-        <SectionTitle>AMBIANCÉS :</SectionTitle>
+      <Section style={{ paddingTop: "1rem" }}>
+        <SectionTitle>Ambiancés :</SectionTitle>
         <InfoElement
           name="B 52"
           location="Quai Jérôme Comparetti, 20169 Bonifacio"
@@ -136,6 +142,7 @@ export default function RnB() {
             </picture>
           }
         />
+        <StyledSeparator2 />
         <InfoElement
           name="Othello Bar"
           location="65 Rue U Borgo, 20137 Porto-Vecchio"
@@ -161,6 +168,7 @@ export default function RnB() {
             </picture>
           }
         />
+        <StyledSeparator2 />
         <InfoElement
           name="Le Patio"
           location="6 Imp. Ettori, 20137 Porto-Vecchio"
@@ -187,6 +195,7 @@ export default function RnB() {
           }
         />
       </Section>
+      <StyledBorder />
     </Wrapper>
   );
 }
@@ -197,20 +206,40 @@ const Wrapper = styled.div`
 
 const Title = styled.h2`
   ${FONTS.titleFont};
+  font-size: 2rem;
   color: var(--color-primary-blue);
+  text-align: center;
+  text-transform: uppercase;
 `;
 
 const Section = styled.section``;
 
-const SectionTitle = styled.h2``;
+const SectionTitle = styled.h2`
+  ${FONTS.titleFont};
+  font-size: 2rem;
+  color: var(--color-primary-blue);
+  text-align: center;
+  margin-top: 0.5;
+`;
 
 const StyledImage = styled.img`
   object-fit: cover;
   width: 100%;
   height: auto;
-  border-radius: 8px;
 `;
 
 const StyledImageVertical = styled(StyledImage)`
   height: 500px;
 `;
+
+const StyledBorder = styled(Border)`
+  padding: 1rem 0;
+  color: var(--color-primary-blue);
+`;
+
+const StyledTopBorder = styled(StyledBorder)`
+  padding-bottom: 0;
+  transform: rotate(180deg);
+`;
+
+const StyledSeparator2 = styled(Separator2)``;

@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 export default function Footer() {
   const iconRef = useRef(null);
   const footerRef = useRef(null);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [$isAnimating, setIsAnimating] = useState(false);
   const $isHomePage = useLocation().pathname === "/";
 
   useEffect(() => {
@@ -14,11 +14,11 @@ export default function Footer() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            if (!isAnimating) {
+            if (!$isAnimating) {
               iconRef.current.style.color = "var(--color-primary-blue)";
             }
           } else {
-            if (!isAnimating) {
+            if (!$isAnimating) {
               iconRef.current.style.color = "var(--color-darker-sand)";
             }
           }
@@ -41,7 +41,7 @@ export default function Footer() {
         observer.unobserve(currentFooter);
       }
     };
-  }, [isAnimating]);
+  }, [$isAnimating]);
 
   const handleScrollToTop = (e) => {
     e.preventDefault();
@@ -63,10 +63,10 @@ export default function Footer() {
         title="back to top"
         ref={iconRef}
         onClick={handleScrollToTop}
-        isAnimating={isAnimating}
+        $isAnimating={$isAnimating}
         $isHomePage={$isHomePage}
       >
-        <StyledBackToTopIcon isAnimating={isAnimating} />
+        <StyledBackToTopIcon $isAnimating={$isAnimating} />
       </BackToTop>
     </FooterContainer>
   );
@@ -87,7 +87,7 @@ const moveUpDown = keyframes`
 
 const FooterContainer = styled.footer`
   background: ${({ $isHomePage }) =>
-    $isHomePage ? "transparent" : "var(--color-element-sand)"};
+    $isHomePage ? "transparent" : "var(--color-light-sand)"};
   text-align: center;
   border-top: ${({ $isHomePage }) =>
     $isHomePage ? "none" : "1px solid var(--color-darker-sand)"};
@@ -106,14 +106,14 @@ const BackToTop = styled.a`
   z-index: 3000;
 
   /* Disable color transition during animation */
-  color: ${({ isAnimating }) =>
-    isAnimating ? "var(--color-light-blue)" : "inherit"};
+  color: ${({ $isAnimating }) =>
+    $isAnimating ? "var(--color-light-blue)" : "inherit"};
 
-  transition: ${({ isAnimating }) =>
-    isAnimating ? "none" : "color 0.3s ease"};
+  transition: ${({ $isAnimating }) =>
+    $isAnimating ? "none" : "color 0.3s ease"};
 
-  animation: ${({ isAnimating }) =>
-    isAnimating
+  animation: ${({ $isAnimating }) =>
+    $isAnimating
       ? css`
           ${moveUpDown} 3s ease
         `
@@ -124,8 +124,8 @@ const StyledBackToTopIcon = styled(BackToTopIcon)`
   width: 60px;
   height: auto;
   fill: currentColor;
-  animation: ${({ isAnimating }) =>
-    isAnimating
+  animation: ${({ $isAnimating }) =>
+    $isAnimating
       ? css`
           ${moveUpDown} 3s ease
         `

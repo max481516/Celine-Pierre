@@ -2,21 +2,20 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./i18n/i18n";
 import RSVP from "./pages/RSVP";
 import Home from "./pages/Home";
-import Planing from "./pages/Planing";
-import Infos from "./pages/Infos";
+
 import List from "./pages/List";
 import Album from "./pages/Album";
-import Accomodations from "./pages/Accomodations";
-import Transports from "./pages/Transports";
-import RnB from "./pages/RnB";
-import Beauty from "./pages/Beauty";
-import Beaches from "./pages/Beaches";
-import Activities from "./pages/Activities";
-import Sitters from "./pages/Sitters";
+import Accomodations from "./pages/Infos/Accomodations";
+import Transports from "./pages/Infos/Transports";
+import RnB from "./pages/Infos/RnB";
+import Beauty from "./pages/Infos/Beauty";
+import Beaches from "./pages/Infos/Beaches";
+import Activities from "./pages/Infos/Activities";
+import Sitters from "./pages/Infos/Sitters";
 import Navbar from "./components/Navbar";
-import Friday from "./pages/Friday";
-import Saturday from "./pages/Saturday";
-import Sunday from "./pages/Sunday";
+import Friday from "./pages/Events/Friday";
+import Saturday from "./pages/Events/Saturday";
+import Sunday from "./pages/Events/Sunday";
 import Contacts from "./pages/Contacts";
 import Footer from "./components/Footer";
 
@@ -27,8 +26,7 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Planing" element={<Planing />} />
-          <Route path="/Infos" element={<Infos />} />
+
           <Route path="/List" element={<List />} />
           <Route path="/Album" element={<Album />} />
           <Route path="/RSVP" element={<RSVP />} />

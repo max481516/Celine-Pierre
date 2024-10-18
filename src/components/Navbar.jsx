@@ -65,7 +65,7 @@ const Nav = styled.nav`
   left: 0;
   right: 0;
   background: ${({ $isHomePage }) =>
-    $isHomePage ? "transparent" : "var(--color-element-sand)"};
+    $isHomePage ? "transparent" : "var(--color-light-sand)"};
   border-bottom: ${({ $isHomePage }) =>
     $isHomePage ? "none" : "1px solid var(--color-darker-sand);"};
   height: 80px;

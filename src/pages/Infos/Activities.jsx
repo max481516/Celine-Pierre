@@ -1,6 +1,6 @@
-import InfoElement from "../components/InfoElement";
+import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
-import { FONTS } from "../constants";
+import { FONTS } from "../../constants";
 
 export default function RnB() {
   return (

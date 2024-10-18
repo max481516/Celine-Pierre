@@ -3,11 +3,13 @@ import { IoMdClock } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
 import { FaSquareParking } from "react-icons/fa6";
 import { ImManWoman } from "react-icons/im";
-import { FONTS } from "../constants";
+import { FONTS } from "../../../src/constants";
+import Border from "../../media/Border.svg?react";
 
 export default function Sunday() {
   return (
     <Wrapper>
+      <StyledTopBorder />
       <EventContainer>
         <Title>DIMANCHE : BEACH PARTY</Title>
         <ImageContainer>
@@ -80,6 +82,7 @@ export default function Sunday() {
           </DressCodeIconTextContainer>
         </DressCodeWrapper>
       </EventContainer>
+      <StyledBorder />
     </Wrapper>
   );
 }
@@ -98,6 +101,7 @@ const EventContainer = styled.div`
 const Title = styled.h2`
   ${FONTS.titleFont};
   color: var(--color-primary-blue);
+  text-align: center;
 `;
 
 const IconTextContainer = styled.div`
@@ -113,7 +117,7 @@ const LocationLink = styled.a`
 
 const DressCodeWrapper = styled.div`
   border: 1px solid var(--color-primary-blue);
-  background: var(--color-dark-sand);
+  background: var(--color-light-sand);
   border-radius: 8px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   width: 90%;
@@ -140,7 +144,6 @@ const ImageContainer = styled.div``;
 const StyledImage = styled.img`
   object-fit: cover;
   width: 100%;
-  border-radius: 8px;
 `;
 
 const StyledIcon = styled.div`
@@ -150,6 +153,16 @@ const StyledIcon = styled.div`
   width: 20px;
   height: 20px;
   color: var(--color-primary-blue);
+`;
+
+const StyledBorder = styled(Border)`
+  padding: 1rem 0;
+  color: var(--color-primary-blue);
+`;
+
+const StyledTopBorder = styled(StyledBorder)`
+  padding-bottom: 0;
+  transform: rotate(180deg);
 `;
 
 /* const StyledMaps = styled.iframe`
