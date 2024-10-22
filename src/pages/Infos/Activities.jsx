@@ -1,10 +1,13 @@
 import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
 import { FONTS } from "../../constants";
+import Border from "../../media/Border.svg?react";
+import Separator2 from "../../media/Separator2.svg?react";
 
 export default function RnB() {
   return (
     <Wrapper>
+      <StyledBorder />
       <Title>Activites</Title>
       <Section>
         <InfoElement
@@ -32,6 +35,7 @@ export default function RnB() {
             </picture>
           }
         />
+        <StyledSeparator2 />
         <InfoElement
           name="Jet Ski"
           location="Quai de Syracuse, 20137 Porto-Vecchio"
@@ -58,6 +62,7 @@ export default function RnB() {
           }
         />
       </Section>
+      <StyledBottomBorder />
     </Wrapper>
   );
 }
@@ -68,7 +73,10 @@ const Wrapper = styled.div`
 
 const Title = styled.h2`
   ${FONTS.titleFont};
+  font-size: 2rem;
   color: var(--color-primary-blue);
+  text-align: center;
+  text-transform: uppercase;
 `;
 
 const Section = styled.section``;
@@ -78,4 +86,19 @@ const StyledImage = styled.img`
   width: 100%;
   height: auto;
   border-radius: 8px;
+`;
+
+const StyledBorder = styled(Border)`
+  padding-bottom: 1rem;
+  color: var(--color-primary-blue);
+`;
+
+const StyledBottomBorder = styled(StyledBorder)`
+  padding-bottom: 0;
+  padding-top: 1rem;
+  transform: rotate(180deg);
+`;
+
+const StyledSeparator2 = styled(Separator2)`
+  color: var(--color-primary-blue);
 `;

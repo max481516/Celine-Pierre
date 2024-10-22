@@ -9,7 +9,7 @@ import Border from "../../media/Border.svg?react";
 export default function Sunday() {
   return (
     <Wrapper>
-      <StyledTopBorder />
+      <StyledBorder />
       <EventContainer>
         <Title>DIMANCHE : BEACH PARTY</Title>
         <ImageContainer>
@@ -82,7 +82,7 @@ export default function Sunday() {
           </DressCodeIconTextContainer>
         </DressCodeWrapper>
       </EventContainer>
-      <StyledBorder />
+      <StyledBottomBorder />
     </Wrapper>
   );
 }
@@ -156,12 +156,13 @@ const StyledIcon = styled.div`
 `;
 
 const StyledBorder = styled(Border)`
-  padding: 1rem 0;
+  padding-bottom: 1rem;
   color: var(--color-primary-blue);
 `;
 
-const StyledTopBorder = styled(StyledBorder)`
+const StyledBottomBorder = styled(StyledBorder)`
   padding-bottom: 0;
+  padding-top: 1rem;
   transform: rotate(180deg);
 `;
 

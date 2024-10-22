@@ -135,6 +135,7 @@ const MobileDropdownContainer = styled.div`
 `;
 
 const MobileDropdownContent = styled.div`
+  /* ${FONTS.titleFont}; */
   max-height: ${(props) => (props.$isDropdownOpen ? "500px" : "0")};
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;

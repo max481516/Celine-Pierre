@@ -7,7 +7,7 @@ import Separator2 from "../../media/Separator2.svg?react";
 export default function RnB() {
   return (
     <Wrapper>
-      <StyledTopBorder />
+      <StyledBorder />
       <Title>Restaurants et Bars</Title>
       <Section>
         <SectionTitle>Centre Ville :</SectionTitle>
@@ -195,7 +195,7 @@ export default function RnB() {
           }
         />
       </Section>
-      <StyledBorder />
+      <StyledBottomBorder />
     </Wrapper>
   );
 }
@@ -216,7 +216,7 @@ const Section = styled.section``;
 
 const SectionTitle = styled.h2`
   ${FONTS.titleFont};
-  font-size: 2rem;
+  font-size: 1.9rem;
   color: var(--color-primary-blue);
   text-align: center;
   margin-top: 0.5;
@@ -233,13 +233,16 @@ const StyledImageVertical = styled(StyledImage)`
 `;
 
 const StyledBorder = styled(Border)`
-  padding: 1rem 0;
+  padding-bottom: 1rem;
   color: var(--color-primary-blue);
 `;
 
-const StyledTopBorder = styled(StyledBorder)`
+const StyledBottomBorder = styled(StyledBorder)`
   padding-bottom: 0;
+  padding-top: 1rem;
   transform: rotate(180deg);
 `;
 
-const StyledSeparator2 = styled(Separator2)``;
+const StyledSeparator2 = styled(Separator2)`
+  color: var(--color-primary-blue);
+`;

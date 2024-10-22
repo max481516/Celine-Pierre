@@ -1,10 +1,13 @@
 import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
 import { FONTS } from "../../constants";
+import Border from "../../media/Border.svg?react";
+import Separator2 from "../../media/Separator2.svg?react";
 
 export default function RnB() {
   return (
     <Wrapper>
+      <StyledBorder />
       <Title>Plages</Title>
       <Section>
         <SectionTitle>Plages de Palombaggia</SectionTitle>
@@ -33,6 +36,7 @@ export default function RnB() {
             </picture>
           }
         />
+        <StyledSeparator2 />
         <InfoElement
           name="Linda Beach"
           location="Palombaggia Capu d'Acciaghju, 20137 Porto-Vecchio"
@@ -58,6 +62,7 @@ export default function RnB() {
             </picture>
           }
         />
+        <StyledSeparator2 />
         <InfoElement
           name="Da Mare Sea Lounge"
           location="Plage de Palombaggia, 20137 Porto-Vecchio "
@@ -83,6 +88,7 @@ export default function RnB() {
             </picture>
           }
         />
+        <StyledSeparator2 />
         <InfoElement
           name="Le petit chose"
           location="folacca, Rte de Palombaggia, 20137 Porto-Vecchio"
@@ -138,6 +144,7 @@ export default function RnB() {
             </picture>
           }
         />
+        <StyledSeparator2 />
         <InfoElement
           name="Køstën Plage"
           location="Baie de Santa Giulia
@@ -193,6 +200,7 @@ export default function RnB() {
           }
         />
       </Section>
+      <StyledBottomBorder />
     </Wrapper>
   );
 }
@@ -203,16 +211,40 @@ const Wrapper = styled.div`
 
 const Title = styled.h2`
   ${FONTS.titleFont};
+  font-size: 2rem;
   color: var(--color-primary-blue);
+  text-align: center;
+  text-transform: uppercase;
 `;
 
 const Section = styled.section``;
 
-const SectionTitle = styled.h2``;
+const SectionTitle = styled.h2`
+  ${FONTS.titleFont};
+  font-size: 1.9rem;
+  color: var(--color-primary-blue);
+  text-align: center;
+  margin-top: 0.5;
+`;
 
 const StyledImage = styled.img`
   object-fit: cover;
   width: 100%;
   height: auto;
   border-radius: 8px;
+`;
+
+const StyledBorder = styled(Border)`
+  padding-bottom: 1rem;
+  color: var(--color-primary-blue);
+`;
+
+const StyledBottomBorder = styled(StyledBorder)`
+  padding-bottom: 0;
+  padding-top: 1rem;
+  transform: rotate(180deg);
+`;
+
+const StyledSeparator2 = styled(Separator2)`
+  color: var(--color-primary-blue);
 `;
