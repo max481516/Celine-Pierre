@@ -8,7 +8,7 @@ export default function RnB() {
   return (
     <Wrapper>
       <StyledBorder />
-      <Title>Activites</Title>
+      <Title>Activités</Title>
       <Section>
         <InfoElement
           name="ProKart"

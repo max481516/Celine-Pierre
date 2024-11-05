@@ -12,6 +12,7 @@
   "dependencies": {
     "@formspree/react": "^2.5.1",
     "babel-plugin-styled-components": "^2.1.4",
+    "firebase": "^11.0.1",
     "i18next": "^23.12.2",
     "i18next-browser-languagedetector": "^8.0.0",
     "i18next-http-backend": "^2.5.2",
