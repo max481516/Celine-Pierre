@@ -25,7 +25,8 @@
     "react-masonry-css": "^1.0.16",
     "react-router-dom": "^6.24.1",
     "styled-components": "^6.1.11",
-    "vite-plugin-svgr": "^4.2.0"
+    "vite-plugin-svgr": "^4.2.0",
+    "yet-another-react-lightbox": "^3.21.6"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
