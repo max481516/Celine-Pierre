@@ -11,6 +11,9 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { ref, deleteObject } from "firebase/storage";
+import styled from "styled-components";
+import { FONTS } from "../constants";
+import Border from "../media/Border.svg?react";
 
 export default function Album() {
   const [mediaFiles, setMediaFiles] = useState([]);
@@ -56,10 +59,36 @@ export default function Album() {
   };
 
   return (
-    <>
-      <h2>Album</h2>
+    <Wrapper>
+      <StyledBorder />
+      <Title>Album</Title>
       <UploadMedia />
       <AlbumGrid mediaItems={mediaFiles} onDelete={handleDelete} />
-    </>
+      <StyledBottomBorder />
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  margin-top: 1rem;
+  padding: 0 16px;
+`;
+
+const Title = styled.h2`
+  ${FONTS.titleFont};
+  color: var(--color-primary-blue);
+  padding: 0.5rem 0;
+  text-align: center;
+  text-transform: uppercase;
+`;
+
+const StyledBorder = styled(Border)`
+  padding-bottom: 1rem;
+  color: var(--color-primary-blue);
+`;
+
+const StyledBottomBorder = styled(StyledBorder)`
+  padding-bottom: 0;
+  padding-top: 1rem;
+  transform: rotate(180deg);
+`;

@@ -14,7 +14,6 @@ import { QUERIES } from "../constants";
 export default function AlbumGrid({ mediaItems, onDelete }) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [playingVideos, setPlayingVideos] = useState({});
 
   const openLightbox = (index) => {
     setCurrentIndex(index);
@@ -45,11 +44,6 @@ export default function AlbumGrid({ mediaItems, onDelete }) {
       });
   };
 
-  const handleVideoPlay = (event, index) => {
-    event.stopPropagation(); // Prevent triggering lightbox when clicking on play button
-    setPlayingVideos((prev) => ({ ...prev, [index]: true }));
-  };
-
   const slides = mediaItems
     .map((item) => {
       if (item.type.startsWith("image/")) {
@@ -76,6 +70,43 @@ export default function AlbumGrid({ mediaItems, onDelete }) {
     })
     .filter((slide) => slide !== null);
 
+  // Custom Download Button
+  function DownloadButton({ handleDownload }) {
+    const { currentSlide } = useLightboxState();
+
+    return (
+      <IconButton
+        size="20"
+        label="Download"
+        icon={RiDownloadLine}
+        disabled={!currentSlide}
+        onClick={() => {
+          if (currentSlide && currentSlide.mediaItem) {
+            handleDownload(currentSlide.mediaItem);
+          }
+        }}
+      />
+    );
+  }
+
+  // Custom Delete Button
+  function DeleteButton({ onDelete }) {
+    const { currentSlide } = useLightboxState();
+
+    return (
+      <StyledIconButton
+        label="Delete"
+        icon={FaRegTrashCan}
+        disabled={!currentSlide}
+        onClick={() => {
+          if (currentSlide && currentSlide.mediaItem) {
+            onDelete(currentSlide.mediaItem);
+          }
+        }}
+      />
+    );
+  }
+
   const breakpointColumns = {
     default: 4,
     1100: 3,
@@ -92,17 +123,10 @@ export default function AlbumGrid({ mediaItems, onDelete }) {
               <StyledImage src={item.url} alt={item.name} />
             ) : (
               <VideoContainer>
-                <StyledVideo
-                  src={item.url}
-                  controls={!!playingVideos[index]}
-                  onClick={(e) => e.stopPropagation()} // Prevent lightbox when video is clicked directly
-                  onPlay={() => handleVideoPlay(null, index)}
-                />
-                {!playingVideos[index] && (
-                  <PlayButton onClick={(e) => handleVideoPlay(e, index)}>
-                    <FaPlay size={36} />
-                  </PlayButton>
-                )}
+                <StyledVideoThumbnail src={item.url} type="video/mp4" />
+                <PlayButton onClick={() => openLightbox(index)}>
+                  <FaPlay size={36} />
+                </PlayButton>
               </VideoContainer>
             )}
           </MediaItem>
@@ -115,6 +139,11 @@ export default function AlbumGrid({ mediaItems, onDelete }) {
         slides={slides}
         index={currentIndex}
         plugins={[Video]}
+        video={{
+          controls: true,
+          playsInline: true,
+          autoPlay: true,
+        }}
         toolbar={{
           buttons: [
             <DownloadButton key="download" handleDownload={handleDownload} />,
@@ -132,48 +161,10 @@ export default function AlbumGrid({ mediaItems, onDelete }) {
   );
 }
 
-// Custom Download Button
-function DownloadButton({ handleDownload }) {
-  const { currentSlide } = useLightboxState();
-
-  return (
-    <IconButton
-      size="20"
-      label="Download"
-      icon={RiDownloadLine}
-      disabled={!currentSlide}
-      onClick={() => {
-        if (currentSlide && currentSlide.mediaItem) {
-          handleDownload(currentSlide.mediaItem);
-        }
-      }}
-    />
-  );
-}
-
-// Custom Delete Button
-function DeleteButton({ onDelete }) {
-  const { currentSlide } = useLightboxState();
-
-  return (
-    <StyledIconButton
-      label="Delete"
-      icon={FaRegTrashCan}
-      disabled={!currentSlide}
-      onClick={() => {
-        if (currentSlide && currentSlide.mediaItem) {
-          onDelete(currentSlide.mediaItem);
-        }
-      }}
-    />
-  );
-}
-
 // Styled Components
 const MasonryGrid = styled(Masonry)`
   display: flex;
   width: 100%;
-  padding: 8px;
 
   @media ${QUERIES.laptopAndUp} {
     padding: 8px 24px;
@@ -210,12 +201,11 @@ const VideoContainer = styled.div`
   height: 100%;
 `;
 
-const StyledVideo = styled.video`
+const StyledVideoThumbnail = styled.video`
   width: 100%;
   height: auto;
   object-fit: cover;
-  display: block;
-  pointer-events: none; // Prevent interaction until play button is clicked
+  pointer-events: none; /* Prevents the video from being clickable */
 `;
 
 const PlayButton = styled.button`
@@ -227,8 +217,8 @@ const PlayButton = styled.button`
   color: white;
   border: none;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
