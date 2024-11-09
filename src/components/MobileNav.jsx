@@ -5,62 +5,82 @@ import { useState } from "react";
 import { FONTS } from "../constants";
 
 export default function MobileNav({ isOpen, toggle }) {
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const handleDropdownToggle = (name) => {
+    // Toggle dropdown: if it's open, close it; otherwise, open it
+    setOpenDropdown((prev) => (prev === name ? null : name));
+  };
+
+  const handleNavItemClick = () => {
+    setOpenDropdown(null); // Close any open dropdown when clicking on any main item
+    toggle(); // Also toggle the mobile nav
+  };
+
   return (
     <MobileNavContainer $isOpen={isOpen}>
       <CloseButton onClick={toggle}>
         <AiOutlineClose />
       </CloseButton>
       <MobileNavMenu>
-        <MobileNavItem to="/" onClick={toggle}>
+        <MobileNavItem to="/" onClick={handleNavItemClick}>
           Bienvenue
         </MobileNavItem>
 
-        <MobileDropdown name="Événements">
-          <MobileDropdownItem to="/Friday" onClick={toggle}>
+        <MobileDropdown
+          name="Événements"
+          isOpen={openDropdown === "Événements"}
+          toggleDropdown={() => handleDropdownToggle("Événements")}
+        >
+          <MobileDropdownItem to="/Friday" onClick={handleNavItemClick}>
             Vendredi
           </MobileDropdownItem>
-          <MobileDropdownItem to="/Saturday" onClick={toggle}>
+          <MobileDropdownItem to="/Saturday" onClick={handleNavItemClick}>
             Samedi
           </MobileDropdownItem>
-          <MobileDropdownItem to="/Sunday" onClick={toggle}>
+          <MobileDropdownItem to="/Sunday" onClick={handleNavItemClick}>
             Dimanche
           </MobileDropdownItem>
         </MobileDropdown>
 
-        <MobileDropdown name="Infos">
-          <MobileDropdownItem to="/Accomodations" onClick={toggle}>
+        <MobileDropdown
+          name="Infos"
+          isOpen={openDropdown === "Infos"}
+          toggleDropdown={() => handleDropdownToggle("Infos")}
+        >
+          <MobileDropdownItem to="/Accomodations" onClick={handleNavItemClick}>
             Hébergement
           </MobileDropdownItem>
-          <MobileDropdownItem to="/Transports" onClick={toggle}>
+          <MobileDropdownItem to="/Transports" onClick={handleNavItemClick}>
             Transports
           </MobileDropdownItem>
-          <MobileDropdownItem to="/RnB" onClick={toggle}>
+          <MobileDropdownItem to="/RnB" onClick={handleNavItemClick}>
             Restaurants & Bars
           </MobileDropdownItem>
-          <MobileDropdownItem to="/Beauty" onClick={toggle}>
+          <MobileDropdownItem to="/Beauty" onClick={handleNavItemClick}>
             Beauté
           </MobileDropdownItem>
-          <MobileDropdownItem to="/Beaches" onClick={toggle}>
+          <MobileDropdownItem to="/Beaches" onClick={handleNavItemClick}>
             Plages
           </MobileDropdownItem>
-          <MobileDropdownItem to="/Activities" onClick={toggle}>
+          <MobileDropdownItem to="/Activities" onClick={handleNavItemClick}>
             Activités
           </MobileDropdownItem>
-          <MobileDropdownItem to="/Sitters" onClick={toggle}>
+          <MobileDropdownItem to="/Sitters" onClick={handleNavItemClick}>
             Baby-sitters
           </MobileDropdownItem>
         </MobileDropdown>
 
-        <MobileNavItem to="/List" onClick={toggle}>
+        <MobileNavItem to="/List" onClick={handleNavItemClick}>
           Liste de Mariage
         </MobileNavItem>
-        <MobileNavItem to="/Album" onClick={toggle}>
+        <MobileNavItem to="/Album" onClick={handleNavItemClick}>
           Album photos
         </MobileNavItem>
-        <MobileNavItem to="/RSVP" onClick={toggle}>
+        <MobileNavItem to="/RSVP" onClick={handleNavItemClick}>
           RSVP
         </MobileNavItem>
-        <MobileNavItem to="/Contacts" onClick={toggle}>
+        <MobileNavItem to="/Contacts" onClick={handleNavItemClick}>
           Contacts
         </MobileNavItem>
       </MobileNavMenu>
@@ -69,25 +89,20 @@ export default function MobileNav({ isOpen, toggle }) {
 }
 
 /* Mobile Dropdown Component */
-const MobileDropdown = ({ name, children }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
-  };
-
+const MobileDropdown = ({ name, children, isOpen, toggleDropdown }) => {
   return (
     <MobileDropdownContainer>
       <MobileNavItem as="div" onClick={toggleDropdown}>
         {name}
       </MobileNavItem>
-      <MobileDropdownContent $isDropdownOpen={isDropdownOpen}>
+      <MobileDropdownContent $isDropdownOpen={isOpen}>
         {children}
       </MobileDropdownContent>
     </MobileDropdownContainer>
   );
 };
 
+// Styled Components
 const MobileNavContainer = styled.div`
   position: fixed;
   top: 0;
@@ -135,10 +150,9 @@ const MobileDropdownContainer = styled.div`
 `;
 
 const MobileDropdownContent = styled.div`
-  /* ${FONTS.titleFont}; */
   max-height: ${(props) => (props.$isDropdownOpen ? "500px" : "0")};
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
   opacity: ${(props) => (props.$isDropdownOpen ? "1" : "0")};
   background-color: var(--color-primary-blue);
   width: 100%;

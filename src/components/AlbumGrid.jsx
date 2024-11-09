@@ -6,12 +6,13 @@ import Lightbox, {
 } from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Video from "yet-another-react-lightbox/plugins/video";
+import Share from "yet-another-react-lightbox/plugins/share";
 import styled from "styled-components";
-import { FaRegTrashCan, FaPlay } from "react-icons/fa6";
+import { FaPlay } from "react-icons/fa6";
 import { RiDownloadLine } from "react-icons/ri";
 import { QUERIES } from "../constants";
 
-export default function AlbumGrid({ mediaItems, onDelete }) {
+export default function AlbumGrid({ mediaItems }) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -89,24 +90,6 @@ export default function AlbumGrid({ mediaItems, onDelete }) {
     );
   }
 
-  // Custom Delete Button
-  function DeleteButton({ onDelete }) {
-    const { currentSlide } = useLightboxState();
-
-    return (
-      <StyledIconButton
-        label="Delete"
-        icon={FaRegTrashCan}
-        disabled={!currentSlide}
-        onClick={() => {
-          if (currentSlide && currentSlide.mediaItem) {
-            onDelete(currentSlide.mediaItem);
-          }
-        }}
-      />
-    );
-  }
-
   const breakpointColumns = {
     default: 4,
     1100: 3,
@@ -138,7 +121,7 @@ export default function AlbumGrid({ mediaItems, onDelete }) {
         close={() => setIsOpen(false)}
         slides={slides}
         index={currentIndex}
-        plugins={[Video]}
+        plugins={[Video, Share]}
         video={{
           controls: true,
           playsInline: true,
@@ -147,7 +130,6 @@ export default function AlbumGrid({ mediaItems, onDelete }) {
         toolbar={{
           buttons: [
             <DownloadButton key="download" handleDownload={handleDownload} />,
-            <DeleteButton key="delete" onDelete={onDelete} />,
             "close",
           ],
         }}
@@ -229,8 +211,4 @@ const PlayButton = styled.button`
   &:hover {
     background-color: rgba(0, 0, 0, 0.8);
   }
-`;
-
-const StyledIconButton = styled(IconButton)`
-  width: 27%;
 `;
