@@ -14,13 +14,7 @@ export default function Footer() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            if (!$isAnimating) {
-              iconRef.current.style.color = "var(--color-primary-blue)";
-            }
-          } else {
-            if (!$isAnimating) {
-              iconRef.current.style.color = "var(--color-darker-sand)";
-            }
+            // Add any other behavior here if needed
           }
         });
       },
@@ -41,7 +35,7 @@ export default function Footer() {
         observer.unobserve(currentFooter);
       }
     };
-  }, [$isAnimating]);
+  }, []);
 
   const handleScrollToTop = (e) => {
     e.preventDefault();
@@ -100,17 +94,10 @@ const BackToTop = styled.a`
   display: ${({ $isHomePage }) => ($isHomePage ? "none" : "block")};
   position: fixed;
   bottom: calc(2rem / 16);
-  right: -4px;
+  right: 10px;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
   z-index: 3000;
-
-  /* Disable color transition during animation */
-  color: ${({ $isAnimating }) =>
-    $isAnimating ? "var(--color-light-blue)" : "inherit"};
-
-  transition: ${({ $isAnimating }) =>
-    $isAnimating ? "none" : "color 0.3s ease"};
 
   animation: ${({ $isAnimating }) =>
     $isAnimating
@@ -121,9 +108,9 @@ const BackToTop = styled.a`
 `;
 
 const StyledBackToTopIcon = styled(BackToTopIcon)`
-  width: 60px;
+  width: 56px;
   height: auto;
-  fill: currentColor;
+  color: var(--color-primary-blue);
   animation: ${({ $isAnimating }) =>
     $isAnimating
       ? css`

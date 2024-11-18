@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
   --color-dark-blue: HSL(176, 33%, 25%);
   --color-primary-blue: HSL(183, 94%, 25%);
   --color-light-blue: HSL(179, 35%, 50%);
+  --color-lighter-blue: HSL(179, 35%, 50%);
   --color-lighter-sand: HSL(19, 40%, 95%);
   --color-light-sand: HSL(19, 34%, 90%);
   --color-dark-sand: HSL(27, 20%, 80%);

@@ -38,7 +38,7 @@ export default function RSVPForm() {
   //IOS VALIDATION BUG FIX
   const formRef = useRef(null); // Create a ref for the form element
   const containerRef = useRef(null); // Create a ref for the container element
-  useIOSInputScroll(formRef, containerRef); // Use the custom hook
+  useIOSInputScroll(formRef, containerRef);
 
   const [attendance, setAttendance] = useState("");
   const [numRows, setNumRows] = useState(1);
