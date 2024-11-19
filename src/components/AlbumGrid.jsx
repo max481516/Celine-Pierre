@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
 import Lightbox, {
   IconButton,
@@ -6,19 +6,31 @@ import Lightbox, {
 } from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Video from "yet-another-react-lightbox/plugins/video";
-import Share from "yet-another-react-lightbox/plugins/share";
 import styled from "styled-components";
-import { FaPlay } from "react-icons/fa6";
+import { FaPlay, FaRegCommentDots } from "react-icons/fa6";
 import { RiDownloadLine } from "react-icons/ri";
+import {
+  collection,
+  addDoc,
+  onSnapshot,
+  query,
+  orderBy,
+  serverTimestamp,
+} from "firebase/firestore";
+import { firestore } from "../firebase/firebaseConfig";
 import { QUERIES } from "../constants";
+import CommentSection from "./CommentSection";
 
 export default function AlbumGrid({ mediaItems }) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [comments, setComments] = useState([]);
+  const [isCommentsOpen, setIsCommentsOpen] = useState(false);
 
   const openLightbox = (index) => {
     setCurrentIndex(index);
     setIsOpen(true);
+    setIsCommentsOpen(false); // Reset comments container state
   };
 
   const handleDownload = (item) => {
@@ -45,8 +57,54 @@ export default function AlbumGrid({ mediaItems }) {
       });
   };
 
+  // Function to add a new comment
+  const addComment = async (text) => {
+    const mediaItemId = slides[currentIndex].mediaItem.id;
+    if (!mediaItemId) {
+      console.error("Media item ID is undefined");
+      return;
+    }
+    const commentsRef = collection(
+      firestore,
+      `mediaItems/${mediaItemId}/comments`
+    );
+    await addDoc(commentsRef, {
+      text,
+      createdAt: serverTimestamp(),
+      // Include other fields like author if needed
+    });
+  };
+
+  // Fetch comments when lightbox opens or current slide changes
+  useEffect(() => {
+    if (isOpen && slides[currentIndex]) {
+      const mediaItemId = slides[currentIndex].mediaItem.id;
+      if (!mediaItemId) {
+        console.error("Media item ID is undefined");
+        return;
+      }
+      const commentsRef = collection(
+        firestore,
+        `mediaItems/${mediaItemId}/comments`
+      );
+      const q = query(commentsRef, orderBy("createdAt", "asc"));
+
+      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        const commentsData = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setComments(commentsData);
+      });
+
+      return () => unsubscribe();
+    }
+  }, [isOpen, currentIndex]);
+
   const slides = mediaItems
     .map((item) => {
+      if (!item || !item.type || !item.url) return null;
+
       if (item.type.startsWith("image/")) {
         return {
           src: item.url,
@@ -77,7 +135,7 @@ export default function AlbumGrid({ mediaItems }) {
 
     return (
       <IconButton
-        size="20"
+        size={20}
         label="Download"
         icon={RiDownloadLine}
         disabled={!currentSlide}
@@ -86,6 +144,18 @@ export default function AlbumGrid({ mediaItems }) {
             handleDownload(currentSlide.mediaItem);
           }
         }}
+      />
+    );
+  }
+
+  // Custom Comments Toggle Button
+  function CommentsButton() {
+    return (
+      <IconButton
+        size={20}
+        label="Comments"
+        icon={FaRegCommentDots}
+        onClick={() => setIsCommentsOpen(!isCommentsOpen)}
       />
     );
   }
@@ -102,12 +172,12 @@ export default function AlbumGrid({ mediaItems }) {
       <MasonryGrid breakpointCols={breakpointColumns}>
         {mediaItems.map((item, index) => (
           <MediaItem key={index} onClick={() => openLightbox(index)}>
-            {item.type.startsWith("image/") ? (
+            {item.type && item.type.startsWith("image/") ? (
               <StyledImage src={item.url} alt={item.name} />
             ) : (
               <VideoContainer>
                 <StyledVideoThumbnail src={item.url} type="video/mp4" />
-                <PlayButton onClick={() => openLightbox(index)}>
+                <PlayButton>
                   <FaPlay size={36} />
                 </PlayButton>
               </VideoContainer>
@@ -121,7 +191,7 @@ export default function AlbumGrid({ mediaItems }) {
         close={() => setIsOpen(false)}
         slides={slides}
         index={currentIndex}
-        plugins={[Video, Share]}
+        plugins={[Video]}
         video={{
           controls: true,
           playsInline: true,
@@ -130,18 +200,38 @@ export default function AlbumGrid({ mediaItems }) {
         toolbar={{
           buttons: [
             <DownloadButton key="download" handleDownload={handleDownload} />,
+            <CommentsButton key="comments" />,
             "close",
           ],
+        }}
+        render={{
+          controls: () => (
+            <CommentSection
+              comments={comments}
+              addComment={addComment}
+              isOpen={isCommentsOpen}
+              toggleOpen={() => setIsCommentsOpen(!isCommentsOpen)}
+            />
+          ),
         }}
         on={{
           view: ({ index }) => {
             setCurrentIndex(index);
+            setIsCommentsOpen(false); // Reset comments container when slide changes
           },
         }}
+      />
+
+      <CommentSection
+        comments={comments}
+        addComment={addComment}
+        isOpen={isOpen}
       />
     </>
   );
 }
+
+// CommentsContainer Component
 
 // Styled Components
 const MasonryGrid = styled(Masonry)`
