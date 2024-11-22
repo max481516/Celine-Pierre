@@ -34,7 +34,7 @@ export default function UploadMedia() {
           setUploadProgress(Math.round(progress));
         },
         (error) => {
-          console.error("Upload failed:", error);
+          alert.error("Upload failed:", error);
           setIsUploading(false);
           setUploadProgress(0);
         },

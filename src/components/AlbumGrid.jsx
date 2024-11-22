@@ -6,9 +6,12 @@ import Lightbox, {
 } from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Video from "yet-another-react-lightbox/plugins/video";
+import Share from "yet-another-react-lightbox/plugins/share";
 import styled from "styled-components";
 import { FaPlay, FaRegCommentDots } from "react-icons/fa6";
 import { RiDownloadLine } from "react-icons/ri";
+import { IoIosShareAlt, IoMdClose } from "react-icons/io";
+
 import {
   collection,
   addDoc,
@@ -152,7 +155,6 @@ export default function AlbumGrid({ mediaItems }) {
   function CommentsButton() {
     return (
       <IconButton
-        size={20}
         label="Comments"
         icon={FaRegCommentDots}
         onClick={() => setIsCommentsOpen(!isCommentsOpen)}
@@ -160,6 +162,7 @@ export default function AlbumGrid({ mediaItems }) {
     );
   }
 
+  //Breakpointas for Masonry Grid
   const breakpointColumns = {
     default: 4,
     1100: 3,
@@ -191,7 +194,7 @@ export default function AlbumGrid({ mediaItems }) {
         close={() => setIsOpen(false)}
         slides={slides}
         index={currentIndex}
-        plugins={[Video]}
+        plugins={[Video, Share]}
         video={{
           controls: true,
           playsInline: true,
@@ -205,6 +208,8 @@ export default function AlbumGrid({ mediaItems }) {
           ],
         }}
         render={{
+          iconShare: () => <IoIosShareAlt size={34} />,
+          iconClose: () => <IoMdClose size={36} />,
           controls: () => (
             <CommentSection
               comments={comments}
@@ -221,17 +226,9 @@ export default function AlbumGrid({ mediaItems }) {
           },
         }}
       />
-
-      <CommentSection
-        comments={comments}
-        addComment={addComment}
-        isOpen={isOpen}
-      />
     </>
   );
 }
-
-// CommentsContainer Component
 
 // Styled Components
 const MasonryGrid = styled(Masonry)`

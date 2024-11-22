@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { FONTS } from "../constants";
 import { IoMdClose } from "react-icons/io";
@@ -10,38 +10,83 @@ export default function CommentSection({
   toggleOpen,
 }) {
   const [newComment, setNewComment] = useState("");
+  const containerRef = useRef(null);
+  const textareaRef = useRef(null);
+
+  const handleInput = () => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = "auto"; // Reset height
+      textarea.style.height = `${textarea.scrollHeight}px`; // Adjust height
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      const handleClickOutside = (event) => {
+        if (
+          containerRef.current &&
+          !containerRef.current.contains(event.target)
+        ) {
+          toggleOpen(); // Close the comment section
+        }
+      };
+
+      document.addEventListener("mousedown", handleClickOutside);
+
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }
+  }, [isOpen, toggleOpen]);
 
   return (
-    <Container isOpen={isOpen} onClick={() => !isOpen && toggleOpen()}>
+    <Container
+      ref={containerRef}
+      isOpen={isOpen}
+      onClick={() => {
+        if (!isOpen) {
+          toggleOpen(); // Open the comment section if it is not already open
+        }
+      }}
+    >
       <Title>COMMENTS</Title>
-      {isOpen && (
-        <Content onClick={(e) => e.stopPropagation()}>
-          <CloseButton onClick={toggleOpen}>
-            <IoMdClose size={25} />
-          </CloseButton>
-          <CommentsList>
-            {comments.map((comment) => (
+      <Content isOpen={isOpen}>
+        <CloseButton onClick={toggleOpen}>
+          <IoMdClose size={25} />
+        </CloseButton>
+        <CommentsList>
+          {comments.length === 0 ? (
+            <EmptyState>Nothing here yet...</EmptyState>
+          ) : (
+            comments.map((comment) => (
               <Comment key={comment.id}>{comment.text}</Comment>
-            ))}
-          </CommentsList>
-          <CommentForm
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (newComment.trim() !== "") {
-                addComment(newComment);
-                setNewComment("");
+            ))
+          )}
+        </CommentsList>
+        <CommentForm
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (newComment.trim() !== "") {
+              addComment(newComment);
+              setNewComment("");
+              if (textareaRef.current) {
+                textareaRef.current.style.height = "auto"; // Reset height after submit
               }
-            }}
-          >
-            <CommentInput
-              value={newComment}
-              onChange={(e) => setNewComment(e.target.value)}
-              placeholder="Add a comment..."
-            />
-            <SubmitButton type="submit">Send</SubmitButton>
-          </CommentForm>
-        </Content>
-      )}
+            }
+          }}
+        >
+          <CommentInput
+            ref={textareaRef}
+            value={newComment}
+            onChange={(e) => setNewComment(e.target.value)}
+            onInput={handleInput}
+            placeholder="Add a comment..."
+            rows={1}
+          />
+          <SubmitButton type="submit">Send</SubmitButton>
+        </CommentForm>
+      </Content>
     </Container>
   );
 }
@@ -54,15 +99,15 @@ const Container = styled.div`
   left: 0;
   right: 0;
   width: 95%;
-  height: 50%;
+  max-height: 50%;
   background-color: var(--color-element-sand);
   transition: transform 0.3s ease-in-out;
   border-radius: 8px;
   cursor: pointer;
-  overflow: hidden;
   z-index: 20000;
+  overflow: auto;
   transform: translateY(
-    ${({ isOpen }) => (isOpen ? "0%" : "calc(100% - 40px)")}
+    ${({ isOpen }) => (isOpen ? "0%" : "calc(100% - 25px)")}
   );
 `;
 
@@ -75,13 +120,14 @@ const Title = styled.h2`
 `;
 
 const Content = styled.div`
-  height: 100%;
   padding: 16px;
-  overflow-y: hidden; /* Adjust as needed */
   cursor: default;
   position: relative;
   display: flex;
-  flex-direction: column; /* Add this */
+  flex-direction: column;
+  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+  visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 `;
 
 const CloseButton = styled.button`
@@ -96,10 +142,15 @@ const CloseButton = styled.button`
 `;
 
 const CommentsList = styled.div`
-  flex: 1; /* Ensures it takes up available space */
-  overflow-y: auto;
+  flex: 1;
   margin-bottom: 16px;
-  padding-top: 24px;
+  padding-top: 0;
+`;
+
+const EmptyState = styled.div`
+  color: #666;
+  text-align: center;
+  margin-bottom: 2rem;
 `;
 
 const Comment = styled.div`
@@ -108,24 +159,41 @@ const Comment = styled.div`
   background-color: var(--color-light-sand);
   border-radius: 8px;
   color: #000;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 `;
 
 const CommentForm = styled.form`
   display: flex;
-  align-items: baseline;
-  margin-bottom: 2rem;
+  align-items: flex-end;
+  margin-top: auto;
+  flex-shrink: 0;
 `;
 
-const CommentInput = styled.input`
+const CommentInput = styled.textarea`
   flex: 1;
   padding: 8px;
-  border: 1px solid #ccc; /* Optional: Add border */
+  margin: 0;
+  border: 1px solid #ccc;
   border-radius: 8px;
   margin-right: 8px;
+  resize: none;
+  overflow: hidden;
+  line-height: 1.5;
+  font-size: 1rem;
+  height: auto;
+  ${FONTS.bodyFont};
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary-blue);
+    max-height: 150px;
+  }
 `;
 
 const SubmitButton = styled.button`
   padding: 8px 16px;
+  margin-bottom: 1px;
   background-color: var(--color-primary-blue);
   color: #fff;
   border: none;
