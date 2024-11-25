@@ -91,24 +91,28 @@ export default function RSVP2() {
 
   if (formSubmitted) {
     return (
-      <ConfirmationWrapper>
-        <FaRegCheckCircle color="green" size={40} />
-        <ConfirmationMessage>{t("RSVP.Confirmation")}</ConfirmationMessage>
-      </ConfirmationWrapper>
+      <ConfirmationBackground>
+        <ConfirmationWrapper>
+          <FaRegCheckCircle color="green" size={40} />
+          <ConfirmationMessage>{t("RSVP.Confirmation")}</ConfirmationMessage>
+        </ConfirmationWrapper>
+      </ConfirmationBackground>
     );
   }
 
   if (formError) {
     return (
-      <ErrorWrapper>
-        <BiErrorCircle color="red" size={40} />
-        <ErrorMessage>
-          {t("RSVP.Error")}{" "}
-          <ErrorMailLink href="mailto:celine.pierre2025@gmail.com">
-            celine.pierre2025@gmail.com
-          </ErrorMailLink>
-        </ErrorMessage>
-      </ErrorWrapper>
+      <ErrorBackground>
+        <ErrorWrapper>
+          <BiErrorCircle color="red" size={40} />
+          <ErrorMessage>
+            {t("RSVP.Error")}{" "}
+            <ErrorMailLink href="mailto:celine.pierre2025@gmail.com">
+              celine.pierre2025@gmail.com
+            </ErrorMailLink>
+          </ErrorMessage>
+        </ErrorWrapper>
+      </ErrorBackground>
     );
   }
 
@@ -336,6 +340,26 @@ const PageWrapper = styled.div`
 `;
 
 // CONFIRMATION AND ERROR MESSAGES STYLES
+const ConfirmationBackground = styled.div`
+  background-image: url(${backgroundImage});
+  background-size: cover;
+  background-position: center;
+  min-height: 100dvh; /* Ensure the background covers the entire viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ErrorBackground = styled.div`
+  background-image: url(${backgroundImage});
+  background-size: cover;
+  background-position: center;
+  min-height: 100dvh; /* Ensure the background covers the entire viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const ConfirmationWrapper = styled.div`
   background-color: var(--color-lighter-sand);
   border: 1px solid var(--color-dark-sand);
