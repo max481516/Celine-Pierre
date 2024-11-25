@@ -20,5 +20,12 @@
     "Error": "An error occurred. Please try again, or write us a message at:",
     "ContactText": "If you encounter any problems with the form, please contact us at:",
     "Info": "Please verify that you are not a robot and click on submit:"
+  },
+  "RSVP2": {
+    "FinalDate": "Kindly RSVP by January 31, 2025",
+    "Attendance1": "Will you be attending the civil wedding on July 12, 2025?",
+    "Attendance2": "Will you be attending the Beach Party on September 5, 2025?",
+    "Attendance3": "Will you be attending the Religious Ceremony and the Celebration on September 6, 2025?",
+    "Attendance4": "Will you be attending the Brunch on September 7, 2025?"
   }
 }

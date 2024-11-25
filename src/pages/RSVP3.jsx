@@ -1,4 +1,4 @@
-// RSVPForm.jsx
+// RSVP2.jsx
 
 import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
@@ -7,7 +7,7 @@ import { QUERIES } from "../constants.js";
 import styled from "styled-components";
 
 // COMPONENT IMPORTS
-import LanguageSelector from "./LanguageSelector";
+import LanguageSelector from "../../src/components/LanguageSelector";
 
 // MEDIA IMPORTS
 import { FaRegCheckCircle } from "react-icons/fa";
@@ -19,8 +19,9 @@ import Shrimp from "../media/shrimp.svg?react";
 import Crab from "../media/crab.svg?react";
 import Cocktail from "../media/CoconutCocktail.svg?react";
 import Turtle from "../media/Turtle.svg?react";
+import backgroundImage from "../media/backgroundRSVP.jpeg";
 
-import useIOSInputScroll from "../hooks/useIOSInputScroll"; // Import the custom hook
+import useIOSInputScroll from "../hooks/useIOSInputScroll.jsx"; // Import the custom hook
 
 const YesIcon = ({ selected }) => (
   <StyledShrimp
@@ -35,13 +36,17 @@ const NoIcon = ({ selected }) => (
   />
 );
 
-export default function RSVPForm() {
+export default function RSVP3() {
   // iOS input bug fix
   const formRef = useRef(null);
   const containerRef = useRef(null);
   useIOSInputScroll(formRef, containerRef);
 
-  const [attendance, setAttendance] = useState("");
+  // Separate state for each event
+  const [beachPartyAttendance, setBeachPartyAttendance] = useState("");
+  const [ceremonyAttendance, setCeremonyAttendance] = useState("");
+  const [brunchAttendance, setBrunchAttendance] = useState("");
+
   const [numRows, setNumRows] = useState(1);
   const [textareaValue, setTextareaValue] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -107,170 +112,198 @@ export default function RSVPForm() {
   }
 
   return (
-    <Wrapper ref={containerRef}>
-      <Header lang={i18n.language}>
-        <RSVPLanguageSelector lang={i18n.language} />
-        <Title lang={i18n.language}>R.S.V.P.</Title>
-        <FinalDate lang={i18n.language}>{t("RSVP.FinalDate")}</FinalDate>
-        <StyledAnchor />
-        <StyledShell1 />
-      </Header>
-      <FormContainer
-        ref={formRef}
-        action="https://formspree.io/f/movavqpz"
-        method="POST"
-        onSubmit={handleFormSubmit}
-      >
-        <fieldset id="fs-frm-inputs">
-          {/* Attendance Radio Buttons */}
-          <RadioGroup lang={i18n.language}>
-            <Legend>{t("RSVP.Attendance")}</Legend>
-            <Label>
-              <YesIcon selected={attendance === "Yes"} />
-              {t("RSVP.Yes")}
-              <InputRadio
-                type="radio"
-                name="attendance"
-                value="Yes"
-                checked={attendance === "Yes"}
-                onChange={() => setAttendance("Yes")}
-                required
-              />
-            </Label>
-            <Label>
-              <NoIcon selected={attendance === "No"} />
-              {t("RSVP.No")}
-              <InputRadio
-                type="radio"
-                name="attendance"
-                value="No"
-                checked={attendance === "No"}
-                onChange={() => setAttendance("No")}
-                required
-              />
-            </Label>
-          </RadioGroup>
-
-          {/* Number of Guests */}
-          <InputNumberWrapper>
-            <InputNumberLabel htmlFor="num-guests">
-              {t("RSVP.NumberGuests")}
-            </InputNumberLabel>
-            <SelectWrapper>
-              <Select
-                name="guests"
-                id="num-guests"
-                required
-                onChange={(e) => setNumRows(e.target.value)}
-              >
-                {Array.from({ length: 10 }, (_, i) => (
-                  <option key={i + 1} value={i + 1}>
-                    {i + 1}
-                  </option>
-                ))}
-              </Select>
-              <IconWrapper>
-                <MdOutlineKeyboardArrowDown
-                  size={15}
-                  style={{ opacity: "0.5" }}
+    <PageWrapper>
+      <Wrapper ref={containerRef}>
+        <Header lang={i18n.language}>
+          <RSVPLanguageSelector lang={i18n.language} />
+          <Title lang={i18n.language}>R.S.V.P.</Title>
+          <FinalDate lang={i18n.language}>{t("RSVP2.FinalDate")}</FinalDate>
+          <StyledAnchor />
+          <StyledShell1 />
+        </Header>
+        <FormContainer
+          ref={formRef}
+          action="https://formspree.io/f/movavqpz"
+          method="POST"
+          onSubmit={handleFormSubmit}
+        >
+          <fieldset id="fs-frm-inputs">
+            {/* Attendance for Beach Party */}
+            <RadioGroup lang={i18n.language}>
+              <Legend>{t("RSVP2.Attendance2")}</Legend>
+              <Label>
+                <YesIcon selected={beachPartyAttendance === "Yes"} />
+                {t("RSVP.Yes")}
+                <InputRadio
+                  type="radio"
+                  name="attendance-beach-party"
+                  value="Yes"
+                  checked={beachPartyAttendance === "Yes"}
+                  onChange={() => setBeachPartyAttendance("Yes")}
+                  required
                 />
-              </IconWrapper>
-            </SelectWrapper>
-          </InputNumberWrapper>
-
-          {/* Number of Children */}
-          <InputNumberWrapper>
-            <InputNumberLabel htmlFor="num-children">
-              {t("RSVP.NumberChildren")}
-            </InputNumberLabel>
-            <SelectWrapper>
-              <Select name="children" id="num-children" required>
-                {Array.from({ length: 11 }, (_, i) => (
-                  <option key={i} value={i}>
-                    {i}
-                  </option>
-                ))}
-              </Select>
-              <IconWrapper>
-                <MdOutlineKeyboardArrowDown
-                  size={15}
-                  style={{ opacity: "0.5" }}
+              </Label>
+              <Label>
+                <NoIcon selected={beachPartyAttendance === "No"} />
+                {t("RSVP.No")}
+                <InputRadio
+                  type="radio"
+                  name="attendance-beach-party"
+                  value="No"
+                  checked={beachPartyAttendance === "No"}
+                  onChange={() => setBeachPartyAttendance("No")}
+                  required
                 />
-              </IconWrapper>
-            </SelectWrapper>
-          </InputNumberWrapper>
+              </Label>
+            </RadioGroup>
 
-          {/* Names Input */}
-          <Label htmlFor="full-name">{t("RSVP.Name")}</Label>
-          <Textarea
-            rows={numRows}
-            name="name"
-            id="full-name"
-            placeholder={textareaValue}
-            onChange={(e) => setTextareaValue(e.target.value)}
-            required
-          />
+            {/* Attendance for Ceremony */}
+            <RadioGroup lang={i18n.language}>
+              <Legend>{t("RSVP2.Attendance3")}</Legend>
+              <Label>
+                <YesIcon selected={ceremonyAttendance === "Yes"} />
+                {t("RSVP.Yes")}
+                <InputRadio
+                  type="radio"
+                  name="attendance-ceremony"
+                  value="Yes"
+                  checked={ceremonyAttendance === "Yes"}
+                  onChange={() => setCeremonyAttendance("Yes")}
+                  required
+                />
+              </Label>
+              <Label>
+                <NoIcon selected={ceremonyAttendance === "No"} />
+                {t("RSVP.No")}
+                <InputRadio
+                  type="radio"
+                  name="attendance-ceremony"
+                  value="No"
+                  checked={ceremonyAttendance === "No"}
+                  onChange={() => setCeremonyAttendance("No")}
+                  required
+                />
+              </Label>
+            </RadioGroup>
 
-          {/* Email Input */}
-          <InputEmailWrapper>
-            <Label htmlFor="email-address">{t("RSVP.Email")}</Label>
-            <Input
-              type="email"
-              name="email"
-              id="email-address"
-              placeholder="email@domain.com"
+            {/* Attendance for Brunch */}
+            <RadioGroup lang={i18n.language}>
+              <Legend>{t("RSVP2.Attendance4")}</Legend>
+              <Label>
+                <YesIcon selected={brunchAttendance === "Yes"} />
+                {t("RSVP.Yes")}
+                <InputRadio
+                  type="radio"
+                  name="attendance-brunch"
+                  value="Yes"
+                  checked={brunchAttendance === "Yes"}
+                  onChange={() => setBrunchAttendance("Yes")}
+                  required
+                />
+              </Label>
+              <Label>
+                <NoIcon selected={brunchAttendance === "No"} />
+                {t("RSVP.No")}
+                <InputRadio
+                  type="radio"
+                  name="attendance-brunch"
+                  value="No"
+                  checked={brunchAttendance === "No"}
+                  onChange={() => setBrunchAttendance("No")}
+                  required
+                />
+              </Label>
+            </RadioGroup>
+
+            {/* Other form fields */}
+            <InputNumberWrapper>
+              <InputNumberLabel htmlFor="num-guests">
+                {t("RSVP.NumberGuests")}
+              </InputNumberLabel>
+              <SelectWrapper>
+                <Select
+                  name="guests"
+                  id="num-guests"
+                  required
+                  onChange={(e) => setNumRows(e.target.value)}
+                >
+                  {Array.from({ length: 10 }, (_, i) => (
+                    <option key={i + 1} value={i + 1}>
+                      {i + 1}
+                    </option>
+                  ))}
+                </Select>
+                <IconWrapper>
+                  <MdOutlineKeyboardArrowDown
+                    size={15}
+                    style={{ opacity: "0.5" }}
+                  />
+                </IconWrapper>
+              </SelectWrapper>
+            </InputNumberWrapper>
+
+            <Label htmlFor="full-name">{t("RSVP.Name")}</Label>
+            <Textarea
+              rows={numRows}
+              name="name"
+              id="full-name"
+              placeholder={textareaValue}
+              onChange={(e) => setTextareaValue(e.target.value)}
               required
             />
-          </InputEmailWrapper>
 
-          {/* Dietary Restrictions Input */}
-          <Label htmlFor="dietary-restrictions">{t("RSVP.Restrictions")}</Label>
-          <Textarea
-            rows="4"
-            name="dietary-restrictions"
-            id="dietary-restrictions"
-            placeholder={t("RSVP.RestrictionsPlaceholder")}
-          />
+            <InputEmailWrapper>
+              <Label htmlFor="email-address">{t("RSVP.Email")}</Label>
+              <Input
+                type="email"
+                name="email"
+                id="email-address"
+                placeholder="email@domain.com"
+                required
+              />
+            </InputEmailWrapper>
 
-          {/* Address Input */}
-          <Label htmlFor="address">{t("RSVP.Address")}</Label>
-          <Textarea
-            rows="4"
-            name="address"
-            id="address"
-            placeholder={t("RSVP.AddressPlaceholder")}
-            autoComplete="street-address"
-            required
-          />
-
-          {/* Message Input */}
-          <InputMessageWrapper>
-            <Label htmlFor="message">{t("RSVP.Message")}</Label>
-            <Textarea
-              rows="5"
-              name="message"
-              id="message"
-              placeholder={t("RSVP.MessagePlaceholder")}
-            />
-          </InputMessageWrapper>
-        </fieldset>
-        <SubmitButtonContainer>
-          <StyledTurtle />
-          <SubmitButton type="submit" value="Submit">
-            {t("RSVP.Submit")}
-          </SubmitButton>
-          <StyledCocktail />
-        </SubmitButtonContainer>
-      </FormContainer>
-      <ContactText>
-        {t("RSVP.ContactText")} <br />
-        <MailLink href="mailto:celine.pierre2025@gmail.com">
-          celine.pierre2025@gmail.com
-        </MailLink>
-      </ContactText>
-    </Wrapper>
+            <InputMessageWrapper>
+              <Label htmlFor="message">{t("RSVP.Message")}</Label>
+              <Textarea
+                rows="5"
+                name="message"
+                id="message"
+                placeholder={t("RSVP.MessagePlaceholder")}
+              />
+            </InputMessageWrapper>
+          </fieldset>
+          <SubmitButtonContainer>
+            <StyledTurtle />
+            <SubmitButton type="submit" value="Submit">
+              {t("RSVP.Submit")}
+            </SubmitButton>
+            <StyledCocktail />
+          </SubmitButtonContainer>
+          {/* Removed reCAPTCHA component */}
+        </FormContainer>
+        <ContactText>
+          {t("RSVP.ContactText")} <br></br>
+          <MailLink href="mailto:celine.pierre2025@gmail.com">
+            celine.pierre2025@gmail.com
+          </MailLink>
+        </ContactText>
+      </Wrapper>
+    </PageWrapper>
   );
 }
+
+// STYLED COMPONENTS
+
+const PageWrapper = styled.div`
+  background-image: url(${backgroundImage});
+  background-size: cover;
+  background-position: center;
+  min-height: 100dvh; /* Ensure the background covers the entire viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 // CONFIRMATION AND ERROR MESSAGES STYLES
 const ConfirmationWrapper = styled.div`
@@ -405,7 +438,7 @@ const RSVPLanguageSelector = styled(LanguageSelector)`
   opacity: 0.7;
   font-size: calc(18rem / 16);
 
-  > select {
+  > :first-child {
     ${({ lang }) =>
       lang === "en" &&
       `
@@ -453,7 +486,7 @@ const Legend = styled.legend`
   font-size: 1rem;
   text-align: center;
   justify-content: center;
-  margin: 0 auto 2rem;
+  margin: 0 auto 2rem; //needed to add auto for firefox bug
 `;
 
 const InputRadio = styled.input`
@@ -471,6 +504,7 @@ const RadioGroup = styled.fieldset`
   width: 80%;
   margin: 0 auto 2rem;
 
+  // different label styles to position the svg's without breaking the layout
   > label:first-of-type {
     display: flex;
     flex-direction: column;
@@ -489,8 +523,8 @@ const RadioGroup = styled.fieldset`
     ${({ lang }) =>
       lang === "ru" &&
       `
-      margin-top: -3px;
-    `}
+    margin-top: -3px;
+  `}
   }
 `;
 
@@ -521,7 +555,7 @@ const StyledCrab = styled(Crab)`
   }
 `;
 
-// NUMBER OF GUESTS AND CHILDREN SELECT STYLES
+// NUMBER OF GUESTS SELECT STYLES
 const SelectWrapper = styled.div`
   position: relative;
   display: flex;
@@ -554,6 +588,7 @@ const InputNumberLabel = styled.label`
 
 const InputNumberWrapper = styled.div`
   gap: 1rem;
+
   display: flex;
   justify-content: center;
   flex-basis: 150px;

@@ -20,5 +20,13 @@
     "Error": "Il y a eu une erreur. Veuillez réessayer, ou écrivez-nous un message sur:",
     "ContactText": "Si vous rencontrez des problèmes avec le formulaire, veuillez nous contacter sur:",
     "Info": "Veuillez vérifier que vous n'êtes pas un robot et cliquez sur soumettre:"
+  },
+
+  "RSVP2": {
+    "FinalDate": "À compléter avant le 31 janvier 2025",
+    "Attendance1": "Serez-vous présents au mariage civil le 12 juillet 2025?",
+    "Attendance2": "Serez-vous présents à la fête sur la plage le 5 septembre 2025?",
+    "Attendance3": "Serez-vous présents à la cérémonie religieuse et à la célébration le 6 septembre 2025?",
+    "Attendance4": "Serez-vous présents au brunch le 7 septembre 2025?"
   }
 }

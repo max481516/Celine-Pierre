@@ -35,10 +35,10 @@ export default function LanguageSelector({ className, type }) {
 }
 
 const LanguageSelectorContainer = styled.div`
-  width: fit-content;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+
   cursor: pointer;
   color: ${({ $isHomePage }) =>
     $isHomePage ? "#fff" : "var(--color-darker-sand)"};
@@ -60,9 +60,7 @@ const LanguageSelectorContainer = styled.div`
   ${({ type }) =>
     type === "desktop" &&
     css`
-      padding-left: 8px;
       align-items: center;
-      margin-right: auto;
 
       &:hover {
         transition: all 0.2s ease-in-out;
@@ -97,14 +95,9 @@ const Selector = styled.select`
 `;
 
 const IconContainer = styled.div`
+  flex-shrink: 0;
   color: ${({ $isHomePage }) =>
     $isHomePage ? "#fff" : "var(--color-dark-sand)"};
 
-  padding: 0 0 3px 2px;
-  ${({ type }) => type === "mobile" && css``}
-  ${({ type }) =>
-    type === "desktop" &&
-    css`
-      width: 20%;
-    `}
+  padding: 0 0 3px 0;
 `;
