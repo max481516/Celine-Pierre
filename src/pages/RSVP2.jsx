@@ -126,6 +126,7 @@ export default function RSVP2() {
           <StyledAnchor />
           <StyledShell1 />
         </Header>
+        <AttendanceTitle>{t("RSVP2.AttendanceTitle")}</AttendanceTitle>
         <FormContainer
           ref={formRef}
           action="https://formspree.io/f/movavqpz"
@@ -437,7 +438,7 @@ const FormContainer = styled.form`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 2rem 1rem 0;
+  padding: 1rem 1rem 0;
 
   @media ${QUERIES.largeTabletAndUp} {
     padding-bottom: 1rem;
@@ -533,6 +534,13 @@ const FinalDate = styled.p`
     `
      width: 70%;
     `}
+`;
+
+const AttendanceTitle = styled.h2`
+  font-weight: 400;
+  font-size: calc(20rem / 16);
+  margin-top: 1.5rem;
+  text-align: center;
 `;
 
 // ATTENDANCE RADIO BUTTONS STYLES

@@ -23,9 +23,10 @@
   },
   "RSVP2": {
     "FinalDate": "Kindly RSVP by January 31, 2025",
-    "Attendance1": "Will you be attending the civil wedding on July 12, 2025?",
-    "Attendance2": "Will you be attending the Beach Party on September 5, 2025?",
-    "Attendance3": "Will you be attending the Religious Ceremony and the Celebration on September 6, 2025?",
-    "Attendance4": "Will you be attending the Brunch on September 7, 2025?"
+    "AttendanceTitle": "Will you be attending?",
+    "Attendance1": "The civil wedding on July 12, 2025?",
+    "Attendance2": "The Beach Party on September 5, 2025?",
+    "Attendance3": "The Religious Ceremony and the Celebration on September 6, 2025?",
+    "Attendance4": "The Brunch on September 7, 2025?"
   }
 }
