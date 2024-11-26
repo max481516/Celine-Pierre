@@ -519,6 +519,7 @@ const Legend = styled.legend`
   text-align: center;
   justify-content: center;
   margin: 0 auto 2rem; //needed to add auto for firefox bug
+  white-space: pre-line;
 `;
 
 const InputRadio = styled.input`
