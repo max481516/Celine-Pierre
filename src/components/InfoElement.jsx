@@ -10,7 +10,6 @@ export default function InfoElement({
   return (
     <Element>
       <Name>{name}</Name>
-      <PictureContainer>{picture}</PictureContainer>
       <Description>
         {description}
         <LocationLink
@@ -21,6 +20,7 @@ export default function InfoElement({
           {location}
         </LocationLink>
       </Description>
+      <PictureContainer>{picture}</PictureContainer>
     </Element>
   );
 }
@@ -43,7 +43,6 @@ const PictureContainer = styled.div`
 const Description = styled.p``;
 
 const LocationLink = styled.a`
-  text-decoration: none;
   color: var(--color-primary-blue);
 
   &:hover {
