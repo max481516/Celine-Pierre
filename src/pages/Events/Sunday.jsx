@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { IoMdClock } from "react-icons/io";
-import { MdLocationPin } from "react-icons/md";
+import { FaLocationDot } from "react-icons/fa6";
 import { FaSquareParking } from "react-icons/fa6";
 import { ImManWoman } from "react-icons/im";
 import { FONTS } from "../../../src/constants";
@@ -43,7 +43,7 @@ export default function Sunday() {
           </Text>
         </IconTextContainer>
         <IconTextContainer>
-          <StyledIcon as={MdLocationPin} />
+          <StyledIcon as={FaLocationDot} />
           <Text>
             <b>Où :</b>{" "}
             <LocationLink

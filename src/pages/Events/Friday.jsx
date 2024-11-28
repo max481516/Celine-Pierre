@@ -58,7 +58,7 @@ export default function Sunday() {
         <IconTextContainer>
           <StyledIcon as={FaSquareParking} />
           <Text>
-            <b>Parking : Devant l’hôtel </b>
+            <b>Parking : </b>Devant l’hôtel 
           </Text>
         </IconTextContainer>
         <DressCodeWrapper>

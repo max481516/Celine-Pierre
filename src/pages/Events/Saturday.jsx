@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { IoMdClock } from "react-icons/io";
-import { MdLocationPin } from "react-icons/md";
+import { FaLocationDot } from "react-icons/fa6";
 import { GiDress } from "react-icons/gi";
 import { FaSquareParking } from "react-icons/fa6";
 import { FaBus } from "react-icons/fa";
@@ -42,7 +42,7 @@ export default function Saturday() {
           </Text>
         </IconTextContainer>
         <IconTextContainer>
-          <StyledIcon as={MdLocationPin} locationIcon={true} />
+          <StyledIcon as={FaLocationDot} />
           <Text>
             <b>Où :</b>{" "}
             <LocationLink
@@ -146,7 +146,7 @@ export default function Saturday() {
           </Text>
         </IconTextContainer>
         <IconTextContainer>
-          <StyledIcon as={MdLocationPin} locationIcon={true} />
+          <StyledIcon as={FaLocationDot} />
           <Text>
             <b>Où :</b>{" "}
             <LocationLink
@@ -281,10 +281,8 @@ const StyledIcon = styled.div`
   margin-top: 2px;
   flex-shrink: 0;
   flex-grow: 0;
-  width: ${(props) =>
-    props.busIcon ? "18px" : props.locationIcon ? "22px" : "20px"};
-  height: ${(props) =>
-    props.busIcon ? "18px" : props.locationIcon ? "22px" : "20px"};
+  width: ${(props) => (props.busIcon ? "18px" : "20px")};
+  height: ${(props) => (props.busIcon ? "18px" : "20px")};
   color: var(--color-primary-blue);
 `;
 
