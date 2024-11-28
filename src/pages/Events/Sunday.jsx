@@ -11,7 +11,7 @@ export default function Sunday() {
     <Wrapper>
       <StyledBorder />
       <EventContainer>
-        <Title>DIMANCHE : BEACH PARTY</Title>
+        <Title>DIMANCHE : BRUNCH</Title>
         <ImageContainer>
           <picture>
             <source
@@ -55,16 +55,11 @@ export default function Sunday() {
             </LocationLink>
           </Text>
         </IconTextContainer>
-        {/* <StyledMaps
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2984.0015413000156!2d9.2791981!3d41.59084939999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d983d6235cc3eb%3A0xec5d6be6bf99215e!2sChurch%20of%20Saint%20John%20the%20Baptist!5e0!3m2!1sen!2sfr!4v1728977910194!5m2!1sen!2sfr"
-          style={{ border: 0 }}
-          allowfullscreen
-          loading="lazy"
-        ></StyledMaps> */}
+
         <IconTextContainer>
           <StyledIcon as={FaSquareParking} />
           <Text>
-            <b>Parking : Devant l’hôtel </b>
+            <b>Parking :</b> L'hôtel La Plage Casadelmar dispose d’un parking
           </Text>
         </IconTextContainer>
         <DressCodeWrapper>
@@ -74,10 +69,7 @@ export default function Sunday() {
           <DressCodeIconTextContainer>
             <StyledIcon as={ImManWoman} />
             <Text>
-              Venez vêtus de blanc de la tête aux pieds ! Optez pour des tenues
-              légères et élégantes pour compléter l’ambiance chic et
-              décontractée de la plage. N’oubliez pas de prendre vos maillots de
-              bain et vos chapeaux ! Il risque de faire très chaud.
+              Thème Dolce Vita, laissez libre cours à votre imagination.
             </Text>
           </DressCodeIconTextContainer>
         </DressCodeWrapper>
@@ -165,10 +157,3 @@ const StyledBottomBorder = styled(StyledBorder)`
   padding-top: 1rem;
   transform: rotate(180deg);
 `;
-
-/* const StyledMaps = styled.iframe`
-  width: 90%;
-  height: 300px;
-  margin-bottom: 16px;
-  margin: 0 auto;
-`; */

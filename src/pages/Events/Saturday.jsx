@@ -3,6 +3,7 @@ import { IoMdClock } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
 import { GiDress } from "react-icons/gi";
 import { FaSquareParking } from "react-icons/fa6";
+import { FaBus } from "react-icons/fa";
 import { ImUserTie } from "react-icons/im";
 import { FONTS } from "../../constants";
 import Separator from "../../media/Separator.svg?react";
@@ -41,7 +42,7 @@ export default function Saturday() {
           </Text>
         </IconTextContainer>
         <IconTextContainer>
-          <StyledIcon as={MdLocationPin} />
+          <StyledIcon as={MdLocationPin} locationIcon={true} />
           <Text>
             <b>Où :</b>{" "}
             <LocationLink
@@ -54,24 +55,40 @@ export default function Saturday() {
             </LocationLink>
           </Text>
         </IconTextContainer>
-        {/* <StyledMaps
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2984.0015413000156!2d9.2791981!3d41.59084939999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d983d6235cc3eb%3A0xec5d6be6bf99215e!2sChurch%20of%20Saint%20John%20the%20Baptist!5e0!3m2!1sen!2sfr!4v1728977910194!5m2!1sen!2sfr"
-          style={{ border: 0 }}
-          allowfullscreen
-          loading="lazy"
-        ></StyledMaps> */}
+        <IconTextContainer>
+          <StyledIcon as={FaBus} busIcon={true} />
+          <Text>
+            <b>Transport :</b> Merci de prévoir votre arrivée à l’église par vos
+            propres moyens. <br />
+            <ItalicText>
+              À l’issue de la cérémonie religieuse, nous vous invitons à
+              rejoindre vos hôtels respectifs. Une navette viendra ensuite vous
+              chercher pour la soirée. (Pas tous les hôtels sont desservis, rdv
+              sur la page "Hébergements" pour plus d'infos)
+            </ItalicText>
+          </Text>
+        </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaSquareParking} />
           <Text>
-            <b>Parking :</b>
+            <b>Parking : </b>
+            <LocationLink
+              href="https://maps.app.goo.gl/bHPeHd16QGeCpcy28"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Parking Santa Catalina
+            </LocationLink>{" "}
+            et{" "}
+            <LocationLink
+              href="https://maps.app.goo.gl/eSWsyqby538J79Xt9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Parking Rue Pasteur
+            </LocationLink>
           </Text>
         </IconTextContainer>
-        {/* <IconTextContainer>
-          <StyledIcon as={GiClothes} />
-          <Text>
-            <b>Dress code :</b>
-          </Text>
-        </IconTextContainer> */}
         <DressCodeWrapper>
           <DressCodeTitle>
             <b>Dress code :</b>
@@ -129,7 +146,7 @@ export default function Saturday() {
           </Text>
         </IconTextContainer>
         <IconTextContainer>
-          <StyledIcon as={MdLocationPin} />
+          <StyledIcon as={MdLocationPin} locationIcon={true} />
           <Text>
             <b>Où :</b>{" "}
             <LocationLink
@@ -141,16 +158,22 @@ export default function Saturday() {
             </LocationLink>
           </Text>
         </IconTextContainer>
-        {/* <StyledMaps
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2982.8508292313422!2d9.319690999999997!3d41.6157373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12da6eb266399ff5%3A0x50712534a7958f57!2sLa%20plage%20Casadelmar!5e0!3m2!1sen!2sfr!4v1728978245608!5m2!1sen!2sfr"
-          style={{ border: 0 }}
-          allowfullscreen
-          loading="lazy"
-        ></StyledMaps> */}
+        <IconTextContainer>
+          <StyledIcon as={FaBus} busIcon={true} />
+          <Text>
+            <b>Transport :</b> Un service de navette sera assuré entre vos
+            hôtels et La Plage Casadelmar. <br />
+            <ItalicText>
+              (Pas tous les hôtels sont desservis, rdv sur la page
+              "Hébergements" pour plus d'infos)
+            </ItalicText>
+          </Text>
+        </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaSquareParking} />
           <Text>
-            <b>Parking :</b>
+            <b>Parking : </b>Si toutefois, vous souhaitez venir à la soirée avec
+            votre voiture, l'hôtel La Plage Casadelmar dispose d’un parking.
           </Text>
         </IconTextContainer>
         <DressCodeWrapper>
@@ -214,6 +237,11 @@ const LocationLink = styled.a`
   }
 `;
 
+const ItalicText = styled.span`
+  font-style: italic;
+  font-size: 0.8rem;
+`;
+
 const DressCodeWrapper = styled.div`
   border: 1px solid var(--color-primary-blue);
   border-radius: 8px;
@@ -253,8 +281,10 @@ const StyledIcon = styled.div`
   margin-top: 2px;
   flex-shrink: 0;
   flex-grow: 0;
-  width: 20px;
-  height: 20px;
+  width: ${(props) =>
+    props.busIcon ? "18px" : props.locationIcon ? "22px" : "20px"};
+  height: ${(props) =>
+    props.busIcon ? "18px" : props.locationIcon ? "22px" : "20px"};
   color: var(--color-primary-blue);
 `;
 
@@ -274,10 +304,3 @@ const StyledBottomBorder = styled(StyledBorder)`
   padding-top: 1rem;
   transform: rotate(180deg);
 `;
-
-/* const StyledMaps = styled.iframe`
-  width: 90%;
-  height: 300px;
-  margin-bottom: 16px;
-  margin: 0 auto;
-`; */
