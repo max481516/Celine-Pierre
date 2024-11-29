@@ -5,13 +5,16 @@ import { FaSquareParking } from "react-icons/fa6";
 import { ImManWoman } from "react-icons/im";
 import { FONTS } from "../../../src/constants";
 import Border from "../../media/Border.svg?react";
+import { useTranslation } from "react-i18next";
 
 export default function Sunday() {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
       <StyledBorder />
       <EventContainer>
-        <Title>DIMANCHE : BRUNCH</Title>
+        <Title>{t("Sunday.Title")}</Title>
         <ImageContainer>
           <picture>
             <source
@@ -38,39 +41,31 @@ export default function Sunday() {
         </ImageContainer>
         <IconTextContainer>
           <StyledIcon as={IoMdClock} />
-          <Text>
-            <b>Quand :</b> Le 7 Septembre 2025 à partir de 11:00 jusqu’à 16:00
-          </Text>
+          <Text>{t("Sunday.When")}</Text>
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaLocationDot} />
           <Text>
-            <b>Où :</b>{" "}
+            {t("Sunday.Where")}{" "}
             <LocationLink
               href="https://maps.app.goo.gl/iYbveaBtzhmqoj7t6"
               target="_blank"
               rel="noopener noreferrer"
             >
-              La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio
+              {t("Sunday.WhereLocation")}
             </LocationLink>
           </Text>
         </IconTextContainer>
 
         <IconTextContainer>
           <StyledIcon as={FaSquareParking} />
-          <Text>
-            <b>Parking :</b> L'hôtel La Plage Casadelmar dispose d’un parking
-          </Text>
+          <Text>{t("Sunday.Parking")}</Text>
         </IconTextContainer>
         <DressCodeWrapper>
-          <DressCodeTitle>
-            <b>Dress code :</b>
-          </DressCodeTitle>
+          <DressCodeTitle>{t("Sunday.DressCode.Title")}</DressCodeTitle>
           <DressCodeIconTextContainer>
             <StyledIcon as={ImManWoman} />
-            <Text>
-              Thème Dolce Vita, laissez libre cours à votre imagination.
-            </Text>
+            <Text>{t("Sunday.DressCode.Text")}</Text>
           </DressCodeIconTextContainer>
         </DressCodeWrapper>
       </EventContainer>

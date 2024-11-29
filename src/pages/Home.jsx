@@ -2,9 +2,12 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../constants";
 import backgroundPhoto from "../media/plage-corse-2.webp";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
   const [isLowPowerMode, setIsLowPowerMode] = useState(false);
+
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const videoElement = document.getElementById("background-video");
@@ -47,25 +50,8 @@ export default function Home() {
       )}
 
       <ContentWrapper>
-        <Title>Chers amis, bonjour à tous !</Title>
-        <Text>
-          Soyez les bienvenus sur notre site de mariage ! Nous avons conçu cet
-          espace pour partager avec vous tous les détails essentiels, de manière
-          conviviale et interactive. <br />
-          <br /> Préparez-vous à plonger dans l'univers de notre grand jour !
-          Parcourez les pages pour découvrir tout ce qu'il faut savoir : le lieu
-          de la fête, le planning, le dress code et bien plus encore. <br />
-          <br /> Nous avons même ajouté nos meilleurs conseils pour découvrir
-          Porto-Vecchio : les restaurants et bars incontournables, les plages
-          paradisiaques et les activités à ne pas manquer. Explorez à votre
-          guise et surtout, pensez à confirmer votre présence (avant le 30
-          Septembre 2024) ! <br />
-          <br />
-          Nous serons ravis de vous voir et avons hâte de célébrer cette journée
-          magique entourés des personnes qui nous sont les plus chères. Restez à
-          l'affût des dernières nouvelles sur le site, des surprises vous
-          attendent !
-        </Text>
+        <Title>{t("Home.Title")}</Title>
+        <Text>{t("Home.Text")}</Text>
       </ContentWrapper>
     </>
   );

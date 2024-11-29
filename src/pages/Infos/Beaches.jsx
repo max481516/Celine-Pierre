@@ -3,14 +3,17 @@ import styled from "styled-components";
 import { FONTS } from "../../constants";
 import Border from "../../media/Border.svg?react";
 import Separator2 from "../../media/Separator2.svg?react";
+import { useTranslation } from "react-i18next";
 
 export default function RnB() {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
       <StyledBorder />
-      <Title>Plages</Title>
+      <Title>{t("Beaches.Title")}</Title>
       <Section>
-        <SectionTitle>Plages de Palombaggia</SectionTitle>
+        <SectionTitle>{t("Beaches.Section1")}</SectionTitle>
         <InfoElement
           name="Playa Baggia"
           location="Place de Palombaggia, Lieut dit Tamaricciu, 20137 Porto-Vecchio"
@@ -116,7 +119,7 @@ export default function RnB() {
         />
       </Section>
       <Section>
-        <SectionTitle>Plage de Santa Giulia</SectionTitle>
+        <SectionTitle>{t("Beaches.Section2")}</SectionTitle>
         <InfoElement
           name="Bar Plage Santa Giulia"
           location="Plage de Santa Giulia
@@ -173,7 +176,7 @@ export default function RnB() {
         />
       </Section>
       <Section>
-        <SectionTitle>Bonifacio</SectionTitle>
+        <SectionTitle>{t("Beaches.Section3")}</SectionTitle>
         <InfoElement
           name="Maora Beach"
           location="Plage de Maora Golfe de Santa Manza , 20169 Bonifacio"

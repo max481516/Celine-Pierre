@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 import { FONTS } from "../constants";
+import { useTranslation } from "react-i18next";
 
 export default function MobileNav({ isOpen, toggle }) {
   const [openDropdown, setOpenDropdown] = useState(null);
+
+  const { t, i18n } = useTranslation();
 
   const handleDropdownToggle = (name) => {
     // Toggle dropdown: if it's open, close it; otherwise, open it
@@ -24,64 +27,61 @@ export default function MobileNav({ isOpen, toggle }) {
       </CloseButton>
       <MobileNavMenu>
         <MobileNavItem to="/" onClick={handleNavItemClick}>
-          Bienvenue
+          {t("Nav.Home")}
         </MobileNavItem>
 
         <MobileDropdown
-          name="Événements"
+          name={t("Nav.Events")}
           isOpen={openDropdown === "Événements"}
           toggleDropdown={() => handleDropdownToggle("Événements")}
         >
           <MobileDropdownItem to="/Friday" onClick={handleNavItemClick}>
-            Vendredi
+            {t("Nav.Friday")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/Saturday" onClick={handleNavItemClick}>
-            Samedi
+            {t("Nav.Saturday")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/Sunday" onClick={handleNavItemClick}>
-            Dimanche
+            {t("Nav.Sunday")}
           </MobileDropdownItem>
         </MobileDropdown>
 
         <MobileDropdown
-          name="Infos"
+          name={t("Nav.Infos")}
           isOpen={openDropdown === "Infos"}
           toggleDropdown={() => handleDropdownToggle("Infos")}
         >
           <MobileDropdownItem to="/Accomodations" onClick={handleNavItemClick}>
-            Hébergement
+            {t("Nav.Accomodations")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/Transports" onClick={handleNavItemClick}>
-            Transports
+            {t("Nav.Transports")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/RnB" onClick={handleNavItemClick}>
-            Restaurants & Bars
+            {t("Nav.R&B")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/Beauty" onClick={handleNavItemClick}>
-            Beauté
+            {t("Nav.Services")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/Beaches" onClick={handleNavItemClick}>
-            Plages
+            {t("Nav.Beaches")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/Activities" onClick={handleNavItemClick}>
-            Activités
-          </MobileDropdownItem>
-          <MobileDropdownItem to="/Sitters" onClick={handleNavItemClick}>
-            Baby-sitters
+            {t("Nav.Activities")}
           </MobileDropdownItem>
         </MobileDropdown>
 
         <MobileNavItem to="/List" onClick={handleNavItemClick}>
-          Liste de Mariage
+          {t("Nav.List")}
         </MobileNavItem>
         <MobileNavItem to="/Album" onClick={handleNavItemClick}>
-          Album photos
+          {t("Nav.Album")}
         </MobileNavItem>
         <MobileNavItem to="/RSVP" onClick={handleNavItemClick}>
           RSVP
         </MobileNavItem>
         <MobileNavItem to="/Contacts" onClick={handleNavItemClick}>
-          Contacts
+          {t("Nav.Contacts")}
         </MobileNavItem>
       </MobileNavMenu>
     </MobileNavContainer>

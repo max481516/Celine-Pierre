@@ -5,11 +5,14 @@ import LanguageSelector from "./LanguageSelector";
 import MobileNav from "./MobileNav";
 import useMobileNav from "../hooks/useMobileNav";
 import { FaBars } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
   const { isOpen, toggle } = useMobileNav();
 
   const $isHomePage = useLocation().pathname === "/";
+
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -22,33 +25,38 @@ export default function Navbar() {
           </LeftContainer>
           <RightContainer>
             <NavItem to="/" $isHomePage={$isHomePage}>
-              Bienvenue
+              {t("Nav.Home")}
             </NavItem>
-            <Dropdown name="Événements" $isHomePage={$isHomePage}>
-              <DropdownItem to="/Friday">Vendredi</DropdownItem>
-              <DropdownItem to="/Saturday">Samedi</DropdownItem>
-              <DropdownItem to="/Sunday">Dimanche</DropdownItem>
+            <Dropdown name={t("Nav.Events")} $isHomePage={$isHomePage}>
+              <DropdownItem to="/Friday">{t("Nav.Friday")}</DropdownItem>
+              <DropdownItem to="/Saturday">{t("Nav.Saturday")}</DropdownItem>
+              <DropdownItem to="/Sunday">{t("Nav.Sunday")}</DropdownItem>
             </Dropdown>
-            <Dropdown name="Infos" $isHomePage={$isHomePage}>
-              <DropdownItem to="/Accomodations">Hébergement</DropdownItem>
-              <DropdownItem to="/Transports">Transports</DropdownItem>
-              <DropdownItem to="/RnB">Restaurants & Bars</DropdownItem>
-              <DropdownItem to="/Beauty">Beauté</DropdownItem>
-              <DropdownItem to="/Beaches">Plages</DropdownItem>
-              <DropdownItem to="/Activities">Activités</DropdownItem>
-              <DropdownItem to="/Sitters">Baby-sitters</DropdownItem>
+            <Dropdown name={t("Nav.Infos")} $isHomePage={$isHomePage}>
+              <DropdownItem to="/Accomodations">
+                {t("Nav.Accomodations")}
+              </DropdownItem>
+              <DropdownItem to="/Transports">
+                {t("Nav.Transports")}
+              </DropdownItem>
+              <DropdownItem to="/RnB">{t("Nav.R&B")}</DropdownItem>
+              <DropdownItem to="/Beauty">{t("Nav.Services")}</DropdownItem>
+              <DropdownItem to="/Beaches">{t("Nav.Beaches")}</DropdownItem>
+              <DropdownItem to="/Activities">
+                {t("Nav.Activities")}
+              </DropdownItem>
             </Dropdown>
             <NavItem to="/List" $isHomePage={$isHomePage}>
-              Liste de Mariage
+              {t("Nav.List")}
             </NavItem>
             <NavItem to="/Album" $isHomePage={$isHomePage}>
-              Album photos
+              {t("Nav.Album")}
             </NavItem>
             <NavItem to="/RSVP" $isHomePage={$isHomePage}>
               RSVP
             </NavItem>
             <NavItem to="/Contacts" $isHomePage={$isHomePage}>
-              Contacts
+              {t("Nav.Contacts")}
             </NavItem>
           </RightContainer>
         </NavMenu>

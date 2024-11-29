@@ -6,7 +6,7 @@
     "Saturday": "Saturday",
     "Sunday": "Sunday",
     "Infos": "Informations",
-    "Accommodation": "Accomodations",
+    "Accommodations": "Accomodations",
     "Transport": "Transports",
     "R&B": "Restaurants & Bars",
     "Services": "Services",
@@ -15,7 +15,6 @@
     "Baby-sitters": "Baby-sitters",
     "List": "Gift List",
     "Album": "Photo Album",
-    "RSVP": "RSVP",
     "Contacts": "Contacts"
   },
 
@@ -86,7 +85,7 @@
   },
 
   "Accomodations": {
-    "Title": "HÉBERGEMENTS"
+    "Title": "ACCOMODATIONS"
   },
 
   "R&B": {

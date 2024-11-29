@@ -8,13 +8,16 @@ import { ImUserTie } from "react-icons/im";
 import { FONTS } from "../../constants";
 import Separator from "../../media/Separator.svg?react";
 import Border from "../../media/Border.svg?react";
+import { useTranslation } from "react-i18next";
 
 export default function Saturday() {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
       <StyledBorder />
       <EventContainer>
-        <Title>Samedi : Céremonie Religieuse </Title>
+        <Title>{t("Saturday.Ceremony.Title")}</Title>
         <ImageContainer>
           <picture>
             <source
@@ -37,47 +40,40 @@ export default function Saturday() {
         </ImageContainer>
         <IconTextContainer>
           <StyledIcon as={IoMdClock} />
-          <Text>
-            <b>Quand :</b> Le 6 Septembre 2025 de 14:00 à 16:00
-          </Text>
+          <Text>{t("Saturday.Ceremony.When")}</Text>
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaLocationDot} />
           <Text>
-            <b>Où :</b>{" "}
+            {t("Saturday.Ceremony.Where")}{" "}
             <LocationLink
               href="https://maps.app.goo.gl/ZzEvtzunptPVkwgx8"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Église Saint Jean Baptiste, 2-8 Rue Joseph Pietri Maire, 20137
-              Porto-Vecchio
+              {t("Saturday.Ceremony.WhereLocation")}
             </LocationLink>
           </Text>
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaBus} busIcon={true} />
           <Text>
-            <b>Transport :</b> Merci de prévoir votre arrivée à l’église par vos
-            propres moyens. <br />
+            {t("Saturday.Ceremony.Transport.Text")}
             <ItalicText>
-              À l’issue de la cérémonie religieuse, nous vous invitons à
-              rejoindre vos hôtels respectifs. Une navette viendra ensuite vous
-              chercher pour la soirée. (Pas tous les hôtels sont desservis, rdv
-              sur la page "Hébergements" pour plus d'infos)
+              {t("Saturday.Ceremony.Transport.ItalicText")}
             </ItalicText>
           </Text>
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaSquareParking} />
           <Text>
-            <b>Parking : </b>
+            {t("Saturday.Ceremony.Parking")}
             <LocationLink
               href="https://maps.app.goo.gl/bHPeHd16QGeCpcy28"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Parking Santa Catalina
+              {t("Saturday.Ceremony.ParkingLocation1")}
             </LocationLink>{" "}
             et{" "}
             <LocationLink
@@ -85,27 +81,21 @@ export default function Saturday() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Parking Rue Pasteur
+              {t("Saturday.Ceremony.ParkingLocation2")}
             </LocationLink>
           </Text>
         </IconTextContainer>
         <DressCodeWrapper>
           <DressCodeTitle>
-            <b>Dress code :</b>
+            {t("Saturday.Ceremony.DressCode.Title")}
           </DressCodeTitle>
           <DressCodeIconTextContainer>
             <StyledIcon as={GiDress} />
-            <Text>
-              Les filles, sortez vos plus belles robes de cocktail. Laissez vos
-              pastels au placard et optez pour des teintes éclatantes qui feront
-              briller cette journée encore plus.
-            </Text>
+            <Text>{t("Saturday.Ceremony.DressCode.Girls")}</Text>
           </DressCodeIconTextContainer>
           <DressCodeIconTextContainer>
             <StyledIcon as={ImUserTie} />
-            <Text>
-              Les garçons, éblouissez- nous avec vos costumes élégants{" "}
-            </Text>
+            <Text>{t("Saturday.Ceremony.DressCode.Boys")} </Text>
           </DressCodeIconTextContainer>
         </DressCodeWrapper>
       </EventContainer>
@@ -113,7 +103,7 @@ export default function Saturday() {
       <StyledSeparator />
 
       <EventContainer>
-        <Title>SAMEDI : LA CÉLÉBRATION</Title>
+        <Title>{t("Saturday.Celebration.Title")}</Title>
         <ImageContainer>
           <picture>
             <source
@@ -140,60 +130,45 @@ export default function Saturday() {
         </ImageContainer>
         <IconTextContainer>
           <StyledIcon as={IoMdClock} />
-          <Text>
-            <b>Quand :</b> Le 6 Septembre 2025 à partir de 18:00 au lever du
-            soleil
-          </Text>
+          <Text>{t("Saturday.Celebration.When")}</Text>
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaLocationDot} />
           <Text>
-            <b>Où :</b>{" "}
+            {t("Saturday.Celebration.Where")}
             <LocationLink
               href="https://maps.app.goo.gl/iYbveaBtzhmqoj7t6"
               target="_blank"
               rel="noopener noreferrer"
             >
-              La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio
+              {t("Saturday.Celebration.WhereLocation")}
             </LocationLink>
           </Text>
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaBus} busIcon={true} />
           <Text>
-            <b>Transport :</b> Un service de navette sera assuré entre vos
-            hôtels et La Plage Casadelmar. <br />
+            {t("Saturday.Celebration.Transport.Text")}
             <ItalicText>
-              (Pas tous les hôtels sont desservis, rdv sur la page
-              "Hébergements" pour plus d'infos)
+              {t("Saturday.Celebration.Transport.ItalicText")}
             </ItalicText>
           </Text>
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaSquareParking} />
-          <Text>
-            <b>Parking : </b>Si toutefois, vous souhaitez venir à la soirée avec
-            votre voiture, l'hôtel La Plage Casadelmar dispose d’un parking.
-          </Text>
+          <Text>{t("Saturday.Celebration.Parking")}</Text>
         </IconTextContainer>
         <DressCodeWrapper>
           <DressCodeTitle>
-            <b>Dress code :</b>
+            {t("Saturday.Celebration.DressCode.Title")}
           </DressCodeTitle>
           <DressCodeIconTextContainer>
             <StyledIcon as={GiDress} />
-            <Text>
-              Les filles, sortez vos plus belles robes de cocktail. Laissez vos
-              pastels au placard et optez pour des teintes éclatantes qui feront
-              briller cette journée encore plus. Pensez à prendre des chaussures
-              plates pour enflammer le dance floor !
-            </Text>
+            <Text>{t("Saturday.Celebration.DressCode.Girls")}</Text>
           </DressCodeIconTextContainer>
           <DressCodeIconTextContainer>
             <StyledIcon as={ImUserTie} />
-            <Text>
-              Les garçons, éblouissez- nous avec vos costumes élégants
-            </Text>
+            <Text>{t("Saturday.Celebration.DressCode.Boys")}</Text>
           </DressCodeIconTextContainer>
         </DressCodeWrapper>
       </EventContainer>

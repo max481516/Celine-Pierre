@@ -3,12 +3,15 @@ import styled from "styled-components";
 import { FONTS } from "../../constants";
 import Border from "../../media/Border.svg?react";
 import Separator2 from "../../media/Separator2.svg?react";
+import { useTranslation } from "react-i18next";
 
 export default function RnB() {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
       <StyledBorder />
-      <Title>Activités</Title>
+      <Title>{t("Activities.Title")}</Title>
       <Section>
         <InfoElement
           name="ProKart"

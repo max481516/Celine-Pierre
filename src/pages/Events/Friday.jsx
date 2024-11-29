@@ -5,13 +5,16 @@ import { FaSquareParking } from "react-icons/fa6";
 import { ImManWoman } from "react-icons/im";
 import { FONTS } from "../../../src/constants";
 import Border from "../../media/Border.svg?react";
+import { useTranslation } from "react-i18next";
 
 export default function Sunday() {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
       <StyledBorder />
       <EventContainer>
-        <Title>VENREDI : BEACH PARTY</Title>
+        <Title>{t("Friday.Title")}</Title>
         <ImageContainer>
           <picture>
             <source
@@ -38,41 +41,30 @@ export default function Sunday() {
         </ImageContainer>
         <IconTextContainer>
           <StyledIcon as={IoMdClock} />
-          <Text>
-            <b>Quand :</b> Le 5 Septembre 2025 à partir de 12:00 jusqu’à 18:00
-          </Text>
+          <Text>{t("Friday.When")}</Text>
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={MdLocationPin} />
           <Text>
-            <b>Où :</b>{" "}
+            {t("Friday.Where")}{" "}
             <LocationLink
               href="https://maps.app.goo.gl/15iER64FdvZE6bek7"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Restaurant MAORA BEACH
+              {t("Friday.WhereLocation")}
             </LocationLink>
           </Text>
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaSquareParking} />
-          <Text>
-            <b>Parking : </b>Devant l’hôtel 
-          </Text>
+          <Text>{t("Friday.Parking")}</Text>
         </IconTextContainer>
         <DressCodeWrapper>
-          <DressCodeTitle>
-            <b>Dress code :</b>
-          </DressCodeTitle>
+          <DressCodeTitle>{t("Friday.DressCode.Title")}</DressCodeTitle>
           <DressCodeIconTextContainer>
             <StyledIcon as={ImManWoman} />
-            <Text>
-              Venez vêtus de blanc de la tête aux pieds ! Optez pour des tenues
-              légères et élégantes pour compléter l’ambiance chic et
-              décontractée de la plage. N’oubliez pas de prendre vos maillots de
-              bain et vos chapeaux ! Il risque de faire très chaud.
-            </Text>
+            <Text>{t("Friday.DreddCode.Text")}</Text>
           </DressCodeIconTextContainer>
         </DressCodeWrapper>
       </EventContainer>

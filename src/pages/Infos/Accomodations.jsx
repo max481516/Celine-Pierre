@@ -3,13 +3,16 @@ import styled from "styled-components";
 import { FONTS, QUERIES } from "../../constants";
 import Border from "../../media/Border.svg?react";
 import Separator2 from "../../media/Separator2.svg?react";
+import { useTranslation } from "react-i18next";
 
 export default function RnB() {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
       <FrameContainer>
         <StyledBorder />
-        <Title>Hebergements</Title>
+        <Title>{t("Accomodations.Title")}</Title>
         <InfoElement
           name="Grand Hôtel Cala Rossa & Spa NUCCA 5*"
           location="Domaine de Cala Rossa - 20137 Lecci de Porto-Vecchio"

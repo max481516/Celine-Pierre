@@ -3,15 +3,18 @@ import styled from "styled-components";
 import { FONTS, QUERIES } from "../../constants";
 import Border from "../../media/Border.svg?react";
 import Separator2 from "../../media/Separator2.svg?react";
+import { useTranslation } from "react-i18next";
 
 export default function RnB() {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
       <FrameContainer>
         <StyledBorder />
-        <Title>Restaurants et Bars</Title>
+        <Title>{t("R&B.Title")}</Title>
         <Section>
-          <SectionTitle>Centre Ville :</SectionTitle>
+          <SectionTitle>{t("R&B.Section1")}</SectionTitle>
           <InfoElement
             name="Restaurant Corse FURANA"
             location="Rue de la Porte Génoise, 20137 Porto-Vecchio"
@@ -117,7 +120,7 @@ export default function RnB() {
           />
         </Section>
         <Section style={{ paddingTop: "1rem" }}>
-          <SectionTitle>Ambiancés :</SectionTitle>
+          <SectionTitle>{t("R&B.Section2")}</SectionTitle>
           <InfoElement
             name="B 52"
             location="Quai Jérôme Comparetti, 20169 Bonifacio"
