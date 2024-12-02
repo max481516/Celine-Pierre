@@ -5,7 +5,7 @@ import { FaSquareParking } from "react-icons/fa6";
 import { ImManWoman } from "react-icons/im";
 import { FONTS } from "../../../src/constants";
 import Border from "../../media/Border.svg?react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 export default function Sunday() {
   const { t } = useTranslation();
@@ -41,12 +41,14 @@ export default function Sunday() {
         </ImageContainer>
         <IconTextContainer>
           <StyledIcon as={IoMdClock} />
-          <Text>{t("Friday.When")}</Text>
+          <Text>
+            <Trans i18nKey="Friday.When" components={{ bold: <Bold /> }} />
+          </Text>
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={MdLocationPin} />
           <Text>
-            {t("Friday.Where")}{" "}
+            <b>{t("Friday.Where")} </b>
             <LocationLink
               href="https://maps.app.goo.gl/15iER64FdvZE6bek7"
               target="_blank"
@@ -58,13 +60,15 @@ export default function Sunday() {
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaSquareParking} />
-          <Text>{t("Friday.Parking")}</Text>
+          <Text>
+            <Trans i18nKey="Friday.Parking" components={{ bold: <Bold /> }} />
+          </Text>
         </IconTextContainer>
         <DressCodeWrapper>
           <DressCodeTitle>{t("Friday.DressCode.Title")}</DressCodeTitle>
           <DressCodeIconTextContainer>
             <StyledIcon as={ImManWoman} />
-            <Text>{t("Friday.DreddCode.Text")}</Text>
+            <Text>{t("Friday.DressCode.Text")}</Text>
           </DressCodeIconTextContainer>
         </DressCodeWrapper>
       </EventContainer>
@@ -150,4 +154,9 @@ const StyledBottomBorder = styled(StyledBorder)`
   padding-bottom: 0;
   padding-top: 1rem;
   transform: rotate(180deg);
+`;
+
+// JSON i18n text styling
+const Bold = styled.span`
+  font-weight: bold;
 `;

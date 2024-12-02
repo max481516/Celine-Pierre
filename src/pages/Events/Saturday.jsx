@@ -8,7 +8,7 @@ import { ImUserTie } from "react-icons/im";
 import { FONTS } from "../../constants";
 import Separator from "../../media/Separator.svg?react";
 import Border from "../../media/Border.svg?react";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 
 export default function Saturday() {
   const { t } = useTranslation();
@@ -40,12 +40,17 @@ export default function Saturday() {
         </ImageContainer>
         <IconTextContainer>
           <StyledIcon as={IoMdClock} />
-          <Text>{t("Saturday.Ceremony.When")}</Text>
+          <Text>
+            <Trans
+              i18nKey="Saturday.Ceremony.When"
+              components={{ bold: <Bold /> }}
+            />
+          </Text>
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaLocationDot} />
           <Text>
-            {t("Saturday.Ceremony.Where")}{" "}
+            <b>{t("Saturday.Ceremony.Where")} </b>
             <LocationLink
               href="https://maps.app.goo.gl/ZzEvtzunptPVkwgx8"
               target="_blank"
@@ -58,7 +63,11 @@ export default function Saturday() {
         <IconTextContainer>
           <StyledIcon as={FaBus} busIcon={true} />
           <Text>
-            {t("Saturday.Ceremony.Transport.Text")}
+            <Trans
+              i18nKey="Saturday.Ceremony.Transport.Text"
+              components={{ bold: <Bold /> }}
+            />
+            <br />
             <ItalicText>
               {t("Saturday.Ceremony.Transport.ItalicText")}
             </ItalicText>
@@ -67,7 +76,7 @@ export default function Saturday() {
         <IconTextContainer>
           <StyledIcon as={FaSquareParking} />
           <Text>
-            {t("Saturday.Ceremony.Parking")}
+            <b>{t("Saturday.Ceremony.Parking")}</b>
             <LocationLink
               href="https://maps.app.goo.gl/bHPeHd16QGeCpcy28"
               target="_blank"
@@ -75,7 +84,7 @@ export default function Saturday() {
             >
               {t("Saturday.Ceremony.ParkingLocation1")}
             </LocationLink>{" "}
-            et{" "}
+            <OrParking>{t("Saturday.Ceremony.OrParking")}</OrParking>
             <LocationLink
               href="https://maps.app.goo.gl/eSWsyqby538J79Xt9"
               target="_blank"
@@ -130,12 +139,17 @@ export default function Saturday() {
         </ImageContainer>
         <IconTextContainer>
           <StyledIcon as={IoMdClock} />
-          <Text>{t("Saturday.Celebration.When")}</Text>
+          <Text>
+            <Trans
+              i18nKey="Saturday.Celebration.When"
+              components={{ bold: <Bold /> }}
+            />
+          </Text>
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaLocationDot} />
           <Text>
-            {t("Saturday.Celebration.Where")}
+            <b>{t("Saturday.Ceremony.Where")} </b>
             <LocationLink
               href="https://maps.app.goo.gl/iYbveaBtzhmqoj7t6"
               target="_blank"
@@ -148,7 +162,11 @@ export default function Saturday() {
         <IconTextContainer>
           <StyledIcon as={FaBus} busIcon={true} />
           <Text>
-            {t("Saturday.Celebration.Transport.Text")}
+            <Trans
+              i18nKey="Saturday.Celebration.Transport.Text"
+              components={{ bold: <Bold /> }}
+            />
+            <br />
             <ItalicText>
               {t("Saturday.Celebration.Transport.ItalicText")}
             </ItalicText>
@@ -156,7 +174,12 @@ export default function Saturday() {
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaSquareParking} />
-          <Text>{t("Saturday.Celebration.Parking")}</Text>
+          <Text>
+            <Trans
+              i18nKey="Saturday.Celebration.Parking"
+              components={{ bold: <Bold /> }}
+            />
+          </Text>
         </IconTextContainer>
         <DressCodeWrapper>
           <DressCodeTitle>
@@ -202,6 +225,8 @@ const IconTextContainer = styled.div`
   padding: 8px 0;
   gap: 8px;
 `;
+
+const OrParking = styled.span``;
 
 const LocationLink = styled.a`
   color: var(--color-primary-blue);
@@ -276,4 +301,9 @@ const StyledBottomBorder = styled(StyledBorder)`
   padding-bottom: 0;
   padding-top: 1rem;
   transform: rotate(180deg);
+`;
+
+// JSON i18n text styling
+const Bold = styled.span`
+  font-weight: bold;
 `;

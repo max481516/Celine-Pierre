@@ -13,6 +13,7 @@ export default function RnB() {
       <FrameContainer>
         <StyledBorder />
         <Title>{t("Accomodations.Title")}</Title>
+        <AboutTransfer></AboutTransfer>
         <InfoElement
           name="Grand Hôtel Cala Rossa & Spa NUCCA 5*"
           location="Domaine de Cala Rossa - 20137 Lecci de Porto-Vecchio"

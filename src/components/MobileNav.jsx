@@ -52,7 +52,7 @@ export default function MobileNav({ isOpen, toggle }) {
           toggleDropdown={() => handleDropdownToggle("Infos")}
         >
           <MobileDropdownItem to="/Accomodations" onClick={handleNavItemClick}>
-            {t("Nav.Accomodations")}
+            {t("Nav.Accommodations")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/Transports" onClick={handleNavItemClick}>
             {t("Nav.Transports")}
@@ -60,11 +60,11 @@ export default function MobileNav({ isOpen, toggle }) {
           <MobileDropdownItem to="/RnB" onClick={handleNavItemClick}>
             {t("Nav.R&B")}
           </MobileDropdownItem>
-          <MobileDropdownItem to="/Beauty" onClick={handleNavItemClick}>
-            {t("Nav.Services")}
-          </MobileDropdownItem>
           <MobileDropdownItem to="/Beaches" onClick={handleNavItemClick}>
             {t("Nav.Beaches")}
+          </MobileDropdownItem>
+          <MobileDropdownItem to="/Services" onClick={handleNavItemClick}>
+            {t("Nav.Services")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/Activities" onClick={handleNavItemClick}>
             {t("Nav.Activities")}

@@ -40,8 +40,8 @@ export default function Navbar() {
                 {t("Nav.Transports")}
               </DropdownItem>
               <DropdownItem to="/RnB">{t("Nav.R&B")}</DropdownItem>
-              <DropdownItem to="/Beauty">{t("Nav.Services")}</DropdownItem>
               <DropdownItem to="/Beaches">{t("Nav.Beaches")}</DropdownItem>
+              <DropdownItem to="/Services">{t("Nav.Services")}</DropdownItem>
               <DropdownItem to="/Activities">
                 {t("Nav.Activities")}
               </DropdownItem>

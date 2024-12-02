@@ -5,7 +5,7 @@ import { FaSquareParking } from "react-icons/fa6";
 import { ImManWoman } from "react-icons/im";
 import { FONTS } from "../../../src/constants";
 import Border from "../../media/Border.svg?react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 export default function Sunday() {
   const { t } = useTranslation();
@@ -41,12 +41,14 @@ export default function Sunday() {
         </ImageContainer>
         <IconTextContainer>
           <StyledIcon as={IoMdClock} />
-          <Text>{t("Sunday.When")}</Text>
+          <Text>
+            <Trans i18nKey="Sunday.When" components={{ bold: <Bold /> }} />
+          </Text>
         </IconTextContainer>
         <IconTextContainer>
           <StyledIcon as={FaLocationDot} />
           <Text>
-            {t("Sunday.Where")}{" "}
+            <b>{t("Sunday.Where")} </b>
             <LocationLink
               href="https://maps.app.goo.gl/iYbveaBtzhmqoj7t6"
               target="_blank"
@@ -59,7 +61,9 @@ export default function Sunday() {
 
         <IconTextContainer>
           <StyledIcon as={FaSquareParking} />
-          <Text>{t("Sunday.Parking")}</Text>
+          <Text>
+            <Trans i18nKey="Sunday.Parking" components={{ bold: <Bold /> }} />
+          </Text>
         </IconTextContainer>
         <DressCodeWrapper>
           <DressCodeTitle>{t("Sunday.DressCode.Title")}</DressCodeTitle>
@@ -151,4 +155,9 @@ const StyledBottomBorder = styled(StyledBorder)`
   padding-bottom: 0;
   padding-top: 1rem;
   transform: rotate(180deg);
+`;
+
+// JSON i18n text styling
+const Bold = styled.span`
+  font-weight: bold;
 `;
