@@ -18,11 +18,13 @@ import Sunday from "./pages/Events/Sunday";
 import Contacts from "./pages/Contacts";
 import Footer from "./components/Footer";
 import Services from "./pages/Infos/Services";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   return (
     <main>
       <Router>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

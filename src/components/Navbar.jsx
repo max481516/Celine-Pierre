@@ -17,11 +17,11 @@ export default function Navbar() {
   return (
     <>
       <Nav id="nav" $isHomePage={$isHomePage}>
-        <LanguageSelector type="mobile" />
+        <MobileLanguageSelector type="mobile" lang={i18n.language} />
         <Bars onClick={toggle} $isHomePage={$isHomePage} />
         <NavMenu>
           <LeftContainer>
-            <LanguageSelector type="desktop" />
+            <DesktopLanguageSelector type="desktop" lang={i18n.language} />
           </LeftContainer>
           <RightContainer>
             <NavItem to="/" $isHomePage={$isHomePage}>
@@ -107,6 +107,54 @@ const NavMenu = styled.div`
     display: flex;
     align-items: baseline;
     width: 100%;
+  }
+`;
+
+const DesktopLanguageSelector = styled(LanguageSelector)`
+  > :first-child {
+    ${({ lang }) =>
+      lang === "en" &&
+      `
+      width: 62px;
+    `}
+
+    ${({ lang }) =>
+      lang === "ru" &&
+      `
+      width: 72px;
+    `}
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    > :first-child {
+      ${({ lang }) =>
+        lang === "en" &&
+        `
+      width: 72px;
+    `}
+
+      ${({ lang }) =>
+        lang === "ru" &&
+        `
+      width: 80px;
+    `}
+    }
+  }
+`;
+
+const MobileLanguageSelector = styled(LanguageSelector)`
+  > :first-child {
+    ${({ lang }) =>
+      lang === "en" &&
+      `
+      width: 60px;
+    `}
+
+    ${({ lang }) =>
+      lang === "ru" &&
+      `
+      width: 68px;
+    `}
   }
 `;
 

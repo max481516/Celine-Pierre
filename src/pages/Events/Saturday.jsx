@@ -9,6 +9,7 @@ import { FONTS } from "../../constants";
 import Separator from "../../media/Separator.svg?react";
 import Border from "../../media/Border.svg?react";
 import { useTranslation, Trans } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function Saturday() {
   const { t } = useTranslation();
@@ -169,6 +170,7 @@ export default function Saturday() {
             <br />
             <ItalicText>
               {t("Saturday.Celebration.Transport.ItalicText")}
+              <TransportLink to="/Accomodations">Hebergements</TransportLink>
             </ItalicText>
           </Text>
         </IconTextContainer>
@@ -240,6 +242,14 @@ const LocationLink = styled.a`
 const ItalicText = styled.span`
   font-style: italic;
   font-size: 0.8rem;
+`;
+
+const TransportLink = styled(Link)`
+  color: var(--color-primary-blue);
+
+  &:hover {
+    color: var(--color-light-blue);
+  }
 `;
 
 const DressCodeWrapper = styled.div`

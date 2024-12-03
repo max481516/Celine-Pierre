@@ -64,7 +64,6 @@ export default function Accomodations() {
         <OpenForm onClick={toggleForm}>cliquant ici</OpenForm>.
         {isFormOpen && (
           <DropdownContainer ref={formRef}>
-            <Arrow />
             {formSubmitted ? (
               <ConfirmationWrapper>
                 <FaRegCheckCircle color="green" size={40} />
@@ -87,7 +86,7 @@ export default function Accomodations() {
               </ErrorWrapper>
             ) : (
               <Form
-                action="https://formspree.io/f/movavqpz" // Replace with your Formspree endpoint
+                action="https://formspree.io/f/movavqpz"
                 method="POST"
                 onSubmit={handleFormSubmit}
               >
@@ -96,9 +95,6 @@ export default function Accomodations() {
 
                 <Label htmlFor="hotel">Hôtel</Label>
                 <Select id="hotel" name="hotel" required>
-                  <option value="" disabled hidden>
-                    Sélectionnez un hôtel
-                  </option>
                   <option value="Grand Hôtel Cala Rossa & Spa NUCCA">
                     Grand Hôtel Cala Rossa & Spa NUCCA
                   </option>
@@ -248,7 +244,7 @@ const OpenForm = styled.button`
 const DropdownContainer = styled.div`
   position: absolute;
   margin-top: 8px;
-  background-color: white;
+  background-color: var(--color-lighter-sand);
   border: 1px solid #ddd;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -257,18 +253,22 @@ const DropdownContainer = styled.div`
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-`;
+  border-radius: 4px;
 
-const Arrow = styled.div`
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid white;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-lighter-sand);
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    box-shadow: -2px 1px 1px -2px rgba(0, 0, 0, 0.1);
+    z-index: -1;
+  }
 `;
 
 const Form = styled.form`
@@ -286,6 +286,10 @@ const Input = styled.input`
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
+
+  &::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 const Select = styled.select`
