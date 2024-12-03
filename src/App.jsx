@@ -17,7 +17,7 @@ import Saturday from "./pages/Events/Saturday";
 import Sunday from "./pages/Events/Sunday";
 import Contacts from "./pages/Contacts";
 import Footer from "./components/Footer";
-import Services from "./pages/Infos/Sitters";
+import Services from "./pages/Infos/Services";
 
 export default function App() {
   return (

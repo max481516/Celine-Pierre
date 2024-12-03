@@ -1,102 +1,207 @@
+// Accomodations.jsx
+
+import { useState, useRef } from "react";
 import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../../constants";
 import Border from "../../media/Border.svg?react";
 import Separator2 from "../../media/Separator2.svg?react";
 import { useTranslation } from "react-i18next";
+import { FaRegCheckCircle } from "react-icons/fa";
+import { BiErrorCircle } from "react-icons/bi";
 
-export default function RnB() {
+export default function Accomodations() {
   const { t } = useTranslation();
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formError, setFormError] = useState(false);
+  const formRef = useRef(null);
+
+  const toggleForm = () => {
+    setIsFormOpen((prev) => !prev);
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    // Reset form states when reopening the form
+    setFormSubmitted(false);
+    setFormError(false);
+  };
+
+  async function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setFormSubmitted(true);
+      } else {
+        const errorData = await response.json();
+        console.error("Formspree error:", errorData);
+        setFormError(true);
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
+      setFormError(true);
+    }
+  }
 
   return (
     <Wrapper>
-      <FrameContainer>
-        <StyledBorder />
-        <Title>{t("Accomodations.Title")}</Title>
-        <AboutTransfer></AboutTransfer>
-        <InfoElement
-          name="Grand Hôtel Cala Rossa & Spa NUCCA 5*"
-          location="Domaine de Cala Rossa - 20137 Lecci de Porto-Vecchio"
-          locationLink="https://maps.app.goo.gl/PwrX7RwCZs4hXesQ6"
-          picture={
-            <picture>
-              <source
-                srcSet="
+      <StyledBorder />
+      <Title>{t("Accomodations.Title")}</Title>
+      <AboutTransfer>
+        Les navettes desservent uniquement ces hôtels. Merci de nous indiquer si
+        vous séjournez dans l'un d'eux en{" "}
+        <OpenForm onClick={toggleForm}>cliquant ici</OpenForm>.
+        {isFormOpen && (
+          <DropdownContainer ref={formRef}>
+            <Arrow />
+            {formSubmitted ? (
+              <ConfirmationWrapper>
+                <FaRegCheckCircle color="green" size={40} />
+                <ConfirmationMessage>
+                  Merci! Votre réponse a été envoyée.
+                </ConfirmationMessage>
+                <CloseButton onClick={toggleForm}>Fermer</CloseButton>
+              </ConfirmationWrapper>
+            ) : formError ? (
+              <ErrorWrapper>
+                <BiErrorCircle color="red" size={40} />
+                <ErrorMessage>
+                  Une erreur s'est produite. Veuillez réessayer plus tard ou
+                  envoyez un message sur:{" "}
+                  <ErrorMailLink href="mailto:celine.pierre2025@gmail.com">
+                    celine.pierre2025@gmail.com
+                  </ErrorMailLink>
+                </ErrorMessage>
+                <CloseButton onClick={toggleForm}>Fermer</CloseButton>
+              </ErrorWrapper>
+            ) : (
+              <Form
+                action="https://formspree.io/f/movavqpz" // Replace with your Formspree endpoint
+                method="POST"
+                onSubmit={handleFormSubmit}
+              >
+                <Label htmlFor="name">Nom</Label>
+                <Input id="name" name="name" placeholder="Votre nom" required />
+
+                <Label htmlFor="hotel">Hôtel</Label>
+                <Select id="hotel" name="hotel" required>
+                  <option value="" disabled hidden>
+                    Sélectionnez un hôtel
+                  </option>
+                  <option value="Grand Hôtel Cala Rossa & Spa NUCCA">
+                    Grand Hôtel Cala Rossa & Spa NUCCA
+                  </option>
+                  <option value="Hôtel Cala Rossa Bay Resort">
+                    Hôtel Cala Rossa Bay Resort
+                  </option>
+                  <option value="Hôtel Kilina">Hôtel Kilina</option>
+                </Select>
+
+                <ButtonWrapper>
+                  <SubmitButton type="submit">Soumettre</SubmitButton>
+                  <CloseButton onClick={toggleForm}>Fermer</CloseButton>
+                </ButtonWrapper>
+              </Form>
+            )}
+          </DropdownContainer>
+        )}
+      </AboutTransfer>
+
+      <InfoElement
+        name="Grand Hôtel Cala Rossa & Spa NUCCA 5*"
+        location="Domaine de Cala Rossa - 20137 Lecci de Porto-Vecchio"
+        locationLink="https://maps.app.goo.gl/PwrX7RwCZs4hXesQ6"
+        picture={
+          <picture>
+            <source
+              srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1732727979/CALA_ROSSA_hhlrtm.jpg 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1732727979/CALA_ROSSA_hhlrtm.jpg 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1732727979/CALA_ROSSA_hhlrtm.jpg 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1732727979/CALA_ROSSA_hhlrtm.jpg 550w"
-                sizes="
+              sizes="
       (min-width: 1200px) 1500px,
       (min-width: 1024px) 1100px,
       (min-width: 768px) 770px,
       100vw"
-              />
-              <StyledImage
-                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/CALA_ROSSA_hhlrtm.jpg"
-                alt="CALA ROSSA - View 1"
-              />
-            </picture>
-          }
-        />
-        <StyledSeparator2 />
-        <InfoElement
-          name="Hotel Cala Rossa Bay Resort 4*"
-          location="Rte de Cala Rossa - 20137 Lecci de Porto-Vecchio"
-          locationLink="https://maps.app.goo.gl/wSpeSSrnCAHm8izN9"
-          picture={
-            <picture>
-              <source
-                srcSet="
+            />
+            <StyledImage
+              src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/CALA_ROSSA_hhlrtm.jpg"
+              alt="CALA ROSSA - View 1"
+            />
+          </picture>
+        }
+      />
+      <StyledSeparator2 />
+      <InfoElement
+        name="Hotel Cala Rossa Bay Resort 4*"
+        location="Rte de Cala Rossa - 20137 Lecci de Porto-Vecchio"
+        locationLink="https://maps.app.goo.gl/wSpeSSrnCAHm8izN9"
+        picture={
+          <picture>
+            <source
+              srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1732727979/CALA_ROSSA_4_ubca4f.jpg 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1732727979/CALA_ROSSA_4_ubca4f.jpg 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1732727979/CALA_ROSSA_4_ubca4f.jpg 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1732727979/CALA_ROSSA_4_ubca4f.jpg 550w"
-                sizes="
+              sizes="
       (min-width: 1200px) 1500px,
       (min-width: 1024px) 1100px,
       (min-width: 768px) 770px,
       100vw"
-              />
-              <StyledImage
-                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/CALA_ROSSA_4_ubca4f.jpg"
-                alt="CALA ROSSA - View 2"
-              />
-            </picture>
-          }
-        />
-        <StyledSeparator2 />
-        <InfoElement
-          name="Hotel Kilina 3*"
-          location="Rte de Cala Rossa - 20137 Lecci de Porto-Vecchio"
-          locationLink="https://maps.app.goo.gl/gwJq1rRvFoPETgyp8"
-          picture={
-            <picture>
-              <source
-                srcSet="
+            />
+            <StyledImage
+              src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/CALA_ROSSA_4_ubca4f.jpg"
+              alt="CALA ROSSA - View 2"
+            />
+          </picture>
+        }
+      />
+      <StyledSeparator2 />
+      <InfoElement
+        name="Hotel Kilina 3*"
+        location="Rte de Cala Rossa - 20137 Lecci de Porto-Vecchio"
+        locationLink="https://maps.app.goo.gl/gwJq1rRvFoPETgyp8"
+        picture={
+          <picture>
+            <source
+              srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1732727979/KILINA_mmfe3h.jpg 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1732727979/KILINA_mmfe3h.jpg 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1732727979/KILINA_mmfe3h.jpg 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1732727979/KILINA_mmfe3h.jpg 550w"
-                sizes="
+              sizes="
       (min-width: 1200px) 1500px,
       (min-width: 1024px) 1100px,
       (min-width: 768px) 770px,
       100vw"
-              />
-              <StyledImage
-                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/KILINA_mmfe3h.jpg"
-                alt="KILINA Resort"
-              />
-            </picture>
-          }
-        />
-        <StyledBottomBorder />
-      </FrameContainer>
+            />
+            <StyledImage
+              src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/KILINA_mmfe3h.jpg"
+              alt="KILINA Resort"
+            />
+          </picture>
+        }
+      />
+
+      <StyledBottomBorder />
     </Wrapper>
   );
 }
 
+// Styled Components
 const Wrapper = styled.div`
   padding: 1rem;
 
@@ -106,26 +211,11 @@ const Wrapper = styled.div`
 
   @media ${QUERIES.laptopAndUp} {
     padding: 8rem 14rem;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80'%3E%3Cpath fill='%2303757b' fill-opacity='0.4' d='M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'%3E%3C/path%3E%3C/svg%3E");
     background-color: var(--color-lighter-sand);
   }
 
   @media ${QUERIES.desktopAndUp} {
     padding: 8rem 24rem;
-  }
-`;
-
-const FrameContainer = styled.div`
-  @media ${QUERIES.laptopAndUp} {
-    padding: 2rem;
-    border: 1px solid var(--color-primary-blue);
-    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
-      0 5px 14px 0 rgba(0, 0, 0, 0.18);
-    background-color: var(--color-light-sand);
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 4rem;
   }
 `;
 
@@ -137,6 +227,142 @@ const Title = styled.h2`
   text-transform: uppercase;
 `;
 
+const AboutTransfer = styled.p`
+  ${FONTS.titleFont};
+  text-align: center;
+  position: relative;
+`;
+
+const OpenForm = styled.button`
+  color: var(--color-primary-blue);
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-light-blue);
+  }
+`;
+
+const DropdownContainer = styled.div`
+  position: absolute;
+  margin-top: 8px;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  padding: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+`;
+
+const Arrow = styled.div`
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Label = styled.label`
+  margin-bottom: 8px;
+  font-size: 1rem;
+`;
+
+const Input = styled.input`
+  margin-bottom: 12px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+`;
+
+const Select = styled.select`
+  margin-bottom: 12px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const SubmitButton = styled.button`
+  padding: 8px 12px;
+  background-color: var(--color-primary-blue);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-light-blue);
+  }
+`;
+
+const CloseButton = styled.button`
+  padding: 8px 12px;
+  background-color: var(--color-darker-sand);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-dark-sand);
+  }
+`;
+
+const ConfirmationWrapper = styled.div`
+  background-color: var(--color-lighter-sand);
+  border: 1px solid var(--color-dark-sand);
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 54px 55px,
+    rgba(255, 255, 255, 0.12) 0px -12px 30px,
+    rgba(255, 255, 255, 0.12) 0px 4px 6px,
+    rgba(255, 255, 255, 0.17) 0px 12px 13px,
+    rgba(255, 255, 255, 0.09) 0px -3px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 16px;
+  border-radius: 4px;
+`;
+
+const ConfirmationMessage = styled.p`
+  font-size: 1rem;
+`;
+
+const ErrorWrapper = styled(ConfirmationWrapper)``;
+
+const ErrorMessage = styled.p`
+  font-size: 1rem;
+`;
+
+const ErrorMailLink = styled.a`
+  color: var(--color-primary-blue);
+  text-decoration: none;
+  transition: color 0.4s ease-in-out;
+
+  &:hover {
+    color: var(--color-light-blue);
+  }
+`;
+
 const StyledImage = styled.img`
   object-fit: cover;
   width: 100%;
@@ -144,16 +370,16 @@ const StyledImage = styled.img`
 `;
 
 const StyledBorder = styled(Border)`
-  padding-bottom: 1rem;
   color: var(--color-primary-blue);
+  padding-bottom: 1rem;
 `;
 
 const StyledBottomBorder = styled(StyledBorder)`
-  padding-bottom: 0;
-  padding-top: 1rem;
+  color: var(--color-primary-blue);
   transform: rotate(180deg);
 `;
 
 const StyledSeparator2 = styled(Separator2)`
   color: var(--color-primary-blue);
+  margin: 16px 0;
 `;
