@@ -1,28 +1,36 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FONTS } from "../constants";
 import { useTranslation } from "react-i18next";
+import { useStore } from "../stores/store.js";
 
-export default function MobileNav({ isOpen, toggle }) {
+export default function MobileNav() {
   const [openDropdown, setOpenDropdown] = useState(null);
+  const isOpen = useStore((state) => state.isMobileNavOpen);
+  const closeMobileNav = useStore((state) => state.closeMobileNav);
+  const location = useLocation();
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const handleDropdownToggle = (name) => {
     // Toggle dropdown: if it's open, close it; otherwise, open it
     setOpenDropdown((prev) => (prev === name ? null : name));
   };
 
+  useEffect(() => {
+    // Close the nav when the route changes
+    closeMobileNav();
+  }, [location.pathname, closeMobileNav]);
+
   const handleNavItemClick = () => {
-    setOpenDropdown(null); // Close any open dropdown when clicking on any main item
-    toggle(); // Also toggle the mobile nav
+    closeMobileNav();
   };
 
   return (
     <MobileNavContainer $isOpen={isOpen}>
-      <CloseButton onClick={toggle}>
+      <CloseButton onClick={closeMobileNav}>
         <AiOutlineClose />
       </CloseButton>
       <MobileNavMenu>
@@ -32,8 +40,8 @@ export default function MobileNav({ isOpen, toggle }) {
 
         <MobileDropdown
           name={t("Nav.Events")}
-          isOpen={openDropdown === "Événements"}
-          toggleDropdown={() => handleDropdownToggle("Événements")}
+          isOpen={openDropdown === t("Nav.Events")}
+          toggleDropdown={() => handleDropdownToggle(t("Nav.Events"))}
         >
           <MobileDropdownItem to="/Friday" onClick={handleNavItemClick}>
             {t("Nav.Friday")}

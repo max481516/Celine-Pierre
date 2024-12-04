@@ -43,7 +43,7 @@
       "WhereLocation": "Saint John the Baptist Church, 2-8 Rue Joseph Pietri Maire, 20137 Porto-Vecchio",
       "Transport": {
         "Text": "<bold>Transport :</bold> Please arrange your own transportation to the church.",
-        "ItalicText": "At the end of the religious ceremony, we invite you to head to your respective hotels. A shuttle will then pick you up for dinner. (Not all Hotels are ...)"
+        "ItalicText": "After the religious ceremony, we invite you to return to your respective hotels. A shuttle will then pick you up for the evening. (Not all hotels are served, see the page <0>\"Accommodations\"</0> for more information)"
       },
       "Parking": "Parking : ",
       "ParkingLocation1": "Parking Santa Catalina",
@@ -62,7 +62,7 @@
       "WhereLocation": "Casadelmar Beach, Presqu’île du Benedettu, 20137 Porto-Vecchio",
       "Transport": {
         "Text": "<bold>Transport :</bold> Shuttle service between your hotel and Plage Casadelmar",
-        "ItalicText": "Not all hotesl..."
+        "ItalicText": "(Not all hotels are served, see the page <0>\"Accommodations\"</0> for more information)"
       },
       "Parking": "<bold>Parking :</bold> If you wish to attend the evening with your own car, the La Plage Casadelmar hotel has parking available.",
       "DressCode": {

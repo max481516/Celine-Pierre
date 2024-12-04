@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { IoMdClock } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaSquareParking } from "react-icons/fa6";
-import { ImManWoman } from "react-icons/im";
+import People from "../../media/People.svg?react";
 import { FONTS } from "../../../src/constants";
 import Border from "../../media/Border.svg?react";
 import { Trans, useTranslation } from "react-i18next";
@@ -68,7 +68,7 @@ export default function Sunday() {
         <DressCodeWrapper>
           <DressCodeTitle>{t("Sunday.DressCode.Title")}</DressCodeTitle>
           <DressCodeIconTextContainer>
-            <StyledIcon as={ImManWoman} />
+            <StyledIcon as={People} />
             <Text>{t("Sunday.DressCode.Text")}</Text>
           </DressCodeIconTextContainer>
         </DressCodeWrapper>

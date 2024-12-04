@@ -3,14 +3,14 @@ import { Link, useLocation } from "react-router-dom";
 import { QUERIES, FONTS } from "../constants";
 import LanguageSelector from "./LanguageSelector";
 import MobileNav from "./MobileNav";
-import useMobileNav from "../hooks/useMobileNav";
+
 import { FaBars } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
+import { useStore } from "../stores/store.js";
 
 export default function Navbar() {
-  const { isOpen, toggle } = useMobileNav();
-
   const $isHomePage = useLocation().pathname === "/";
+  const toggleMobileNav = useStore((state) => state.toggleMobileNav);
 
   const { t, i18n } = useTranslation();
 
@@ -18,7 +18,7 @@ export default function Navbar() {
     <>
       <Nav id="nav" $isHomePage={$isHomePage}>
         <MobileLanguageSelector type="mobile" lang={i18n.language} />
-        <Bars onClick={toggle} $isHomePage={$isHomePage} />
+        <Bars onClick={toggleMobileNav} $isHomePage={$isHomePage} />
         <NavMenu>
           <LeftContainer>
             <DesktopLanguageSelector type="desktop" lang={i18n.language} />
@@ -61,7 +61,7 @@ export default function Navbar() {
           </RightContainer>
         </NavMenu>
 
-        <MobileNav isOpen={isOpen} toggle={toggle} />
+        <MobileNav />
       </Nav>
     </>
   );

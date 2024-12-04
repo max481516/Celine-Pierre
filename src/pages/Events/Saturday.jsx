@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { IoMdClock } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
-import { GiDress } from "react-icons/gi";
+import Dress from "../../media/Dress.svg?react";
+import Suit from "../../media/Suit.svg?react";
 import { FaSquareParking } from "react-icons/fa6";
 import { FaBus } from "react-icons/fa";
-import { ImUserTie } from "react-icons/im";
 import { FONTS } from "../../constants";
 import Separator from "../../media/Separator.svg?react";
 import Border from "../../media/Border.svg?react";
@@ -70,7 +70,14 @@ export default function Saturday() {
             />
             <br />
             <ItalicText>
-              {t("Saturday.Ceremony.Transport.ItalicText")}
+              <Trans
+                i18nKey="Saturday.Ceremony.Transport.ItalicText"
+                components={[
+                  <TransportLink to="/Accomodations" key="0">
+                    Hébergements
+                  </TransportLink>,
+                ]}
+              />
             </ItalicText>
           </Text>
         </IconTextContainer>
@@ -100,11 +107,11 @@ export default function Saturday() {
             {t("Saturday.Ceremony.DressCode.Title")}
           </DressCodeTitle>
           <DressCodeIconTextContainer>
-            <StyledIcon as={GiDress} />
+            <StyledIcon as={Dress} />
             <Text>{t("Saturday.Ceremony.DressCode.Girls")}</Text>
           </DressCodeIconTextContainer>
           <DressCodeIconTextContainer>
-            <StyledIcon as={ImUserTie} />
+            <StyledIcon as={Suit} />
             <Text>{t("Saturday.Ceremony.DressCode.Boys")} </Text>
           </DressCodeIconTextContainer>
         </DressCodeWrapper>
@@ -169,8 +176,14 @@ export default function Saturday() {
             />
             <br />
             <ItalicText>
-              {t("Saturday.Celebration.Transport.ItalicText")}
-              <TransportLink to="/Accomodations">Hebergements</TransportLink>
+              <Trans
+                i18nKey="Saturday.Celebration.Transport.ItalicText"
+                components={[
+                  <TransportLink to="/Accomodations" key="0">
+                    Hébergements
+                  </TransportLink>,
+                ]}
+              />
             </ItalicText>
           </Text>
         </IconTextContainer>
@@ -188,11 +201,11 @@ export default function Saturday() {
             {t("Saturday.Celebration.DressCode.Title")}
           </DressCodeTitle>
           <DressCodeIconTextContainer>
-            <StyledIcon as={GiDress} />
+            <StyledIcon as={Dress} />
             <Text>{t("Saturday.Celebration.DressCode.Girls")}</Text>
           </DressCodeIconTextContainer>
           <DressCodeIconTextContainer>
-            <StyledIcon as={ImUserTie} />
+            <StyledIcon as={Suit} />
             <Text>{t("Saturday.Celebration.DressCode.Boys")}</Text>
           </DressCodeIconTextContainer>
         </DressCodeWrapper>
