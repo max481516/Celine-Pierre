@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { useEffect, useState } from "react";
-import { FONTS } from "../constants";
+import { FONTS, QUERIES } from "../constants";
 import { useTranslation } from "react-i18next";
 import { useStore } from "../stores/store.js";
+import i18n from "../i18n/i18n.js";
+import LanguageSelector from "./LanguageSelector.jsx";
 
 export default function MobileNav() {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -33,6 +35,7 @@ export default function MobileNav() {
       <CloseButton onClick={closeMobileNav}>
         <AiOutlineClose />
       </CloseButton>
+      <MobileLanguageSelector type="mobile" lang={i18n.language} />
       <MobileNavMenu>
         <MobileNavItem to="/" onClick={handleNavItemClick}>
           {t("Nav.Home")}
@@ -85,9 +88,7 @@ export default function MobileNav() {
         <MobileNavItem to="/Album" onClick={handleNavItemClick}>
           {t("Nav.Album")}
         </MobileNavItem>
-        <MobileNavItem to="/RSVP" onClick={handleNavItemClick}>
-          RSVP
-        </MobileNavItem>
+
         <MobileNavItem to="/Contacts" onClick={handleNavItemClick}>
           {t("Nav.Contacts")}
         </MobileNavItem>
@@ -122,6 +123,14 @@ const MobileNavContainer = styled.div`
     props.$isOpen ? "translateX(0)" : "translateX(100%)"};
   transition: transform 0.3s ease-in-out;
   z-index: 999;
+
+  @media ${QUERIES.tabletAndUp} {
+    width: 50%;
+  }
+
+  @media ${QUERIES.largeTabletAndUp} {
+    display: none;
+  }
 `;
 
 const CloseButton = styled.div`
@@ -133,6 +142,22 @@ const CloseButton = styled.div`
   color: var(--color-darker-sand);
 `;
 
+const MobileLanguageSelector = styled(LanguageSelector)`
+  > :first-child {
+    ${({ lang }) =>
+      lang === "en" &&
+      `
+      width: 60px;
+    `}
+
+    ${({ lang }) =>
+      lang === "ru" &&
+      `
+      width: 68px;
+    `}
+  }
+`;
+
 const MobileNavMenu = styled.div`
   display: flex;
   flex-direction: column;
@@ -140,15 +165,19 @@ const MobileNavMenu = styled.div`
   margin-top: 100px;
 `;
 
-const MobileNavItem = styled(Link)`
-  ${FONTS.titleFont};
-  color: var(--color-primary-blue);
+const MobileNavItem = styled(NavLink)`
+  color: var(--color-darker-sand);
   font-size: 1.5rem;
   padding: 1rem;
   text-decoration: none;
 
   &:hover {
     color: var(--color-light-blue);
+    transition: all 0.2s ease-in-out;
+  }
+
+  &.active {
+    color: var(--color-primary-blue);
   }
 `;
 
@@ -162,17 +191,22 @@ const MobileDropdownContent = styled.div`
   overflow: hidden;
   transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
   opacity: ${(props) => (props.$isDropdownOpen ? "1" : "0")};
-  background-color: var(--color-primary-blue);
+  background-color: var(--color-grey-beige-secondary);
   width: 100%;
 `;
 
-const MobileDropdownItem = styled(Link)`
+const MobileDropdownItem = styled(NavLink)`
   color: white;
   padding: 12px 16px;
   display: block;
   text-decoration: none;
 
   &:hover {
-    background-color: #444;
+    background-color: var(--color-dark-sand);
+    transition: all 0.2s ease-in-out;
+  }
+
+  &.active {
+    color: var(--color-primary-blue);
   }
 `;

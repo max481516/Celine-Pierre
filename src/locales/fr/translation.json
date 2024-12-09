@@ -6,7 +6,7 @@
     "Saturday": "Samedi",
     "Sunday": "Dimanche",
     "Infos": "Informations",
-    "Accomodations": "Hébergements",
+    "Accommodations": "Hébergements",
     "Transports": "Transports",
     "R&B": "Restaurants & Bars",
     "Beauty": "Beauté",
@@ -87,13 +87,24 @@
   },
 
   "Accomodations": {
-    "Title": "HÉBERGEMENTS"
+    "Title": "HÉBERGEMENTS",
+    "AboutTransfer": {
+      "Text": "Les navettes desserviront uniquement ces hôtels. Merci de nous indiquer si vous séjournez dans l’un d’eux en",
+      "OpenForm": "cliquant sur ce lien",
+      "ConfirmationMessage": "Merci pour votre réponse !",
+      "ErrorMessage": "Une erreur s'est produite. Veuillez réessayer, ou écrivez-nous un message à :",
+      "Name": "Nom",
+      "NamePlaceholder": "Votre nom",
+      "Hotel": "Hôtel",
+      "CloseButton": "Fermer",
+      "SubmitButton": "Soumettre"
+    }
   },
 
   "R&B": {
     "Title": "RESTAURANTS & BARS",
-    "Section1": "Centre Ville :",
-    "Section2": "Ambiancés :"
+    "Section1": "CENTRE VILLE",
+    "Section2": "AMBIANCÉS"
   },
 
   "Beaches": {

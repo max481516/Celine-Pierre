@@ -86,13 +86,24 @@
   },
 
   "Accomodations": {
-    "Title": "ACCOMODATIONS"
+    "Title": "ACCOMODATIONS",
+    "AboutTransfer": {
+      "Text": "The shuttles will serve only these hotels. Please let us know if you are staying at one of them by",
+      "OpenForm": "clicking on this link",
+      "ConfirmationMessage": "Thank you for your answer!",
+      "ErrorMessage": "An error occurred. Please try again, or write us a message at:",
+      "Name": "Nom",
+      "NamePlaceholder": "Your name",
+      "Hotel": "Hotel",
+      "CloseButton": "Close",
+      "SubmitButton": "Submit"
+    }
   },
 
   "R&B": {
     "Title": "RESTAURANTS & BARS",
-    "Section1": "City Center :",
-    "Section2": "Festive Restaurants :"
+    "Section1": "CITY CENTER",
+    "Section2": "FESTIVE RESTAURANTS"
   },
 
   "Beaches": {

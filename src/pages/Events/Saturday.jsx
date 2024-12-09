@@ -245,7 +245,6 @@ const OrParking = styled.span``;
 
 const LocationLink = styled.a`
   color: var(--color-primary-blue);
-  text-decoration: none;
 
   &:hover {
     color: var(--color-light-blue);

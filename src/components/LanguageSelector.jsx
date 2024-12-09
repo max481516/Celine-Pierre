@@ -40,8 +40,7 @@ const LanguageSelectorContainer = styled.div`
   justify-content: center;
 
   cursor: pointer;
-  color: ${({ $isHomePage }) =>
-    $isHomePage ? "#fff" : "var(--color-darker-sand)"};
+  color: var(--color-sandstone);
   font-size: calc(20rem / 16);
   ${FONTS.titleFont};
 
@@ -61,6 +60,7 @@ const LanguageSelectorContainer = styled.div`
     type === "desktop" &&
     css`
       align-items: center;
+      display: none;
 
       &:hover {
         transition: all 0.2s ease-in-out;
@@ -79,10 +79,6 @@ const LanguageSelectorContainer = styled.div`
       @media ${QUERIES.largeTabletAndUp} {
         display: flex;
       }
-
-      @media ${QUERIES.laptopAndUp} {
-        font-size: calc(24rem / 16);
-      }
     `};
 `;
 
@@ -91,13 +87,12 @@ const Selector = styled.select`
   appearance: none;
   background: transparent;
   cursor: pointer;
-  color: inherit;
+  color: var(--color-sandstone);
 `;
 
 const IconContainer = styled.div`
   flex-shrink: 0;
-  color: ${({ $isHomePage }) =>
-    $isHomePage ? "#fff" : "var(--color-dark-sand)"};
-
+  color: var(--color-sandstone);
+  opacity: 0.8;
   padding: 0 0 3px 0;
 `;

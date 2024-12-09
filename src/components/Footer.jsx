@@ -81,7 +81,7 @@ const moveUpDown = keyframes`
 
 const FooterContainer = styled.footer`
   background: ${({ $isHomePage }) =>
-    $isHomePage ? "transparent" : "var(--color-light-sand)"};
+    $isHomePage ? "var(--color-dark-sand)" : "var(--color-light-sand)"};
   text-align: center;
   border-top: ${({ $isHomePage }) =>
     $isHomePage ? "none" : "1px solid var(--color-darker-sand)"};
@@ -91,7 +91,6 @@ const FooterContainer = styled.footer`
 `;
 
 const BackToTop = styled.a`
-  display: ${({ $isHomePage }) => ($isHomePage ? "none" : "block")};
   position: fixed;
   bottom: calc(2rem / 16);
   right: 10px;

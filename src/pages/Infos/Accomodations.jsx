@@ -5,7 +5,7 @@ import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../../constants";
 import Border from "../../media/Border.svg?react";
-import Separator2 from "../../media/Separator2.svg?react";
+import Separator from "../../media/Separator2.svg?react";
 import { useTranslation } from "react-i18next";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { BiErrorCircle } from "react-icons/bi";
@@ -59,30 +59,35 @@ export default function Accomodations() {
       <StyledBorder />
       <Title>{t("Accomodations.Title")}</Title>
       <AboutTransfer>
-        Les navettes desservent uniquement ces hôtels. Merci de nous indiquer si
-        vous séjournez dans l'un d'eux en{" "}
-        <OpenForm onClick={toggleForm}>cliquant ici</OpenForm>.
+        {t("Accomodations.AboutTransfer.Text")}{" "}
+        <OpenForm onClick={toggleForm}>
+          {t("Accomodations.AboutTransfer.OpenForm")}
+        </OpenForm>
+        .
         {isFormOpen && (
           <DropdownContainer ref={formRef}>
             {formSubmitted ? (
               <ConfirmationWrapper>
                 <FaRegCheckCircle color="green" size={40} />
                 <ConfirmationMessage>
-                  Merci! Votre réponse a été envoyée.
+                  {t("Accomodations.AboutTransfer.ConfirmationMessage")}
                 </ConfirmationMessage>
-                <CloseButton onClick={toggleForm}>Fermer</CloseButton>
+                <CloseButton onClick={toggleForm}>
+                  {t("Accomodations.AboutTransfer.CloseButton")}
+                </CloseButton>
               </ConfirmationWrapper>
             ) : formError ? (
               <ErrorWrapper>
                 <BiErrorCircle color="red" size={40} />
                 <ErrorMessage>
-                  Une erreur s'est produite. Veuillez réessayer plus tard ou
-                  envoyez un message sur:{" "}
+                  {t("Accomodations.AboutTransfer.ErrorMessage")}{" "}
                   <ErrorMailLink href="mailto:celine.pierre2025@gmail.com">
                     celine.pierre2025@gmail.com
                   </ErrorMailLink>
                 </ErrorMessage>
-                <CloseButton onClick={toggleForm}>Fermer</CloseButton>
+                <CloseButton onClick={toggleForm}>
+                  {t("Accomodations.AboutTransfer.CloseButton")}
+                </CloseButton>
               </ErrorWrapper>
             ) : (
               <Form
@@ -90,10 +95,19 @@ export default function Accomodations() {
                 method="POST"
                 onSubmit={handleFormSubmit}
               >
-                <Label htmlFor="name">Nom</Label>
-                <Input id="name" name="name" placeholder="Votre nom" required />
+                <Label htmlFor="name">
+                  {t("Accomodations.AboutTransfer.Name")}
+                </Label>
+                <Input
+                  id="name"
+                  name="name"
+                  placeholder={t("Accomodations.AboutTransfer.NamePlaceholder")}
+                  required
+                />
 
-                <Label htmlFor="hotel">Hôtel</Label>
+                <Label htmlFor="hotel">
+                  {t("Accomodations.AboutTransfer.Hotel")}
+                </Label>
                 <Select id="hotel" name="hotel" required>
                   <option value="Grand Hôtel Cala Rossa & Spa NUCCA">
                     Grand Hôtel Cala Rossa & Spa NUCCA
@@ -105,8 +119,12 @@ export default function Accomodations() {
                 </Select>
 
                 <ButtonWrapper>
-                  <SubmitButton type="submit">Soumettre</SubmitButton>
-                  <CloseButton onClick={toggleForm}>Fermer</CloseButton>
+                  <SubmitButton type="submit">
+                    {t("Accomodations.AboutTransfer.SubmitButton")}
+                  </SubmitButton>
+                  <CloseButton onClick={toggleForm}>
+                    {t("Accomodations.AboutTransfer.CloseButton")}
+                  </CloseButton>
                 </ButtonWrapper>
               </Form>
             )}
@@ -139,7 +157,7 @@ export default function Accomodations() {
           </picture>
         }
       />
-      <StyledSeparator2 />
+      <StyledSeparator />
       <InfoElement
         name="Hotel Cala Rossa Bay Resort 4*"
         location="Rte de Cala Rossa - 20137 Lecci de Porto-Vecchio"
@@ -165,7 +183,7 @@ export default function Accomodations() {
           </picture>
         }
       />
-      <StyledSeparator2 />
+      <StyledSeparator />
       <InfoElement
         name="Hotel Kilina 3*"
         location="Rte de Cala Rossa - 20137 Lecci de Porto-Vecchio"
@@ -383,7 +401,7 @@ const StyledBottomBorder = styled(StyledBorder)`
   transform: rotate(180deg);
 `;
 
-const StyledSeparator2 = styled(Separator2)`
+const StyledSeparator = styled(Separator)`
   color: var(--color-primary-blue);
   margin: 16px 0;
 `;

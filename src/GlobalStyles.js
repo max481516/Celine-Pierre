@@ -13,6 +13,10 @@ const GlobalStyles = createGlobalStyle`
   --color-dark-sand: HSL(27, 20%, 80%);
   --color-element-sand: HSL(27, 20%, 85%);
   --color-darker-sand: HSL(27, 10%, 60%);
+  --color-sandstone: #796d64;
+  --color-beige:  #B0E0E6;
+  --color-grey-beige: #d6cdc8;
+  --color-grey-beige-secondary: #a3988f;
 }
 
 //FONTS

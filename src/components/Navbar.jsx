@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { QUERIES, FONTS } from "../constants";
 import LanguageSelector from "./LanguageSelector";
 import MobileNav from "./MobileNav";
@@ -15,14 +15,17 @@ export default function Navbar() {
   const { t, i18n } = useTranslation();
 
   return (
-    <>
+    <Wrapper>
+      <HeaderSection>
+        <Names>Celine & Pierre</Names>
+        <Date>6-7 September 2025</Date>
+        <DesktopLanguageSelector type="desktop" lang={i18n.language} />
+      </HeaderSection>
       <Nav id="nav" $isHomePage={$isHomePage}>
-        <MobileLanguageSelector type="mobile" lang={i18n.language} />
+        {/*         <MobileLanguageSelector type="mobile" lang={i18n.language} /> */}
         <Bars onClick={toggleMobileNav} $isHomePage={$isHomePage} />
         <NavMenu>
-          <LeftContainer>
-            <DesktopLanguageSelector type="desktop" lang={i18n.language} />
-          </LeftContainer>
+          {/* <LeftContainer></LeftContainer> */}
           <RightContainer>
             <NavItem to="/" $isHomePage={$isHomePage}>
               {t("Nav.Home")}
@@ -34,7 +37,7 @@ export default function Navbar() {
             </Dropdown>
             <Dropdown name={t("Nav.Infos")} $isHomePage={$isHomePage}>
               <DropdownItem to="/Accomodations">
-                {t("Nav.Accomodations")}
+                {t("Nav.Accommodations")}
               </DropdownItem>
               <DropdownItem to="/Transports">
                 {t("Nav.Transports")}
@@ -52,9 +55,6 @@ export default function Navbar() {
             <NavItem to="/Album" $isHomePage={$isHomePage}>
               {t("Nav.Album")}
             </NavItem>
-            <NavItem to="/RSVP" $isHomePage={$isHomePage}>
-              RSVP
-            </NavItem>
             <NavItem to="/Contacts" $isHomePage={$isHomePage}>
               {t("Nav.Contacts")}
             </NavItem>
@@ -63,25 +63,71 @@ export default function Navbar() {
 
         <MobileNav />
       </Nav>
-    </>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: var(--color-grey-beige);
+  width: 100%;
+  z-index: 10;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    flex-direction: column;
+  }
+`;
+
+const HeaderSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-grey-beige);
+  padding: 8px;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    padding-top: 8px;
+  }
+`;
+
+const Names = styled.h2`
+  ${FONTS.titleFont};
+  color: var(--color-sandstone);
+  margin: 0;
+  text-transform: uppercase;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    font-size: 2.5rem;
+  }
+`;
+
+const Date = styled.p`
+  ${FONTS.titleFont};
+  color: var(--color-sandstone);
+  margin-top: -8px;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    font-size: 1.3rem;
+  }
+`;
 
 const Nav = styled.nav`
   position: relative; // Keeps the navbar fixed to the top
   top: env(safe-area-inset-top, 0); // Takes the notch into account
   left: 0;
   right: 0;
-  background: ${({ $isHomePage }) =>
-    $isHomePage ? "transparent" : "var(--color-light-sand)"};
-  border-bottom: ${({ $isHomePage }) =>
-    $isHomePage ? "none" : "1px solid var(--color-darker-sand);"};
+  background: var(--color-grey-beige);
   height: 80px;
   display: flex;
   align-items: center;
-  width: 100%;
+  margin-left: auto;
   z-index: 10;
   padding: 0 20px;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    margin-left: 0;
+  }
 `;
 
 const Bars = styled(FaBars)`
@@ -92,8 +138,7 @@ const Bars = styled(FaBars)`
   font-size: 1.8rem;
   transform: translate(-100%, 75%);
   cursor: pointer;
-  color: ${({ $isHomePage }) =>
-    $isHomePage ? "#fff" : "var(--color-darker-sand)"};
+  color: var(--color-sandstone);
 
   @media ${QUERIES.largeTabletAndUp} {
     display: none;
@@ -106,6 +151,7 @@ const NavMenu = styled.div`
   @media ${QUERIES.largeTabletAndUp} {
     display: flex;
     align-items: baseline;
+    justify-content: center;
     width: 100%;
   }
 `;
@@ -142,7 +188,7 @@ const DesktopLanguageSelector = styled(LanguageSelector)`
   }
 `;
 
-const MobileLanguageSelector = styled(LanguageSelector)`
+/* const MobileLanguageSelector = styled(LanguageSelector)`
   > :first-child {
     ${({ lang }) =>
       lang === "en" &&
@@ -156,22 +202,21 @@ const MobileLanguageSelector = styled(LanguageSelector)`
       width: 68px;
     `}
   }
-`;
+`; */
 
-const LeftContainer = styled.div`
+/* const LeftContainer = styled.div`
   display: flex;
   margin-right: auto;
-`;
+`; */
 
 const RightContainer = styled.div`
   display: flex;
   align-items: baseline;
+  justify-content: space-evenly;
 `;
 
-const NavItem = styled(Link)`
-  ${FONTS.titleFont};
-  color: ${({ $isHomePage }) =>
-    $isHomePage ? "#fff" : "var(--color-darker-sand)"};
+const NavItem = styled(NavLink)`
+  color: var(--color-sandstone);
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -179,6 +224,7 @@ const NavItem = styled(Link)`
   cursor: pointer;
   font-size: 1rem;
   text-decoration: none;
+  text-align: center;
 
   &:hover {
     color: var(--color-primary-blue);
@@ -187,10 +233,6 @@ const NavItem = styled(Link)`
 
   &.active {
     color: var(--color-primary-blue);
-  }
-
-  @media ${QUERIES.laptopAndUp} {
-    font-size: calc(20rem / 16);
   }
 `;
 
@@ -214,7 +256,7 @@ const DropdownContainer = styled.div`
 
 const DropdownContent = styled.div`
   position: absolute;
-  background-color: #fff;
+  background-color: var(--color-lighter-sand);
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -226,14 +268,20 @@ const DropdownContent = styled.div`
   transition: max-height 0.3s ease, opacity 0.3s ease;
 `;
 
-const DropdownItem = styled(Link)`
-  color: black;
+const DropdownItem = styled(NavLink)`
+  color: var(--color-sandstone);
   padding: 12px 16px;
   text-decoration: none;
+  text-align: center;
   display: block;
 
   &:hover {
-    background-color: #ddd;
+    color: var(--color-primary-blue);
+    background-color: var(--color-grey-beige);
     transition: all 0.2s ease-in-out;
+  }
+
+  &.active {
+    color: var(--color-primary-blue);
   }
 `;

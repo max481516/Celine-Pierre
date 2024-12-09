@@ -2,7 +2,7 @@ import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
 import { FONTS } from "../../constants";
 import Border from "../../media/Border.svg?react";
-import Separator2 from "../../media/Separator2.svg?react";
+import Separator from "../../media/Separator2.svg?react";
 import { useTranslation } from "react-i18next";
 
 export default function RnB() {
@@ -39,7 +39,7 @@ export default function RnB() {
             </picture>
           }
         />
-        <StyledSeparator2 />
+        <StyledSeparator />
         <InfoElement
           name="Linda Beach"
           location="Palombaggia Capu d'Acciaghju, 20137 Porto-Vecchio"
@@ -65,7 +65,7 @@ export default function RnB() {
             </picture>
           }
         />
-        <StyledSeparator2 />
+        <StyledSeparator />
         <InfoElement
           name="Da Mare Sea Lounge"
           location="Plage de Palombaggia, 20137 Porto-Vecchio "
@@ -91,7 +91,7 @@ export default function RnB() {
             </picture>
           }
         />
-        <StyledSeparator2 />
+        <StyledSeparator />
         <InfoElement
           name="Le petit chose"
           location="folacca, Rte de Palombaggia, 20137 Porto-Vecchio"
@@ -147,7 +147,7 @@ export default function RnB() {
             </picture>
           }
         />
-        <StyledSeparator2 />
+        <StyledSeparator />
         <InfoElement
           name="Køstën Plage"
           location="Baie de Santa Giulia
@@ -248,6 +248,6 @@ const StyledBottomBorder = styled(StyledBorder)`
   transform: rotate(180deg);
 `;
 
-const StyledSeparator2 = styled(Separator2)`
+const StyledSeparator = styled(Separator)`
   color: var(--color-primary-blue);
 `;

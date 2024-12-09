@@ -12,46 +12,47 @@ export default function Services() {
     <Wrapper>
       <FrameContainer>
         <StyledBorder />
-        <Title>{t("Accomodations.Title")}</Title>
-
+        <Title>Services</Title>
+        <SubTitle>Baby-sitters :</SubTitle>
+        <SitterDescription>
+          Nous avons prévu une baby-sitter pour garder vos petits, afin que vous
+          puissiez profiter pleinement de votre soirée.
+        </SitterDescription>
         <InfoElement
-          name="Grand Hôtel Cala Rossa & Spa NUCCA 5*"
-          location="Domaine de Cala Rossa - 20137 Lecci de Porto-Vecchio"
-          locationLink="https://maps.app.goo.gl/PwrX7RwCZs4hXesQ6"
           picture={
             <picture>
               <source
                 srcSet="
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1732727979/CALA_ROSSA_hhlrtm.jpg 1600w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1732727979/CALA_ROSSA_hhlrtm.jpg 1100w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1732727979/CALA_ROSSA_hhlrtm.jpg 770w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1732727979/CALA_ROSSA_hhlrtm.jpg 550w"
+    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1733342851/BabySitter_nshxzx.jpg 1600w,
+    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1733342851/BabySitter_nshxzx.jpg 1100w,
+    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1733342851/BabySitter_nshxzx.jpg 770w,
+    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1733342851/BabySitter_nshxzx.jpg 550w"
                 sizes="
-      (min-width: 1200px) 1500px,
-      (min-width: 1024px) 1100px,
-      (min-width: 768px) 770px,
-      100vw"
+    (min-width: 1200px) 1500px,
+    (min-width: 1024px) 1100px,
+    (min-width: 768px) 770px,
+    100vw"
               />
-              <StyledImage
-                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/CALA_ROSSA_hhlrtm.jpg"
-                alt="CALA ROSSA - View 1"
+              <SitterStyledImage
+                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1733342851/BabySitter_nshxzx.jpg"
+                alt="Baby Sitter - View"
               />
             </picture>
           }
         />
-        <StyledSeparator2 />
+        <SubTitle>Beaute :</SubTitle>
         <InfoElement
-          name="Hotel Cala Rossa Bay Resort 4*"
-          location="Rte de Cala Rossa - 20137 Lecci de Porto-Vecchio"
-          locationLink="https://maps.app.goo.gl/wSpeSSrnCAHm8izN9"
+          name="DESSANGE Coiffeur Porto Vecchio"
+          location="Pl. Sainte-Croix, 20137 Porto-Vecchio"
+          locationLink="https://maps.app.goo.gl/WbahFGAym81vwETR9"
           picture={
             <picture>
               <source
                 srcSet="
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1732727979/CALA_ROSSA_4_ubca4f.jpg 1600w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1732727979/CALA_ROSSA_4_ubca4f.jpg 1100w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1732727979/CALA_ROSSA_4_ubca4f.jpg 770w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1732727979/CALA_ROSSA_4_ubca4f.jpg 550w"
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1733342322/Dessange_kxcjao.webp 1600w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1733342322/Dessange_kxcjao.webp 1100w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1733342322/Dessange_kxcjao.webp 770w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1733342322/Dessange_kxcjao.webp 550w"
                 sizes="
       (min-width: 1200px) 1500px,
       (min-width: 1024px) 1100px,
@@ -59,34 +60,8 @@ export default function Services() {
       100vw"
               />
               <StyledImage
-                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/CALA_ROSSA_4_ubca4f.jpg"
-                alt="CALA ROSSA - View 2"
-              />
-            </picture>
-          }
-        />
-        <StyledSeparator2 />
-        <InfoElement
-          name="Hotel Kilina 3*"
-          location="Rte de Cala Rossa - 20137 Lecci de Porto-Vecchio"
-          locationLink="https://maps.app.goo.gl/gwJq1rRvFoPETgyp8"
-          picture={
-            <picture>
-              <source
-                srcSet="
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1732727979/KILINA_mmfe3h.jpg 1600w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1732727979/KILINA_mmfe3h.jpg 1100w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1732727979/KILINA_mmfe3h.jpg 770w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1732727979/KILINA_mmfe3h.jpg 550w"
-                sizes="
-      (min-width: 1200px) 1500px,
-      (min-width: 1024px) 1100px,
-      (min-width: 768px) 770px,
-      100vw"
-              />
-              <StyledImage
-                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/KILINA_mmfe3h.jpg"
-                alt="KILINA Resort"
+                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1733342322/Dessange_kxcjao.webp"
+                alt="Dessange - View"
               />
             </picture>
           }
@@ -137,6 +112,18 @@ const Title = styled.h2`
   text-transform: uppercase;
 `;
 
+const SubTitle = styled.h3`
+  ${FONTS.titleFont};
+  text-align: center;
+  font-size: 1.5rem;
+`;
+
+const SitterDescription = styled.p`
+  ${FONTS.titleFont};
+  text-align: center;
+  padding: 0 1rem;
+`;
+
 const StyledImage = styled.img`
   object-fit: cover;
   width: 100%;
@@ -154,6 +141,6 @@ const StyledBottomBorder = styled(StyledBorder)`
   transform: rotate(180deg);
 `;
 
-const StyledSeparator2 = styled(Separator2)`
-  color: var(--color-primary-blue);
+const SitterStyledImage = styled(StyledImage)`
+  height: 350px;
 `;

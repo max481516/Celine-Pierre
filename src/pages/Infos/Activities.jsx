@@ -2,7 +2,7 @@ import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
 import { FONTS } from "../../constants";
 import Border from "../../media/Border.svg?react";
-import Separator2 from "../../media/Separator2.svg?react";
+import Separator from "../../media/Separator2.svg?react";
 import { useTranslation } from "react-i18next";
 
 export default function RnB() {
@@ -38,7 +38,7 @@ export default function RnB() {
             </picture>
           }
         />
-        <StyledSeparator2 />
+        <StyledSeparator />
         <InfoElement
           name="Jet Ski"
           location="Quai de Syracuse, 20137 Porto-Vecchio"
@@ -88,7 +88,6 @@ const StyledImage = styled.img`
   object-fit: cover;
   width: 100%;
   height: auto;
-  border-radius: 8px;
 `;
 
 const StyledBorder = styled(Border)`
@@ -102,6 +101,6 @@ const StyledBottomBorder = styled(StyledBorder)`
   transform: rotate(180deg);
 `;
 
-const StyledSeparator2 = styled(Separator2)`
+const StyledSeparator = styled(Separator)`
   color: var(--color-primary-blue);
 `;
