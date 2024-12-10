@@ -39,7 +39,7 @@
   "Saturday": {
     "Ceremony": {
       "Title": "SAMEDI : CÉRÉMONIE RELIGIEUSE",
-      "When": "<bold>Quand :</bold> Le 6 Septembre 2025 de 14:00 à 16:00",
+      "When": "<bold>Quand :</bold> Le 6 Septembre 2025 de 13:30 à 16:00",
       "Where": "Où : ",
       "WhereLocation": "Église Saint Jean Baptiste, 2-8 Rue Joseph Pietri Maire, 20137 Porto-Vecchio",
       "Transport": {
@@ -58,7 +58,7 @@
     },
     "Celebration": {
       "Title": "SAMEDI : LA CÉLÉBRATION",
-      "When": "<bold>Quand : </bold> Le 6 Septembre 2025 à partir de 18:00 au lever du soleil",
+      "When": "<bold>Quand : </bold> Le 6 Septembre 2025 à partir de 18:30 au lever du soleil",
       "Where": "Où : ",
       "WhereLocation": "La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio",
       "Transport": {
@@ -76,7 +76,7 @@
 
   "Sunday": {
     "Title": "DIMANCHE : BRUNCH",
-    "When": "<bold>Quand :</bold> Le 7 Septembre 2025 à partir de 11:00 jusqu’à 16:00",
+    "When": "<bold>Quand :</bold> Le 7 Septembre 2025 à partir de 12:00 jusqu’à 16:00",
     "Where": "Où : ",
     "WhereLocation": "La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio",
     "Parking": "<bold>Parking :</bold> L'hôtel La Plage Casadelmar dispose d’un parking",
@@ -116,6 +116,13 @@
 
   "Activities": {
     "Title": "ACTIVITÉS"
+  },
+
+  "Services": {
+    "Title": "SERVICES",
+    "SubTitile": "Baby-sitters :",
+    "SitterDescription": "Nous avons prévu une baby-sitter pour garder vos petits, afin que vous puissiez profiter pleinement de votre soirée.",
+    "SubTitle2": "BEAUTÉ :"
   },
 
   "RSVP": {

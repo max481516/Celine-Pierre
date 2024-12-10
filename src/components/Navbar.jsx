@@ -15,13 +15,13 @@ export default function Navbar() {
   const { t, i18n } = useTranslation();
 
   return (
-    <Wrapper>
+    <Wrapper id="nav">
       <HeaderSection>
         <Names>Celine & Pierre</Names>
         <Date>6-7 September 2025</Date>
         <DesktopLanguageSelector type="desktop" lang={i18n.language} />
       </HeaderSection>
-      <Nav id="nav" $isHomePage={$isHomePage}>
+      <Nav $isHomePage={$isHomePage}>
         {/*         <MobileLanguageSelector type="mobile" lang={i18n.language} /> */}
         <Bars onClick={toggleMobileNav} $isHomePage={$isHomePage} />
         <NavMenu>
@@ -70,7 +70,7 @@ export default function Navbar() {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  background-color: var(--color-grey-beige);
+  background-color: var(--color-element-sand);
   width: 100%;
   z-index: 10;
 
@@ -83,11 +83,10 @@ const HeaderSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--color-grey-beige);
   padding: 8px;
 
   @media ${QUERIES.largeTabletAndUp} {
-    padding-top: 8px;
+    padding-top: 16px;
   }
 `;
 
@@ -117,7 +116,6 @@ const Nav = styled.nav`
   top: env(safe-area-inset-top, 0); // Takes the notch into account
   left: 0;
   right: 0;
-  background: var(--color-grey-beige);
   height: 80px;
   display: flex;
   align-items: center;
@@ -127,6 +125,7 @@ const Nav = styled.nav`
 
   @media ${QUERIES.largeTabletAndUp} {
     margin-left: 0;
+    margin-top: -8px;
   }
 `;
 
@@ -167,24 +166,8 @@ const DesktopLanguageSelector = styled(LanguageSelector)`
     ${({ lang }) =>
       lang === "ru" &&
       `
-      width: 72px;
+      width: 70px;
     `}
-  }
-
-  @media ${QUERIES.laptopAndUp} {
-    > :first-child {
-      ${({ lang }) =>
-        lang === "en" &&
-        `
-      width: 72px;
-    `}
-
-      ${({ lang }) =>
-        lang === "ru" &&
-        `
-      width: 80px;
-    `}
-    }
   }
 `;
 
@@ -217,12 +200,13 @@ const RightContainer = styled.div`
 
 const NavItem = styled(NavLink)`
   color: var(--color-sandstone);
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   padding: 0 1rem;
   height: 50%;
   cursor: pointer;
-  font-size: 1rem;
+
   text-decoration: none;
   text-align: center;
 

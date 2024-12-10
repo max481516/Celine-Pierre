@@ -5,7 +5,7 @@ import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../../constants";
 import Border from "../../media/Border.svg?react";
-import Separator from "../../media/Separator2.svg?react";
+import Separator from "../../media/Separator.svg?react";
 import { useTranslation } from "react-i18next";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { BiErrorCircle } from "react-icons/bi";
@@ -56,161 +56,164 @@ export default function Accomodations() {
 
   return (
     <Wrapper>
-      <StyledBorder />
-      <Title>{t("Accomodations.Title")}</Title>
-      <AboutTransfer>
-        {t("Accomodations.AboutTransfer.Text")}{" "}
-        <OpenForm onClick={toggleForm}>
-          {t("Accomodations.AboutTransfer.OpenForm")}
-        </OpenForm>
-        .
-        {isFormOpen && (
-          <DropdownContainer ref={formRef}>
-            {formSubmitted ? (
-              <ConfirmationWrapper>
-                <FaRegCheckCircle color="green" size={40} />
-                <ConfirmationMessage>
-                  {t("Accomodations.AboutTransfer.ConfirmationMessage")}
-                </ConfirmationMessage>
-                <CloseButton onClick={toggleForm}>
-                  {t("Accomodations.AboutTransfer.CloseButton")}
-                </CloseButton>
-              </ConfirmationWrapper>
-            ) : formError ? (
-              <ErrorWrapper>
-                <BiErrorCircle color="red" size={40} />
-                <ErrorMessage>
-                  {t("Accomodations.AboutTransfer.ErrorMessage")}{" "}
-                  <ErrorMailLink href="mailto:celine.pierre2025@gmail.com">
-                    celine.pierre2025@gmail.com
-                  </ErrorMailLink>
-                </ErrorMessage>
-                <CloseButton onClick={toggleForm}>
-                  {t("Accomodations.AboutTransfer.CloseButton")}
-                </CloseButton>
-              </ErrorWrapper>
-            ) : (
-              <Form
-                action="https://formspree.io/f/movavqpz"
-                method="POST"
-                onSubmit={handleFormSubmit}
-              >
-                <Label htmlFor="name">
-                  {t("Accomodations.AboutTransfer.Name")}
-                </Label>
-                <Input
-                  id="name"
-                  name="name"
-                  placeholder={t("Accomodations.AboutTransfer.NamePlaceholder")}
-                  required
-                />
-
-                <Label htmlFor="hotel">
-                  {t("Accomodations.AboutTransfer.Hotel")}
-                </Label>
-                <Select id="hotel" name="hotel" required>
-                  <option value="Grand Hôtel Cala Rossa & Spa NUCCA">
-                    Grand Hôtel Cala Rossa & Spa NUCCA
-                  </option>
-                  <option value="Hôtel Cala Rossa Bay Resort">
-                    Hôtel Cala Rossa Bay Resort
-                  </option>
-                  <option value="Hôtel Kilina">Hôtel Kilina</option>
-                </Select>
-
-                <ButtonWrapper>
-                  <SubmitButton type="submit">
-                    {t("Accomodations.AboutTransfer.SubmitButton")}
-                  </SubmitButton>
+      <FrameContainer>
+        <StyledBorder />
+        <Title>{t("Accomodations.Title")}</Title>
+        <AboutTransfer>
+          {t("Accomodations.AboutTransfer.Text")}{" "}
+          <OpenForm onClick={toggleForm}>
+            {t("Accomodations.AboutTransfer.OpenForm")}
+          </OpenForm>
+          .
+          {isFormOpen && (
+            <DropdownContainer ref={formRef}>
+              {formSubmitted ? (
+                <ConfirmationWrapper>
+                  <FaRegCheckCircle color="green" size={40} />
+                  <ConfirmationMessage>
+                    {t("Accomodations.AboutTransfer.ConfirmationMessage")}
+                  </ConfirmationMessage>
                   <CloseButton onClick={toggleForm}>
                     {t("Accomodations.AboutTransfer.CloseButton")}
                   </CloseButton>
-                </ButtonWrapper>
-              </Form>
-            )}
-          </DropdownContainer>
-        )}
-      </AboutTransfer>
+                </ConfirmationWrapper>
+              ) : formError ? (
+                <ErrorWrapper>
+                  <BiErrorCircle color="red" size={40} />
+                  <ErrorMessage>
+                    {t("Accomodations.AboutTransfer.ErrorMessage")}{" "}
+                    <ErrorMailLink href="mailto:celine.pierre2025@gmail.com">
+                      celine.pierre2025@gmail.com
+                    </ErrorMailLink>
+                  </ErrorMessage>
+                  <CloseButton onClick={toggleForm}>
+                    {t("Accomodations.AboutTransfer.CloseButton")}
+                  </CloseButton>
+                </ErrorWrapper>
+              ) : (
+                <Form
+                  action="https://formspree.io/f/movavqpz"
+                  method="POST"
+                  onSubmit={handleFormSubmit}
+                >
+                  <Label htmlFor="name">
+                    {t("Accomodations.AboutTransfer.Name")}
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    placeholder={t(
+                      "Accomodations.AboutTransfer.NamePlaceholder"
+                    )}
+                    required
+                  />
 
-      <InfoElement
-        name="Grand Hôtel Cala Rossa & Spa NUCCA 5*"
-        location="Domaine de Cala Rossa - 20137 Lecci de Porto-Vecchio"
-        locationLink="https://maps.app.goo.gl/PwrX7RwCZs4hXesQ6"
-        picture={
-          <picture>
-            <source
-              srcSet="
+                  <Label htmlFor="hotel">
+                    {t("Accomodations.AboutTransfer.Hotel")}
+                  </Label>
+                  <Select id="hotel" name="hotel" required>
+                    <option value="Grand Hôtel Cala Rossa & Spa NUCCA">
+                      Grand Hôtel Cala Rossa & Spa NUCCA
+                    </option>
+                    <option value="Hôtel Cala Rossa Bay Resort">
+                      Hôtel Cala Rossa Bay Resort
+                    </option>
+                    <option value="Hôtel Kilina">Hôtel Kilina</option>
+                  </Select>
+
+                  <ButtonWrapper>
+                    <SubmitButton type="submit">
+                      {t("Accomodations.AboutTransfer.SubmitButton")}
+                    </SubmitButton>
+                    <CloseButton onClick={toggleForm}>
+                      {t("Accomodations.AboutTransfer.CloseButton")}
+                    </CloseButton>
+                  </ButtonWrapper>
+                </Form>
+              )}
+            </DropdownContainer>
+          )}
+        </AboutTransfer>
+
+        <InfoElement
+          name="Grand Hôtel Cala Rossa & Spa NUCCA 5*"
+          location="Domaine de Cala Rossa - 20137 Lecci de Porto-Vecchio"
+          locationLink="https://maps.app.goo.gl/PwrX7RwCZs4hXesQ6"
+          picture={
+            <picture>
+              <source
+                srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1732727979/CALA_ROSSA_hhlrtm.jpg 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1732727979/CALA_ROSSA_hhlrtm.jpg 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1732727979/CALA_ROSSA_hhlrtm.jpg 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1732727979/CALA_ROSSA_hhlrtm.jpg 550w"
-              sizes="
+                sizes="
       (min-width: 1200px) 1500px,
       (min-width: 1024px) 1100px,
       (min-width: 768px) 770px,
       100vw"
-            />
-            <StyledImage
-              src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/CALA_ROSSA_hhlrtm.jpg"
-              alt="CALA ROSSA - View 1"
-            />
-          </picture>
-        }
-      />
-      <StyledSeparator />
-      <InfoElement
-        name="Hotel Cala Rossa Bay Resort 4*"
-        location="Rte de Cala Rossa - 20137 Lecci de Porto-Vecchio"
-        locationLink="https://maps.app.goo.gl/wSpeSSrnCAHm8izN9"
-        picture={
-          <picture>
-            <source
-              srcSet="
+              />
+              <StyledImage
+                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/CALA_ROSSA_hhlrtm.jpg"
+                alt="CALA ROSSA - View 1"
+              />
+            </picture>
+          }
+        />
+        <StyledSeparator />
+        <InfoElement
+          name="Hotel Cala Rossa Bay Resort 4*"
+          location="Rte de Cala Rossa - 20137 Lecci de Porto-Vecchio"
+          locationLink="https://maps.app.goo.gl/wSpeSSrnCAHm8izN9"
+          picture={
+            <picture>
+              <source
+                srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1732727979/CALA_ROSSA_4_ubca4f.jpg 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1732727979/CALA_ROSSA_4_ubca4f.jpg 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1732727979/CALA_ROSSA_4_ubca4f.jpg 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1732727979/CALA_ROSSA_4_ubca4f.jpg 550w"
-              sizes="
+                sizes="
       (min-width: 1200px) 1500px,
       (min-width: 1024px) 1100px,
       (min-width: 768px) 770px,
       100vw"
-            />
-            <StyledImage
-              src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/CALA_ROSSA_4_ubca4f.jpg"
-              alt="CALA ROSSA - View 2"
-            />
-          </picture>
-        }
-      />
-      <StyledSeparator />
-      <InfoElement
-        name="Hotel Kilina 3*"
-        location="Rte de Cala Rossa - 20137 Lecci de Porto-Vecchio"
-        locationLink="https://maps.app.goo.gl/gwJq1rRvFoPETgyp8"
-        picture={
-          <picture>
-            <source
-              srcSet="
+              />
+              <StyledImage
+                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/CALA_ROSSA_4_ubca4f.jpg"
+                alt="CALA ROSSA - View 2"
+              />
+            </picture>
+          }
+        />
+        <StyledSeparator />
+        <InfoElement
+          name="Hotel Kilina 3*"
+          location="Rte de Cala Rossa - 20137 Lecci de Porto-Vecchio"
+          locationLink="https://maps.app.goo.gl/gwJq1rRvFoPETgyp8"
+          picture={
+            <picture>
+              <source
+                srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1732727979/KILINA_mmfe3h.jpg 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1732727979/KILINA_mmfe3h.jpg 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1732727979/KILINA_mmfe3h.jpg 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1732727979/KILINA_mmfe3h.jpg 550w"
-              sizes="
+                sizes="
       (min-width: 1200px) 1500px,
       (min-width: 1024px) 1100px,
       (min-width: 768px) 770px,
       100vw"
-            />
-            <StyledImage
-              src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/KILINA_mmfe3h.jpg"
-              alt="KILINA Resort"
-            />
-          </picture>
-        }
-      />
-
-      <StyledBottomBorder />
+              />
+              <StyledImage
+                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732727979/KILINA_mmfe3h.jpg"
+                alt="KILINA Resort"
+              />
+            </picture>
+          }
+        />
+        <StyledBottomBorder />
+      </FrameContainer>
     </Wrapper>
   );
 }
@@ -233,12 +236,29 @@ const Wrapper = styled.div`
   }
 `;
 
+const FrameContainer = styled.div`
+  @media ${QUERIES.laptopAndUp} {
+    padding: 2rem;
+    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
+      0 5px 14px 0 rgba(0, 0, 0, 0.18);
+    background-color: var(--color-light-sand);
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    padding: 4rem;
+  }
+`;
+
 const Title = styled.h2`
   ${FONTS.titleFont};
-  font-size: 2rem;
   color: var(--color-primary-blue);
+  padding: 0.5rem 0;
   text-align: center;
   text-transform: uppercase;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    font-size: 2.5rem;
+  }
 `;
 
 const AboutTransfer = styled.p`

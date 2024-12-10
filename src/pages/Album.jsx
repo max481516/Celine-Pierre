@@ -12,7 +12,7 @@ import {
 } from "firebase/firestore";
 import { ref, deleteObject } from "firebase/storage";
 import styled from "styled-components";
-import { FONTS } from "../constants";
+import { FONTS, QUERIES } from "../constants";
 import Border from "../media/Border.svg?react";
 
 export default function Album() {
@@ -60,18 +60,45 @@ export default function Album() {
 
   return (
     <Wrapper>
-      <StyledBorder />
-      <Title>Album</Title>
-      <UploadMedia />
-      <AlbumGrid mediaItems={mediaFiles} onDelete={handleDelete} />
-      <StyledBottomBorder />
+      <FrameContainer>
+        <StyledBorder />
+        <Title>Album</Title>
+        <UploadMedia />
+        <AlbumGrid mediaItems={mediaFiles} onDelete={handleDelete} />
+        <StyledBottomBorder />
+      </FrameContainer>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  margin-top: 1rem;
-  padding: 0 16px;
+  padding: 1rem;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    padding: 3rem;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    padding: 8rem 14rem;
+    background-color: var(--color-lighter-sand);
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    padding: 8rem 24rem;
+  }
+`;
+
+const FrameContainer = styled.div`
+  @media ${QUERIES.laptopAndUp} {
+    padding: 2rem;
+    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
+      0 5px 14px 0 rgba(0, 0, 0, 0.18);
+    background-color: var(--color-light-sand);
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    padding: 4rem;
+  }
 `;
 
 const Title = styled.h2`
@@ -80,6 +107,10 @@ const Title = styled.h2`
   padding: 0.5rem 0;
   text-align: center;
   text-transform: uppercase;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    font-size: 2.5rem;
+  }
 `;
 
 const StyledBorder = styled(Border)`

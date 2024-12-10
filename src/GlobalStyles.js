@@ -11,12 +11,15 @@ const GlobalStyles = createGlobalStyle`
   --color-lighter-sand: HSL(19, 40%, 95%);
   --color-light-sand: HSL(19, 34%, 90%);
   --color-dark-sand: HSL(27, 20%, 80%);
-  --color-element-sand: HSL(27, 20%, 85%);
+  --color-element-sand: HSL(20, 40%, 85%);
   --color-darker-sand: HSL(27, 10%, 60%);
   --color-sandstone: #796d64;
   --color-beige:  #B0E0E6;
   --color-grey-beige: #d6cdc8;
-  --color-grey-beige-secondary: #a3988f;
+  --color-grey-beige-secondary: HSL(27, 20%, 70%);
+  --color-nav: #dabcac;
+  --color-body-primary: #dfcabb;
+  --color-body-secondary: #ad9a94;
 }
 
 //FONTS
@@ -168,7 +171,8 @@ form select {
 
 
 body {
-    background-color: var(--color-lighter-sand);
+    background-color: var(--color-lighter-sand); 
+    
     font-family: "Raleway", sans-serif;
 }
 

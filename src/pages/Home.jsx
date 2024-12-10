@@ -2,6 +2,9 @@
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../constants";
 import backgroundPhoto from "../media/plage-corse-2.webp";
+import CP from "../media/CP.jpeg";
+import CP2 from "../media/CP2.jpeg";
+import CP3 from "../media/CP3.jpeg";
 import { useTranslation } from "react-i18next";
 
 export default function Home() {
@@ -49,7 +52,7 @@ export default function Home() {
 
       <ContentWrapper>
         <ImageContainer>
-          <PhotoBackground src={backgroundPhoto} />
+          <PhotoBackground src={CP2} />
         </ImageContainer>
         <TextContainer>
           <Title>{t("Home.Title")}</Title>
@@ -89,14 +92,14 @@ const ImageContainer = styled.div``;
 
 const PhotoBackground = styled.img`
   object-fit: cover;
-  object-position: 52% 50%;
+  object-position: 50% 52%;
   min-height: 60dvh;
   max-height: 50dvh;
   width: 100dvw;
 `;
 
 const TextContainer = styled.div`
-  background-color: var(--color-grey-beige-secondary);
+  background-color: var(--color-dark-sand);
   width: 100%;
   padding: 2rem 2rem 2rem;
   flex-grow: 1;
@@ -108,6 +111,7 @@ const TextContainer = styled.div`
 
 const Title = styled.h1`
   ${FONTS.titleFont};
+  color: white;
   font-size: 2rem;
   text-align: start;
   margin-bottom: 1rem;

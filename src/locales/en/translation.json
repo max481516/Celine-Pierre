@@ -38,7 +38,7 @@
   "Saturday": {
     "Ceremony": {
       "Title": "SATURDAY : RELIGIOUS CEREMONY",
-      "When": "<bold>When :</bold> September 6, 2025, from 2:00 PM to 4:00 PM",
+      "When": "<bold>When :</bold> September 6, 2025, from 1:30 PM to 4:00 PM",
       "Where": "Where : ",
       "WhereLocation": "Saint John the Baptist Church, 2-8 Rue Joseph Pietri Maire, 20137 Porto-Vecchio",
       "Transport": {
@@ -57,7 +57,7 @@
     },
     "Celebration": {
       "Title": "SATURDAY : THE CELEBRATION",
-      "When": "<bold>When :</bold> September 6, 2025, from 6:00 PM to sunrise",
+      "When": "<bold>When :</bold> September 6, 2025, from 6:30 PM to sunrise",
       "Where": "Where :",
       "WhereLocation": "Casadelmar Beach, Presqu’île du Benedettu, 20137 Porto-Vecchio",
       "Transport": {
@@ -75,7 +75,7 @@
 
   "Sunday": {
     "Title": "SUNDAY : BRUNCH",
-    "When": "<bold>When :</bold> September 7, 2025, from 11:00 AM to 4:00 PM",
+    "When": "<bold>When :</bold> September 7, 2025, from 12:00 PM to 4:00 PM",
     "Where": "Where : ",
     "WhereLocation": "Casadelmar Beach, Presqu’île du Benedettu, 20137 Porto-Vecchio",
     "Parking": "<bold>Parking :</bold> Parking available on site",
@@ -115,6 +115,13 @@
 
   "Activities": {
     "Title": "ACTIVITIES"
+  },
+
+  "Services": {
+    "Title": "SERVICES",
+    "SubTitle": "Baby-sitters:",
+    "SitterDescription": "We have arranged for a babysitter to take care of your little ones so you can fully enjoy your evening.",
+    "SubTitle2": "BEAUTY:"
   },
 
   "RSVP": {
