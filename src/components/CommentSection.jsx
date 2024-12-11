@@ -10,6 +10,7 @@ export default function CommentSection({
   toggleOpen,
 }) {
   const [newComment, setNewComment] = useState("");
+  const [name, setName] = useState("");
   const containerRef = useRef(null);
   const textareaRef = useRef(null);
 
@@ -60,7 +61,10 @@ export default function CommentSection({
             <EmptyState>Nothing here yet...</EmptyState>
           ) : (
             comments.map((comment) => (
-              <Comment key={comment.id}>{comment.text}</Comment>
+              <Comment key={comment.id}>
+                <CommentText>{comment.text}</CommentText>
+                <CommentAuthor>{comment.name || "Anonymous"}</CommentAuthor>
+              </Comment>
             ))
           )}
         </CommentsList>
@@ -68,8 +72,9 @@ export default function CommentSection({
           onSubmit={(e) => {
             e.preventDefault();
             if (newComment.trim() !== "") {
-              addComment(newComment);
+              addComment(newComment, name || "Anonymous");
               setNewComment("");
+              setName("");
               if (textareaRef.current) {
                 textareaRef.current.style.height = "auto"; // Reset height after submit
               }
@@ -83,6 +88,11 @@ export default function CommentSection({
             onInput={handleInput}
             placeholder="Add a comment..."
             rows={1}
+          />
+          <NameInput
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Name (optional)"
           />
           <SubmitButton type="submit">Send</SubmitButton>
         </CommentForm>
@@ -100,6 +110,7 @@ const Container = styled.div`
   right: 0;
   width: 95%;
   max-height: 50%;
+  max-width: 750px;
   background-color: var(--color-element-sand);
   transition: transform 0.3s ease-in-out;
   border-radius: 8px;
@@ -147,6 +158,22 @@ const CommentsList = styled.div`
   padding-top: 0;
 `;
 
+const CommentText = styled.div`
+  font-size: 1rem;
+  color: #000;
+  margin-bottom: 4px;
+`;
+
+const CommentAuthor = styled.div`
+  font-size: 0.9rem;
+  position: absolute;
+  right: 8px;
+  bottom: -24px;
+  color: var(--color-primary-blue);
+  font-style: italic;
+  text-align: right;
+`;
+
 const EmptyState = styled.div`
   color: #666;
   text-align: center;
@@ -154,9 +181,10 @@ const EmptyState = styled.div`
 `;
 
 const Comment = styled.div`
+  position: relative;
   padding: 8px;
-  margin-bottom: 8px;
-  background-color: var(--color-light-sand);
+  margin-bottom: 24px;
+  background-color: var(--color-lighter-sand);
   border-radius: 8px;
   color: #000;
   white-space: pre-wrap;
@@ -188,6 +216,22 @@ const CommentInput = styled.textarea`
     outline: none;
     border-color: var(--color-primary-blue);
     max-height: 150px;
+  }
+`;
+
+const NameInput = styled.input`
+  flex: 0.4;
+  padding: 8px;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-right: 8px;
+  font-size: 1rem;
+  ${FONTS.bodyFont};
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary-blue);
   }
 `;
 

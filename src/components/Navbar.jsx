@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { QUERIES, FONTS } from "../constants";
 import LanguageSelector from "./LanguageSelector";
 import MobileNav from "./MobileNav";
@@ -17,8 +17,8 @@ export default function Navbar() {
   return (
     <Wrapper id="nav">
       <HeaderSection>
-        <Names>Celine & Pierre</Names>
-        <Date>6-7 September 2025</Date>
+        <Names to="/">Celine & Pierre</Names>
+        <Date to="/">6-7 September 2025</Date>
         <DesktopLanguageSelector type="desktop" lang={i18n.language} />
       </HeaderSection>
       <Nav $isHomePage={$isHomePage}>
@@ -84,27 +84,31 @@ const HeaderSection = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 8px;
+  cursor: pointer;
+  text-decoration: none;
 
   @media ${QUERIES.largeTabletAndUp} {
     padding-top: 16px;
   }
 `;
 
-const Names = styled.h2`
+const Names = styled(Link)`
   ${FONTS.titleFont};
   color: var(--color-sandstone);
   margin: 0;
   text-transform: uppercase;
+  text-decoration: none;
 
   @media ${QUERIES.largeTabletAndUp} {
     font-size: 2.5rem;
   }
 `;
 
-const Date = styled.p`
+const Date = styled(Link)`
   ${FONTS.titleFont};
   color: var(--color-sandstone);
   margin-top: -8px;
+  text-decoration: none;
 
   @media ${QUERIES.largeTabletAndUp} {
     font-size: 1.3rem;

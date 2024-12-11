@@ -233,6 +233,8 @@ const FrameContainer = styled.div`
     box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
       0 5px 14px 0 rgba(0, 0, 0, 0.18);
     background-color: var(--color-light-sand);
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   @media ${QUERIES.desktopAndUp} {
@@ -246,6 +248,7 @@ const Title = styled.h2`
   padding: 0.5rem 0;
   text-align: center;
   text-transform: uppercase;
+  font-size: 2rem;
 
   @media ${QUERIES.largeTabletAndUp} {
     font-size: 2.5rem;

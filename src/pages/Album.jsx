@@ -63,6 +63,11 @@ export default function Album() {
       <FrameContainer>
         <StyledBorder />
         <Title>Album</Title>
+        <Description>
+          Ici vous pouvez partager vos photos et video du marriage en appuyant
+          sur le nuage. Vous pouvez aussi laissez des commentaires en appuyant
+          sur une des photos.
+        </Description>
         <UploadMedia />
         <AlbumGrid mediaItems={mediaFiles} onDelete={handleDelete} />
         <StyledBottomBorder />
@@ -84,7 +89,7 @@ const Wrapper = styled.div`
   }
 
   @media ${QUERIES.desktopAndUp} {
-    padding: 8rem 24rem;
+    padding: 8rem 20rem;
   }
 `;
 
@@ -97,12 +102,13 @@ const FrameContainer = styled.div`
   }
 
   @media ${QUERIES.desktopAndUp} {
-    padding: 4rem;
+    padding: 3rem;
   }
 `;
 
 const Title = styled.h2`
   ${FONTS.titleFont};
+  font-size: 2rem;
   color: var(--color-primary-blue);
   padding: 0.5rem 0;
   text-align: center;
@@ -111,6 +117,12 @@ const Title = styled.h2`
   @media ${QUERIES.largeTabletAndUp} {
     font-size: 2.5rem;
   }
+`;
+
+const Description = styled.p`
+  ${FONTS.titleFont};
+  text-align: center;
+  margin-bottom: 1rem;
 `;
 
 const StyledBorder = styled(Border)`

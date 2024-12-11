@@ -61,7 +61,7 @@ export default function AlbumGrid({ mediaItems }) {
   };
 
   // Function to add a new comment
-  const addComment = async (text) => {
+  const addComment = async (text, name) => {
     const mediaItemId = slides[currentIndex].mediaItem.id;
     if (!mediaItemId) {
       console.error("Media item ID is undefined");
@@ -73,6 +73,7 @@ export default function AlbumGrid({ mediaItems }) {
     );
     await addDoc(commentsRef, {
       text,
+      name: name || "Anonymous",
       createdAt: serverTimestamp(),
       // Include other fields like author if needed
     });
