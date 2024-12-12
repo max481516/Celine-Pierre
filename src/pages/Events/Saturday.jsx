@@ -1,187 +1,252 @@
 import styled from "styled-components";
 import { IoMdClock } from "react-icons/io";
-import { MdLocationPin } from "react-icons/md";
-import { GiDress } from "react-icons/gi";
+import { FaLocationDot } from "react-icons/fa6";
+import Dress from "../../media/Dress.svg?react";
+import Suit from "../../media/Suit.svg?react";
 import { FaSquareParking } from "react-icons/fa6";
-import { ImUserTie } from "react-icons/im";
-import { FONTS } from "../../constants";
+import { FaBus } from "react-icons/fa";
+import { FONTS, QUERIES } from "../../constants";
 import Separator from "../../media/Separator.svg?react";
 import Border from "../../media/Border.svg?react";
+import { useTranslation, Trans } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function Saturday() {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
-      <StyledBorder />
-      <EventContainer>
-        <Title>Samedi : Céremonie Religieuse </Title>
-        <ImageContainer>
-          <picture>
-            <source
-              srcSet="
+      <FrameContainer>
+        <StyledBorder />
+        <EventContainer>
+          <Title>{t("Saturday.Ceremony.Title")}</Title>
+          <ImageContainer>
+            <picture>
+              <source
+                srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1728917317/Church_wumwhm.png 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1728917317/Church_wumwhm.png 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1728917317/Church_wumwhm.png 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1728917317/Church_wumwhm.png 550w
     "
-              sizes="
+                sizes="
       (min-width: ${BREAKPOINTS.desktopMin}px) 1500px,
       (min-width: ${BREAKPOINTS.laptopMin}px) 1100px,
       (min-width: ${BREAKPOINTS.bigTabletMin}px) 770px,
       (min-width: ${BREAKPOINTS.tabletMin}px) 550px,
       100vw
     "
-            />
-            <StyledImage src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1728917317/Church_wumwhm.png" />
-          </picture>
-        </ImageContainer>
-        <IconTextContainer>
-          <StyledIcon as={IoMdClock} />
-          <Text>
-            <b>Quand :</b> Le 6 Septembre 2025 de 14:00 à 16:00
-          </Text>
-        </IconTextContainer>
-        <IconTextContainer>
-          <StyledIcon as={MdLocationPin} />
-          <Text>
-            <b>Où :</b>{" "}
-            <LocationLink
-              href="https://maps.app.goo.gl/ZzEvtzunptPVkwgx8"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Église Saint Jean Baptiste, 2-8 Rue Joseph Pietri Maire, 20137
-              Porto-Vecchio
-            </LocationLink>
-          </Text>
-        </IconTextContainer>
-        {/* <StyledMaps
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2984.0015413000156!2d9.2791981!3d41.59084939999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d983d6235cc3eb%3A0xec5d6be6bf99215e!2sChurch%20of%20Saint%20John%20the%20Baptist!5e0!3m2!1sen!2sfr!4v1728977910194!5m2!1sen!2sfr"
-          style={{ border: 0 }}
-          allowfullscreen
-          loading="lazy"
-        ></StyledMaps> */}
-        <IconTextContainer>
-          <StyledIcon as={FaSquareParking} />
-          <Text>
-            <b>Parking :</b>
-          </Text>
-        </IconTextContainer>
-        {/* <IconTextContainer>
-          <StyledIcon as={GiClothes} />
-          <Text>
-            <b>Dress code :</b>
-          </Text>
-        </IconTextContainer> */}
-        <DressCodeWrapper>
-          <DressCodeTitle>
-            <b>Dress code :</b>
-          </DressCodeTitle>
-          <DressCodeIconTextContainer>
-            <StyledIcon as={GiDress} />
+              />
+              <StyledImage src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1728917317/Church_wumwhm.png" />
+            </picture>
+          </ImageContainer>
+          <IconTextContainer>
+            <StyledIcon as={IoMdClock} />
             <Text>
-              Les filles, sortez vos plus belles robes de cocktail. Laissez vos
-              pastels au placard et optez pour des teintes éclatantes qui feront
-              briller cette journée encore plus.
+              <Trans
+                i18nKey="Saturday.Ceremony.When"
+                components={{ bold: <Bold /> }}
+              />
             </Text>
-          </DressCodeIconTextContainer>
-          <DressCodeIconTextContainer>
-            <StyledIcon as={ImUserTie} />
+          </IconTextContainer>
+          <IconTextContainer>
+            <StyledIcon as={FaLocationDot} />
             <Text>
-              Les garçons, éblouissez- nous avec vos costumes élégants{" "}
+              <b>{t("Saturday.Ceremony.Where")} </b>
+              <LocationLink
+                href="https://maps.app.goo.gl/ZzEvtzunptPVkwgx8"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t("Saturday.Ceremony.WhereLocation")}
+              </LocationLink>
             </Text>
-          </DressCodeIconTextContainer>
-        </DressCodeWrapper>
-      </EventContainer>
+          </IconTextContainer>
+          <IconTextContainer>
+            <StyledIcon as={FaBus} busIcon={true} />
+            <Text>
+              <Trans
+                i18nKey="Saturday.Ceremony.Transport.Text"
+                components={{ bold: <Bold /> }}
+              />
+              <br />
+              <ItalicText>
+                <Trans
+                  i18nKey="Saturday.Ceremony.Transport.ItalicText"
+                  components={[
+                    <TransportLink to="/Accomodations" key="0">
+                      Hébergements
+                    </TransportLink>,
+                  ]}
+                />
+              </ItalicText>
+            </Text>
+          </IconTextContainer>
+          <IconTextContainer>
+            <StyledIcon as={FaSquareParking} />
+            <Text>
+              <b>{t("Saturday.Ceremony.Parking")}</b>
+              <LocationLink
+                href="https://maps.app.goo.gl/bHPeHd16QGeCpcy28"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t("Saturday.Ceremony.ParkingLocation1")}
+              </LocationLink>{" "}
+              <OrParking>{t("Saturday.Ceremony.OrParking")}</OrParking>
+              <LocationLink
+                href="https://maps.app.goo.gl/eSWsyqby538J79Xt9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t("Saturday.Ceremony.ParkingLocation2")}
+              </LocationLink>
+            </Text>
+          </IconTextContainer>
+          <DressCodeWrapper>
+            <DressCodeTitle>
+              {t("Saturday.Ceremony.DressCode.Title")}
+            </DressCodeTitle>
+            <DressCodeIconTextContainer>
+              <StyledIcon as={Dress} />
+              <Text>{t("Saturday.Ceremony.DressCode.Girls")}</Text>
+            </DressCodeIconTextContainer>
+            <DressCodeIconTextContainer>
+              <StyledIcon as={Suit} />
+              <Text>{t("Saturday.Ceremony.DressCode.Boys")} </Text>
+            </DressCodeIconTextContainer>
+          </DressCodeWrapper>
+        </EventContainer>
 
-      <StyledSeparator />
+        <StyledSeparator />
 
-      <EventContainer>
-        <Title>SAMEDI : LA CÉLÉBRATION</Title>
-        <ImageContainer>
-          <picture>
-            <source
-              srcSet="
+        <EventContainer>
+          <Title>{t("Saturday.Celebration.Title")}</Title>
+          <ImageContainer>
+            <picture>
+              <source
+                srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1728920960/Picture_1_jk2lfz.png 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1728920960/Picture_1_jk2lfz.png 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1728920960/Picture_1_jk2lfz.png 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1728920960/Picture_1_jk2lfz.png 550w
     "
-              sizes="
+                sizes="
       (min-width: ${BREAKPOINTS.desktopMin}px) 1500px,
       (min-width: ${BREAKPOINTS.laptopMin}px) 1100px,
       (min-width: ${BREAKPOINTS.bigTabletMin}px) 770px,
       (min-width: ${BREAKPOINTS.tabletMin}px) 550px,
       100vw
     "
-              type="image/webp"
-            />
-            <StyledImage
-              src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1728920960/Picture_1_jk2lfz.png"
-              loading="lazy"
-            />
-          </picture>
-        </ImageContainer>
-        <IconTextContainer>
-          <StyledIcon as={IoMdClock} />
-          <Text>
-            <b>Quand :</b> Le 6 Septembre 2025 à partir de 18:00 au lever du
-            soleil
-          </Text>
-        </IconTextContainer>
-        <IconTextContainer>
-          <StyledIcon as={MdLocationPin} />
-          <Text>
-            <b>Où :</b>{" "}
-            <LocationLink
-              href="https://maps.app.goo.gl/iYbveaBtzhmqoj7t6"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio
-            </LocationLink>
-          </Text>
-        </IconTextContainer>
-        {/* <StyledMaps
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2982.8508292313422!2d9.319690999999997!3d41.6157373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12da6eb266399ff5%3A0x50712534a7958f57!2sLa%20plage%20Casadelmar!5e0!3m2!1sen!2sfr!4v1728978245608!5m2!1sen!2sfr"
-          style={{ border: 0 }}
-          allowfullscreen
-          loading="lazy"
-        ></StyledMaps> */}
-        <IconTextContainer>
-          <StyledIcon as={FaSquareParking} />
-          <Text>
-            <b>Parking :</b>
-          </Text>
-        </IconTextContainer>
-        <DressCodeWrapper>
-          <DressCodeTitle>
-            <b>Dress code :</b>
-          </DressCodeTitle>
-          <DressCodeIconTextContainer>
-            <StyledIcon as={GiDress} />
+                type="image/webp"
+              />
+              <StyledImage
+                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1728920960/Picture_1_jk2lfz.png"
+                loading="lazy"
+              />
+            </picture>
+          </ImageContainer>
+          <IconTextContainer>
+            <StyledIcon as={IoMdClock} />
             <Text>
-              Les filles, sortez vos plus belles robes de cocktail. Laissez vos
-              pastels au placard et optez pour des teintes éclatantes qui feront
-              briller cette journée encore plus. Pensez à prendre des chaussures
-              plates pour enflammer le dance floor !
+              <Trans
+                i18nKey="Saturday.Celebration.When"
+                components={{ bold: <Bold /> }}
+              />
             </Text>
-          </DressCodeIconTextContainer>
-          <DressCodeIconTextContainer>
-            <StyledIcon as={ImUserTie} />
+          </IconTextContainer>
+          <IconTextContainer>
+            <StyledIcon as={FaLocationDot} />
             <Text>
-              Les garçons, éblouissez- nous avec vos costumes élégants
+              <b>{t("Saturday.Ceremony.Where")} </b>
+              <LocationLink
+                href="https://maps.app.goo.gl/iYbveaBtzhmqoj7t6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t("Saturday.Celebration.WhereLocation")}
+              </LocationLink>
             </Text>
-          </DressCodeIconTextContainer>
-        </DressCodeWrapper>
-      </EventContainer>
-      <StyledBottomBorder />
+          </IconTextContainer>
+          <IconTextContainer>
+            <StyledIcon as={FaBus} busIcon={true} />
+            <Text>
+              <Trans
+                i18nKey="Saturday.Celebration.Transport.Text"
+                components={{ bold: <Bold /> }}
+              />
+              <br />
+              <ItalicText>
+                <Trans
+                  i18nKey="Saturday.Celebration.Transport.ItalicText"
+                  components={[
+                    <TransportLink to="/Accomodations" key="0">
+                      Hébergements
+                    </TransportLink>,
+                  ]}
+                />
+              </ItalicText>
+            </Text>
+          </IconTextContainer>
+          <IconTextContainer>
+            <StyledIcon as={FaSquareParking} />
+            <Text>
+              <Trans
+                i18nKey="Saturday.Celebration.Parking"
+                components={{ bold: <Bold /> }}
+              />
+            </Text>
+          </IconTextContainer>
+          <DressCodeWrapper>
+            <DressCodeTitle>
+              {t("Saturday.Celebration.DressCode.Title")}
+            </DressCodeTitle>
+            <DressCodeIconTextContainer>
+              <StyledIcon as={Dress} />
+              <Text>{t("Saturday.Celebration.DressCode.Girls")}</Text>
+            </DressCodeIconTextContainer>
+            <DressCodeIconTextContainer>
+              <StyledIcon as={Suit} />
+              <Text>{t("Saturday.Celebration.DressCode.Boys")}</Text>
+            </DressCodeIconTextContainer>
+          </DressCodeWrapper>
+        </EventContainer>
+        <StyledBottomBorder />
+      </FrameContainer>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  margin-top: 1rem;
-  padding: 0 16px;
+  padding: 1rem;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    padding: 3rem;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    padding: 8rem 14rem;
+    background-color: var(--color-lighter-sand);
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    padding: 8rem 24rem;
+  }
+`;
+
+const FrameContainer = styled.div`
+  @media ${QUERIES.laptopAndUp} {
+    padding: 2rem;
+    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
+      0 5px 14px 0 rgba(0, 0, 0, 0.18);
+    background-color: var(--color-light-sand);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    padding: 4rem;
+  }
 `;
 
 const EventContainer = styled.div`
@@ -196,6 +261,10 @@ const Title = styled.h2`
   padding: 0.5rem 0;
   text-align: center;
   text-transform: uppercase;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    font-size: 2.5rem;
+  }
 `;
 
 const IconTextContainer = styled.div`
@@ -205,9 +274,23 @@ const IconTextContainer = styled.div`
   gap: 8px;
 `;
 
+const OrParking = styled.span``;
+
 const LocationLink = styled.a`
   color: var(--color-primary-blue);
-  text-decoration: none;
+
+  &:hover {
+    color: var(--color-light-blue);
+  }
+`;
+
+const ItalicText = styled.span`
+  font-style: italic;
+  font-size: 0.8rem;
+`;
+
+const TransportLink = styled(Link)`
+  color: var(--color-primary-blue);
 
   &:hover {
     color: var(--color-light-blue);
@@ -218,7 +301,7 @@ const DressCodeWrapper = styled.div`
   border: 1px solid var(--color-primary-blue);
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color: var(--color-light-sand);
+  background-color: var(--color-element-sand);
   width: 90%;
   margin: 0.5rem auto 0;
 `;
@@ -253,8 +336,8 @@ const StyledIcon = styled.div`
   margin-top: 2px;
   flex-shrink: 0;
   flex-grow: 0;
-  width: 20px;
-  height: 20px;
+  width: ${(props) => (props.busIcon ? "18px" : "20px")};
+  height: ${(props) => (props.busIcon ? "18px" : "20px")};
   color: var(--color-primary-blue);
 `;
 
@@ -275,9 +358,7 @@ const StyledBottomBorder = styled(StyledBorder)`
   transform: rotate(180deg);
 `;
 
-/* const StyledMaps = styled.iframe`
-  width: 90%;
-  height: 300px;
-  margin-bottom: 16px;
-  margin: 0 auto;
-`; */
+// JSON i18n text styling
+const Bold = styled.span`
+  font-weight: bold;
+`;

@@ -1,79 +1,138 @@
 import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { QUERIES, FONTS } from "../constants";
 import LanguageSelector from "./LanguageSelector";
 import MobileNav from "./MobileNav";
-import useMobileNav from "../hooks/useMobileNav";
+
 import { FaBars } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
+import { useStore } from "../stores/store.js";
 
 export default function Navbar() {
-  const { isOpen, toggle } = useMobileNav();
-
   const $isHomePage = useLocation().pathname === "/";
+  const toggleMobileNav = useStore((state) => state.toggleMobileNav);
+
+  const { t, i18n } = useTranslation();
 
   return (
-    <>
-      <Nav id="nav" $isHomePage={$isHomePage}>
-        <LanguageSelector type="mobile" />
-        <Bars onClick={toggle} $isHomePage={$isHomePage} />
+    <Wrapper id="nav">
+      <HeaderSection>
+        <Names to="/">Celine & Pierre</Names>
+        <Date to="/">6-7 September 2025</Date>
+        <DesktopLanguageSelector type="desktop" lang={i18n.language} />
+      </HeaderSection>
+      <Nav $isHomePage={$isHomePage}>
+        {/*         <MobileLanguageSelector type="mobile" lang={i18n.language} /> */}
+        <Bars onClick={toggleMobileNav} $isHomePage={$isHomePage} />
         <NavMenu>
-          <LeftContainer>
-            <LanguageSelector type="desktop" />
-          </LeftContainer>
+          {/* <LeftContainer></LeftContainer> */}
           <RightContainer>
             <NavItem to="/" $isHomePage={$isHomePage}>
-              Bienvenue
+              {t("Nav.Home")}
             </NavItem>
-            <Dropdown name="Événements" $isHomePage={$isHomePage}>
-              <DropdownItem to="/Friday">Vendredi</DropdownItem>
-              <DropdownItem to="/Saturday">Samedi</DropdownItem>
-              <DropdownItem to="/Sunday">Dimanche</DropdownItem>
+            <Dropdown name={t("Nav.Events")} $isHomePage={$isHomePage}>
+              <DropdownItem to="/Friday">{t("Nav.Friday")}</DropdownItem>
+              <DropdownItem to="/Saturday">{t("Nav.Saturday")}</DropdownItem>
+              <DropdownItem to="/Sunday">{t("Nav.Sunday")}</DropdownItem>
             </Dropdown>
-            <Dropdown name="Infos" $isHomePage={$isHomePage}>
-              <DropdownItem to="/Accomodations">Hébergement</DropdownItem>
-              <DropdownItem to="/Transports">Transports</DropdownItem>
-              <DropdownItem to="/RnB">Restaurants & Bars</DropdownItem>
-              <DropdownItem to="/Beauty">Beauté</DropdownItem>
-              <DropdownItem to="/Beaches">Plages</DropdownItem>
-              <DropdownItem to="/Activities">Activités</DropdownItem>
-              <DropdownItem to="/Sitters">Baby-sitters</DropdownItem>
+            <Dropdown name={t("Nav.Infos")} $isHomePage={$isHomePage}>
+              <DropdownItem to="/Accomodations">
+                {t("Nav.Accommodations")}
+              </DropdownItem>
+              <DropdownItem to="/Transports">
+                {t("Nav.Transports")}
+              </DropdownItem>
+              <DropdownItem to="/RnB">{t("Nav.R&B")}</DropdownItem>
+              <DropdownItem to="/Beaches">{t("Nav.Beaches")}</DropdownItem>
+              <DropdownItem to="/Services">{t("Nav.Services")}</DropdownItem>
+              <DropdownItem to="/Activities">
+                {t("Nav.Activities")}
+              </DropdownItem>
             </Dropdown>
             <NavItem to="/List" $isHomePage={$isHomePage}>
-              Liste de Mariage
+              {t("Nav.List")}
             </NavItem>
             <NavItem to="/Album" $isHomePage={$isHomePage}>
-              Album photos
-            </NavItem>
-            <NavItem to="/RSVP" $isHomePage={$isHomePage}>
-              RSVP
+              {t("Nav.Album")}
             </NavItem>
             <NavItem to="/Contacts" $isHomePage={$isHomePage}>
-              Contacts
+              {t("Nav.Contacts")}
             </NavItem>
           </RightContainer>
         </NavMenu>
 
-        <MobileNav isOpen={isOpen} toggle={toggle} />
+        <MobileNav />
       </Nav>
-    </>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: var(--color-element-sand);
+  width: 100%;
+  z-index: 10;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    flex-direction: column;
+  }
+`;
+
+const HeaderSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  text-decoration: none;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    padding-top: 16px;
+  }
+`;
+
+const Names = styled(Link)`
+  ${FONTS.titleFont};
+  color: var(--color-sandstone);
+  margin: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.5rem;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    margin-bottom: 0;
+    font-size: 2.5rem;
+  }
+`;
+
+const Date = styled(Link)`
+  ${FONTS.titleFont};
+  color: var(--color-sandstone);
+  margin-top: -8px;
+  text-decoration: none;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    font-size: 1.3rem;
+  }
+`;
 
 const Nav = styled.nav`
   position: relative; // Keeps the navbar fixed to the top
   top: env(safe-area-inset-top, 0); // Takes the notch into account
   left: 0;
   right: 0;
-  background: ${({ $isHomePage }) =>
-    $isHomePage ? "transparent" : "var(--color-light-sand)"};
-  border-bottom: ${({ $isHomePage }) =>
-    $isHomePage ? "none" : "1px solid var(--color-darker-sand);"};
   height: 80px;
   display: flex;
   align-items: center;
-  width: 100%;
+  margin-left: auto;
   z-index: 10;
   padding: 0 20px;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    margin-left: 0;
+    margin-top: -8px;
+  }
 `;
 
 const Bars = styled(FaBars)`
@@ -84,8 +143,7 @@ const Bars = styled(FaBars)`
   font-size: 1.8rem;
   transform: translate(-100%, 75%);
   cursor: pointer;
-  color: ${({ $isHomePage }) =>
-    $isHomePage ? "#fff" : "var(--color-darker-sand)"};
+  color: var(--color-sandstone);
 
   @media ${QUERIES.largeTabletAndUp} {
     display: none;
@@ -98,31 +156,65 @@ const NavMenu = styled.div`
   @media ${QUERIES.largeTabletAndUp} {
     display: flex;
     align-items: baseline;
+    justify-content: center;
     width: 100%;
   }
 `;
 
-const LeftContainer = styled.div`
+const DesktopLanguageSelector = styled(LanguageSelector)`
+  > :first-child {
+    ${({ lang }) =>
+      lang === "en" &&
+      `
+      width: 62px;
+    `}
+
+    ${({ lang }) =>
+      lang === "ru" &&
+      `
+      width: 70px;
+    `}
+  }
+`;
+
+/* const MobileLanguageSelector = styled(LanguageSelector)`
+  > :first-child {
+    ${({ lang }) =>
+      lang === "en" &&
+      `
+      width: 60px;
+    `}
+
+    ${({ lang }) =>
+      lang === "ru" &&
+      `
+      width: 68px;
+    `}
+  }
+`; */
+
+/* const LeftContainer = styled.div`
   display: flex;
   margin-right: auto;
-`;
+`; */
 
 const RightContainer = styled.div`
   display: flex;
   align-items: baseline;
+  justify-content: space-evenly;
 `;
 
-const NavItem = styled(Link)`
-  ${FONTS.titleFont};
-  color: ${({ $isHomePage }) =>
-    $isHomePage ? "#fff" : "var(--color-darker-sand)"};
+const NavItem = styled(NavLink)`
+  color: var(--color-sandstone);
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   padding: 0 1rem;
   height: 50%;
   cursor: pointer;
-  font-size: 1rem;
+
   text-decoration: none;
+  text-align: center;
 
   &:hover {
     color: var(--color-primary-blue);
@@ -131,10 +223,6 @@ const NavItem = styled(Link)`
 
   &.active {
     color: var(--color-primary-blue);
-  }
-
-  @media ${QUERIES.laptopAndUp} {
-    font-size: calc(20rem / 16);
   }
 `;
 
@@ -158,7 +246,7 @@ const DropdownContainer = styled.div`
 
 const DropdownContent = styled.div`
   position: absolute;
-  background-color: #fff;
+  background-color: var(--color-lighter-sand);
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -170,14 +258,20 @@ const DropdownContent = styled.div`
   transition: max-height 0.3s ease, opacity 0.3s ease;
 `;
 
-const DropdownItem = styled(Link)`
-  color: black;
+const DropdownItem = styled(NavLink)`
+  color: var(--color-sandstone);
   padding: 12px 16px;
   text-decoration: none;
+  text-align: center;
   display: block;
 
   &:hover {
-    background-color: #ddd;
+    color: var(--color-primary-blue);
+    background-color: var(--color-grey-beige);
     transition: all 0.2s ease-in-out;
+  }
+
+  &.active {
+    color: var(--color-primary-blue);
   }
 `;

@@ -1,17 +1,19 @@
-import { useState, useEffect } from "react";
+/* import { useState, useEffect } from "react"; */
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../constants";
-import backgroundPhoto from "../media/plage-corse-2.webp";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
-  const [isLowPowerMode, setIsLowPowerMode] = useState(false);
+  /* const [isLowPowerMode, setIsLowPowerMode] = useState(false); */
 
-  useEffect(() => {
+  const { t } = useTranslation();
+
+  /*   useEffect(() => {
     const videoElement = document.getElementById("background-video");
     ensureVideoPlays(videoElement);
-  }, []);
+  }, []); */
 
-  const ensureVideoPlays = (video) => {
+  /* const ensureVideoPlays = (video) => {
     if (!video) return;
     const promise = video.play();
     promise
@@ -24,10 +26,10 @@ export default function Home() {
         setIsLowPowerMode(true);
       });
   };
-
+ */
   return (
     <>
-      {!isLowPowerMode ? (
+      {/*       {!isLowPowerMode ? (
         <VideoBackground
           id="background-video"
           autoPlay
@@ -42,37 +44,40 @@ export default function Home() {
           />
           Your browser does not support HTML5 video.
         </VideoBackground>
-      ) : (
-        <PhotoBackground src={backgroundPhoto} />
-      )}
+      ) : ( */}
 
       <ContentWrapper>
-        <Title>Chers amis, bonjour à tous !</Title>
-        <Text>
-          Soyez les bienvenus sur notre site de mariage ! Nous avons conçu cet
-          espace pour partager avec vous tous les détails essentiels, de manière
-          conviviale et interactive. <br />
-          <br /> Préparez-vous à plonger dans l'univers de notre grand jour !
-          Parcourez les pages pour découvrir tout ce qu'il faut savoir : le lieu
-          de la fête, le planning, le dress code et bien plus encore. <br />
-          <br /> Nous avons même ajouté nos meilleurs conseils pour découvrir
-          Porto-Vecchio : les restaurants et bars incontournables, les plages
-          paradisiaques et les activités à ne pas manquer. Explorez à votre
-          guise et surtout, pensez à confirmer votre présence (avant le 30
-          Septembre 2024) ! <br />
-          <br />
-          Nous serons ravis de vous voir et avons hâte de célébrer cette journée
-          magique entourés des personnes qui nous sont les plus chères. Restez à
-          l'affût des dernières nouvelles sur le site, des surprises vous
-          attendent !
-        </Text>
+        <ImageContainer>
+          <picture>
+            <source
+              srcSet="
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1733996077/CP2_qlzjgn.jpg 1600w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1733996077/CP2_qlzjgn.jpg 1100w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1733996077/CP2_qlzjgn.jpg 770w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1733996077/CP2_qlzjgn.jpg 550w"
+              sizes="
+      (min-width: 1200px) 1500px,
+      (min-width: 1024px) 1100px,
+      (min-width: 768px) 770px,
+      100vw"
+            />
+            <PhotoBackground
+              src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1733996077/CP2_qlzjgn.jpg"
+              alt="Maora Beach"
+            />
+          </picture>
+        </ImageContainer>
+        <TextContainer>
+          <Title>{t("Home.Title")}</Title>
+          <Text>{t("Home.Text")}</Text>
+        </TextContainer>
       </ContentWrapper>
     </>
   );
 }
 
 // Styled Components
-const VideoBackground = styled.video`
+/* const VideoBackground = styled.video`
   position: fixed;
   top: 0;
   left: 0;
@@ -80,59 +85,60 @@ const VideoBackground = styled.video`
   height: 100vh;
   object-fit: cover;
   z-index: -1;
-`;
-
-const PhotoBackground = styled.img`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  object-position: 52% 50%;
-  z-index: -1;
-`;
+`; */
 
 const ContentWrapper = styled.div`
-  position: relative;
-  padding: 0 16px 1rem;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   color: white;
+  min-height: 100vh;
+  padding: 20px;
 
   @media ${QUERIES.tabletAndUp} {
-    margin-top: 7rem;
+    padding: 40px;
   }
+`;
+
+const ImageContainer = styled.div``;
+
+const PhotoBackground = styled.img`
+  object-fit: cover;
+  object-position: 50% 52%;
+  min-height: 60dvh;
+  max-height: 50dvh;
+  width: 100dvw;
+`;
+
+const TextContainer = styled.div`
+  background-color: var(--color-dark-sand);
+  width: 100%;
+  padding: 2rem 2rem 2rem;
+  flex-grow: 1;
 
   @media ${QUERIES.largeTabletAndUp} {
-    padding: 46px 16px;
-  }
-
-  @media ${QUERIES.laptopAndUp} {
-    padding: 46px 128px;
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 46px 256px;
+    padding-top: 3rem;
   }
 `;
 
 const Title = styled.h1`
   ${FONTS.titleFont};
+  color: white;
   font-size: 2rem;
-  text-align: center;
-  margin: 1rem 20px 1.5rem;
+  text-align: start;
+  margin-bottom: 1rem;
 `;
 
 const Text = styled.p`
-  color: var(--color-dark-blue);
+  ${FONTS.titleFont};
+  font-size: 1.5rem;
+  padding-right: 2rem;
+  color: white;
   font-weight: 500;
-  text-align: center;
+  text-align: start;
 
-  @media ${QUERIES.tabletAndUp} {
-    padding: 0 128px;
+  @media ${QUERIES.laptopAndUp} {
+    padding-right: 32rem;
   }
 `;

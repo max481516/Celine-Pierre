@@ -1,95 +1,115 @@
 import styled from "styled-components";
 import { IoMdClock } from "react-icons/io";
-import { MdLocationPin } from "react-icons/md";
+import { FaLocationDot } from "react-icons/fa6";
 import { FaSquareParking } from "react-icons/fa6";
-import { ImManWoman } from "react-icons/im";
-import { FONTS } from "../../../src/constants";
+import People from "../../media/People.svg?react";
+import { FONTS, QUERIES } from "../../../src/constants";
 import Border from "../../media/Border.svg?react";
+import { Trans, useTranslation } from "react-i18next";
 
 export default function Sunday() {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
-      <StyledBorder />
-      <EventContainer>
-        <Title>DIMANCHE : BEACH PARTY</Title>
-        <ImageContainer>
-          <picture>
-            <source
-              srcSet="
+      <FrameContainer>
+        <StyledBorder />
+        <EventContainer>
+          <Title>{t("Sunday.Title")}</Title>
+          <ImageContainer>
+            <picture>
+              <source
+                srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1728994921/BeachParty_gdkv73.jpg 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1728994921/BeachParty_gdkv73.jpg 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1728994921/BeachParty_gdkv73.jpg 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1728994921/BeachParty_gdkv73.jpg 550w
     "
-              sizes="
+                sizes="
       (min-width: ${BREAKPOINTS.desktopMin}px) 1500px,
       (min-width: ${BREAKPOINTS.laptopMin}px) 1100px,
       (min-width: ${BREAKPOINTS.bigTabletMin}px) 770px,
       (min-width: ${BREAKPOINTS.tabletMin}px) 550px,
       100vw
     "
-              type="image/webp"
-            />
-            <StyledImage
-              src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1728994921/BeachParty_gdkv73.jpg"
-              loading="lazy"
-            />
-          </picture>
-        </ImageContainer>
-        <IconTextContainer>
-          <StyledIcon as={IoMdClock} />
-          <Text>
-            <b>Quand :</b> Le 7 Septembre 2025 à partir de 11:00 jusqu’à 16:00
-          </Text>
-        </IconTextContainer>
-        <IconTextContainer>
-          <StyledIcon as={MdLocationPin} />
-          <Text>
-            <b>Où :</b>{" "}
-            <LocationLink
-              href="https://maps.app.goo.gl/iYbveaBtzhmqoj7t6"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio
-            </LocationLink>
-          </Text>
-        </IconTextContainer>
-        {/* <StyledMaps
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2984.0015413000156!2d9.2791981!3d41.59084939999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d983d6235cc3eb%3A0xec5d6be6bf99215e!2sChurch%20of%20Saint%20John%20the%20Baptist!5e0!3m2!1sen!2sfr!4v1728977910194!5m2!1sen!2sfr"
-          style={{ border: 0 }}
-          allowfullscreen
-          loading="lazy"
-        ></StyledMaps> */}
-        <IconTextContainer>
-          <StyledIcon as={FaSquareParking} />
-          <Text>
-            <b>Parking : Devant l’hôtel </b>
-          </Text>
-        </IconTextContainer>
-        <DressCodeWrapper>
-          <DressCodeTitle>
-            <b>Dress code :</b>
-          </DressCodeTitle>
-          <DressCodeIconTextContainer>
-            <StyledIcon as={ImManWoman} />
+                type="image/webp"
+              />
+              <StyledImage
+                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1728994921/BeachParty_gdkv73.jpg"
+                loading="lazy"
+              />
+            </picture>
+          </ImageContainer>
+          <IconTextContainer>
+            <StyledIcon as={IoMdClock} />
             <Text>
-              Venez vêtus de blanc de la tête aux pieds ! Optez pour des tenues
-              légères et élégantes pour compléter l’ambiance chic et
-              décontractée de la plage. N’oubliez pas de prendre vos maillots de
-              bain et vos chapeaux ! Il risque de faire très chaud.
+              <Trans i18nKey="Sunday.When" components={{ bold: <Bold /> }} />
             </Text>
-          </DressCodeIconTextContainer>
-        </DressCodeWrapper>
-      </EventContainer>
-      <StyledBottomBorder />
+          </IconTextContainer>
+          <IconTextContainer>
+            <StyledIcon as={FaLocationDot} />
+            <Text>
+              <b>{t("Sunday.Where")} </b>
+              <LocationLink
+                href="https://maps.app.goo.gl/iYbveaBtzhmqoj7t6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t("Sunday.WhereLocation")}
+              </LocationLink>
+            </Text>
+          </IconTextContainer>
+
+          <IconTextContainer>
+            <StyledIcon as={FaSquareParking} />
+            <Text>
+              <Trans i18nKey="Sunday.Parking" components={{ bold: <Bold /> }} />
+            </Text>
+          </IconTextContainer>
+          <DressCodeWrapper>
+            <DressCodeTitle>{t("Sunday.DressCode.Title")}</DressCodeTitle>
+            <DressCodeIconTextContainer>
+              <StyledIcon as={People} />
+              <Text>{t("Sunday.DressCode.Text")}</Text>
+            </DressCodeIconTextContainer>
+          </DressCodeWrapper>
+        </EventContainer>
+        <StyledBottomBorder />
+      </FrameContainer>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  padding: 0 16px;
-  margin-top: 1rem;
+  padding: 1rem;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    padding: 3rem;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    padding: 8rem 14rem;
+    background-color: var(--color-lighter-sand);
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    padding: 8rem 24rem;
+  }
+`;
+
+const FrameContainer = styled.div`
+  @media ${QUERIES.laptopAndUp} {
+    padding: 2rem;
+    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
+      0 5px 14px 0 rgba(0, 0, 0, 0.18);
+    background-color: var(--color-light-sand);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    padding: 4rem;
+  }
 `;
 
 const EventContainer = styled.div`
@@ -101,7 +121,13 @@ const EventContainer = styled.div`
 const Title = styled.h2`
   ${FONTS.titleFont};
   color: var(--color-primary-blue);
+  padding: 0.5rem 0;
   text-align: center;
+  text-transform: uppercase;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    font-size: 2.5rem;
+  }
 `;
 
 const IconTextContainer = styled.div`
@@ -117,7 +143,7 @@ const LocationLink = styled.a`
 
 const DressCodeWrapper = styled.div`
   border: 1px solid var(--color-primary-blue);
-  background: var(--color-light-sand);
+  background: var(--color-element-sand);
   border-radius: 8px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   width: 90%;
@@ -132,6 +158,7 @@ const DressCodeTitle = styled.h2`
 
 const DressCodeIconTextContainer = styled.div`
   display: flex;
+  justify-content: center;
   width: 100%;
   gap: 8px;
   padding: 16px;
@@ -166,9 +193,7 @@ const StyledBottomBorder = styled(StyledBorder)`
   transform: rotate(180deg);
 `;
 
-/* const StyledMaps = styled.iframe`
-  width: 90%;
-  height: 300px;
-  margin-bottom: 16px;
-  margin: 0 auto;
-`; */
+// JSON i18n text styling
+const Bold = styled.span`
+  font-weight: bold;
+`;

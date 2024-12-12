@@ -1,87 +1,96 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
-import { FONTS } from "../constants";
+import { useEffect, useState } from "react";
+import { FONTS, QUERIES } from "../constants";
+import { useTranslation } from "react-i18next";
+import { useStore } from "../stores/store.js";
+import i18n from "../i18n/i18n.js";
+import LanguageSelector from "./LanguageSelector.jsx";
 
-export default function MobileNav({ isOpen, toggle }) {
+export default function MobileNav() {
   const [openDropdown, setOpenDropdown] = useState(null);
+  const isOpen = useStore((state) => state.isMobileNavOpen);
+  const closeMobileNav = useStore((state) => state.closeMobileNav);
+  const location = useLocation();
+
+  const { t } = useTranslation();
 
   const handleDropdownToggle = (name) => {
     // Toggle dropdown: if it's open, close it; otherwise, open it
     setOpenDropdown((prev) => (prev === name ? null : name));
   };
 
+  useEffect(() => {
+    // Close the nav when the route changes
+    closeMobileNav();
+  }, [location.pathname, closeMobileNav]);
+
   const handleNavItemClick = () => {
-    setOpenDropdown(null); // Close any open dropdown when clicking on any main item
-    toggle(); // Also toggle the mobile nav
+    closeMobileNav();
   };
 
   return (
     <MobileNavContainer $isOpen={isOpen}>
-      <CloseButton onClick={toggle}>
+      <CloseButton onClick={closeMobileNav}>
         <AiOutlineClose />
       </CloseButton>
+      <MobileLanguageSelector type="mobile" lang={i18n.language} />
       <MobileNavMenu>
         <MobileNavItem to="/" onClick={handleNavItemClick}>
-          Bienvenue
+          {t("Nav.Home")}
         </MobileNavItem>
 
         <MobileDropdown
-          name="Événements"
-          isOpen={openDropdown === "Événements"}
-          toggleDropdown={() => handleDropdownToggle("Événements")}
+          name={t("Nav.Events")}
+          isOpen={openDropdown === t("Nav.Events")}
+          toggleDropdown={() => handleDropdownToggle(t("Nav.Events"))}
         >
           <MobileDropdownItem to="/Friday" onClick={handleNavItemClick}>
-            Vendredi
+            {t("Nav.Friday")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/Saturday" onClick={handleNavItemClick}>
-            Samedi
+            {t("Nav.Saturday")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/Sunday" onClick={handleNavItemClick}>
-            Dimanche
+            {t("Nav.Sunday")}
           </MobileDropdownItem>
         </MobileDropdown>
 
         <MobileDropdown
-          name="Infos"
+          name={t("Nav.Infos")}
           isOpen={openDropdown === "Infos"}
           toggleDropdown={() => handleDropdownToggle("Infos")}
         >
           <MobileDropdownItem to="/Accomodations" onClick={handleNavItemClick}>
-            Hébergement
+            {t("Nav.Accommodations")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/Transports" onClick={handleNavItemClick}>
-            Transports
+            {t("Nav.Transports")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/RnB" onClick={handleNavItemClick}>
-            Restaurants & Bars
-          </MobileDropdownItem>
-          <MobileDropdownItem to="/Beauty" onClick={handleNavItemClick}>
-            Beauté
+            {t("Nav.R&B")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/Beaches" onClick={handleNavItemClick}>
-            Plages
+            {t("Nav.Beaches")}
+          </MobileDropdownItem>
+          <MobileDropdownItem to="/Services" onClick={handleNavItemClick}>
+            {t("Nav.Services")}
           </MobileDropdownItem>
           <MobileDropdownItem to="/Activities" onClick={handleNavItemClick}>
-            Activités
-          </MobileDropdownItem>
-          <MobileDropdownItem to="/Sitters" onClick={handleNavItemClick}>
-            Baby-sitters
+            {t("Nav.Activities")}
           </MobileDropdownItem>
         </MobileDropdown>
 
         <MobileNavItem to="/List" onClick={handleNavItemClick}>
-          Liste de Mariage
+          {t("Nav.List")}
         </MobileNavItem>
         <MobileNavItem to="/Album" onClick={handleNavItemClick}>
-          Album photos
+          {t("Nav.Album")}
         </MobileNavItem>
-        <MobileNavItem to="/RSVP" onClick={handleNavItemClick}>
-          RSVP
-        </MobileNavItem>
+
         <MobileNavItem to="/Contacts" onClick={handleNavItemClick}>
-          Contacts
+          {t("Nav.Contacts")}
         </MobileNavItem>
       </MobileNavMenu>
     </MobileNavContainer>
@@ -114,6 +123,14 @@ const MobileNavContainer = styled.div`
     props.$isOpen ? "translateX(0)" : "translateX(100%)"};
   transition: transform 0.3s ease-in-out;
   z-index: 999;
+
+  @media ${QUERIES.tabletAndUp} {
+    width: 50%;
+  }
+
+  @media ${QUERIES.largeTabletAndUp} {
+    display: none;
+  }
 `;
 
 const CloseButton = styled.div`
@@ -125,22 +142,46 @@ const CloseButton = styled.div`
   color: var(--color-darker-sand);
 `;
 
+const MobileLanguageSelector = styled(LanguageSelector)`
+  > :first-child {
+    ${({ lang }) =>
+      lang === "en" &&
+      `
+      width: 60px;
+    `}
+
+    ${({ lang }) =>
+      lang === "ru" &&
+      `
+      width: 68px;
+    `}
+  }
+`;
+
 const MobileNavMenu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
+
+  @media ${QUERIES.tabletAndUp} {
+    margin-top: 200px;
+  }
 `;
 
-const MobileNavItem = styled(Link)`
-  ${FONTS.titleFont};
-  color: var(--color-primary-blue);
+const MobileNavItem = styled(NavLink)`
+  color: var(--color-darker-sand);
   font-size: 1.5rem;
   padding: 1rem;
   text-decoration: none;
 
   &:hover {
     color: var(--color-light-blue);
+    transition: all 0.2s ease-in-out;
+  }
+
+  &.active {
+    color: var(--color-primary-blue);
   }
 `;
 
@@ -154,17 +195,22 @@ const MobileDropdownContent = styled.div`
   overflow: hidden;
   transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
   opacity: ${(props) => (props.$isDropdownOpen ? "1" : "0")};
-  background-color: var(--color-primary-blue);
+  background-color: var(--color-grey-beige-secondary);
   width: 100%;
 `;
 
-const MobileDropdownItem = styled(Link)`
-  color: white;
+const MobileDropdownItem = styled(NavLink)`
+  color: var(--color-sandstone);
   padding: 12px 16px;
   display: block;
   text-decoration: none;
 
   &:hover {
-    background-color: #444;
+    background-color: var(--color-dark-sand);
+    transition: all 0.2s ease-in-out;
+  }
+
+  &.active {
+    color: var(--color-primary-blue);
   }
 `;

@@ -80,21 +80,20 @@ const moveUpDown = keyframes`
 `;
 
 const FooterContainer = styled.footer`
-  background: ${({ $isHomePage }) =>
-    $isHomePage ? "transparent" : "var(--color-light-sand)"};
+  background: var(--color-element-sand);
   text-align: center;
   border-top: ${({ $isHomePage }) =>
     $isHomePage ? "none" : "1px solid var(--color-darker-sand)"};
   width: 100%;
-  height: 4rem;
+  height: 5rem;
   position: relative;
 `;
 
 const BackToTop = styled.a`
-  display: ${({ $isHomePage }) => ($isHomePage ? "none" : "block")};
   position: fixed;
   bottom: calc(2rem / 16);
   right: 10px;
+  bottom: 12px;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
   z-index: 3000;

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { FONTS } from "../constants";
 import { IoMdClose } from "react-icons/io";
+import { useTranslation } from "react-i18next";
 
 export default function CommentSection({
   comments,
@@ -10,8 +11,11 @@ export default function CommentSection({
   toggleOpen,
 }) {
   const [newComment, setNewComment] = useState("");
+  const [name, setName] = useState("");
   const containerRef = useRef(null);
   const textareaRef = useRef(null);
+
+  const { t } = useTranslation();
 
   const handleInput = () => {
     const textarea = textareaRef.current;
@@ -50,17 +54,20 @@ export default function CommentSection({
         }
       }}
     >
-      <Title>COMMENTS</Title>
+      <Title>{t("Album.Comments.Title")}</Title>
       <Content isOpen={isOpen}>
         <CloseButton onClick={toggleOpen}>
           <IoMdClose size={25} />
         </CloseButton>
         <CommentsList>
           {comments.length === 0 ? (
-            <EmptyState>Nothing here yet...</EmptyState>
+            <EmptyState>{t("Album.Comments.EmptyState")}</EmptyState>
           ) : (
             comments.map((comment) => (
-              <Comment key={comment.id}>{comment.text}</Comment>
+              <Comment key={comment.id}>
+                <CommentText>{comment.text}</CommentText>
+                <CommentAuthor>{comment.name || "Anonymous"}</CommentAuthor>
+              </Comment>
             ))
           )}
         </CommentsList>
@@ -68,23 +75,33 @@ export default function CommentSection({
           onSubmit={(e) => {
             e.preventDefault();
             if (newComment.trim() !== "") {
-              addComment(newComment);
+              addComment(newComment, name || "Anonymous");
               setNewComment("");
+              setName("");
               if (textareaRef.current) {
                 textareaRef.current.style.height = "auto"; // Reset height after submit
               }
             }
           }}
         >
-          <CommentInput
-            ref={textareaRef}
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            onInput={handleInput}
-            placeholder="Add a comment..."
-            rows={1}
-          />
-          <SubmitButton type="submit">Send</SubmitButton>
+          <InputRow>
+            <CommentInput
+              ref={textareaRef}
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              onInput={handleInput}
+              placeholder={t("Album.Comments.CommentPlaceholder")}
+              rows={1}
+            />
+            <NameInput
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder={t("Album.Comments.NamePlaceholder")}
+            />
+          </InputRow>
+          <SubmitButton type="submit">
+            {t("Album.Comments.Submit")}
+          </SubmitButton>
         </CommentForm>
       </Content>
     </Container>
@@ -100,6 +117,7 @@ const Container = styled.div`
   right: 0;
   width: 95%;
   max-height: 50%;
+  max-width: 750px;
   background-color: var(--color-element-sand);
   transition: transform 0.3s ease-in-out;
   border-radius: 8px;
@@ -107,7 +125,7 @@ const Container = styled.div`
   z-index: 20000;
   overflow: auto;
   transform: translateY(
-    ${({ isOpen }) => (isOpen ? "0%" : "calc(100% - 25px)")}
+    ${({ isOpen }) => (isOpen ? "0%" : "calc(100% - 35px)")}
   );
 `;
 
@@ -147,6 +165,22 @@ const CommentsList = styled.div`
   padding-top: 0;
 `;
 
+const CommentText = styled.div`
+  font-size: 1rem;
+  color: #000;
+  margin-bottom: 4px;
+`;
+
+const CommentAuthor = styled.div`
+  font-size: 0.9rem;
+  position: absolute;
+  right: 8px;
+  bottom: -24px;
+  color: var(--color-primary-blue);
+  font-style: italic;
+  text-align: right;
+`;
+
 const EmptyState = styled.div`
   color: #666;
   text-align: center;
@@ -154,9 +188,10 @@ const EmptyState = styled.div`
 `;
 
 const Comment = styled.div`
+  position: relative;
   padding: 8px;
-  margin-bottom: 8px;
-  background-color: var(--color-light-sand);
+  margin-bottom: 24px;
+  background-color: var(--color-lighter-sand);
   border-radius: 8px;
   color: #000;
   white-space: pre-wrap;
@@ -166,8 +201,16 @@ const Comment = styled.div`
 const CommentForm = styled.form`
   display: flex;
   align-items: flex-end;
+  flex-direction: column;
   margin-top: auto;
   flex-shrink: 0;
+  flex-wrap: wrap;
+`;
+
+const InputRow = styled.div`
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
 `;
 
 const CommentInput = styled.textarea`
@@ -175,6 +218,7 @@ const CommentInput = styled.textarea`
   padding: 8px;
   margin: 0;
   border: 1px solid #ccc;
+
   border-radius: 8px;
   margin-right: 8px;
   resize: none;
@@ -191,9 +235,26 @@ const CommentInput = styled.textarea`
   }
 `;
 
+const NameInput = styled.input`
+  flex: 0.4;
+  padding: 8px;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-right: 8px;
+  font-size: 1rem;
+  ${FONTS.bodyFont};
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary-blue);
+  }
+`;
+
 const SubmitButton = styled.button`
   padding: 8px 16px;
   margin-bottom: 1px;
+  align-self: center;
   background-color: var(--color-primary-blue);
   color: #fff;
   border: none;

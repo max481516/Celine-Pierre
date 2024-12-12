@@ -1,4 +1,146 @@
 {
+  "Nav": {
+    "Home": "Bienvenue",
+    "Events": "Événements",
+    "Friday": "Vendredi",
+    "Saturday": "Samedi",
+    "Sunday": "Dimanche",
+    "Infos": "Informations",
+    "Accommodations": "Hébergements",
+    "Transports": "Transports",
+    "R&B": "Restaurants & Bars",
+    "Beauty": "Beauté",
+    "Beaches": "Plages",
+    "Activities": "Activités",
+    "Baby-sitters": "Baby-sitters",
+    "List": "Liste de mariage",
+    "Album": "Album Photos",
+    "RSVP": "RSVP",
+    "Contacts": "Contacts"
+  },
+
+  "Home": {
+    "Title": "Bonjour à tous et bienvenue sur notre site de mariage !",
+    "Text": "Bonjour à tous et bienvenue sur notre site de mariage ! Nous avons créé cet espace pour vous partager tous les détails de notre grand jour : lieu, planning, dress code, et bien plus. Vous y trouverez aussi nos meilleures adresses pour découvrir Porto-Vecchio : restaurants, plages, et activités incontournables. Nous avons hâte de célébrer cette journée magique avec vous. Restez connectés, des surprises vous attendent !"
+  },
+
+  "Friday": {
+    "Title": "VENREDI : BEACH PARTY",
+    "When": "<bold>Quand :</bold> Le 5 Septembre 2025 à partir de 12:00 jusqu’à 18:00",
+    "Where": "Où : ",
+    "WhereLocation": "Restaurant MAORA BEACH",
+    "Parking": "<bold>Parking :</bold> Devant l’hôtel",
+    "DressCode": {
+      "Title": "Dress Code : ",
+      "Text": "Venez vêtus de blanc de la tête aux pieds ! Optez pour des tenues légères et élégantes pour compléter l’ambiance chic et décontractée de la plage. N’oubliez pas de prendre vos maillots de bain et vos chapeaux ! Il risque de faire très chaud."
+    }
+  },
+
+  "Saturday": {
+    "Ceremony": {
+      "Title": "SAMEDI : CÉRÉMONIE RELIGIEUSE",
+      "When": "<bold>Quand :</bold> Le 6 Septembre 2025 de 13:30 à 16:00",
+      "Where": "Où : ",
+      "WhereLocation": "Église Saint Jean Baptiste, 2-8 Rue Joseph Pietri Maire, 20137 Porto-Vecchio",
+      "Transport": {
+        "Text": "<bold>Transport :</bold> Merci de prévoir votre arrivée à l’église par vos propres moyens.",
+        "ItalicText": "À l’issue de la cérémonie religieuse, nous vous invitons à rejoindre vos hôtels respectifs. Une navette viendra ensuite vous chercher pour la soirée. (Pas tous les hôtels sont desservis, rdv sur la page <0>\"Hébergements\"</0> pour plus d'informations)"
+      },
+      "Parking": "Parking : ",
+      "ParkingLocation1": "Parking Santa Catalina",
+      "OrParking": "ou ",
+      "ParkingLocation2": "Parking Rue Pasteur",
+      "DressCode": {
+        "Title": "Dress Code : ",
+        "Girls": "Les filles, sortez vos plus belles robes de cocktail. Laissez vos pastels au placard et optez pour des teintes éclatantes qui feront briller cette journée encore plus.",
+        "Boys": "Les garçons, éblouissez- nous avec vos costumes élégants"
+      }
+    },
+    "Celebration": {
+      "Title": "SAMEDI : LA CÉLÉBRATION",
+      "When": "<bold>Quand : </bold> Le 6 Septembre 2025 à partir de 18:30 au lever du soleil",
+      "Where": "Où : ",
+      "WhereLocation": "La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio",
+      "Transport": {
+        "Text": "<bold>Transport : </bold> Un service de navette sera assuré entre vos hôtels et La Plage Casadelmar.",
+        "ItalicText": "(Pas tous les hôtels sont desservis, rdv sur la page <0>\"Hébergements\"</0> pour plus d'informations)"
+      },
+      "Parking": "<bold>Parking : </bold> Si toutefois, vous souhaitez venir à la soirée avec votre voiture, l'hôtel La Plage Casadelmar dispose d’un parking.",
+      "DressCode": {
+        "Title": "Dress Code : ",
+        "Girls": "Les filles, sortez vos plus belles robes de cocktail. Laissez vos pastels au placard et optez pour des teintes éclatantes qui feront briller cette journée encore plus. Pensez à prendre des chaussures plates pour enflammer le dance floor !",
+        "Boys": "Les garçons, éblouissez- nous avec vos costumes élégants"
+      }
+    }
+  },
+
+  "Sunday": {
+    "Title": "DIMANCHE : BRUNCH",
+    "When": "<bold>Quand :</bold> Le 7 Septembre 2025 à partir de 12:00 jusqu’à 16:00",
+    "Where": "Où : ",
+    "WhereLocation": "La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio",
+    "Parking": "<bold>Parking :</bold> L'hôtel La Plage Casadelmar dispose d’un parking",
+    "DressCode": {
+      "Title": "Dress Code : ",
+      "Text": "Thème Dolce Vita, laissez libre cours à votre imagination."
+    }
+  },
+
+  "Accomodations": {
+    "Title": "HÉBERGEMENTS",
+    "AboutTransfer": {
+      "Text": "Les navettes desserviront uniquement ces hôtels. Merci de nous indiquer si vous séjournez dans l’un d’eux en",
+      "OpenForm": "cliquant sur ce lien",
+      "ConfirmationMessage": "Merci pour votre réponse !",
+      "ErrorMessage": "Une erreur s'est produite. Veuillez réessayer, ou écrivez-nous un message à :",
+      "Name": "Nom",
+      "NamePlaceholder": "Votre nom",
+      "Hotel": "Hôtel",
+      "CloseButton": "Fermer",
+      "SubmitButton": "Soumettre"
+    }
+  },
+
+  "R&B": {
+    "Title": "RESTAURANTS & BARS",
+    "Section1": "CENTRE VILLE",
+    "Section2": "AMBIANCÉS"
+  },
+
+  "Beaches": {
+    "Title": "PLAGES",
+    "Section1": "Plages de Palombaggia :",
+    "Section2": "Plage de Santa Giulia :",
+    "Section3": "Bonifacio :"
+  },
+
+  "Activities": {
+    "Title": "ACTIVITÉS"
+  },
+
+  "Services": {
+    "Title": "SERVICES",
+    "SubTitile": "Baby-sitters :",
+    "SitterDescription": "Nous avons prévu une baby-sitter pour garder vos petits, afin que vous puissiez profiter pleinement de votre soirée.",
+    "SubTitle2": "BEAUTÉ :"
+  },
+
+  "List": {
+    "Text": "Bientôt disponible!"
+  },
+
+  "Album": {
+    "Title": "ALBUM",
+    "Description": "Ici, vous pouvez partager vos photos et vidéos du mariage en cliquant sur le nuage. Vous pouvez également laisser des commentaires en ouvrant un élément.",
+    "Comments": {
+      "Title": "Commentaires",
+      "EmptyState": "Rien ici pour le moment...",
+      "CommentPlaceholder": "Ajouter un commentaire...",
+      "NamePlaceholder": "Nom (optionnel)",
+      "Submit": "Envoyer"
+    }
+  },
+
   "RSVP": {
     "FinalDate": "À compléter avant le 30 septembre 2024",
     "Attendance": "Serez-vous présents?",

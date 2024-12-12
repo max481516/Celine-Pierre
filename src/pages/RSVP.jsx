@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   background-image: url(${backgroundImage});
   background-size: cover;
   background-position: center;
-  min-height: 100dvh; /* Ensure the background covers the entire viewport */
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
