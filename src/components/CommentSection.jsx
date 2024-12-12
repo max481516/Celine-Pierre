@@ -117,7 +117,7 @@ const Container = styled.div`
   right: 0;
   width: 95%;
   max-height: 50%;
-  max-width: 750px;
+  max-width: 500px;
   background-color: var(--color-element-sand);
   transition: transform 0.3s ease-in-out;
   border-radius: 8px;
@@ -209,6 +209,7 @@ const CommentForm = styled.form`
 
 const InputRow = styled.div`
   display: flex;
+  align-self: center;
   gap: 8px;
   margin-bottom: 8px;
 `;
