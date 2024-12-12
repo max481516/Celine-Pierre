@@ -46,10 +46,10 @@ export default function Services() {
             <picture>
               <source
                 srcSet="
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1734023213/787A6883_nbh1ad.jpg 1600w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1734023213/787A6883_nbh1ad.jpg 1100w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1734023213/787A6883_nbh1ad.jpg 770w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1734023213/787A6883_nbh1ad.jpg 550w"
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1734030906/DESSANGE_logo_zp2kkj.jpg 1600w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1734030906/DESSANGE_logo_zp2kkj.jpg 1100w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1734030906/DESSANGE_logo_zp2kkj.jpg 770w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1734030906/DESSANGE_logo_zp2kkj.jpg 550w"
                 sizes="
       (min-width: 1200px) 1500px,
       (min-width: 1024px) 1100px,
@@ -57,8 +57,8 @@ export default function Services() {
       100vw"
               />
               <StyledImage
-                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800,f_auto,q_auto/v1734023213/787A6883_nbh1ad.jpg"
-                alt="Dessange - View"
+                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800,f_auto,q_auto/v1734030906/DESSANGE_logo_zp2kkj.jpg"
+                alt="Dessange Logo"
               />
             </picture>
           }
