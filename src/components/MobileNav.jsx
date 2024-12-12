@@ -163,6 +163,10 @@ const MobileNavMenu = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
+
+  @media ${QUERIES.tabletAndUp} {
+    margin-top: 200px;
+  }
 `;
 
 const MobileNavItem = styled(NavLink)`
@@ -196,7 +200,7 @@ const MobileDropdownContent = styled.div`
 `;
 
 const MobileDropdownItem = styled(NavLink)`
-  color: white;
+  color: var(--color-sandstone);
   padding: 12px 16px;
   display: block;
   text-decoration: none;

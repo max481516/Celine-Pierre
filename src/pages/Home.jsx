@@ -1,10 +1,6 @@
 /* import { useState, useEffect } from "react"; */
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../constants";
-import backgroundPhoto from "../media/plage-corse-2.webp";
-import CP from "../media/CP.jpeg";
-import CP2 from "../media/CP2.jpeg";
-import CP3 from "../media/CP3.jpeg";
 import { useTranslation } from "react-i18next";
 
 export default function Home() {
@@ -52,7 +48,24 @@ export default function Home() {
 
       <ContentWrapper>
         <ImageContainer>
-          <PhotoBackground src={CP2} />
+          <picture>
+            <source
+              srcSet="
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1733996077/CP2_qlzjgn.jpg 1600w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1733996077/CP2_qlzjgn.jpg 1100w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1733996077/CP2_qlzjgn.jpg 770w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1733996077/CP2_qlzjgn.jpg 550w"
+              sizes="
+      (min-width: 1200px) 1500px,
+      (min-width: 1024px) 1100px,
+      (min-width: 768px) 770px,
+      100vw"
+            />
+            <PhotoBackground
+              src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1733996077/CP2_qlzjgn.jpg"
+              alt="Maora Beach"
+            />
+          </picture>
         </ImageContainer>
         <TextContainer>
           <Title>{t("Home.Title")}</Title>

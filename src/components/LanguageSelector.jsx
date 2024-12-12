@@ -88,6 +88,7 @@ const Selector = styled.select`
   background: transparent;
   cursor: pointer;
   color: var(--color-sandstone);
+  padding: 0;
 `;
 
 const IconContainer = styled.div`

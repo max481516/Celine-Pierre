@@ -40,7 +40,7 @@ export default function Transports() {
               </picture>
             }
           />
-          <StyledSeparator />
+          {/* <StyledSeparator />
           <InfoElement
             name="Linda Beach"
             location="Palombaggia Capu d'Acciaghju, 20137 Porto-Vecchio"
@@ -203,6 +203,7 @@ export default function Transports() {
               </picture>
             }
           />
+        </Section> */}
         </Section>
         <StyledBottomBorder />
       </FrameContainer>

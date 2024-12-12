@@ -124,6 +124,22 @@
     "SubTitle2": "BEAUTY:"
   },
 
+  "List": {
+    "Text": "Coming Soon!"
+  },
+
+  "Album": {
+    "Title": "ALBUM",
+    "Description": "Here, you can share your wedding photos and videos by clicking on the cloud. You can also leave comments by opening an item.",
+    "Comments": {
+      "Title": "Comments",
+      "EmptyState": "Nothing here yet...",
+      "CommentPlaceholder": "Add a comment...",
+      "NamePlaceholder": "Name (optional)",
+      "Submit": "Send"
+    }
+  },
+
   "RSVP": {
     "FinalDate": "Kindly RSVP by September 30, 2024",
     "Attendance": "Will you be attending?",

@@ -14,9 +14,11 @@ import { ref, deleteObject } from "firebase/storage";
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../constants";
 import Border from "../media/Border.svg?react";
+import { useTranslation } from "react-i18next";
 
 export default function Album() {
   const [mediaFiles, setMediaFiles] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const q = query(
@@ -62,12 +64,8 @@ export default function Album() {
     <Wrapper>
       <FrameContainer>
         <StyledBorder />
-        <Title>Album</Title>
-        <Description>
-          Ici vous pouvez partager vos photos et video du marriage en appuyant
-          sur le nuage. Vous pouvez aussi laissez des commentaires en appuyant
-          sur une des photos.
-        </Description>
+        <Title>{t("Album.Title")}</Title>
+        <Description>{t("Album.Description")}</Description>
         <UploadMedia />
         <AlbumGrid mediaItems={mediaFiles} onDelete={handleDelete} />
         <StyledBottomBorder />

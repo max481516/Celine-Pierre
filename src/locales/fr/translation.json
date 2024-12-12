@@ -125,6 +125,22 @@
     "SubTitle2": "BEAUTÉ :"
   },
 
+  "List": {
+    "Text": "Bientôt disponible!"
+  },
+
+  "Album": {
+    "Title": "ALBUM",
+    "Description": "Ici, vous pouvez partager vos photos et vidéos du mariage en cliquant sur le nuage. Vous pouvez également laisser des commentaires en ouvrant un élément.",
+    "Comments": {
+      "Title": "Commentaires",
+      "EmptyState": "Rien ici pour le moment...",
+      "CommentPlaceholder": "Ajouter un commentaire...",
+      "NamePlaceholder": "Nom (optionnel)",
+      "Submit": "Envoyer"
+    }
+  },
+
   "RSVP": {
     "FinalDate": "À compléter avant le 30 septembre 2024",
     "Attendance": "Serez-vous présents?",

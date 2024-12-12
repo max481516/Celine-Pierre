@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { FONTS } from "../constants";
 import { IoMdClose } from "react-icons/io";
+import { useTranslation } from "react-i18next";
 
 export default function CommentSection({
   comments,
@@ -13,6 +14,8 @@ export default function CommentSection({
   const [name, setName] = useState("");
   const containerRef = useRef(null);
   const textareaRef = useRef(null);
+
+  const { t } = useTranslation();
 
   const handleInput = () => {
     const textarea = textareaRef.current;
@@ -51,14 +54,14 @@ export default function CommentSection({
         }
       }}
     >
-      <Title>COMMENTS</Title>
+      <Title>{t("Album.Comments.Title")}</Title>
       <Content isOpen={isOpen}>
         <CloseButton onClick={toggleOpen}>
           <IoMdClose size={25} />
         </CloseButton>
         <CommentsList>
           {comments.length === 0 ? (
-            <EmptyState>Nothing here yet...</EmptyState>
+            <EmptyState>{t("Album.Comments.EmptyState")}</EmptyState>
           ) : (
             comments.map((comment) => (
               <Comment key={comment.id}>
@@ -81,20 +84,24 @@ export default function CommentSection({
             }
           }}
         >
-          <CommentInput
-            ref={textareaRef}
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            onInput={handleInput}
-            placeholder="Add a comment..."
-            rows={1}
-          />
-          <NameInput
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Name (optional)"
-          />
-          <SubmitButton type="submit">Send</SubmitButton>
+          <InputRow>
+            <CommentInput
+              ref={textareaRef}
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              onInput={handleInput}
+              placeholder={t("Album.Comments.CommentPlaceholder")}
+              rows={1}
+            />
+            <NameInput
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder={t("Album.Comments.NamePlaceholder")}
+            />
+          </InputRow>
+          <SubmitButton type="submit">
+            {t("Album.Comments.Submit")}
+          </SubmitButton>
         </CommentForm>
       </Content>
     </Container>
@@ -118,7 +125,7 @@ const Container = styled.div`
   z-index: 20000;
   overflow: auto;
   transform: translateY(
-    ${({ isOpen }) => (isOpen ? "0%" : "calc(100% - 25px)")}
+    ${({ isOpen }) => (isOpen ? "0%" : "calc(100% - 35px)")}
   );
 `;
 
@@ -194,8 +201,16 @@ const Comment = styled.div`
 const CommentForm = styled.form`
   display: flex;
   align-items: flex-end;
+  flex-direction: column;
   margin-top: auto;
   flex-shrink: 0;
+  flex-wrap: wrap;
+`;
+
+const InputRow = styled.div`
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
 `;
 
 const CommentInput = styled.textarea`
@@ -203,6 +218,7 @@ const CommentInput = styled.textarea`
   padding: 8px;
   margin: 0;
   border: 1px solid #ccc;
+
   border-radius: 8px;
   margin-right: 8px;
   resize: none;
@@ -238,6 +254,7 @@ const NameInput = styled.input`
 const SubmitButton = styled.button`
   padding: 8px 16px;
   margin-bottom: 1px;
+  align-self: center;
   background-color: var(--color-primary-blue);
   color: #fff;
   border: none;

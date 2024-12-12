@@ -98,8 +98,10 @@ const Names = styled(Link)`
   margin: 0;
   text-transform: uppercase;
   text-decoration: none;
+  font-size: 1.5rem;
 
   @media ${QUERIES.largeTabletAndUp} {
+    margin-bottom: 0;
     font-size: 2.5rem;
   }
 `;
