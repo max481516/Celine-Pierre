@@ -2,7 +2,7 @@ import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../../constants";
 import Border from "../../media/Border.svg?react";
-import Separator from "../../media/Separator2.svg?react";
+import Separator from "../../media/Separator.svg?react";
 import { useTranslation } from "react-i18next";
 
 export default function RnB() {

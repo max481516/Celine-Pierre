@@ -6,6 +6,7 @@ import People from "../../media/People.svg?react";
 import { FONTS, QUERIES } from "../../../src/constants";
 import Border from "../../media/Border.svg?react";
 import { Trans, useTranslation } from "react-i18next";
+import FadeInSection from "../../components/FadeInSection";
 
 export default function Sunday() {
   const { t } = useTranslation();
@@ -14,65 +15,70 @@ export default function Sunday() {
     <Wrapper>
       <FrameContainer>
         <StyledBorder />
-        <EventContainer>
-          <Title>{t("Friday.Title")}</Title>
-          <ImageContainer>
-            <picture>
-              <source
-                srcSet="
+        <FadeInSection>
+          <EventContainer>
+            <Title>{t("Friday.Title")}</Title>
+            <ImageContainer>
+              <picture>
+                <source
+                  srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1732717673/BeachParty_fhdyqk.jpg 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1732717673/BeachParty_fhdyqk.jpg 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1732717673/BeachParty_fhdyqk.jpg 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1732717673/BeachParty_fhdyqk.jpg 550w
     "
-                sizes="
+                  sizes="
       (min-width: ${BREAKPOINTS.desktopMin}px) 1500px,
       (min-width: ${BREAKPOINTS.laptopMin}px) 1100px,
       (min-width: ${BREAKPOINTS.bigTabletMin}px) 770px,
       (min-width: ${BREAKPOINTS.tabletMin}px) 550px,
       100vw
     "
-                type="image/webp"
-              />
-              <StyledImage
-                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732717673/BeachParty_fhdyqk.jpg"
-                loading="lazy"
-              />
-            </picture>
-          </ImageContainer>
-          <IconTextContainer>
-            <StyledIcon as={IoMdClock} />
-            <Text>
-              <Trans i18nKey="Friday.When" components={{ bold: <Bold /> }} />
-            </Text>
-          </IconTextContainer>
-          <IconTextContainer>
-            <StyledIcon as={MdLocationPin} />
-            <Text>
-              <b>{t("Friday.Where")} </b>
-              <LocationLink
-                href="https://maps.app.goo.gl/15iER64FdvZE6bek7"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t("Friday.WhereLocation")}
-              </LocationLink>
-            </Text>
-          </IconTextContainer>
-          <IconTextContainer>
-            <StyledIcon as={FaSquareParking} />
-            <Text>
-              <Trans i18nKey="Friday.Parking" components={{ bold: <Bold /> }} />
-            </Text>
-          </IconTextContainer>
-          <DressCodeWrapper>
-            <DressCodeTitle>{t("Friday.DressCode.Title")}</DressCodeTitle>
-            <DressCodeIconTextContainer>
-              <StyledIcon as={People} />
-              <Text>{t("Friday.DressCode.Text")}</Text>
-            </DressCodeIconTextContainer>
-          </DressCodeWrapper>
-        </EventContainer>
+                  type="image/webp"
+                />
+                <StyledImage
+                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1732717673/BeachParty_fhdyqk.jpg"
+                  loading="lazy"
+                />
+              </picture>
+            </ImageContainer>
+            <IconTextContainer>
+              <StyledIcon as={IoMdClock} />
+              <Text>
+                <Trans i18nKey="Friday.When" components={{ bold: <Bold /> }} />
+              </Text>
+            </IconTextContainer>
+            <IconTextContainer>
+              <StyledIcon as={MdLocationPin} />
+              <Text>
+                <b>{t("Friday.Where")} </b>
+                <LocationLink
+                  href="https://maps.app.goo.gl/15iER64FdvZE6bek7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t("Friday.WhereLocation")}
+                </LocationLink>
+              </Text>
+            </IconTextContainer>
+            <IconTextContainer>
+              <StyledIcon as={FaSquareParking} />
+              <Text>
+                <Trans
+                  i18nKey="Friday.Parking"
+                  components={{ bold: <Bold /> }}
+                />
+              </Text>
+            </IconTextContainer>
+            <DressCodeWrapper>
+              <DressCodeTitle>{t("Friday.DressCode.Title")}</DressCodeTitle>
+              <DressCodeIconTextContainer>
+                <StyledIcon as={People} />
+                <Text>{t("Friday.DressCode.Text")}</Text>
+              </DressCodeIconTextContainer>
+            </DressCodeWrapper>
+          </EventContainer>
+        </FadeInSection>
         <StyledBottomBorder />
       </FrameContainer>
     </Wrapper>

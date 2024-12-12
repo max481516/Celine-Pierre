@@ -2,6 +2,7 @@
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../constants";
 import { useTranslation } from "react-i18next";
+import FadeInSection from "../components/FadeInSection";
 
 export default function Home() {
   /* const [isLowPowerMode, setIsLowPowerMode] = useState(false); */
@@ -47,30 +48,32 @@ export default function Home() {
       ) : ( */}
 
       <ContentWrapper>
-        <ImageContainer>
-          <picture>
-            <source
-              srcSet="
+        <FadeInSection>
+          <ImageContainer>
+            <picture>
+              <source
+                srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1733996077/CP2_qlzjgn.jpg 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1733996077/CP2_qlzjgn.jpg 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1733996077/CP2_qlzjgn.jpg 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1733996077/CP2_qlzjgn.jpg 550w"
-              sizes="
+                sizes="
       (min-width: 1200px) 1500px,
       (min-width: 1024px) 1100px,
       (min-width: 768px) 770px,
       100vw"
-            />
-            <PhotoBackground
-              src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1733996077/CP2_qlzjgn.jpg"
-              alt="Maora Beach"
-            />
-          </picture>
-        </ImageContainer>
-        <TextContainer>
-          <Title>{t("Home.Title")}</Title>
-          <Text>{t("Home.Text")}</Text>
-        </TextContainer>
+              />
+              <PhotoBackground
+                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1733996077/CP2_qlzjgn.jpg"
+                alt="Maora Beach"
+              />
+            </picture>
+          </ImageContainer>
+          <TextContainer>
+            <Title>{t("Home.Title")}</Title>
+            <Text>{t("Home.Text")}</Text>
+          </TextContainer>
+        </FadeInSection>
       </ContentWrapper>
     </>
   );

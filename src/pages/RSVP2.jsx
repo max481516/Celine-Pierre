@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { QUERIES } from "../constants.js";
+import { QUERIES, FONTS } from "../constants.js";
 import styled from "styled-components";
 
 // COMPONENT IMPORTS
@@ -123,6 +123,7 @@ export default function RSVP2() {
           <RSVPLanguageSelector lang={i18n.language} />
           <Title lang={i18n.language}>R.S.V.P.</Title>
           <FinalDate lang={i18n.language}>{t("RSVP2.FinalDate")}</FinalDate>
+
           <StyledAnchor />
           <StyledShell1 />
         </Header>
@@ -323,6 +324,10 @@ export default function RSVP2() {
             celine.pierre2025@gmail.com
           </MailLink>
         </ContactText>
+        <ToSite>
+          <ToSiteLink to="/">{t("RSVP.ToSiteLink")}</ToSiteLink>{" "}
+          {t("RSVP.ToSite")}
+        </ToSite>
       </Wrapper>
     </PageWrapper>
   );
@@ -793,6 +798,21 @@ const MailLink = styled.a`
   color: var(--color-primary-blue);
   text-decoration: none;
   transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: var(--color-light-blue);
+  }
+`;
+
+const ToSite = styled.p`
+  color: var(--color-primary-blue);
+  font-size: calc(14rem / 16);
+  text-align: center;
+  margin-top: 2rem;
+`;
+
+const ToSiteLink = styled(Link)`
+  color: var(--color-primary-blue);
 
   &:hover {
     color: var(--color-light-blue);

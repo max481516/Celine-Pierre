@@ -268,6 +268,10 @@ export default function RSVPForm() {
           celine.pierre2025@gmail.com
         </MailLink>
       </ContactText>
+      <ToSite>
+        <ToSiteLink to="/">{t("RSVP.ToSiteLink")}</ToSiteLink>{" "}
+        {t("RSVP.ToSite")}
+      </ToSite>
     </Wrapper>
   );
 }
@@ -695,6 +699,21 @@ const MailLink = styled.a`
   color: var(--color-primary-blue);
   text-decoration: none;
   transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: var(--color-light-blue);
+  }
+`;
+
+const ToSite = styled.p`
+  color: var(--color-primary-blue);
+  font-size: calc(14rem / 16);
+  text-align: center;
+  margin-top: 2rem;
+`;
+
+const ToSiteLink = styled(Link)`
+  color: var(--color-primary-blue);
 
   &:hover {
     color: var(--color-light-blue);

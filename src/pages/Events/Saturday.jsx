@@ -10,6 +10,7 @@ import Separator from "../../media/Separator.svg?react";
 import Border from "../../media/Border.svg?react";
 import { useTranslation, Trans } from "react-i18next";
 import { Link } from "react-router-dom";
+import FadeInSection from "../../components/FadeInSection";
 
 export default function Saturday() {
   const { t } = useTranslation();
@@ -18,199 +19,202 @@ export default function Saturday() {
     <Wrapper>
       <FrameContainer>
         <StyledBorder />
-        <EventContainer>
-          <Title>{t("Saturday.Ceremony.Title")}</Title>
-          <ImageContainer>
-            <picture>
-              <source
-                srcSet="
+        <FadeInSection>
+          <EventContainer>
+            <Title>{t("Saturday.Ceremony.Title")}</Title>
+            <ImageContainer>
+              <picture>
+                <source
+                  srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1728917317/Church_wumwhm.png 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1728917317/Church_wumwhm.png 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1728917317/Church_wumwhm.png 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1728917317/Church_wumwhm.png 550w
     "
-                sizes="
+                  sizes="
       (min-width: ${BREAKPOINTS.desktopMin}px) 1500px,
       (min-width: ${BREAKPOINTS.laptopMin}px) 1100px,
       (min-width: ${BREAKPOINTS.bigTabletMin}px) 770px,
       (min-width: ${BREAKPOINTS.tabletMin}px) 550px,
       100vw
     "
-              />
-              <StyledImage src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1728917317/Church_wumwhm.png" />
-            </picture>
-          </ImageContainer>
-          <IconTextContainer>
-            <StyledIcon as={IoMdClock} />
-            <Text>
-              <Trans
-                i18nKey="Saturday.Ceremony.When"
-                components={{ bold: <Bold /> }}
-              />
-            </Text>
-          </IconTextContainer>
-          <IconTextContainer>
-            <StyledIcon as={FaLocationDot} />
-            <Text>
-              <b>{t("Saturday.Ceremony.Where")} </b>
-              <LocationLink
-                href="https://maps.app.goo.gl/ZzEvtzunptPVkwgx8"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t("Saturday.Ceremony.WhereLocation")}
-              </LocationLink>
-            </Text>
-          </IconTextContainer>
-          <IconTextContainer>
-            <StyledIcon as={FaBus} busIcon={true} />
-            <Text>
-              <Trans
-                i18nKey="Saturday.Ceremony.Transport.Text"
-                components={{ bold: <Bold /> }}
-              />
-              <br />
-              <ItalicText>
-                <Trans
-                  i18nKey="Saturday.Ceremony.Transport.ItalicText"
-                  components={[
-                    <TransportLink to="/Accomodations" key="0">
-                      Hébergements
-                    </TransportLink>,
-                  ]}
                 />
-              </ItalicText>
-            </Text>
-          </IconTextContainer>
-          <IconTextContainer>
-            <StyledIcon as={FaSquareParking} />
-            <Text>
-              <b>{t("Saturday.Ceremony.Parking")}</b>
-              <LocationLink
-                href="https://maps.app.goo.gl/bHPeHd16QGeCpcy28"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t("Saturday.Ceremony.ParkingLocation1")}
-              </LocationLink>{" "}
-              <OrParking>{t("Saturday.Ceremony.OrParking")}</OrParking>
-              <LocationLink
-                href="https://maps.app.goo.gl/eSWsyqby538J79Xt9"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t("Saturday.Ceremony.ParkingLocation2")}
-              </LocationLink>
-            </Text>
-          </IconTextContainer>
-          <DressCodeWrapper>
-            <DressCodeTitle>
-              {t("Saturday.Ceremony.DressCode.Title")}
-            </DressCodeTitle>
-            <DressCodeIconTextContainer>
-              <StyledIcon as={Dress} />
-              <Text>{t("Saturday.Ceremony.DressCode.Girls")}</Text>
-            </DressCodeIconTextContainer>
-            <DressCodeIconTextContainer>
-              <StyledIcon as={Suit} />
-              <Text>{t("Saturday.Ceremony.DressCode.Boys")} </Text>
-            </DressCodeIconTextContainer>
-          </DressCodeWrapper>
-        </EventContainer>
+                <StyledImage src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1728917317/Church_wumwhm.png" />
+              </picture>
+            </ImageContainer>
+            <IconTextContainer>
+              <StyledIcon as={IoMdClock} />
+              <Text>
+                <Trans
+                  i18nKey="Saturday.Ceremony.When"
+                  components={{ bold: <Bold /> }}
+                />
+              </Text>
+            </IconTextContainer>
+            <IconTextContainer>
+              <StyledIcon as={FaLocationDot} />
+              <Text>
+                <b>{t("Saturday.Ceremony.Where")} </b>
+                <LocationLink
+                  href="https://maps.app.goo.gl/ZzEvtzunptPVkwgx8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t("Saturday.Ceremony.WhereLocation")}
+                </LocationLink>
+              </Text>
+            </IconTextContainer>
+            <IconTextContainer>
+              <StyledIcon as={FaBus} busIcon={true} />
+              <Text>
+                <Trans
+                  i18nKey="Saturday.Ceremony.Transport.Text"
+                  components={{ bold: <Bold /> }}
+                />
+                <br />
+                <ItalicText>
+                  <Trans
+                    i18nKey="Saturday.Ceremony.Transport.ItalicText"
+                    components={[
+                      <TransportLink to="/Accomodations" key="0">
+                        Hébergements
+                      </TransportLink>,
+                    ]}
+                  />
+                </ItalicText>
+              </Text>
+            </IconTextContainer>
+            <IconTextContainer>
+              <StyledIcon as={FaSquareParking} />
+              <Text>
+                <b>{t("Saturday.Ceremony.Parking")}</b>
+                <LocationLink
+                  href="https://maps.app.goo.gl/bHPeHd16QGeCpcy28"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t("Saturday.Ceremony.ParkingLocation1")}
+                </LocationLink>{" "}
+                <OrParking>{t("Saturday.Ceremony.OrParking")}</OrParking>
+                <LocationLink
+                  href="https://maps.app.goo.gl/eSWsyqby538J79Xt9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t("Saturday.Ceremony.ParkingLocation2")}
+                </LocationLink>
+              </Text>
+            </IconTextContainer>
+            <DressCodeWrapper>
+              <DressCodeTitle>
+                {t("Saturday.Ceremony.DressCode.Title")}
+              </DressCodeTitle>
+              <DressCodeIconTextContainer>
+                <StyledIcon as={Dress} />
+                <Text>{t("Saturday.Ceremony.DressCode.Girls")}</Text>
+              </DressCodeIconTextContainer>
+              <DressCodeIconTextContainer>
+                <StyledIcon as={Suit} />
+                <Text>{t("Saturday.Ceremony.DressCode.Boys")} </Text>
+              </DressCodeIconTextContainer>
+            </DressCodeWrapper>
+          </EventContainer>
+        </FadeInSection>
 
         <StyledSeparator />
-
-        <EventContainer>
-          <Title>{t("Saturday.Celebration.Title")}</Title>
-          <ImageContainer>
-            <picture>
-              <source
-                srcSet="
+        <FadeInSection>
+          <EventContainer>
+            <Title>{t("Saturday.Celebration.Title")}</Title>
+            <ImageContainer>
+              <picture>
+                <source
+                  srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1728920960/Picture_1_jk2lfz.png 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1728920960/Picture_1_jk2lfz.png 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1728920960/Picture_1_jk2lfz.png 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1728920960/Picture_1_jk2lfz.png 550w
     "
-                sizes="
+                  sizes="
       (min-width: ${BREAKPOINTS.desktopMin}px) 1500px,
       (min-width: ${BREAKPOINTS.laptopMin}px) 1100px,
       (min-width: ${BREAKPOINTS.bigTabletMin}px) 770px,
       (min-width: ${BREAKPOINTS.tabletMin}px) 550px,
       100vw
     "
-                type="image/webp"
-              />
-              <StyledImage
-                src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1728920960/Picture_1_jk2lfz.png"
-                loading="lazy"
-              />
-            </picture>
-          </ImageContainer>
-          <IconTextContainer>
-            <StyledIcon as={IoMdClock} />
-            <Text>
-              <Trans
-                i18nKey="Saturday.Celebration.When"
-                components={{ bold: <Bold /> }}
-              />
-            </Text>
-          </IconTextContainer>
-          <IconTextContainer>
-            <StyledIcon as={FaLocationDot} />
-            <Text>
-              <b>{t("Saturday.Ceremony.Where")} </b>
-              <LocationLink
-                href="https://maps.app.goo.gl/iYbveaBtzhmqoj7t6"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t("Saturday.Celebration.WhereLocation")}
-              </LocationLink>
-            </Text>
-          </IconTextContainer>
-          <IconTextContainer>
-            <StyledIcon as={FaBus} busIcon={true} />
-            <Text>
-              <Trans
-                i18nKey="Saturday.Celebration.Transport.Text"
-                components={{ bold: <Bold /> }}
-              />
-              <br />
-              <ItalicText>
-                <Trans
-                  i18nKey="Saturday.Celebration.Transport.ItalicText"
-                  components={[
-                    <TransportLink to="/Accomodations" key="0">
-                      Hébergements
-                    </TransportLink>,
-                  ]}
+                  type="image/webp"
                 />
-              </ItalicText>
-            </Text>
-          </IconTextContainer>
-          <IconTextContainer>
-            <StyledIcon as={FaSquareParking} />
-            <Text>
-              <Trans
-                i18nKey="Saturday.Celebration.Parking"
-                components={{ bold: <Bold /> }}
-              />
-            </Text>
-          </IconTextContainer>
-          <DressCodeWrapper>
-            <DressCodeTitle>
-              {t("Saturday.Celebration.DressCode.Title")}
-            </DressCodeTitle>
-            <DressCodeIconTextContainer>
-              <StyledIcon as={Dress} />
-              <Text>{t("Saturday.Celebration.DressCode.Girls")}</Text>
-            </DressCodeIconTextContainer>
-            <DressCodeIconTextContainer>
-              <StyledIcon as={Suit} />
-              <Text>{t("Saturday.Celebration.DressCode.Boys")}</Text>
-            </DressCodeIconTextContainer>
-          </DressCodeWrapper>
-        </EventContainer>
+                <StyledImage
+                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1728920960/Picture_1_jk2lfz.png"
+                  loading="lazy"
+                />
+              </picture>
+            </ImageContainer>
+            <IconTextContainer>
+              <StyledIcon as={IoMdClock} />
+              <Text>
+                <Trans
+                  i18nKey="Saturday.Celebration.When"
+                  components={{ bold: <Bold /> }}
+                />
+              </Text>
+            </IconTextContainer>
+            <IconTextContainer>
+              <StyledIcon as={FaLocationDot} />
+              <Text>
+                <b>{t("Saturday.Ceremony.Where")} </b>
+                <LocationLink
+                  href="https://maps.app.goo.gl/iYbveaBtzhmqoj7t6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t("Saturday.Celebration.WhereLocation")}
+                </LocationLink>
+              </Text>
+            </IconTextContainer>
+            <IconTextContainer>
+              <StyledIcon as={FaBus} busIcon={true} />
+              <Text>
+                <Trans
+                  i18nKey="Saturday.Celebration.Transport.Text"
+                  components={{ bold: <Bold /> }}
+                />
+                <br />
+                <ItalicText>
+                  <Trans
+                    i18nKey="Saturday.Celebration.Transport.ItalicText"
+                    components={[
+                      <TransportLink to="/Accomodations" key="0">
+                        Hébergements
+                      </TransportLink>,
+                    ]}
+                  />
+                </ItalicText>
+              </Text>
+            </IconTextContainer>
+            <IconTextContainer>
+              <StyledIcon as={FaSquareParking} />
+              <Text>
+                <Trans
+                  i18nKey="Saturday.Celebration.Parking"
+                  components={{ bold: <Bold /> }}
+                />
+              </Text>
+            </IconTextContainer>
+            <DressCodeWrapper>
+              <DressCodeTitle>
+                {t("Saturday.Celebration.DressCode.Title")}
+              </DressCodeTitle>
+              <DressCodeIconTextContainer>
+                <StyledIcon as={Dress} />
+                <Text>{t("Saturday.Celebration.DressCode.Girls")}</Text>
+              </DressCodeIconTextContainer>
+              <DressCodeIconTextContainer>
+                <StyledIcon as={Suit} />
+                <Text>{t("Saturday.Celebration.DressCode.Boys")}</Text>
+              </DressCodeIconTextContainer>
+            </DressCodeWrapper>
+          </EventContainer>
+        </FadeInSection>
         <StyledBottomBorder />
       </FrameContainer>
     </Wrapper>

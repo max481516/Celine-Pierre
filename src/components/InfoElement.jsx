@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import FadeInSection from "./FadeInSection";
 
 export default function InfoElement({
   name,
@@ -8,20 +9,22 @@ export default function InfoElement({
   locationLink,
 }) {
   return (
-    <Element>
-      <Name>{name}</Name>
-      <Description>
-        {description}
-        <LocationLink
-          href={locationLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {location}
-        </LocationLink>
-      </Description>
-      <PictureContainer>{picture}</PictureContainer>
-    </Element>
+    <FadeInSection>
+      <Element>
+        <Name>{name}</Name>
+        <Description>
+          {description}
+          <LocationLink
+            href={locationLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {location}
+          </LocationLink>
+        </Description>
+        <PictureContainer>{picture}</PictureContainer>
+      </Element>
+    </FadeInSection>
   );
 }
 

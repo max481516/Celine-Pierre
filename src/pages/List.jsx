@@ -25,6 +25,7 @@ const TempContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: -7rem;
   height: 200px;
   width: 300px;
   border-radius: 4px;

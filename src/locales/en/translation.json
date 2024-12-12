@@ -140,6 +140,12 @@
     }
   },
 
+  "Contacts": {
+    "Title": "CONTACTS",
+    "Mail": "Email",
+    "Address": "Address"
+  },
+
   "RSVP": {
     "FinalDate": "Kindly RSVP by September 30, 2024",
     "Attendance": "Will you be attending?",
@@ -160,7 +166,9 @@
     "Confirmation": "Thank you for your answer!",
     "Error": "An error occurred. Please try again, or write us a message at:",
     "ContactText": "If you encounter any problems with the form, please contact us at:",
-    "Info": "Please verify that you are not a robot and click on submit:"
+    "Info": "Please verify that you are not a robot and click on submit:",
+    "ToSiteLink": "Click here",
+    "ToSite": "to go to the main website"
   },
   "RSVP2": {
     "FinalDate": "Kindly RSVP by January 31, 2025",
