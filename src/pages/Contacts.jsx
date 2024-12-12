@@ -14,11 +14,11 @@ export default function List() {
         <ContactsContent>
           <ContactItem>
             <ContactLabel>Céline Mare :</ContactLabel> <br />
-            <ContactLink href="tel:+33659218728">06 59 21 87 28</ContactLink>
+            <ContactLink href="tel:+33659218728">+33 6 59 21 87 28</ContactLink>
           </ContactItem>
           <ContactItem>
             <ContactLabel>Pierre Allirot :</ContactLabel> <br />
-            <ContactLink href="tel:+33781643402">07 81 64 34 02</ContactLink>
+            <ContactLink href="tel:+33781643402">+33 7 81 64 34 02</ContactLink>
           </ContactItem>
           <ContactItem>
             <ContactLabel>{t("Contacts.Mail")} :</ContactLabel> <br />
@@ -60,7 +60,6 @@ const CardContainer = styled.div`
   background-color: var(--color-light-sand);
   box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
     0 5px 14px 0 rgba(0, 0, 0, 0.18);
-  \
 `;
 
 const Title = styled.h2`
