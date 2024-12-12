@@ -166,9 +166,10 @@
 
   "RSVP2": {
     "FinalDate": "À compléter avant le 31 janvier 2025",
-    "Attendance1": "Serez-vous présents au mariage civil le 12 juillet 2025?",
-    "Attendance2": "Serez-vous présents à la fête sur la plage le 5 septembre 2025?",
-    "Attendance3": "Serez-vous présents à la cérémonie religieuse et à la célébration le 6 septembre 2025?",
-    "Attendance4": "Serez-vous présents au brunch le 7 septembre 2025?"
+    "AttendanceTitle": "Serez-vous présents?",
+    "Attendance1": "Le 12 juillet 2025\nAu mariage civil?",
+    "Attendance2": "Le 5 septembre 2025\nA la beach party?",
+    "Attendance3": "Le 6 septembre 2025\nA la cérémonie religieuse et à la célébration?",
+    "Attendance4": "Le 7 septembre 2025\nAu brunch?"
   }
 }

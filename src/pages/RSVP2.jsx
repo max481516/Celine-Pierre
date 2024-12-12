@@ -91,24 +91,28 @@ export default function RSVP2() {
 
   if (formSubmitted) {
     return (
-      <ConfirmationWrapper>
-        <FaRegCheckCircle color="green" size={40} />
-        <ConfirmationMessage>{t("RSVP.Confirmation")}</ConfirmationMessage>
-      </ConfirmationWrapper>
+      <ConfirmationBackground>
+        <ConfirmationWrapper>
+          <FaRegCheckCircle color="green" size={40} />
+          <ConfirmationMessage>{t("RSVP.Confirmation")}</ConfirmationMessage>
+        </ConfirmationWrapper>
+      </ConfirmationBackground>
     );
   }
 
   if (formError) {
     return (
-      <ErrorWrapper>
-        <BiErrorCircle color="red" size={40} />
-        <ErrorMessage>
-          {t("RSVP.Error")}{" "}
-          <ErrorMailLink href="mailto:celine.pierre2025@gmail.com">
-            celine.pierre2025@gmail.com
-          </ErrorMailLink>
-        </ErrorMessage>
-      </ErrorWrapper>
+      <ErrorBackground>
+        <ErrorWrapper>
+          <BiErrorCircle color="red" size={40} />
+          <ErrorMessage>
+            {t("RSVP.Error")}{" "}
+            <ErrorMailLink href="mailto:celine.pierre2025@gmail.com">
+              celine.pierre2025@gmail.com
+            </ErrorMailLink>
+          </ErrorMessage>
+        </ErrorWrapper>
+      </ErrorBackground>
     );
   }
 
@@ -122,6 +126,7 @@ export default function RSVP2() {
           <StyledAnchor />
           <StyledShell1 />
         </Header>
+        <AttendanceTitle>{t("RSVP2.AttendanceTitle")}</AttendanceTitle>
         <FormContainer
           ref={formRef}
           action="https://formspree.io/f/movavqpz"
@@ -336,6 +341,26 @@ const PageWrapper = styled.div`
 `;
 
 // CONFIRMATION AND ERROR MESSAGES STYLES
+const ConfirmationBackground = styled.div`
+  background-image: url(${backgroundImage});
+  background-size: cover;
+  background-position: center;
+  min-height: 100dvh; /* Ensure the background covers the entire viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ErrorBackground = styled.div`
+  background-image: url(${backgroundImage});
+  background-size: cover;
+  background-position: center;
+  min-height: 100dvh; /* Ensure the background covers the entire viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const ConfirmationWrapper = styled.div`
   background-color: var(--color-lighter-sand);
   border: 1px solid var(--color-dark-sand);
@@ -413,7 +438,7 @@ const FormContainer = styled.form`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 2rem 1rem 0;
+  padding: 1rem 1rem 0;
 
   @media ${QUERIES.largeTabletAndUp} {
     padding-bottom: 1rem;
@@ -511,12 +536,20 @@ const FinalDate = styled.p`
     `}
 `;
 
+const AttendanceTitle = styled.h2`
+  font-weight: 400;
+  font-size: calc(20rem / 16);
+  margin-top: 1.5rem;
+  text-align: center;
+`;
+
 // ATTENDANCE RADIO BUTTONS STYLES
 const Legend = styled.legend`
   font-size: 1rem;
   text-align: center;
   justify-content: center;
   margin: 0 auto 2rem; //needed to add auto for firefox bug
+  white-space: pre-line;
 `;
 
 const InputRadio = styled.input`
