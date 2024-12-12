@@ -18,7 +18,7 @@ export default function Navbar() {
     <Wrapper id="nav">
       <HeaderSection>
         <Names to="/">Celine & Pierre</Names>
-        <Date to="/">6-7 September 2025</Date>
+        <Date to="/">{t("Nav.Date")}</Date>
         <DesktopLanguageSelector type="desktop" lang={i18n.language} />
       </HeaderSection>
       <Nav $isHomePage={$isHomePage}>

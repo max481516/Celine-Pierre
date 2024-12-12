@@ -12,9 +12,9 @@ export default function Transports() {
     <Wrapper>
       <FrameContainer>
         <StyledBorder />
-        <Title>Transports</Title>
+        <Title>{t("Transports.Title")}</Title>
         <Section>
-          <SectionTitle>Locations Aeroport de Figari:</SectionTitle>
+          <SectionTitle>{t("Transports.SectionTitle")}</SectionTitle>
           <InfoElement
             name="SIXT FIGARI"
             location=" Route de l'aeroport, 20114 Figari"

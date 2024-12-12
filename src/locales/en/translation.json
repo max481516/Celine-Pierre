@@ -5,7 +5,7 @@
     "Friday": "Friday",
     "Saturday": "Saturday",
     "Sunday": "Sunday",
-    "Infos": "Informations",
+    "Infos": "Information",
     "Accommodations": "Accommodations",
     "Transports": "Transports",
     "R&B": "Restaurants & Bars",
@@ -15,12 +15,13 @@
     "Baby-sitters": "Baby-sitters",
     "List": "Gift List",
     "Album": "Photo Album",
-    "Contacts": "Contacts"
+    "Contacts": "Contacts",
+    "Date": "5-7 September 2025"
   },
 
   "Home": {
-    "Title": "Hello everyone and welcome to our wedding website!",
-    "Text": "We’ve created this space to share all the details of our big day: venue schedule, dress code, and more. You’ll also find our top recommendations to explore Porto-Vecchio: must-visit restaurants, stunning beaches, and exciting activities. We can’t wait to celebrate this magical day with you. Stay tuned—surprises await!"
+    "Title": "Hello everyone and welcome to our wedding website\u00A0!",
+    "Text": "We’ve created this space to share all the details of our big day\u2060: venue schedule, dress code, and more\u2060. You’ll also find our top recommendations to explore Porto-Vecchio\u2060: must-visit restaurants, stunning beaches, and exciting activities\u2060. We can’t wait to celebrate this magical day with you. Stay tuned—surprises await\u00A0!"
   },
 
   "Friday": {
@@ -52,7 +53,7 @@
       "DressCode": {
         "Title": "Dress Code : ",
         "Girls": "Ladies, bring out your most beautiful cocktail dresses. Leave your pastels in the closet and opt for vibrant shades that will make this day shine even more.",
-        "Boys": "Gentlemen, dazzle us with your elegant suits!"
+        "Boys": "Gentlemen, dazzle us with your elegant suits paired with your finest ties."
       }
     },
     "Celebration": {
@@ -68,7 +69,7 @@
       "DressCode": {
         "Title": "Dress Code : ",
         "Girls": "Ladies, bring out your most beautiful cocktail dresses. Leave your pastels in the closet and opt for vibrant shades that will make this day shine even more. Remember to bring flat shoes to set the dance floor on fire!",
-        "Boys": "Gentlemen, dazzle us with your elegant suits!"
+        "Boys": "Gentlemen, dazzle us with your elegant suits paired with your finest ties."
       }
     }
   },
@@ -124,13 +125,18 @@
     "SubTitle2": "BEAUTY:"
   },
 
+  "Transports": {
+    "Title": "TRANSPORTS",
+    "SectionTitle": "Figari Airport Rentals:"
+  },
+
   "List": {
     "Text": "Coming Soon!"
   },
 
   "Album": {
     "Title": "ALBUM",
-    "Description": "Here, you can share your wedding photos and videos by clicking on the cloud. You can also leave comments by opening an item.",
+    "Description": "Here, you can share your photos and videos of the wedding by clicking on the cloud. You can also leave comments by opening an item",
     "Comments": {
       "Title": "Comments",
       "EmptyState": "Nothing here yet...",

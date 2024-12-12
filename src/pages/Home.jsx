@@ -94,7 +94,8 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+
+  justify-content: center;
   color: white;
   min-height: 100vh;
   padding: 20px;
@@ -129,19 +130,20 @@ const Title = styled.h1`
   ${FONTS.titleFont};
   color: white;
   font-size: 2rem;
-  text-align: start;
+  text-align: center;
   margin-bottom: 1rem;
 `;
 
 const Text = styled.p`
   ${FONTS.titleFont};
   font-size: 1.5rem;
-  padding-right: 2rem;
+  padding: 0 1rem;
   color: white;
+  text-align: center;
   font-weight: 500;
   text-align: start;
 
   @media ${QUERIES.laptopAndUp} {
-    padding-right: 32rem;
+    padding: 0 10rem;
   }
 `;

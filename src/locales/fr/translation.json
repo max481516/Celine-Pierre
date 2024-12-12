@@ -16,12 +16,13 @@
     "List": "Liste de mariage",
     "Album": "Album Photos",
     "RSVP": "RSVP",
-    "Contacts": "Contacts"
+    "Contacts": "Contacts",
+    "Date": "5-7 Septembre 2025"
   },
 
   "Home": {
-    "Title": "Bonjour à tous et bienvenue sur notre site de mariage !",
-    "Text": "Bonjour à tous et bienvenue sur notre site de mariage ! Nous avons créé cet espace pour vous partager tous les détails de notre grand jour : lieu, planning, dress code, et bien plus. Vous y trouverez aussi nos meilleures adresses pour découvrir Porto-Vecchio : restaurants, plages, et activités incontournables. Nous avons hâte de célébrer cette journée magique avec vous. Restez connectés, des surprises vous attendent !"
+    "Title": "Bonjour à tous et bienvenue sur notre site de mariage\u00A0!",
+    "Text": "Nous avons créé cet espace pour vous partager tous les détails de notre grand jour\u2060: lieu, planning, dress code, et bien plus\u2060. Vous y trouverez aussi nos meilleures adresses pour découvrir Porto-Vecchio\u2060: restaurants, plages, et activités incontournables\u2060. Nous avons hâte de célébrer cette journée magique avec vous. Restez connectés, des surprises vous attendent\u00A0!"
   },
 
   "Friday": {
@@ -53,7 +54,7 @@
       "DressCode": {
         "Title": "Dress Code : ",
         "Girls": "Les filles, sortez vos plus belles robes de cocktail. Laissez vos pastels au placard et optez pour des teintes éclatantes qui feront briller cette journée encore plus.",
-        "Boys": "Les garçons, éblouissez- nous avec vos costumes élégants"
+        "Boys": "Les garçons, éblouissez-nous avec vos costumes élégants assortis de vos plus belles cravates."
       }
     },
     "Celebration": {
@@ -69,7 +70,7 @@
       "DressCode": {
         "Title": "Dress Code : ",
         "Girls": "Les filles, sortez vos plus belles robes de cocktail. Laissez vos pastels au placard et optez pour des teintes éclatantes qui feront briller cette journée encore plus. Pensez à prendre des chaussures plates pour enflammer le dance floor !",
-        "Boys": "Les garçons, éblouissez- nous avec vos costumes élégants"
+        "Boys": "Les garçons, éblouissez-nous avec vos costumes élégants assortis de vos plus belles cravates."
       }
     }
   },
@@ -123,6 +124,11 @@
     "SubTitile": "Baby-sitters :",
     "SitterDescription": "Nous avons prévu une baby-sitter pour garder vos petits, afin que vous puissiez profiter pleinement de votre soirée.",
     "SubTitle2": "BEAUTÉ :"
+  },
+
+  "Transports": {
+    "Title": "TRANSPORTS",
+    "SectionTitle": "Locations Aéroport de Figari:"
   },
 
   "List": {
