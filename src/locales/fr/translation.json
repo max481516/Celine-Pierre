@@ -26,11 +26,11 @@
   },
 
   "Friday": {
-    "Title": "VENREDI : BEACH PARTY",
+    "Title": "VENDREDI : BEACH PARTY",
     "When": "<bold>Quand :</bold> Le 5 Septembre 2025 à partir de 12:00 jusqu’à 18:00",
     "Where": "Où : ",
     "WhereLocation": "Restaurant MAORA BEACH",
-    "Parking": "<bold>Parking :</bold> Devant l’hôtel",
+    "Parking": "<bold>Parking :</bold> Le Maora Beach dispose d’un parking",
     "DressCode": {
       "Title": "Dress Code : ",
       "Text": "Venez vêtus de blanc de la tête aux pieds ! Optez pour des tenues légères et élégantes pour compléter l’ambiance chic et décontractée de la plage. N’oubliez pas de prendre vos maillots de bain et vos chapeaux ! Il risque de faire très chaud."
@@ -59,7 +59,7 @@
     },
     "Celebration": {
       "Title": "SAMEDI : LA CÉLÉBRATION",
-      "When": "<bold>Quand : </bold> Le 6 Septembre 2025 à partir de 18:30 au lever du soleil",
+      "When": "<bold>Quand : </bold> Le 6 Septembre 2025 à partir de 18:30 jusqu’au lever de soleil",
       "Where": "Où : ",
       "WhereLocation": "La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio",
       "Transport": {

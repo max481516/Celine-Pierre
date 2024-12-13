@@ -265,6 +265,7 @@ const Title = styled.h2`
 
 const AboutTransfer = styled.p`
   ${FONTS.titleFont};
+  font-size: 1.2rem;
   text-align: center;
   position: relative;
 `;

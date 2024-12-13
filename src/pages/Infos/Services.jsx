@@ -115,8 +115,9 @@ const Title = styled.h2`
 
 const SubTitle = styled.h3`
   ${FONTS.titleFont};
+  color: var(--color-primary-blue);
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 
   @media ${QUERIES.largeTabletAndUp} {
     font-size: 2rem;
@@ -126,6 +127,7 @@ const SubTitle = styled.h3`
 
 const SitterDescription = styled.p`
   ${FONTS.titleFont};
+  font-size: 1.2rem;
   text-align: center;
   padding: 0 1rem;
 `;
