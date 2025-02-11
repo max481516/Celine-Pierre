@@ -5,7 +5,7 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import styled, { createGlobalStyle } from "styled-components";
 import UploadIcon from "../media/UploadIcon.svg?react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { FONTS, QUERIES } from "../constants";
+import { FONTS } from "../constants";
 
 export default function UploadMedia() {
   const [isUploading, setIsUploading] = useState(false);

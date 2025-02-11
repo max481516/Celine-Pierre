@@ -75,7 +75,6 @@ export default function AlbumGrid({ mediaItems }) {
       text,
       name: name || "Anonymous",
       createdAt: serverTimestamp(),
-      // Include other fields like author if needed
     });
   };
 
