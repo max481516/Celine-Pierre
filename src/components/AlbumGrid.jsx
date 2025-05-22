@@ -8,9 +8,9 @@ import "yet-another-react-lightbox/styles.css";
 import Video from "yet-another-react-lightbox/plugins/video";
 import Share from "yet-another-react-lightbox/plugins/share";
 import styled from "styled-components";
-import { FaPlay, FaRegCommentDots } from "react-icons/fa6";
+import { FaPlay } from "react-icons/fa6";
 import { RiDownloadLine } from "react-icons/ri";
-import { IoIosShareAlt, IoMdClose } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
 
 import {
   collection,
@@ -23,6 +23,8 @@ import {
 import { firestore } from "../firebase/firebaseConfig";
 import { QUERIES } from "../constants";
 import CommentSection from "./CommentSection";
+import { IoShareSocialOutline } from "react-icons/io5";
+import { LiaCommentAlt } from "react-icons/lia";
 
 export default function AlbumGrid({ mediaItems }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -137,7 +139,6 @@ export default function AlbumGrid({ mediaItems }) {
 
     return (
       <IconButton
-        size={20}
         label="Download"
         icon={RiDownloadLine}
         disabled={!currentSlide}
@@ -153,18 +154,17 @@ export default function AlbumGrid({ mediaItems }) {
   // Custom Comments Toggle Button
   function CommentsButton() {
     return (
-      <IconButton
+      <CommentsIconButton
         label="Comments"
-        icon={FaRegCommentDots}
+        icon={LiaCommentAlt}
         onClick={() => setIsCommentsOpen(!isCommentsOpen)}
       />
     );
   }
 
-  //Breakpointas for Masonry Grid
+  // Breakpoints for Masonry Grid
   const breakpointColumns = {
     default: 3,
-
     700: 2,
     500: 1,
   };
@@ -189,6 +189,7 @@ export default function AlbumGrid({ mediaItems }) {
       </MasonryGrid>
 
       <Lightbox
+        styles={{ container: { padding: "64px 0" } }}
         open={isOpen}
         close={() => setIsOpen(false)}
         slides={slides}
@@ -201,13 +202,14 @@ export default function AlbumGrid({ mediaItems }) {
         }}
         toolbar={{
           buttons: [
-            <DownloadButton key="download" handleDownload={handleDownload} />,
             <CommentsButton key="comments" />,
+            <DownloadButton key="download" handleDownload={handleDownload} />,
+            "share",
             "close",
           ],
         }}
         render={{
-          iconShare: () => <IoIosShareAlt size={34} />,
+          iconShare: () => <IoShareSocialOutline size={31} />,
           iconClose: () => <IoMdClose size={36} />,
           controls: () => (
             <CommentSection
@@ -297,4 +299,9 @@ const PlayButton = styled.button`
   &:hover {
     background-color: rgba(0, 0, 0, 0.8);
   }
+`;
+
+const CommentsIconButton = styled(IconButton)`
+  width: 51px;
+  height: 51px;
 `;
