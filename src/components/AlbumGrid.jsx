@@ -59,7 +59,6 @@ export default function AlbumGrid({ mediaItems }) {
         alert("Failed to download the file.");
       });
   };
-
   // Function to add a new comment
   const addComment = async (text, name) => {
     const mediaItemId = slides[currentIndex].mediaItem.id;
