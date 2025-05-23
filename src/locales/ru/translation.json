@@ -141,7 +141,7 @@
       "Title": "Комментарии",
       "EmptyState": "Здесь пока ничего нет...",
       "CommentPlaceholder": "Добавить комментарий...",
-      "NamePlaceholder": "Имя (необязательно)",
+      "NamePlaceholder": "Имя",
       "Submit": "Отправить"
     }
   },

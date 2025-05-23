@@ -141,7 +141,7 @@
       "Title": "Comments",
       "EmptyState": "Nothing here yet...",
       "CommentPlaceholder": "Add a comment...",
-      "NamePlaceholder": "Name (optional)",
+      "NamePlaceholder": "Name",
       "Submit": "Send"
     }
   },

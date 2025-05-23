@@ -234,6 +234,10 @@ const CommentInput = styled.textarea`
     border-color: var(--color-primary-blue);
     max-height: 150px;
   }
+
+  &::placeholder {
+    font-size: calc(14rem / 16);
+  }
 `;
 
 const NameInput = styled.input`
@@ -249,6 +253,10 @@ const NameInput = styled.input`
   &:focus {
     outline: none;
     border-color: var(--color-primary-blue);
+  }
+
+  &::placeholder {
+    font-size: calc(14rem / 16);
   }
 `;
 

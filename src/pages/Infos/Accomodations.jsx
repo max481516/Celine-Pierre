@@ -286,7 +286,7 @@ const DropdownContainer = styled.div`
   position: absolute;
   margin-top: 8px;
   background-color: var(--color-lighter-sand);
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-dark-sand);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 300px;
@@ -305,8 +305,8 @@ const DropdownContainer = styled.div`
     width: 16px;
     height: 16px;
     background-color: var(--color-lighter-sand);
-    border-left: 1px solid #ddd;
-    border-top: 1px solid #ddd;
+    border-left: 1px solid var(--color-dark-sand);
+    border-top: 1px solid var(--color-dark-sand);
     box-shadow: -2px 1px 1px -2px rgba(0, 0, 0, 0.1);
     z-index: -1;
   }

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import styled, { keyframes, css } from "styled-components";
 import BackToTopIcon from "../media/BackToTop.svg?react";
 import { useLocation } from "react-router-dom";
+import { QUERIES } from "../constants";
 
 export default function Footer() {
   const iconRef = useRef(null);
@@ -97,6 +98,10 @@ const BackToTop = styled.a`
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
   z-index: 3000;
+
+  @media ${QUERIES.laptopAndUp} {
+    right: 16px;
+  }
 
   animation: ${({ $isAnimating }) =>
     $isAnimating

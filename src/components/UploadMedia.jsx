@@ -5,7 +5,7 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import styled, { createGlobalStyle } from "styled-components";
 import UploadIcon from "../media/UploadIcon.svg?react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { FONTS } from "../constants";
+import { FONTS, QUERIES } from "../constants";
 
 export default function UploadMedia() {
   const [isUploading, setIsUploading] = useState(false);
@@ -114,6 +114,10 @@ const UploadContainer = styled.label`
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+
+  @media ${QUERIES.laptopAndUp} {
+    left: 24px;
+  }
 `;
 
 const StyledUploadIcon = styled(UploadIcon)`
