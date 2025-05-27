@@ -118,9 +118,11 @@ const Container = styled.div`
   width: 95%;
   max-height: 50%;
   max-width: 500px;
-  background-color: var(--color-element-sand);
+  background-color: var(--color-body-primary);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
   z-index: 20000;
   overflow: auto;

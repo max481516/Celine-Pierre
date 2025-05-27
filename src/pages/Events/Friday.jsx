@@ -144,6 +144,10 @@ const IconTextContainer = styled.div`
 
 const LocationLink = styled.a`
   color: var(--color-primary-blue);
+
+  &:hover {
+    color: var(--color-light-blue);
+  }
 `;
 
 const DressCodeWrapper = styled.div`

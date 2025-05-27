@@ -105,10 +105,10 @@ const UploadContainer = styled.label`
   align-items: center;
   justify-content: center;
   position: fixed;
-  width: 72px;
-  height: 72px;
-  bottom: 6px;
-  left: 6px;
+  width: 65px;
+  height: 65px;
+  bottom: 8px;
+  left: 8px;
   z-index: 10;
   background-color: var(--color-primary-blue);
   border-radius: 50%;

@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
   --color-grey-beige: #d6cdc8;
   --color-grey-beige-secondary: HSL(27, 20%, 70%);
   --color-nav: #dabcac;
-  --color-body-primary: #dfcabb;
+  --color-body-primary:hsl(25, 36.00%, 80.40%);
   --color-body-secondary: #ad9a94;
 }
 
@@ -168,13 +168,12 @@ form select {
 }
 
 //Global Styles
-
-
 body {
     background-color: var(--color-lighter-sand); 
     
     font-family: "Raleway", sans-serif;
 }
+
 
 
 `;
