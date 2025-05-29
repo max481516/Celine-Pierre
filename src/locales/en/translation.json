@@ -26,12 +26,12 @@
 
   "Friday": {
     "Title": "FRIDAY : BEACH PARTY",
-    "When": "<bold>When :</bold> Septembre 5, 2025 from Noon until 6:00 PM",
+    "When": "<bold>When :</bold> September 5, 2025 from Noon until 6:00 PM",
     "Where": "Where : ",
     "WhereLocation": "Restaurant MAORA BEACH",
     "Parking": "<bold>Parking :</bold> Parking available on site",
     "DressCode": {
-      "Title": "Dress Code : ",
+      "Title": "DRESS CODE : ",
       "Text": "Come dressed in white from head to toe! Opt for light and elegant outfits to complement the chic and relaxed beach atmosphere. Don’t forget to bring your swimsuits and hats! It might be very hot."
     }
   },
@@ -51,7 +51,7 @@
       "OrParking": "or ",
       "ParkingLocation2": "Parking Rue Pasteur",
       "DressCode": {
-        "Title": "Dress Code : ",
+        "Title": "DRESS CODE : ",
         "Girls": "Ladies, bring out your most beautiful cocktail dresses. Leave your pastels in the closet and opt for vibrant shades that will make this day shine even more.",
         "Boys": "Gentlemen, dazzle us with your elegant suits paired with your finest ties."
       }
@@ -67,7 +67,7 @@
       },
       "Parking": "<bold>Parking :</bold> If you wish to attend the evening with your own car, the La Plage Casadelmar hotel has parking available.",
       "DressCode": {
-        "Title": "Dress Code : ",
+        "Title": "DRESS CODE : ",
         "Girls": "Ladies, bring out your most beautiful cocktail dresses. Leave your pastels in the closet and opt for vibrant shades that will make this day shine even more. Remember to bring flat shoes to set the dance floor on fire!",
         "Boys": "Gentlemen, dazzle us with your elegant suits paired with your finest ties."
       }
@@ -81,7 +81,7 @@
     "WhereLocation": "Casadelmar Beach, Presqu’île du Benedettu, 20137 Porto-Vecchio",
     "Parking": "<bold>Parking :</bold> Parking available on site",
     "DressCode": {
-      "Title": "Dress Code : ",
+      "Title": "DRESS CODE : ",
       "Text": "Dolce Vita theme, let your imagination run wild"
     }
   },

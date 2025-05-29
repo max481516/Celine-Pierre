@@ -268,7 +268,7 @@ const DropdownItem = styled(NavLink)`
   &:hover {
     color: var(--color-primary-blue);
     background-color: var(--color-grey-beige);
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
 
   &.active {

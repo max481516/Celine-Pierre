@@ -32,7 +32,7 @@
     "WhereLocation": "Restaurant MAORA BEACH",
     "Parking": "<bold>Parking :</bold> Le Maora Beach dispose d’un parking",
     "DressCode": {
-      "Title": "Dress Code : ",
+      "Title": "DRESS CODE : ",
       "Text": "Venez vêtus de blanc de la tête aux pieds ! Optez pour des tenues légères et élégantes pour compléter l’ambiance chic et décontractée de la plage. N’oubliez pas de prendre vos maillots de bain et vos chapeaux ! Il risque de faire très chaud."
     }
   },
@@ -52,7 +52,7 @@
       "OrParking": "ou ",
       "ParkingLocation2": "Parking Rue Pasteur",
       "DressCode": {
-        "Title": "Dress Code : ",
+        "Title": "DRESS CODE : ",
         "Girls": "Les filles, sortez vos plus belles robes de cocktail. Laissez vos pastels au placard et optez pour des teintes éclatantes qui feront briller cette journée encore plus.",
         "Boys": "Les garçons, éblouissez-nous avec vos costumes élégants assortis de vos plus belles cravates."
       }
@@ -68,7 +68,7 @@
       },
       "Parking": "<bold>Parking : </bold> Si toutefois, vous souhaitez venir à la soirée avec votre voiture, l'hôtel La Plage Casadelmar dispose d’un parking.",
       "DressCode": {
-        "Title": "Dress Code : ",
+        "Title": "DRESS CODE : ",
         "Girls": "Les filles, sortez vos plus belles robes de cocktail. Laissez vos pastels au placard et optez pour des teintes éclatantes qui feront briller cette journée encore plus. Pensez à prendre des chaussures plates pour enflammer le dance floor !",
         "Boys": "Les garçons, éblouissez-nous avec vos costumes élégants assortis de vos plus belles cravates."
       }
@@ -82,7 +82,7 @@
     "WhereLocation": "La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio",
     "Parking": "<bold>Parking :</bold> L'hôtel La Plage Casadelmar dispose d’un parking",
     "DressCode": {
-      "Title": "Dress Code : ",
+      "Title": "DRESS CODE : ",
       "Text": "Thème Dolce Vita, laissez libre cours à votre imagination."
     }
   },

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { NavLink, useLocation } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { useEffect, useState } from "react";
-import { FONTS, QUERIES } from "../constants";
+import { QUERIES } from "../constants";
 import { useTranslation } from "react-i18next";
 import { useStore } from "../stores/store.js";
 import i18n from "../i18n/i18n.js";
@@ -174,6 +174,7 @@ const MobileNavItem = styled(NavLink)`
   font-size: 1.5rem;
   padding: 1rem;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover {
     color: var(--color-light-blue);
@@ -204,9 +205,10 @@ const MobileDropdownItem = styled(NavLink)`
   padding: 12px 16px;
   display: block;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover {
-    background-color: var(--color-dark-sand);
+    color: var(--color-primary-blue);
     transition: all 0.2s ease-in-out;
   }
 

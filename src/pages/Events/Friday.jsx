@@ -3,7 +3,7 @@ import { IoMdClock } from "react-icons/io";
 import { MdLocationPin } from "react-icons/md";
 import { FaSquareParking } from "react-icons/fa6";
 import People from "../../media/People.svg?react";
-import { FONTS, QUERIES } from "../../../src/constants";
+import { FONTS, QUERIES, STYLES } from "../../../src/constants";
 import Border from "../../media/Border.svg?react";
 import { Trans, useTranslation } from "react-i18next";
 import FadeInSection from "../../components/FadeInSection";
@@ -151,15 +151,11 @@ const LocationLink = styled.a`
 `;
 
 const DressCodeWrapper = styled.div`
-  border: 1px solid var(--color-primary-blue);
-  background: var(--color-element-sand);
-  border-radius: 8px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  width: 90%;
-  margin: 0.5rem auto 0;
+  ${STYLES.dresscodeWrapper}
 `;
 
 const DressCodeTitle = styled.h2`
+  text-transform: uppercase;
   text-align: center;
   font-size: 1.2rem;
   padding-top: 1rem;
@@ -180,6 +176,9 @@ const ImageContainer = styled.div``;
 const StyledImage = styled.img`
   object-fit: cover;
   width: 100%;
+  /*   object-position: 20% 90%;
+  width: 100%;
+  height: 300px; */
 `;
 
 const StyledIcon = styled.div`

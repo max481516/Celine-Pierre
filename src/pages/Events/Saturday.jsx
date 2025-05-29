@@ -5,7 +5,7 @@ import Dress from "../../media/Dress.svg?react";
 import Suit from "../../media/Suit.svg?react";
 import { FaSquareParking } from "react-icons/fa6";
 import { FaBus } from "react-icons/fa";
-import { FONTS, QUERIES } from "../../constants";
+import { FONTS, QUERIES, STYLES } from "../../constants";
 import Separator from "../../media/Separator.svg?react";
 import Border from "../../media/Border.svg?react";
 import { useTranslation, Trans } from "react-i18next";
@@ -302,15 +302,11 @@ const TransportLink = styled(Link)`
 `;
 
 const DressCodeWrapper = styled.div`
-  border: 1px solid var(--color-primary-blue);
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color: var(--color-element-sand);
-  width: 90%;
-  margin: 0.5rem auto 0;
+  ${STYLES.dresscodeWrapper}
 `;
 
 const DressCodeTitle = styled.h2`
+  text-transform: uppercase;
   text-align: center;
   font-size: 1.2rem;
   padding-top: 1rem;
@@ -334,6 +330,8 @@ const ImageContainer = styled.div``;
 const StyledImage = styled.img`
   object-fit: cover;
   width: 100%;
+  /*   height: 300px;
+  object-position: 20% 20%; */
 `;
 
 const StyledIcon = styled.div`
