@@ -110,8 +110,8 @@
 
   "Beaches": {
     "Title": "PLAGES",
-    "Section1": "Plages de Palombaggia :",
-    "Section2": "Plage de Santa Giulia :",
+    "Section1": "Plages de Palombaggia:",
+    "Section2": "Plage de Santa Giulia:",
     "Section3": "Bonifacio :"
   },
 
@@ -121,9 +121,9 @@
 
   "Services": {
     "Title": "SERVICES",
-    "SubTitile": "Baby-sitters :",
+    "SubTitile": "Baby-sitters:",
     "SitterDescription": "Nous avons prévu une baby-sitter pour garder vos petits, afin que vous puissiez profiter pleinement de votre soirée.",
-    "SubTitle2": "BEAUTÉ :"
+    "SubTitle2": "BEAUTÉ:"
   },
 
   "Transports": {

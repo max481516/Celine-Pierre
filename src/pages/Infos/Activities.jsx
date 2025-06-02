@@ -2,8 +2,9 @@ import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../../constants";
 import Border from "../../media/Border.svg?react";
-import Separator from "../../media/Separator.svg?react";
+
 import { useTranslation } from "react-i18next";
+import StyledSeparator from "../../components/Separator";
 
 export default function RnB() {
   const { t } = useTranslation();
@@ -134,8 +135,4 @@ const StyledBottomBorder = styled(StyledBorder)`
   padding-bottom: 0;
   padding-top: 1rem;
   transform: rotate(180deg);
-`;
-
-const StyledSeparator = styled(Separator)`
-  color: var(--color-primary-blue);
 `;

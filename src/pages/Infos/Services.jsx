@@ -115,6 +115,7 @@ const Title = styled.h2`
 
 const SubTitle = styled.h3`
   ${FONTS.titleFont};
+  text-decoration: underline 2px;
   color: var(--color-primary-blue);
   text-align: center;
   font-size: 1.8rem;

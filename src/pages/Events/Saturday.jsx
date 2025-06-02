@@ -6,7 +6,7 @@ import Suit from "../../media/Suit.svg?react";
 import { FaSquareParking } from "react-icons/fa6";
 import { FaBus } from "react-icons/fa";
 import { FONTS, QUERIES, STYLES } from "../../constants";
-import Separator from "../../media/Separator.svg?react";
+import StyledSeparator from "../../components/Separator";
 import Border from "../../media/Border.svg?react";
 import { useTranslation, Trans } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -257,6 +257,10 @@ const EventContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
+
+  &:last-of-type {
+    margin-top: 1rem;
+  }
 `;
 
 const Title = styled.h2`
@@ -341,12 +345,6 @@ const StyledIcon = styled.div`
   width: ${(props) => (props.busIcon ? "18px" : "20px")};
   height: ${(props) => (props.busIcon ? "18px" : "20px")};
   color: var(--color-primary-blue);
-`;
-
-const StyledSeparator = styled(Separator)`
-  width: 100%;
-  color: var(--color-primary-blue);
-  margin-bottom: 1rem;
 `;
 
 const StyledBorder = styled(Border)`

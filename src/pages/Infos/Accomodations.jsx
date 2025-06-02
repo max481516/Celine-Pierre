@@ -5,7 +5,7 @@ import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../../constants";
 import Border from "../../media/Border.svg?react";
-import Separator from "../../media/Separator.svg?react";
+import StyledSeparator from "../../components/Separator";
 import { useTranslation } from "react-i18next";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { BiErrorCircle } from "react-icons/bi";
@@ -422,9 +422,4 @@ const StyledBorder = styled(Border)`
 const StyledBottomBorder = styled(StyledBorder)`
   color: var(--color-primary-blue);
   transform: rotate(180deg);
-`;
-
-const StyledSeparator = styled(Separator)`
-  color: var(--color-primary-blue);
-  margin: 16px 0;
 `;

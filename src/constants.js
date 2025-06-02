@@ -26,7 +26,7 @@ const FONTS = {
 const STYLES = {
   dresscodeWrapper: `
  background: var(--color-light-sand);
-  border-radius: 4px;
+  border-radius: 2px;
   border: 1px solid var(--color-dark-sand);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   width: 90%;
