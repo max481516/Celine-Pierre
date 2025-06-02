@@ -348,7 +348,6 @@ const StyledIcon = styled.div`
 `;
 
 const StyledBorder = styled(Border)`
-  padding-bottom: 1rem;
   color: var(--color-primary-blue);
 `;
 

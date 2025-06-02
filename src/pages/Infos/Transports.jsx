@@ -2,8 +2,8 @@ import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../../constants";
 import Border from "../../media/Border.svg?react";
-import Separator from "../../media/Separator.svg?react";
 import { useTranslation } from "react-i18next";
+import SectionTitle from "../../components/SectionTitle";
 
 export default function Transports() {
   const { t } = useTranslation();
@@ -14,7 +14,7 @@ export default function Transports() {
         <StyledBorder />
         <Title>{t("Transports.Title")}</Title>
         <Section>
-          <SectionTitle>{t("Transports.SectionTitle")}</SectionTitle>
+          <SectionTitle title={t("Transports.SectionTitle")} />
           <InfoElement
             name="SIXT FIGARI"
             location=" Route de l'aeroport, 20114 Figari"
@@ -258,14 +258,6 @@ const Title = styled.h2`
 
 const Section = styled.section``;
 
-const SectionTitle = styled.h2`
-  ${FONTS.titleFont};
-  font-size: 1.9rem;
-  color: var(--color-primary-blue);
-  text-align: center;
-  margin-top: 0.5;
-`;
-
 const StyledImage = styled.img`
   object-fit: cover;
   width: 100%;
@@ -281,10 +273,6 @@ const StyledBottomBorder = styled(StyledBorder)`
   padding-bottom: 0;
   padding-top: 1rem;
   transform: rotate(180deg);
-`;
-
-const StyledSeparator = styled(Separator)`
-  color: var(--color-primary-blue);
 `;
 
 const SixtStyledImage = styled(StyledImage)`

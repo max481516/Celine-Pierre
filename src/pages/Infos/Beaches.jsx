@@ -2,9 +2,9 @@ import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../../constants";
 import Border from "../../media/Border.svg?react";
-
 import { useTranslation } from "react-i18next";
 import StyledSeparator from "../../components/Separator";
+import SectionTitle from "../../components/SectionTitle";
 
 export default function RnB() {
   const { t } = useTranslation();
@@ -15,7 +15,8 @@ export default function RnB() {
         <StyledBorder />
         <Title>{t("Beaches.Title")}</Title>
         <Section>
-          <SectionTitle>{t("Beaches.Section1")}</SectionTitle>
+          <SectionTitle title={t("Beaches.Section1")} />
+
           <InfoElement
             name="Playa Baggia"
             location="Place de Palombaggia, Lieut dit Tamaricciu, 20137 Porto-Vecchio"
@@ -121,7 +122,7 @@ export default function RnB() {
           />
         </Section>
         <Section>
-          <SectionTitle>{t("Beaches.Section2")}</SectionTitle>
+          <SectionTitle title={t("Beaches.Section2")} />
           <InfoElement
             name="Bar Plage Santa Giulia"
             location="Plage de Santa Giulia
@@ -178,7 +179,7 @@ export default function RnB() {
           />
         </Section>
         <Section>
-          <SectionTitle>{t("Beaches.Section3")}</SectionTitle>
+          <SectionTitle title={t("Beaches.Section3")} />
           <InfoElement
             name="Maora Beach"
             location="Plage de Maora Golfe de Santa Manza , 20169 Bonifacio"
@@ -255,15 +256,6 @@ const Title = styled.h2`
   }
 `;
 const Section = styled.section``;
-
-const SectionTitle = styled.h2`
-  ${FONTS.titleFont};
-  text-decoration: underline 2px;
-  font-size: 1.9rem;
-  color: var(--color-primary-blue);
-  text-align: center;
-  margin-top: 0.5;
-`;
 
 const StyledImage = styled.img`
   object-fit: cover;

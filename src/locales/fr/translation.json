@@ -104,15 +104,15 @@
 
   "R&B": {
     "Title": "RESTAURANTS & BARS",
-    "Section1": "CENTRE VILLE",
-    "Section2": "AMBIANCÉS"
+    "Section1": "Centre-ville:",
+    "Section2": "Ambiancés:"
   },
 
   "Beaches": {
     "Title": "PLAGES",
     "Section1": "Plages de Palombaggia:",
     "Section2": "Plage de Santa Giulia:",
-    "Section3": "Bonifacio :"
+    "Section3": "Bonifacio:"
   },
 
   "Activities": {
@@ -121,9 +121,9 @@
 
   "Services": {
     "Title": "SERVICES",
-    "SubTitile": "Baby-sitters:",
+    "SubTitle": "Baby-sitters:",
     "SitterDescription": "Nous avons prévu une baby-sitter pour garder vos petits, afin que vous puissiez profiter pleinement de votre soirée.",
-    "SubTitle2": "BEAUTÉ:"
+    "SubTitle2": "Beauté:"
   },
 
   "Transports": {

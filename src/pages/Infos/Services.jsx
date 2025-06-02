@@ -4,6 +4,7 @@ import { FONTS, QUERIES } from "../../constants";
 import Border from "../../media/Border.svg?react";
 
 import { useTranslation } from "react-i18next";
+import SectionTitle from "../../components/SectionTitle";
 
 export default function Services() {
   const { t } = useTranslation();
@@ -13,7 +14,7 @@ export default function Services() {
       <FrameContainer>
         <StyledBorder />
         <Title>{t("Services.Title")}</Title>
-        <SubTitle>{t("Services.SubTitle")}</SubTitle>
+        <SectionTitle title={t("Services.SubTitle")} />
         <SitterDescription>{t("Services.SitterDescription")}</SitterDescription>
         <InfoElement
           picture={
@@ -37,7 +38,7 @@ export default function Services() {
             </picture>
           }
         />
-        <SubTitle>{t("Services.SubTitle2")}</SubTitle>
+        <SectionTitle title={t("Services.SubTitle2")} />
         <InfoElement
           name="DESSANGE Coiffeur Porto Vecchio"
           location="Pl. Sainte-Croix, 20137 Porto-Vecchio"
@@ -110,19 +111,6 @@ const Title = styled.h2`
 
   @media ${QUERIES.largeTabletAndUp} {
     font-size: 2.5rem;
-  }
-`;
-
-const SubTitle = styled.h3`
-  ${FONTS.titleFont};
-  text-decoration: underline 2px;
-  color: var(--color-primary-blue);
-  text-align: center;
-  font-size: 1.8rem;
-
-  @media ${QUERIES.largeTabletAndUp} {
-    font-size: 2rem;
-    color: var(--color-primary-blue);
   }
 `;
 

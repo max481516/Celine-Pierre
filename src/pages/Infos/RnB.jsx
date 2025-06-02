@@ -4,6 +4,7 @@ import { FONTS, QUERIES } from "../../constants";
 import Border from "../../media/Border.svg?react";
 import { useTranslation } from "react-i18next";
 import StyledSeparator from "../../components/Separator";
+import SectionTitle from "../../components/SectionTitle";
 
 export default function RnB() {
   const { t } = useTranslation();
@@ -14,7 +15,7 @@ export default function RnB() {
         <StyledBorder />
         <Title>{t("R&B.Title")}</Title>
         <Section>
-          <SectionTitle>{t("R&B.Section1")}</SectionTitle>
+          <SectionTitle title={t("R&B.Section1")} />
           <InfoElement
             name="Restaurant Corse FURANA"
             location="Rue de la Porte Génoise, 20137 Porto-Vecchio"
@@ -120,7 +121,7 @@ export default function RnB() {
           />
         </Section>
         <Section style={{ paddingTop: "1rem" }}>
-          <SectionTitle>{t("R&B.Section2")}</SectionTitle>
+          <SectionTitle title={t("R&B.Section2")} />
           <InfoElement
             name="B 52"
             location="Quai Jérôme Comparetti, 20169 Bonifacio"
@@ -251,15 +252,6 @@ const Title = styled.h2`
 `;
 
 const Section = styled.section``;
-
-const SectionTitle = styled.h2`
-  ${FONTS.titleFont};
-  text-decoration: underline 2px;
-  font-size: 1.9rem;
-  color: var(--color-primary-blue);
-  text-align: center;
-  margin-top: 0.5;
-`;
 
 const StyledImage = styled.img`
   object-fit: cover;
