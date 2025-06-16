@@ -114,10 +114,14 @@ const MobileDropdown = ({ name, children, isOpen, toggleDropdown }) => {
 // Styled Components
 const MobileNavContainer = styled.div`
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   top: 0;
   right: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: var(--color-light-sand);
   transform: ${(props) =>
     props.$isOpen ? "translateX(0)" : "translateX(100%)"};
@@ -162,7 +166,11 @@ const MobileNavMenu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  justify-content: center;
+  width: 100%;
+  max-height: 80vh;
+  padding-bottom: 20px;
+  overflow-y: auto;
 
   @media ${QUERIES.tabletAndUp} {
     margin-top: 200px;

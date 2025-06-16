@@ -47,8 +47,8 @@ export default function Home() {
         </VideoBackground>
       ) : ( */}
 
-      <ContentWrapper>
-        <FadeInSection>
+      <FadeInSection>
+        <ContentWrapper>
           <ImageContainer>
             <picture>
               <source
@@ -73,8 +73,8 @@ export default function Home() {
             <Title>{t("Home.Title")}</Title>
             <Text>{t("Home.Text")}</Text>
           </TextContainer>
-        </FadeInSection>
-      </ContentWrapper>
+        </ContentWrapper>
+      </FadeInSection>
     </>
   );
 }
@@ -94,14 +94,14 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   justify-content: center;
   color: white;
   min-height: 100vh;
-  padding: 20px;
+  margin: 20px;
 
   @media ${QUERIES.tabletAndUp} {
-    padding: 40px;
+    margin: 40px;
   }
 `;
 
@@ -110,8 +110,8 @@ const ImageContainer = styled.div``;
 const PhotoBackground = styled.img`
   object-fit: cover;
   object-position: 50% 52%;
-  min-height: 60dvh;
-  max-height: 50dvh;
+  min-height: 50vh;
+  max-height: 50vh;
   width: 100dvw;
 `;
 
