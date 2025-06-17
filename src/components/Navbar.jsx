@@ -73,6 +73,7 @@ const Wrapper = styled.div`
   background-color: var(--color-element-sand);
   width: 100%;
   z-index: 10;
+  border-bottom: 0.5px solid var(--color-darker-sand);
 
   @media ${QUERIES.largeTabletAndUp} {
     flex-direction: column;

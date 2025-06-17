@@ -103,6 +103,15 @@ const ContentWrapper = styled.div`
   @media ${QUERIES.tabletAndUp} {
     margin: 40px;
   }
+
+  @media ${QUERIES.laptopAndUp} {
+    width: 60%;
+    margin: 20px auto;
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    width: 50%;
+  }
 `;
 
 const ImageContainer = styled.div``;
@@ -137,13 +146,20 @@ const Title = styled.h1`
 const Text = styled.p`
   ${FONTS.titleFont};
   font-size: 1.5rem;
-  padding: 0 1rem;
   color: white;
   text-align: center;
   font-weight: 500;
-  text-align: start;
+  text-align: center;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    padding: 0 4rem;
+  }
 
   @media ${QUERIES.laptopAndUp} {
-    padding: 0 10rem;
+    padding: 0 6rem;
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    padding: 0 8rem;
   }
 `;

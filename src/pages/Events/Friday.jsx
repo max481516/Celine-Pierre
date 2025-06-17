@@ -70,13 +70,15 @@ export default function Sunday() {
                 />
               </Text>
             </IconTextContainer>
-            <DressCodeWrapper>
-              <DressCodeTitle>{t("Friday.DressCode.Title")}</DressCodeTitle>
-              <DressCodeIconTextContainer>
-                <StyledIcon as={People} />
-                <Text>{t("Friday.DressCode.Text")}</Text>
-              </DressCodeIconTextContainer>
-            </DressCodeWrapper>
+            <FadeInSection>
+              <DressCodeWrapper>
+                <DressCodeTitle>{t("Friday.DressCode.Title")}</DressCodeTitle>
+                <DressCodeIconTextContainer>
+                  <StyledIcon as={People} />
+                  <Text>{t("Friday.DressCode.Text")}</Text>
+                </DressCodeIconTextContainer>
+              </DressCodeWrapper>
+            </FadeInSection>
           </EventContainer>
         </FadeInSection>
         <StyledBottomBorder />
@@ -105,15 +107,17 @@ const Wrapper = styled.div`
 const FrameContainer = styled.div`
   @media ${QUERIES.laptopAndUp} {
     padding: 2rem;
+    max-width: 85%;
     box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
       0 5px 14px 0 rgba(0, 0, 0, 0.18);
     background-color: var(--color-light-sand);
-    max-width: 900px;
+
     margin: 0 auto;
   }
 
   @media ${QUERIES.desktopAndUp} {
     padding: 4rem;
+    max-width: 75%;
   }
 `;
 
@@ -155,18 +159,18 @@ const DressCodeWrapper = styled.div`
 `;
 
 const DressCodeTitle = styled.h2`
+  ${FONTS.titleFont};
+  color: var(--color-primary-blue);
   text-transform: uppercase;
   text-align: center;
-  font-size: 1.2rem;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
 `;
 
 const DressCodeIconTextContainer = styled.div`
   display: flex;
-
   width: 100%;
   gap: 8px;
-  padding: 16px;
+  padding: 8px 16px 16px;
 `;
 
 const Text = styled.p``;

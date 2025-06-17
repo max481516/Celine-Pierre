@@ -83,8 +83,7 @@ const moveUpDown = keyframes`
 const FooterContainer = styled.footer`
   background: var(--color-element-sand);
   text-align: center;
-  border-top: ${({ $isHomePage }) =>
-    $isHomePage ? "none" : "1px solid var(--color-darker-sand)"};
+  border-top: 1px solid var(--color-darker-sand);
   width: 100%;
   height: 5rem;
   position: relative;
