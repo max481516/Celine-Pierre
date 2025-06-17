@@ -71,13 +71,15 @@ export default function Sunday() {
                 />
               </Text>
             </IconTextContainer>
-            <DressCodeWrapper>
-              <DressCodeTitle>{t("Sunday.DressCode.Title")}</DressCodeTitle>
-              <DressCodeIconTextContainer>
-                <StyledIcon as={People} />
-                <Text>{t("Sunday.DressCode.Text")}</Text>
-              </DressCodeIconTextContainer>
-            </DressCodeWrapper>
+            <FadeInSection>
+              <DressCodeWrapper>
+                <DressCodeTitle>{t("Sunday.DressCode.Title")}</DressCodeTitle>
+                <DressCodeIconTextContainer>
+                  <StyledIcon as={People} />
+                  <Text>{t("Sunday.DressCode.Text")}</Text>
+                </DressCodeIconTextContainer>
+              </DressCodeWrapper>
+            </FadeInSection>
           </EventContainer>
         </FadeInSection>
         <StyledBottomBorder />

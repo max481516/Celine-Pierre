@@ -105,19 +105,21 @@ export default function Saturday() {
                 </LocationLink>
               </Text>
             </IconTextContainer>
-            <DressCodeWrapper>
-              <DressCodeTitle>
-                {t("Saturday.Ceremony.DressCode.Title")}
-              </DressCodeTitle>
-              <DressCodeIconTextContainer>
-                <StyledIcon as={Dress} />
-                <Text>{t("Saturday.Ceremony.DressCode.Girls")}</Text>
-              </DressCodeIconTextContainer>
-              <DressCodeIconTextContainer>
-                <StyledIcon as={Suit} />
-                <Text>{t("Saturday.Ceremony.DressCode.Boys")} </Text>
-              </DressCodeIconTextContainer>
-            </DressCodeWrapper>
+            <FadeInSection>
+              <DressCodeWrapper>
+                <DressCodeTitle>
+                  {t("Saturday.Ceremony.DressCode.Title")}
+                </DressCodeTitle>
+                <DressCodeIconTextContainer>
+                  <StyledIcon as={Dress} />
+                  <Text>{t("Saturday.Ceremony.DressCode.Girls")}</Text>
+                </DressCodeIconTextContainer>
+                <DressCodeIconTextContainer>
+                  <StyledIcon as={Suit} />
+                  <Text>{t("Saturday.Ceremony.DressCode.Boys")} </Text>
+                </DressCodeIconTextContainer>
+              </DressCodeWrapper>
+            </FadeInSection>
           </EventContainer>
         </FadeInSection>
 
@@ -200,19 +202,21 @@ export default function Saturday() {
                 />
               </Text>
             </IconTextContainer>
-            <DressCodeWrapper>
-              <DressCodeTitle>
-                {t("Saturday.Celebration.DressCode.Title")}
-              </DressCodeTitle>
-              <DressCodeIconTextContainer>
-                <StyledIcon as={Dress} />
-                <Text>{t("Saturday.Celebration.DressCode.Girls")}</Text>
-              </DressCodeIconTextContainer>
-              <DressCodeIconTextContainer>
-                <StyledIcon as={Suit} />
-                <Text>{t("Saturday.Celebration.DressCode.Boys")}</Text>
-              </DressCodeIconTextContainer>
-            </DressCodeWrapper>
+            <FadeInSection>
+              <DressCodeWrapper>
+                <DressCodeTitle>
+                  {t("Saturday.Celebration.DressCode.Title")}
+                </DressCodeTitle>
+                <DressCodeIconTextContainer>
+                  <StyledIcon as={Dress} />
+                  <Text>{t("Saturday.Celebration.DressCode.Girls")}</Text>
+                </DressCodeIconTextContainer>
+                <DressCodeIconTextContainer>
+                  <StyledIcon as={Suit} />
+                  <Text>{t("Saturday.Celebration.DressCode.Boys")}</Text>
+                </DressCodeIconTextContainer>
+              </DressCodeWrapper>
+            </FadeInSection>
           </EventContainer>
         </FadeInSection>
         <StyledBottomBorder />
