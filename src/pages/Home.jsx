@@ -162,4 +162,4 @@ const Text = styled.p`
   @media ${QUERIES.desktopAndUp} {
     padding: 0 8rem;
   }
-`;
+`; //das
