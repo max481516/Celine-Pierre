@@ -127,11 +127,30 @@
 
   "Transports": {
     "Title": "TRANSPORTS",
-    "SectionTitle": "Figari Airport Rentals:"
+    "SectionTitle": "Figari Airport Rentals:",
+    "SectionTitle2": "Shuttles on Saturday, September 6:",
+    "ShuttleTimetable1": {
+      "Title": "Trips to Saint John the Baptist Church:",
+      "TimetableInfo": "<bold>12:45 PM:</bold> Shuttles depart from the hotels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa and Kilina towards the church.\n<bold>1:15 PM:</bold> Shuttles depart from Casadelmar Plage towards the church.\n<bold>1:15 PM:</bold> Shuttles depart from Le Belvédère towards the church."
+    },
+    "ShuttleTimetable2": {
+      "Title": "After the ceremony:",
+      "TimetableInfo": "<bold>4:00 PM:</bold> Return shuttles from the church to Casadelmar Plage.\n<bold>4:00 PM:</bold> Return shuttles from the church to the hotels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa and Kilina."
+    },
+    "ShuttleTimetable3": {
+      "Title": "Trips to the reception:",
+      "TimetableInfo": "<bold>6:15 PM:</bold> Shuttles depart from the hotels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa and Kilina to Casadelmar Plage."
+    },
+    "ShuttleTimetable4": {
+      "Title": "Late-night return:",
+      "TimetableInfo": "<bold>From midnight to 4:00 AM:</bold> Continuous shuttles from Casadelmar Plage to the hotels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa and Kilina."
+    }
   },
 
   "List": {
-    "Text": "Coming Soon!"
+    "Text": "Your presence is the greatest gift we could ask for. If you’d still like to mark the occasion with a present, we’ve created a small wish-list of things that will help us start our married life together. Please, ",
+    "Link": "click here",
+    "ContinuedText": "to view the list and contribute."
   },
 
   "Album": {

@@ -2,8 +2,10 @@ import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../../constants";
 import Border from "../../media/Border.svg?react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import SectionTitle from "../../components/SectionTitle";
+import StyledSeparator from "../../components/Separator";
+import ShuttleTimetable from "../../components/ShuttleTimetable";
 
 export default function Transports() {
   const { t } = useTranslation();
@@ -13,6 +15,46 @@ export default function Transports() {
       <FrameContainer>
         <StyledBorder />
         <Title>{t("Transports.Title")}</Title>
+        <Section>
+          <SectionTitle title={t("Transports.SectionTitle2")} />
+          <ShuttleTimetable
+            title={t("Transports.ShuttleTimetable1.Title")}
+            timetableInfo={
+              <Trans
+                i18nKey="Transports.ShuttleTimetable1.TimetableInfo"
+                components={{ bold: <Bold /> }}
+              />
+            }
+          />
+          <ShuttleTimetable
+            title={t("Transports.ShuttleTimetable2.Title")}
+            timetableInfo={
+              <Trans
+                i18nKey="Transports.ShuttleTimetable2.TimetableInfo"
+                components={{ bold: <Bold /> }}
+              />
+            }
+          />
+          <ShuttleTimetable
+            title={t("Transports.ShuttleTimetable3.Title")}
+            timetableInfo={
+              <Trans
+                i18nKey="Transports.ShuttleTimetable3.TimetableInfo"
+                components={{ bold: <Bold /> }}
+              />
+            }
+          />
+          <ShuttleTimetable
+            title={t("Transports.ShuttleTimetable4.Title")}
+            timetableInfo={
+              <Trans
+                i18nKey="Transports.ShuttleTimetable4.TimetableInfo"
+                components={{ bold: <Bold /> }}
+              />
+            }
+          />
+        </Section>
+        <StyledSeparator />
         <Section>
           <SectionTitle title={t("Transports.SectionTitle")} />
           <InfoElement
@@ -40,171 +82,8 @@ export default function Transports() {
               </picture>
             }
           />
-          {/* <StyledSeparator />
-          <InfoElement
-            name="Linda Beach"
-            location="Palombaggia Capu d'Acciaghju, 20137 Porto-Vecchio"
-            locationLink="https://maps.app.goo.gl/sMcb1D2taV3LBv1b7"
-            picture={
-              <picture>
-                <source
-                  srcSet="
-              https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1729091985/LindaBeach_lcgsxt.jpg 1600w,
-              https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1729091985/LindaBeach_lcgsxt.jpg 1100w,
-              https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1729091985/LindaBeach_lcgsxt.jpg 770w,
-              https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1729091985/LindaBeach_lcgsxt.jpg 550w"
-                  sizes="
-              (min-width: 1200px) 1500px,
-              (min-width: 1024px) 1100px,
-              (min-width: 768px) 770px,
-              100vw"
-                />
-                <StyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1729091985/LindaBeach_lcgsxt.jpg"
-                  alt="Linda Beach"
-                />
-              </picture>
-            }
-          />
-          <StyledSeparator />
-          <InfoElement
-            name="Da Mare Sea Lounge"
-            location="Plage de Palombaggia, 20137 Porto-Vecchio "
-            locationLink="https://maps.app.goo.gl/sYUf4z4GzUq5Kpos6"
-            picture={
-              <picture>
-                <source
-                  srcSet="
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1729091971/DaMare_ohwlx8.jpg 1600w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1729091971/DaMare_ohwlx8.jpg 1100w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1729091971/DaMare_ohwlx8.jpg 770w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1729091971/DaMare_ohwlx8.jpg 550w"
-                  sizes="
-    (min-width: 1200px) 1500px,
-    (min-width: 1024px) 1100px,
-    (min-width: 768px) 770px,
-    100vw"
-                />
-                <StyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1729091971/DaMare_ohwlx8.jpg"
-                  alt="Da Mare"
-                />
-              </picture>
-            }
-          />
-          <StyledSeparator />
-          <InfoElement
-            name="Le petit chose"
-            location="folacca, Rte de Palombaggia, 20137 Porto-Vecchio"
-            locationLink="https://maps.app.goo.gl/uJTBnpwrgSemKsmf7"
-            picture={
-              <picture>
-                <source
-                  srcSet="
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1729091988/LaPetiteChose_vo7eir.jpg 1600w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1729091988/LaPetiteChose_vo7eir.jpg 1100w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1729091988/LaPetiteChose_vo7eir.jpg 770w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1729091988/LaPetiteChose_vo7eir.jpg 550w"
-                  sizes="
-    (min-width: 1200px) 1500px,
-    (min-width: 1024px) 1100px,
-    (min-width: 768px) 770px,
-    100vw"
-                />
-                <StyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1729091988/LaPetiteChose_vo7eir.jpg"
-                  alt="La Petite Chose"
-                />
-              </picture>
-            }
-          />
         </Section>
-        <Section>
-          <SectionTitle>{t("Beaches.Section2")}</SectionTitle>
-          <InfoElement
-            name="Bar Plage Santa Giulia"
-            location="Plage de Santa Giulia
-            CS 30102
-            20137 Porto-Vecchio"
-            locationLink="https://maps.app.goo.gl/8RzMteA5FmYrptSu8"
-            picture={
-              <picture>
-                <source
-                  srcSet="
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1729091975/SantaGiulia_dm7zdo.jpg 1600w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1729091975/SantaGiulia_dm7zdo.jpg 1100w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1729091975/SantaGiulia_dm7zdo.jpg 770w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1729091975/SantaGiulia_dm7zdo.jpg 550w"
-                  sizes="
-    (min-width: 1200px) 1500px,
-    (min-width: 1024px) 1100px,
-    (min-width: 768px) 770px,
-    100vw"
-                />
-                <StyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1729091975/SantaGiulia_dm7zdo.jpg"
-                  alt="Santa Giulia Beach"
-                />
-              </picture>
-            }
-          />
-          <StyledSeparator />
-          <InfoElement
-            name="Køstën Plage"
-            location="Baie de Santa Giulia
-            20137 Porto-Vecchio"
-            locationLink="https://maps.app.goo.gl/1E3SKCQZGih6wXDw9"
-            picture={
-              <picture>
-                <source
-                  srcSet="
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1729091967/KostenBeach_ni02pi.jpg 1600w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1729091967/KostenBeach_ni02pi.jpg 1100w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1729091967/KostenBeach_ni02pi.jpg 770w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1729091967/KostenBeach_ni02pi.jpg 550w"
-                  sizes="
-    (min-width: 1200px) 1500px,
-    (min-width: 1024px) 1100px,
-    (min-width: 768px) 770px,
-    100vw"
-                />
-                <StyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1729091967/KostenBeach_ni02pi.jpg"
-                  alt="Kosten Beach"
-                />
-              </picture>
-            }
-          />
-        </Section>
-        <Section>
-          <SectionTitle>{t("Beaches.Section3")}</SectionTitle>
-          <InfoElement
-            name="Maora Beach"
-            location="Plage de Maora Golfe de Santa Manza , 20169 Bonifacio"
-            locationLink="https://maps.app.goo.gl/1rhc9vqJM15WbkJQ6"
-            picture={
-              <picture>
-                <source
-                  srcSet="
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1729091982/MaoraBeach_pxfp7g.jpg 1600w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1729091982/MaoraBeach_pxfp7g.jpg 1100w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1729091982/MaoraBeach_pxfp7g.jpg 770w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1729091982/MaoraBeach_pxfp7g.jpg 550w"
-                  sizes="
-    (min-width: 1200px) 1500px,
-    (min-width: 1024px) 1100px,
-    (min-width: 768px) 770px,
-    100vw"
-                />
-                <StyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1729091982/MaoraBeach_pxfp7g.jpg"
-                  alt="Maora Beach"
-                />
-              </picture>
-            }
-          />
-        </Section> */}
-        </Section>
+
         <StyledBottomBorder />
       </FrameContainer>
     </Wrapper>
@@ -256,7 +135,11 @@ const Title = styled.h2`
   }
 `;
 
-const Section = styled.section``;
+const Section = styled.section`
+  &:last-of-type {
+    padding-top: 1rem;
+  }
+`;
 
 const StyledImage = styled.img`
   object-fit: cover;
@@ -277,4 +160,10 @@ const StyledBottomBorder = styled(StyledBorder)`
 
 const SixtStyledImage = styled(StyledImage)`
   max-height: 450px;
+`;
+
+// JSON i18n text styling
+const Bold = styled.span`
+  font-weight: 500;
+  text-decoration: underline;
 `;

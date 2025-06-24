@@ -128,11 +128,30 @@
 
   "Transports": {
     "Title": "TRANSPORTS",
-    "SectionTitle": "Locations Aéroport de Figari:"
+    "SectionTitle": "Locations Aéroport de Figari:",
+    "SectionTitle2": "Navettes du Samedi 6 Septembre:",
+    "ShuttleTimetable1": {
+      "Title": "Trajets vers l’église Saint Jean Baptiste:",
+      "TimetableInfo": "<bold>12h45 :</bold> Départ des navettes depuis les hôtels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa et Kilina vers l’église.\n<bold>13h15 :</bold> Départ des navettes depuis Casadelmar Plage vers l’église. \n<bold>13h15 :</bold> Départ des navettes depuis Le Belvédère vers l’église."
+    },
+    "ShuttleTimetable2": {
+      "Title": "Après la cérémonie:",
+      "TimetableInfo": "<bold>16h00 :</bold> Navettes retour de l’église vers Casadelmar Plage. \n<bold>16h00 :</bold> Navettes retour de l’église vers les hôtels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa et Kilina."
+    },
+    "ShuttleTimetable3": {
+      "Title": "Trajets vers la réception:",
+      "TimetableInfo": "<bold>18h15 :</bold> Départ des navettes depuis les hôtels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa et Kilina vers Casadelmar Plage."
+    },
+    "ShuttleTimetable4": {
+      "Title": "Retour en fin de soirée:",
+      "TimetableInfo": "<bold>De minuit à 4h00 :</bold> Navettes en continu depuis Casadelmar Plage vers les hôtels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa et Kilina."
+    }
   },
 
   "List": {
-    "Text": "Bientôt disponible!"
+    "Text": "Votre présence est le plus beau cadeau que nous puissions souhaiter. Si vous souhaitez malgré tout marquer l'occasion par un présent, nous avons préparé une petite liste de souhaits pour bien commencer notre vie de couple. ",
+    "Link": "Cliquez ici",
+    "ContinuedText": "pour voir la liste et contribuer si vous le désirez."
   },
 
   "Album": {

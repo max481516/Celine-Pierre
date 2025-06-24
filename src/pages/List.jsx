@@ -6,9 +6,17 @@ export default function List() {
   const { t } = useTranslation();
   return (
     <Wrapper>
-      <TempContainer>
-        <Text>{t("List.Text")}</Text>
-      </TempContainer>
+      <Text>
+        {t("List.Text")}
+        <Link
+          href="https://www.millemercismariage.com/celinepierre2025/liste.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {t("List.Link")}
+        </Link>{" "}
+        {t("List.ContinuedText")}
+      </Text>
     </Wrapper>
   );
 }
@@ -16,36 +24,45 @@ export default function List() {
 const Wrapper = styled.div`
   height: 100vh;
   width: 100vw;
+  margin-top: -80px;
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const TempContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -7rem;
-  height: 200px;
-  width: 300px;
-  border-radius: 4px;
-  border: 1px solid var(--color-primary-blue);
-  background-color: var(--color-light-sand);
-  box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
-    0 5px 14px 0 rgba(0, 0, 0, 0.18);
+  padding: 0 2rem;
 
   @media ${QUERIES.largeTabletAndUp} {
-    height: 250px;
-    width: 400px;
+    margin-top: -105px;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    padding: 0 8rem;
+  }
+
+  @media (max-width: 358px) {
+    margin-top: -50px;
   }
 `;
 
 const Text = styled.p`
   ${FONTS.titleFont};
   font-size: 1.5rem;
-  color: var(--color-primary-blue);
+  color: var(--color-sandstone);
+  text-align: center;
 
   @media ${QUERIES.largeTabletAndUp} {
     font-size: 2rem;
+  }
+
+  @media (max-width: 358px) {
+    font-size: 1.2rem;
+  }
+`;
+
+const Link = styled.a`
+  color: var(--color-primary-blue);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--color-light-blue);
   }
 `;

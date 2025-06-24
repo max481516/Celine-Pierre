@@ -192,6 +192,10 @@ const MobileNavItem = styled(NavLink)`
   &.active {
     color: var(--color-primary-blue);
   }
+
+  @media (max-width: 358px) {
+    font-size: 1rem;
+  }
 `;
 
 const MobileDropdownContainer = styled.div`
