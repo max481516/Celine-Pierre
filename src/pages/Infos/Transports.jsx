@@ -6,6 +6,7 @@ import { Trans, useTranslation } from "react-i18next";
 import SectionTitle from "../../components/SectionTitle";
 import StyledSeparator from "../../components/Separator";
 import ShuttleTimetable from "../../components/ShuttleTimetable";
+import FadeInSection from "../../components/FadeInSection";
 
 export default function Transports() {
   const { t } = useTranslation();
@@ -15,75 +16,111 @@ export default function Transports() {
       <FrameContainer>
         <StyledBorder />
         <Title>{t("Transports.Title")}</Title>
-        <Section>
-          <SectionTitle title={t("Transports.SectionTitle2")} />
-          <ShuttleTimetable
-            title={t("Transports.ShuttleTimetable1.Title")}
-            timetableInfo={
-              <Trans
-                i18nKey="Transports.ShuttleTimetable1.TimetableInfo"
-                components={{ bold: <Bold /> }}
-              />
-            }
-          />
-          <ShuttleTimetable
-            title={t("Transports.ShuttleTimetable2.Title")}
-            timetableInfo={
-              <Trans
-                i18nKey="Transports.ShuttleTimetable2.TimetableInfo"
-                components={{ bold: <Bold /> }}
-              />
-            }
-          />
-          <ShuttleTimetable
-            title={t("Transports.ShuttleTimetable3.Title")}
-            timetableInfo={
-              <Trans
-                i18nKey="Transports.ShuttleTimetable3.TimetableInfo"
-                components={{ bold: <Bold /> }}
-              />
-            }
-          />
-          <ShuttleTimetable
-            title={t("Transports.ShuttleTimetable4.Title")}
-            timetableInfo={
-              <Trans
-                i18nKey="Transports.ShuttleTimetable4.TimetableInfo"
-                components={{ bold: <Bold /> }}
-              />
-            }
-          />
-        </Section>
-        <StyledSeparator />
-        <Section>
-          <SectionTitle title={t("Transports.SectionTitle")} />
-          <InfoElement
-            name="SIXT FIGARI"
-            location=" Route de l'aeroport, 20114 Figari"
-            locationLink="https://maps.app.goo.gl/9CuSXYuAhHtZ2D236"
-            picture={
+        <FadeInSection>
+          <Section>
+            <SectionTitle title={t("Transports.SectionTitle2")} />
+            <ImageContainer>
               <picture>
                 <source
                   srcSet="
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1750781087/чёрный-микроавтобус-роскоши-ван-mercedesbenz-подряд-на-парковке-россия-182757636_ivchvi.webp 1600w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1750781087/чёрный-микроавтобус-роскоши-ван-mercedesbenz-подряд-на-парковке-россия-182757636_ivchvi.webp 1100w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1750781087/чёрный-микроавтобус-роскоши-ван-mercedesbenz-подряд-на-парковке-россия-182757636_ivchvi.webp 770w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1750781087/чёрный-микроавтобус-роскоши-ван-mercedesbenz-подряд-на-парковке-россия-182757636_ivchvi.webp 550w
+    "
+                  sizes="
+      (min-width: ${BREAKPOINTS.desktopMin}px) 1500px,
+      (min-width: ${BREAKPOINTS.laptopMin}px) 1100px,
+      (min-width: ${BREAKPOINTS.bigTabletMin}px) 770px,
+      (min-width: ${BREAKPOINTS.tabletMin}px) 550px,
+      100vw
+    "
+                  type="image/webp"
+                />
+                <StyledImage
+                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800,f_auto,q_auto/v1750781087/чёрный-микроавтобус-роскоши-ван-mercedesbenz-подряд-на-парковке-россия-182757636_ivchvi.webp"
+                  loading="lazy"
+                  alt="Black Mercedes-Benz luxury minivan"
+                />
+              </picture>
+            </ImageContainer>
+            <ShuttleTimetable
+              title={t("Transports.ShuttleTimetable1.Title")}
+              timetableInfo={
+                <Trans
+                  i18nKey="Transports.ShuttleTimetable1.TimetableInfo"
+                  components={{ bold: <Bold /> }}
+                />
+              }
+            />
+            <ShuttleTimetable
+              title={t("Transports.ShuttleTimetable2.Title")}
+              timetableInfo={
+                <Trans
+                  i18nKey="Transports.ShuttleTimetable2.TimetableInfo"
+                  components={{ bold: <Bold /> }}
+                />
+              }
+            />
+            <ShuttleTimetable
+              title={t("Transports.ShuttleTimetable3.Title")}
+              timetableInfo={
+                <Trans
+                  i18nKey="Transports.ShuttleTimetable3.TimetableInfo"
+                  components={{ bold: <Bold /> }}
+                />
+              }
+            />
+            <ShuttleTimetable
+              title={t("Transports.ShuttleTimetable4.Title")}
+              timetableInfo={
+                <Trans
+                  i18nKey="Transports.ShuttleTimetable4.TimetableInfo"
+                  components={{ bold: <Bold /> }}
+                />
+              }
+            />
+            <Questions>
+              <Trans
+                i18nKey="Transports.Questions"
+                components={{
+                  QuestionsLink: <QuestionsLink href="/Contacts" />,
+                }}
+              />
+            </Questions>
+          </Section>
+        </FadeInSection>
+        <StyledSeparator />
+        <FadeInSection>
+          <Section>
+            <SectionTitle title={t("Transports.SectionTitle")} />
+            <InfoElement
+              name="SIXT FIGARI"
+              location=" Route de l'aeroport, 20114 Figari"
+              locationLink="https://maps.app.goo.gl/9CuSXYuAhHtZ2D236"
+              picture={
+                <picture>
+                  <source
+                    srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1733343408/SIXT_aryzms.jpg 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1733343408/SIXT_aryzms.jpg 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1733343408/SIXT_aryzms.jpg 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1733343408/SIXT_aryzms.jpg 550w"
-                  sizes="
+                    sizes="
       (min-width: 1200px) 1500px,
       (min-width: 1024px) 1100px,
       (min-width: 768px) 770px,
       100vw"
-                />
-                <SixtStyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1733343408/SIXT_aryzms.jpg"
-                  alt="SIXT Car Rental - View"
-                />
-              </picture>
-            }
-          />
-        </Section>
-
+                  />
+                  <SixtStyledImage
+                    src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1733343408/SIXT_aryzms.jpg"
+                    alt="SIXT Car Rental - View"
+                  />
+                </picture>
+              }
+            />
+          </Section>
+        </FadeInSection>
         <StyledBottomBorder />
       </FrameContainer>
     </Wrapper>
@@ -141,6 +178,8 @@ const Section = styled.section`
   }
 `;
 
+const ImageContainer = styled.div``;
+
 const StyledImage = styled.img`
   object-fit: cover;
   width: 100%;
@@ -162,8 +201,24 @@ const SixtStyledImage = styled(StyledImage)`
   max-height: 450px;
 `;
 
+const Questions = styled.p`
+  text-align: center;
+  font-style: italic;
+  padding: 1rem 0;
+`;
+
+const QuestionsLink = styled.a`
+  color: var(--color-primary-blue);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--color-light-blue);
+  }
+`;
+
 // JSON i18n text styling
 const Bold = styled.span`
   font-weight: 500;
   text-decoration: underline;
+  color: var(--color-primary-blue);
 `;

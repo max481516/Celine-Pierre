@@ -144,7 +144,8 @@
     "ShuttleTimetable4": {
       "Title": "Late-night return:",
       "TimetableInfo": "<bold>From midnight to 4:00 AM:</bold> Continuous shuttles from Casadelmar Plage to the hotels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa and Kilina."
-    }
+    },
+    "Questions": "Feel free to contact us, <QuestionsLink>by clicking here</QuestionsLink>, if you have any questions about the shuttles."
   },
 
   "List": {

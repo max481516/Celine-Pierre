@@ -145,7 +145,8 @@
     "ShuttleTimetable4": {
       "Title": "Retour en fin de soirée:",
       "TimetableInfo": "<bold>De minuit à 4h00 :</bold> Navettes en continu depuis Casadelmar Plage vers les hôtels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa et Kilina."
-    }
+    },
+    "Questions": "N’hésitez pas à nous contacter, <QuestionsLink>en cliquant ici</QuestionsLink>, si vous avez des questions concernant les navettes."
   },
 
   "List": {
