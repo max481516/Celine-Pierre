@@ -5,7 +5,6 @@ import Border from "../media/Border.svg?react";
 import { useState } from "react";
 import ConfMessage from "../components/ConfirmationMessage";
 import ErrMessage from "../components/ErrorMessage";
-import backgroundImage from "../media/backgroundRSVP.jpeg";
 
 export default function List() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -132,9 +131,6 @@ const Wrapper = styled.div`
   @media ${QUERIES.laptopAndUp} {
     padding: 8rem 14rem;
     background-color: var(--color-lighter-sand);
-    background-image: url(${backgroundImage});
-    background-size: cover;
-    background-position: center;
   }
 
   @media ${QUERIES.desktopAndUp} {
@@ -161,9 +157,12 @@ const Title = styled.h2`
   font-size: 2rem;
   color: var(--color-primary-blue);
   text-align: center;
+  @media ${QUERIES.tabletAndUp} {
+    font-size: 2.5rem;
+  }
 
   @media ${QUERIES.laptopAndUp} {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 `;
 
@@ -209,10 +208,10 @@ const Form = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.25rem;
   padding: 2rem 0;
 
-  @media ${QUERIES.laptopAndUp} {
+  @media ${QUERIES.tabletAndUp} {
     padding: 2rem;
   }
 `;

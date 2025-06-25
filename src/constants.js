@@ -19,6 +19,8 @@ const FONTS = {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+
+   
   `,
 };
 
@@ -48,7 +50,7 @@ const STYLES = {
 
   @media ${QUERIES.desktopAndUp} {
     padding: 4rem;
-    max-width: 75%;
+    max-width: 80%;
   }`,
 };
 

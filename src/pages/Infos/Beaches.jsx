@@ -240,6 +240,10 @@ const Title = styled.h2`
   text-align: center;
   text-transform: uppercase;
 
+  @media ${QUERIES.tabletAndUp} {
+    font-size: 2.5rem;
+  }
+
   @media ${QUERIES.largeTabletAndUp} {
     font-size: 2.5rem;
   }

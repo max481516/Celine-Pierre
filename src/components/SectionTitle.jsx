@@ -11,7 +11,8 @@ export default function SectionTitle({ title }) {
 
 const Title = styled.h2`
   ${FONTS.titleFont};
-  text-decoration: underline 2px;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
   font-size: 1.9rem;
   color: var(--color-primary-blue);
   text-align: center;

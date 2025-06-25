@@ -128,10 +128,6 @@ const MobileNavContainer = styled.div`
   transition: transform 0.3s ease-in-out;
   z-index: 999;
 
-  @media ${QUERIES.tabletAndUp} {
-    width: 50%;
-  }
-
   @media ${QUERIES.largeTabletAndUp} {
     display: none;
   }
@@ -173,7 +169,7 @@ const MobileNavMenu = styled.div`
   overflow-y: auto;
 
   @media ${QUERIES.tabletAndUp} {
-    margin-top: 200px;
+    margin-top: -20%;
   }
 `;
 
