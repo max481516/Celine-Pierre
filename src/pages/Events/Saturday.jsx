@@ -69,7 +69,10 @@ export default function Saturday() {
               <Text>
                 <Trans
                   i18nKey="Saturday.Ceremony.Transport.Text"
-                  components={{ bold: <Bold /> }}
+                  components={{
+                    bold: <Bold />,
+                    TimetableLink: <TimetableLink to="/Transports" />,
+                  }}
                 />
                 <br />
                 <ItalicText>
@@ -178,7 +181,10 @@ export default function Saturday() {
               <Text>
                 <Trans
                   i18nKey="Saturday.Celebration.Transport.Text"
-                  components={{ bold: <Bold /> }}
+                  components={{
+                    bold: <Bold />,
+                    TimetableLink: <TimetableLink to="/Transports" />,
+                  }}
                 />
                 <br />
                 <ItalicText>
@@ -243,21 +249,8 @@ const Wrapper = styled.div`
 `;
 
 const FrameContainer = styled.div`
-  @media ${QUERIES.laptopAndUp} {
-    padding: 2rem;
-    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
-      0 5px 14px 0 rgba(0, 0, 0, 0.18);
-    background-color: var(--color-light-sand);
-    max-width: 85%;
-    margin: 0 auto;
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 4rem;
-    max-width: 75%;
-  }
+  ${STYLES.frameContainer}
 `;
-
 const EventContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -304,6 +297,16 @@ const ItalicText = styled.span`
 
 const TransportLink = styled(Link)`
   color: var(--color-primary-blue);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--color-light-blue);
+  }
+`;
+
+const TimetableLink = styled(Link)`
+  color: var(--color-primary-blue);
+  transition: color 0.3s ease;
 
   &:hover {
     color: var(--color-light-blue);

@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
-import { FONTS, QUERIES } from "../../constants";
+import { FONTS, QUERIES, STYLES } from "../../constants";
 import Border from "../../media/Border.svg?react";
 import StyledSeparator from "../../components/Separator";
 import { useTranslation } from "react-i18next";
@@ -237,18 +237,7 @@ const Wrapper = styled.div`
 `;
 
 const FrameContainer = styled.div`
-  @media ${QUERIES.laptopAndUp} {
-    padding: 2rem;
-    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
-      0 5px 14px 0 rgba(0, 0, 0, 0.18);
-    background-color: var(--color-light-sand);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 4rem;
-  }
+  ${STYLES.frameContainer}
 `;
 
 const Title = styled.h2`

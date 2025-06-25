@@ -44,8 +44,8 @@
       "Where": "Où : ",
       "WhereLocation": "Église Saint Jean Baptiste, 2-8 Rue Joseph Pietri Maire, 20137 Porto-Vecchio",
       "Transport": {
-        "Text": "<bold>Transport :</bold> Merci de prévoir votre arrivée à l’église par vos propres moyens.",
-        "ItalicText": "À l’issue de la cérémonie religieuse, nous vous invitons à rejoindre vos hôtels respectifs. Une navette viendra ensuite vous chercher pour la soirée. (Pas tous les hôtels sont desservis, rdv sur la page <0>\"Hébergements\"</0> pour plus d'informations)"
+        "Text": "<bold>Transport :</bold> Vous pouvez organiser votre propre trajet ou emprunter les navettes. <TimetableLink>Cliquez ici</TimetableLink> pour consulter les horaires.",
+        "ItalicText": "(Toutes les navettes ne desservent pas tous les hôtels. Consultez la page <0>\"Hébergements\"</0> pour plus d'informations.)"
       },
       "Parking": "Parking : ",
       "ParkingLocation1": "Parking Santa Catalina",
@@ -63,7 +63,7 @@
       "Where": "Où : ",
       "WhereLocation": "La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio",
       "Transport": {
-        "Text": "<bold>Transport : </bold> Un service de navette sera assuré entre vos hôtels et La Plage Casadelmar.",
+        "Text": "<bold>Transport : </bold> Un service de navette sera assuré entre vos hôtels et La Plage Casadelmar. <TimetableLink>Cliquez ici</TimetableLink> pour consulter les horaires.",
         "ItalicText": "(Pas tous les hôtels sont desservis, rdv sur la page <0>\"Hébergements\"</0> pour plus d'informations)"
       },
       "Parking": "<bold>Parking : </bold> Si toutefois, vous souhaitez venir à la soirée avec votre voiture, l'hôtel La Plage Casadelmar dispose d’un parking.",
@@ -151,7 +151,7 @@
 
   "List": {
     "Text": "Votre présence est le plus beau cadeau que nous puissions souhaiter. Si vous souhaitez malgré tout marquer l'occasion par un présent, nous avons préparé une petite liste de souhaits pour bien commencer notre vie de couple. ",
-    "Link": "Cliquez ici",
+    "Link": "\nCliquez ici",
     "ContinuedText": "pour voir la liste et contribuer si vous le désirez."
   },
 

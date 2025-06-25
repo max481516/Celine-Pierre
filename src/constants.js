@@ -35,6 +35,20 @@ const STYLES = {
     background: HSL(21, 45%, 85%);
   }
 `,
+  frameContainer: `
+@media ${QUERIES.laptopAndUp} {
+    padding: 2rem;
+    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
+      0 5px 14px 0 rgba(0, 0, 0, 0.18);
+    background-color: var(--color-light-sand);
+    max-width: 85%;
+    margin: 0 auto;
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    padding: 4rem;
+    max-width: 75%;
+  }`,
 };
 
 export { BREAKPOINTS, QUERIES, FONTS, STYLES };

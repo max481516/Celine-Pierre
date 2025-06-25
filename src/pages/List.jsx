@@ -48,6 +48,7 @@ const Text = styled.p`
   font-size: 1.5rem;
   color: var(--color-sandstone);
   text-align: center;
+  white-space: pre-line;
 
   @media ${QUERIES.largeTabletAndUp} {
     font-size: 2rem;
