@@ -57,7 +57,7 @@
       }
     },
     "Celebration": {
-      "Title": "SATURDAY : THE CELEBRATION",
+      "Title": "SATURDAY : THE RECEPTION",
       "When": "<bold>When :</bold> September 6, 2025, from 6:30 PM to sunrise",
       "Where": "Where :",
       "WhereLocation": "Casadelmar Beach, Presqu’île du Benedettu, 20137 Porto-Vecchio",
@@ -131,27 +131,28 @@
     "SectionTitle2": "Shuttles on Saturday, September 6:",
     "ShuttleTimetable1": {
       "Title": "Trips to Saint John the Baptist Church:",
-      "TimetableInfo": "<bold>12:45 PM:</bold> Shuttles depart from the hotels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa and Kilina towards the church.\n<bold>1:15 PM:</bold> Shuttles depart from Casadelmar Plage towards the church.\n<bold>1:15 PM:</bold> Shuttles depart from Le Belvédère towards the church."
+      "TimetableInfo": "<bold><colored>12:45 PM:</colored></bold> Shuttles depart from the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold> towards the church.\n<bold><colored>1:15 PM:</colored></bold> Shuttles depart from Casadelmar Plage towards the church.\n<bold><colored>1:15 PM:</colored></bold> Shuttles depart from <bold>Le Belvédère</bold> towards the church."
     },
     "ShuttleTimetable2": {
       "Title": "After the ceremony:",
-      "TimetableInfo": "<bold>4:00 PM:</bold> Return shuttles from the church to Casadelmar Plage.\n<bold>4:00 PM:</bold> Return shuttles from the church to the hotels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa and Kilina."
+      "TimetableInfo": "<bold><colored>4:00 PM:</colored></bold> Return shuttles from the church to Casadelmar Plage.\n<bold><colored>4:00 PM:</colored></bold> Return shuttles from the church to the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold>."
     },
     "ShuttleTimetable3": {
       "Title": "Trips to the reception:",
-      "TimetableInfo": "<bold>6:15 PM:</bold> Shuttles depart from the hotels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa and Kilina to Casadelmar Plage."
+      "TimetableInfo": "<bold><colored>6:15 PM:</colored></bold> Shuttles depart from the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold> to Casadelmar Plage."
     },
     "ShuttleTimetable4": {
       "Title": "Late-night return:",
-      "TimetableInfo": "<bold>From midnight to 4:00 AM:</bold> Continuous shuttles from Casadelmar Plage to the hotels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa and Kilina."
+      "TimetableInfo": "<bold><colored>From midnight to 4:00 AM:</colored></bold> Continuous shuttles from Casadelmar Plage to the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold>."
     },
+
     "Questions": "Feel free to contact us, <QuestionsLink>by clicking here</QuestionsLink>, if you have any questions about the shuttles."
   },
 
   "List": {
-    "Text": "Your presence is the greatest gift we could ask for. If you’d still like to mark the occasion with a present, we’ve created a small wish-list of things that will help us start our married life together. \nPlease, ",
-    "Link": "click here",
-    "ContinuedText": "to view the list and contribute."
+    "Text": "Your presence with us is the greatest gift we could wish for. However, if you’d still like to mark the occasion with a present, we’ve put together a small gift list to help us start this new chapter of our life together. ",
+    "Link": "\nСlick here",
+    "ContinuedText": "to view the list and contribute, only if you feel like it."
   },
 
   "Album": {

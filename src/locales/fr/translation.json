@@ -58,7 +58,7 @@
       }
     },
     "Celebration": {
-      "Title": "SAMEDI : LA CÉLÉBRATION",
+      "Title": "SAMEDI : LA RÉCEPTION",
       "When": "<bold>Quand : </bold> Le 6 Septembre 2025 à partir de 18:30 jusqu’au lever de soleil",
       "Where": "Où : ",
       "WhereLocation": "La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio",
@@ -132,27 +132,27 @@
     "SectionTitle2": "Navettes du Samedi 6 Septembre:",
     "ShuttleTimetable1": {
       "Title": "Trajets vers l’église Saint Jean Baptiste:",
-      "TimetableInfo": "<bold>12h45 :</bold> Départ des navettes depuis les hôtels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa et Kilina vers l’église.\n<bold>13h15 :</bold> Départ des navettes depuis Casadelmar Plage vers l’église. \n<bold>13h15 :</bold> Départ des navettes depuis Le Belvédère vers l’église."
+      "TimetableInfo": "<bold><colored>12h45 :</colored></bold> Départ des navettes depuis les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina</bold> vers l’église.\n<bold><colored>13h15 :</colored></bold> Départ des navettes depuis Casadelmar Plage vers l’église. \n<bold><colored>13h15 :</colored></bold> Départ des navettes depuis <bold>Le Belvédère</bold> vers l’église."
     },
     "ShuttleTimetable2": {
       "Title": "Après la cérémonie:",
-      "TimetableInfo": "<bold>16h00 :</bold> Navettes retour de l’église vers Casadelmar Plage. \n<bold>16h00 :</bold> Navettes retour de l’église vers les hôtels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa et Kilina."
+      "TimetableInfo": "<bold><colored>16h00 :</colored></bold> Navettes retour de l’église vers Casadelmar Plage. \n<bold><colored>16h00 :</colored></bold> Navettes retour de l’église vers les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina.</bold>"
     },
     "ShuttleTimetable3": {
       "Title": "Trajets vers la réception:",
-      "TimetableInfo": "<bold>18h15 :</bold> Départ des navettes depuis les hôtels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa et Kilina vers Casadelmar Plage."
+      "TimetableInfo": "<bold><colored>18h15 :</colored></bold> Départ des navettes depuis les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina</bold> vers Casadelmar Plage."
     },
     "ShuttleTimetable4": {
       "Title": "Retour en fin de soirée:",
-      "TimetableInfo": "<bold>De minuit à 4h00 :</bold> Navettes en continu depuis Casadelmar Plage vers les hôtels Cala Rossa Bay Resort, Grand Hôtel Cala Rossa et Kilina."
+      "TimetableInfo": "<bold><colored>De minuit à 4h00 :</colored></bold> Navettes en continu depuis Casadelmar Plage vers les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina.</bold>"
     },
     "Questions": "N’hésitez pas à nous contacter, <QuestionsLink>en cliquant ici</QuestionsLink>, si vous avez des questions concernant les navettes."
   },
 
   "List": {
-    "Text": "Votre présence est le plus beau cadeau que nous puissions souhaiter. Si vous souhaitez malgré tout marquer l'occasion par un présent, nous avons préparé une petite liste de souhaits pour bien commencer notre vie de couple. ",
+    "Text": "Votre présence à nos côtés est le plus beau cadeau que nous pouvions espérer. Mais si vous souhaitez malgré tout marquer l’occasion par une attention, nous avons préparé une petite liste de cadeaux pour nous aider à bien commencer cette nouvelle aventure à deux. ",
     "Link": "\nCliquez ici",
-    "ContinuedText": "pour voir la liste et contribuer si vous le désirez."
+    "ContinuedText": "pour consulter la liste et y contribuer, uniquement si vous en avez envie."
   },
 
   "Album": {

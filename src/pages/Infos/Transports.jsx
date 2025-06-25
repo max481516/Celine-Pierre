@@ -24,10 +24,10 @@ export default function Transports() {
               <picture>
                 <source
                   srcSet="
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1750781087/чёрный-микроавтобус-роскоши-ван-mercedesbenz-подряд-на-парковке-россия-182757636_ivchvi.webp 1600w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1750781087/чёрный-микроавтобус-роскоши-ван-mercedesbenz-подряд-на-парковке-россия-182757636_ivchvi.webp 1100w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1750781087/чёрный-микроавтобус-роскоши-ван-mercedesbenz-подряд-на-парковке-россия-182757636_ivchvi.webp 770w,
-      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1750781087/чёрный-микроавтобус-роскоши-ван-mercedesbenz-подряд-на-парковке-россия-182757636_ivchvi.webp 550w
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1750870995/vans_fo0zp2.webp 1600w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1750870995/vans_fo0zp2.webp 1100w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1750870995/vans_fo0zp2.webp 770w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1750870995/vans_fo0zp2.webp 550w
     "
                   sizes="
       (min-width: ${BREAKPOINTS.desktopMin}px) 1500px,
@@ -38,10 +38,10 @@ export default function Transports() {
     "
                   type="image/webp"
                 />
-                <StyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800,f_auto,q_auto/v1750781087/чёрный-микроавтобус-роскоши-ван-mercedesbenz-подряд-на-парковке-россия-182757636_ivchvi.webp"
+                <Vans
+                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800,f_auto,q_auto/v1750870995/vans_fo0zp2.webp"
                   loading="lazy"
-                  alt="Black Mercedes-Benz luxury minivan"
+                  alt="Luxury shuttle vans"
                 />
               </picture>
             </ImageContainer>
@@ -50,7 +50,7 @@ export default function Transports() {
               timetableInfo={
                 <Trans
                   i18nKey="Transports.ShuttleTimetable1.TimetableInfo"
-                  components={{ bold: <Bold /> }}
+                  components={{ bold: <Bold />, colored: <Colored /> }}
                 />
               }
             />
@@ -59,7 +59,7 @@ export default function Transports() {
               timetableInfo={
                 <Trans
                   i18nKey="Transports.ShuttleTimetable2.TimetableInfo"
-                  components={{ bold: <Bold /> }}
+                  components={{ bold: <Bold />, colored: <Colored /> }}
                 />
               }
             />
@@ -68,7 +68,7 @@ export default function Transports() {
               timetableInfo={
                 <Trans
                   i18nKey="Transports.ShuttleTimetable3.TimetableInfo"
-                  components={{ bold: <Bold /> }}
+                  components={{ bold: <Bold />, colored: <Colored /> }}
                 />
               }
             />
@@ -77,7 +77,7 @@ export default function Transports() {
               timetableInfo={
                 <Trans
                   i18nKey="Transports.ShuttleTimetable4.TimetableInfo"
-                  components={{ bold: <Bold /> }}
+                  components={{ bold: <Bold />, colored: <Colored /> }}
                 />
               }
             />
@@ -195,6 +195,10 @@ const SixtStyledImage = styled(StyledImage)`
   max-height: 450px;
 `;
 
+const Vans = styled(StyledImage)`
+  max-height: 400px;
+`;
+
 const Questions = styled.p`
   text-align: center;
   font-style: italic;
@@ -212,7 +216,10 @@ const QuestionsLink = styled(Link)`
 
 // JSON i18n text styling
 const Bold = styled.span`
-  font-weight: 500;
-  text-decoration: underline;
+  font-weight: 600;
+`;
+
+const Colored = styled.span`
   color: var(--color-primary-blue);
+  text-decoration: underline;
 `;

@@ -58,7 +58,7 @@
       }
     },
     "Celebration": {
-      "Title": "СУББОТА: ПРАЗДНИК",
+      "Title": "СУББОТА: ПРИËМ",
       "When": "<bold>Когда :</bold> 6 сентября 2025 года с 18:30 до восхода солнца",
       "Where": "Где : ",
       "WhereLocation": "Пляж Casadelmar, полуостров Бенедетту, 20137 Порто-Веккьо",
@@ -132,20 +132,21 @@
     "SectionTitle2": "Трансфер в субботу, 6 сентября:",
     "ShuttleTimetable1": {
       "Title": "Трансфер к церкви Святого Иоанна Крестителя:",
-      "TimetableInfo": "<bold>12:45:</bold> Отправление маршруток от отелей Cala Rossa Bay Resort, Grand Hôtel Cala Rossa и Kilina к церкви.\n<bold>13:15:</bold> Отправление маршруток от Casadelmar Plage к церкви.\n<bold>13:15:</bold> Отправление маршруток от Le Belvédère к церкви."
+      "TimetableInfo": "<bold><colored>12:45:</colored></bold> Отправление маршруток от отелей <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> и <bold>Kilina</bold> к церкви.\n<bold><colored>13:15:</colored></bold> Отправление маршруток от Casadelmar Plage к церкви.\n<bold><colored>13:15:</colored></bold> Отправление маршруток от <bold>Le Belvédère</bold> к церкви."
     },
     "ShuttleTimetable2": {
       "Title": "После церемонии:",
-      "TimetableInfo": "<bold>16:00:</bold> Обратные маршрутки от церкви до Casadelmar Plage.\n<bold>16:00:</bold> Обратные маршрутки от церкви до отелей Cala Rossa Bay Resort, Grand Hôtel Cala Rossa и Kilina."
+      "TimetableInfo": "<bold><colored>16:00:</colored></bold> Обратные маршрутки от церкви до Casadelmar Plage.\n<bold><colored>16:00:</colored></bold> Обратные маршрутки от церкви до отелей <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> и <bold>Kilina</bold>."
     },
     "ShuttleTimetable3": {
-      "Title": "Трансфер на прием:",
-      "TimetableInfo": "<bold>18:15:</bold> Отправление маршруток от отелей Cala Rossa Bay Resort, Grand Hôtel Cala Rossa и Kilina до Casadelmar Plage."
+      "Title": "Трансфер на приём:",
+      "TimetableInfo": "<bold><colored>18:15:</colored></bold> Отправление маршруток от отелей <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> и <bold>Kilina</bold> до Casadelmar Plage."
     },
     "ShuttleTimetable4": {
       "Title": "Возвращение поздно ночью:",
-      "TimetableInfo": "<bold>С полуночи до 4:00:</bold> Постоянные маршрутки от Casadelmar Plage до отелей Cala Rossa Bay Resort, Grand Hôtel Cala Rossa и Kilina."
+      "TimetableInfo": "<bold><colored>С полуночи до 4:00:</colored></bold> Постоянные маршрутки от Casadelmar Plage до отелей <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> и <bold>Kilina</bold>."
     },
+
     "Questions": "Свяжитесь с нами, <QuestionsLink>нажав сюда</QuestionsLink>, если у вас возникли вопросы по поводу трансферов."
   },
 
