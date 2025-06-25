@@ -49,7 +49,7 @@ export default function Navbar() {
                 {t("Nav.Activities")}
               </DropdownItem>
             </Dropdown>
-            <NavItem to="/List" $isHomePage={$isHomePage}>
+            <NavItem to="/GiftList" $isHomePage={$isHomePage}>
               {t("Nav.List")}
             </NavItem>
             <NavItem to="/Album" $isHomePage={$isHomePage}>
@@ -73,6 +73,7 @@ const Wrapper = styled.div`
   background-color: var(--color-element-sand);
   width: 100%;
   z-index: 10;
+  border-bottom: 0.5px solid var(--color-darker-sand);
 
   @media ${QUERIES.largeTabletAndUp} {
     flex-direction: column;
@@ -268,7 +269,7 @@ const DropdownItem = styled(NavLink)`
   &:hover {
     color: var(--color-primary-blue);
     background-color: var(--color-grey-beige);
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
 
   &.active {

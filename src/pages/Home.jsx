@@ -47,8 +47,8 @@ export default function Home() {
         </VideoBackground>
       ) : ( */}
 
-      <ContentWrapper>
-        <FadeInSection>
+      <FadeInSection>
+        <ContentWrapper>
           <ImageContainer>
             <picture>
               <source
@@ -73,8 +73,8 @@ export default function Home() {
             <Title>{t("Home.Title")}</Title>
             <Text>{t("Home.Text")}</Text>
           </TextContainer>
-        </FadeInSection>
-      </ContentWrapper>
+        </ContentWrapper>
+      </FadeInSection>
     </>
   );
 }
@@ -94,14 +94,23 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   justify-content: center;
   color: white;
   min-height: 100vh;
-  padding: 20px;
+  margin: 20px;
 
   @media ${QUERIES.tabletAndUp} {
-    padding: 40px;
+    margin: 40px;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    width: 60%;
+    margin: 20px auto;
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    width: 50%;
   }
 `;
 
@@ -110,8 +119,8 @@ const ImageContainer = styled.div``;
 const PhotoBackground = styled.img`
   object-fit: cover;
   object-position: 50% 52%;
-  min-height: 60dvh;
-  max-height: 50dvh;
+  min-height: 50vh;
+  max-height: 50vh;
   width: 100dvw;
 `;
 
@@ -137,13 +146,20 @@ const Title = styled.h1`
 const Text = styled.p`
   ${FONTS.titleFont};
   font-size: 1.5rem;
-  padding: 0 1rem;
   color: white;
   text-align: center;
   font-weight: 500;
-  text-align: start;
+  text-align: center;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    padding: 0 4rem;
+  }
 
   @media ${QUERIES.laptopAndUp} {
-    padding: 0 10rem;
+    padding: 0 6rem;
   }
-`;
+
+  @media ${QUERIES.desktopAndUp} {
+    padding: 0 8rem;
+  }
+`; //das

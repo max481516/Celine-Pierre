@@ -1,9 +1,10 @@
 import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
-import { FONTS, QUERIES } from "../../constants";
+import { FONTS, QUERIES, STYLES } from "../../constants";
 import Border from "../../media/Border.svg?react";
 
 import { useTranslation } from "react-i18next";
+import SectionTitle from "../../components/SectionTitle";
 
 export default function Services() {
   const { t } = useTranslation();
@@ -13,7 +14,7 @@ export default function Services() {
       <FrameContainer>
         <StyledBorder />
         <Title>{t("Services.Title")}</Title>
-        <SubTitle>{t("Services.SubTitle")}</SubTitle>
+        <SectionTitle title={t("Services.SubTitle")} />
         <SitterDescription>{t("Services.SitterDescription")}</SitterDescription>
         <InfoElement
           picture={
@@ -37,7 +38,7 @@ export default function Services() {
             </picture>
           }
         />
-        <SubTitle>{t("Services.SubTitle2")}</SubTitle>
+        <SectionTitle title={t("Services.SubTitle2")} />
         <InfoElement
           name="DESSANGE Coiffeur Porto Vecchio"
           location="Pl. Sainte-Croix, 20137 Porto-Vecchio"
@@ -87,18 +88,7 @@ const Wrapper = styled.div`
 `;
 
 const FrameContainer = styled.div`
-  @media ${QUERIES.laptopAndUp} {
-    padding: 2rem;
-    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
-      0 5px 14px 0 rgba(0, 0, 0, 0.18);
-    background-color: var(--color-light-sand);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 4rem;
-  }
+  ${STYLES.frameContainer}
 `;
 
 const Title = styled.h2`
@@ -108,20 +98,12 @@ const Title = styled.h2`
   text-align: center;
   text-transform: uppercase;
 
-  @media ${QUERIES.largeTabletAndUp} {
+  @media ${QUERIES.tabletAndUp} {
     font-size: 2.5rem;
   }
-`;
-
-const SubTitle = styled.h3`
-  ${FONTS.titleFont};
-  color: var(--color-primary-blue);
-  text-align: center;
-  font-size: 1.8rem;
 
   @media ${QUERIES.largeTabletAndUp} {
-    font-size: 2rem;
-    color: var(--color-primary-blue);
+    font-size: 2.5rem;
   }
 `;
 

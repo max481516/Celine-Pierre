@@ -5,8 +5,8 @@ import Dress from "../../media/Dress.svg?react";
 import Suit from "../../media/Suit.svg?react";
 import { FaSquareParking } from "react-icons/fa6";
 import { FaBus } from "react-icons/fa";
-import { FONTS, QUERIES } from "../../constants";
-import Separator from "../../media/Separator.svg?react";
+import { FONTS, QUERIES, STYLES } from "../../constants";
+import StyledSeparator from "../../components/Separator";
 import Border from "../../media/Border.svg?react";
 import { useTranslation, Trans } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -69,7 +69,10 @@ export default function Saturday() {
               <Text>
                 <Trans
                   i18nKey="Saturday.Ceremony.Transport.Text"
-                  components={{ bold: <Bold /> }}
+                  components={{
+                    bold: <Bold />,
+                    TimetableLink: <TimetableLink to="/Transports" />,
+                  }}
                 />
                 <br />
                 <ItalicText>
@@ -105,19 +108,21 @@ export default function Saturday() {
                 </LocationLink>
               </Text>
             </IconTextContainer>
-            <DressCodeWrapper>
-              <DressCodeTitle>
-                {t("Saturday.Ceremony.DressCode.Title")}
-              </DressCodeTitle>
-              <DressCodeIconTextContainer>
-                <StyledIcon as={Dress} />
-                <Text>{t("Saturday.Ceremony.DressCode.Girls")}</Text>
-              </DressCodeIconTextContainer>
-              <DressCodeIconTextContainer>
-                <StyledIcon as={Suit} />
-                <Text>{t("Saturday.Ceremony.DressCode.Boys")} </Text>
-              </DressCodeIconTextContainer>
-            </DressCodeWrapper>
+            <FadeInSection>
+              <DressCodeWrapper>
+                <DressCodeTitle>
+                  {t("Saturday.Ceremony.DressCode.Title")}
+                </DressCodeTitle>
+                <DressCodeIconTextContainer>
+                  <StyledIcon as={Dress} />
+                  <Text>{t("Saturday.Ceremony.DressCode.Girls")}</Text>
+                </DressCodeIconTextContainer>
+                <DressCodeIconTextContainer>
+                  <StyledIcon as={Suit} />
+                  <Text>{t("Saturday.Ceremony.DressCode.Boys")} </Text>
+                </DressCodeIconTextContainer>
+              </DressCodeWrapper>
+            </FadeInSection>
           </EventContainer>
         </FadeInSection>
 
@@ -176,7 +181,10 @@ export default function Saturday() {
               <Text>
                 <Trans
                   i18nKey="Saturday.Celebration.Transport.Text"
-                  components={{ bold: <Bold /> }}
+                  components={{
+                    bold: <Bold />,
+                    TimetableLink: <TimetableLink to="/Transports" />,
+                  }}
                 />
                 <br />
                 <ItalicText>
@@ -200,19 +208,21 @@ export default function Saturday() {
                 />
               </Text>
             </IconTextContainer>
-            <DressCodeWrapper>
-              <DressCodeTitle>
-                {t("Saturday.Celebration.DressCode.Title")}
-              </DressCodeTitle>
-              <DressCodeIconTextContainer>
-                <StyledIcon as={Dress} />
-                <Text>{t("Saturday.Celebration.DressCode.Girls")}</Text>
-              </DressCodeIconTextContainer>
-              <DressCodeIconTextContainer>
-                <StyledIcon as={Suit} />
-                <Text>{t("Saturday.Celebration.DressCode.Boys")}</Text>
-              </DressCodeIconTextContainer>
-            </DressCodeWrapper>
+            <FadeInSection>
+              <DressCodeWrapper>
+                <DressCodeTitle>
+                  {t("Saturday.Celebration.DressCode.Title")}
+                </DressCodeTitle>
+                <DressCodeIconTextContainer>
+                  <StyledIcon as={Dress} />
+                  <Text>{t("Saturday.Celebration.DressCode.Girls")}</Text>
+                </DressCodeIconTextContainer>
+                <DressCodeIconTextContainer>
+                  <StyledIcon as={Suit} />
+                  <Text>{t("Saturday.Celebration.DressCode.Boys")}</Text>
+                </DressCodeIconTextContainer>
+              </DressCodeWrapper>
+            </FadeInSection>
           </EventContainer>
         </FadeInSection>
         <StyledBottomBorder />
@@ -239,24 +249,16 @@ const Wrapper = styled.div`
 `;
 
 const FrameContainer = styled.div`
-  @media ${QUERIES.laptopAndUp} {
-    padding: 2rem;
-    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
-      0 5px 14px 0 rgba(0, 0, 0, 0.18);
-    background-color: var(--color-light-sand);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 4rem;
-  }
+  ${STYLES.frameContainer}
 `;
-
 const EventContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
+
+  &:last-of-type {
+    margin-top: 1rem;
+  }
 `;
 
 const Title = styled.h2`
@@ -266,8 +268,12 @@ const Title = styled.h2`
   text-align: center;
   text-transform: uppercase;
 
-  @media ${QUERIES.largeTabletAndUp} {
+  @media ${QUERIES.tabletAndUp} {
     font-size: 2.5rem;
+  }
+
+  @media ${QUERIES.largeTabletAndUp} {
+    font-size: 3rem;
   }
 `;
 
@@ -295,6 +301,16 @@ const ItalicText = styled.span`
 
 const TransportLink = styled(Link)`
   color: var(--color-primary-blue);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--color-light-blue);
+  }
+`;
+
+const TimetableLink = styled(Link)`
+  color: var(--color-primary-blue);
+  transition: color 0.3s ease;
 
   &:hover {
     color: var(--color-light-blue);
@@ -302,18 +318,15 @@ const TransportLink = styled(Link)`
 `;
 
 const DressCodeWrapper = styled.div`
-  border: 1px solid var(--color-primary-blue);
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color: var(--color-element-sand);
-  width: 90%;
-  margin: 0.5rem auto 0;
+  ${STYLES.dresscodeWrapper}
 `;
 
 const DressCodeTitle = styled.h2`
+  ${FONTS.titleFont};
+  color: var(--color-primary-blue);
+  text-transform: uppercase;
   text-align: center;
-  font-size: 1.2rem;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
 `;
 
 const DressCodeIconTextContainer = styled.div`
@@ -334,6 +347,8 @@ const ImageContainer = styled.div``;
 const StyledImage = styled.img`
   object-fit: cover;
   width: 100%;
+  /*   height: 300px;
+  object-position: 20% 20%; */
 `;
 
 const StyledIcon = styled.div`
@@ -345,14 +360,7 @@ const StyledIcon = styled.div`
   color: var(--color-primary-blue);
 `;
 
-const StyledSeparator = styled(Separator)`
-  width: 100%;
-  color: var(--color-primary-blue);
-  margin-bottom: 1rem;
-`;
-
 const StyledBorder = styled(Border)`
-  padding-bottom: 1rem;
   color: var(--color-primary-blue);
 `;
 

@@ -1,9 +1,13 @@
 import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
-import { FONTS, QUERIES } from "../../constants";
+import { FONTS, QUERIES, STYLES } from "../../constants";
 import Border from "../../media/Border.svg?react";
-import Separator from "../../media/Separator.svg?react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
+import SectionTitle from "../../components/SectionTitle";
+import StyledSeparator from "../../components/Separator";
+import ShuttleTimetable from "../../components/ShuttleTimetable";
+import FadeInSection from "../../components/FadeInSection";
+import { Link } from "react-router-dom";
 
 export default function Transports() {
   const { t } = useTranslation();
@@ -13,198 +17,111 @@ export default function Transports() {
       <FrameContainer>
         <StyledBorder />
         <Title>{t("Transports.Title")}</Title>
-        <Section>
-          <SectionTitle>{t("Transports.SectionTitle")}</SectionTitle>
-          <InfoElement
-            name="SIXT FIGARI"
-            location=" Route de l'aeroport, 20114 Figari"
-            locationLink="https://maps.app.goo.gl/9CuSXYuAhHtZ2D236"
-            picture={
+        <FadeInSection>
+          <Section>
+            <SectionTitle title={t("Transports.SectionTitle2")} />
+            <ImageContainer>
               <picture>
                 <source
                   srcSet="
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1750870995/vans_fo0zp2.webp 1600w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1750870995/vans_fo0zp2.webp 1100w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1750870995/vans_fo0zp2.webp 770w,
+      https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1750870995/vans_fo0zp2.webp 550w
+    "
+                  sizes="
+      (min-width: ${BREAKPOINTS.desktopMin}px) 1500px,
+      (min-width: ${BREAKPOINTS.laptopMin}px) 1100px,
+      (min-width: ${BREAKPOINTS.bigTabletMin}px) 770px,
+      (min-width: ${BREAKPOINTS.tabletMin}px) 550px,
+      100vw
+    "
+                  type="image/webp"
+                />
+                <Vans
+                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800,f_auto,q_auto/v1750870995/vans_fo0zp2.webp"
+                  loading="lazy"
+                  alt="Luxury shuttle vans"
+                />
+              </picture>
+            </ImageContainer>
+            <ShuttleTimetable
+              title={t("Transports.ShuttleTimetable1.Title")}
+              timetableInfo={
+                <Trans
+                  i18nKey="Transports.ShuttleTimetable1.TimetableInfo"
+                  components={{ bold: <Bold />, colored: <Colored /> }}
+                />
+              }
+            />
+            <ShuttleTimetable
+              title={t("Transports.ShuttleTimetable2.Title")}
+              timetableInfo={
+                <Trans
+                  i18nKey="Transports.ShuttleTimetable2.TimetableInfo"
+                  components={{ bold: <Bold />, colored: <Colored /> }}
+                />
+              }
+            />
+            <ShuttleTimetable
+              title={t("Transports.ShuttleTimetable3.Title")}
+              timetableInfo={
+                <Trans
+                  i18nKey="Transports.ShuttleTimetable3.TimetableInfo"
+                  components={{ bold: <Bold />, colored: <Colored /> }}
+                />
+              }
+            />
+            <ShuttleTimetable
+              title={t("Transports.ShuttleTimetable4.Title")}
+              timetableInfo={
+                <Trans
+                  i18nKey="Transports.ShuttleTimetable4.TimetableInfo"
+                  components={{ bold: <Bold />, colored: <Colored /> }}
+                />
+              }
+            />
+            <Questions>
+              <Trans
+                i18nKey="Transports.Questions"
+                components={{
+                  QuestionsLink: <QuestionsLink to="/Contacts" />,
+                }}
+              />
+            </Questions>
+          </Section>
+        </FadeInSection>
+        <StyledSeparator />
+        <FadeInSection>
+          <Section>
+            <SectionTitle title={t("Transports.SectionTitle")} />
+            <InfoElement
+              name="SIXT FIGARI"
+              location=" Route de l'aeroport, 20114 Figari"
+              locationLink="https://maps.app.goo.gl/9CuSXYuAhHtZ2D236"
+              picture={
+                <picture>
+                  <source
+                    srcSet="
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1733343408/SIXT_aryzms.jpg 1600w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1733343408/SIXT_aryzms.jpg 1100w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1733343408/SIXT_aryzms.jpg 770w,
       https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1733343408/SIXT_aryzms.jpg 550w"
-                  sizes="
+                    sizes="
       (min-width: 1200px) 1500px,
       (min-width: 1024px) 1100px,
       (min-width: 768px) 770px,
       100vw"
-                />
-                <SixtStyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1733343408/SIXT_aryzms.jpg"
-                  alt="SIXT Car Rental - View"
-                />
-              </picture>
-            }
-          />
-          {/* <StyledSeparator />
-          <InfoElement
-            name="Linda Beach"
-            location="Palombaggia Capu d'Acciaghju, 20137 Porto-Vecchio"
-            locationLink="https://maps.app.goo.gl/sMcb1D2taV3LBv1b7"
-            picture={
-              <picture>
-                <source
-                  srcSet="
-              https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1729091985/LindaBeach_lcgsxt.jpg 1600w,
-              https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1729091985/LindaBeach_lcgsxt.jpg 1100w,
-              https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1729091985/LindaBeach_lcgsxt.jpg 770w,
-              https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1729091985/LindaBeach_lcgsxt.jpg 550w"
-                  sizes="
-              (min-width: 1200px) 1500px,
-              (min-width: 1024px) 1100px,
-              (min-width: 768px) 770px,
-              100vw"
-                />
-                <StyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1729091985/LindaBeach_lcgsxt.jpg"
-                  alt="Linda Beach"
-                />
-              </picture>
-            }
-          />
-          <StyledSeparator />
-          <InfoElement
-            name="Da Mare Sea Lounge"
-            location="Plage de Palombaggia, 20137 Porto-Vecchio "
-            locationLink="https://maps.app.goo.gl/sYUf4z4GzUq5Kpos6"
-            picture={
-              <picture>
-                <source
-                  srcSet="
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1729091971/DaMare_ohwlx8.jpg 1600w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1729091971/DaMare_ohwlx8.jpg 1100w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1729091971/DaMare_ohwlx8.jpg 770w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1729091971/DaMare_ohwlx8.jpg 550w"
-                  sizes="
-    (min-width: 1200px) 1500px,
-    (min-width: 1024px) 1100px,
-    (min-width: 768px) 770px,
-    100vw"
-                />
-                <StyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1729091971/DaMare_ohwlx8.jpg"
-                  alt="Da Mare"
-                />
-              </picture>
-            }
-          />
-          <StyledSeparator />
-          <InfoElement
-            name="Le petit chose"
-            location="folacca, Rte de Palombaggia, 20137 Porto-Vecchio"
-            locationLink="https://maps.app.goo.gl/uJTBnpwrgSemKsmf7"
-            picture={
-              <picture>
-                <source
-                  srcSet="
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1729091988/LaPetiteChose_vo7eir.jpg 1600w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1729091988/LaPetiteChose_vo7eir.jpg 1100w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1729091988/LaPetiteChose_vo7eir.jpg 770w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1729091988/LaPetiteChose_vo7eir.jpg 550w"
-                  sizes="
-    (min-width: 1200px) 1500px,
-    (min-width: 1024px) 1100px,
-    (min-width: 768px) 770px,
-    100vw"
-                />
-                <StyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1729091988/LaPetiteChose_vo7eir.jpg"
-                  alt="La Petite Chose"
-                />
-              </picture>
-            }
-          />
-        </Section>
-        <Section>
-          <SectionTitle>{t("Beaches.Section2")}</SectionTitle>
-          <InfoElement
-            name="Bar Plage Santa Giulia"
-            location="Plage de Santa Giulia
-            CS 30102
-            20137 Porto-Vecchio"
-            locationLink="https://maps.app.goo.gl/8RzMteA5FmYrptSu8"
-            picture={
-              <picture>
-                <source
-                  srcSet="
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1729091975/SantaGiulia_dm7zdo.jpg 1600w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1729091975/SantaGiulia_dm7zdo.jpg 1100w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1729091975/SantaGiulia_dm7zdo.jpg 770w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1729091975/SantaGiulia_dm7zdo.jpg 550w"
-                  sizes="
-    (min-width: 1200px) 1500px,
-    (min-width: 1024px) 1100px,
-    (min-width: 768px) 770px,
-    100vw"
-                />
-                <StyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1729091975/SantaGiulia_dm7zdo.jpg"
-                  alt="Santa Giulia Beach"
-                />
-              </picture>
-            }
-          />
-          <StyledSeparator />
-          <InfoElement
-            name="Køstën Plage"
-            location="Baie de Santa Giulia
-            20137 Porto-Vecchio"
-            locationLink="https://maps.app.goo.gl/1E3SKCQZGih6wXDw9"
-            picture={
-              <picture>
-                <source
-                  srcSet="
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1729091967/KostenBeach_ni02pi.jpg 1600w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1729091967/KostenBeach_ni02pi.jpg 1100w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1729091967/KostenBeach_ni02pi.jpg 770w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1729091967/KostenBeach_ni02pi.jpg 550w"
-                  sizes="
-    (min-width: 1200px) 1500px,
-    (min-width: 1024px) 1100px,
-    (min-width: 768px) 770px,
-    100vw"
-                />
-                <StyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1729091967/KostenBeach_ni02pi.jpg"
-                  alt="Kosten Beach"
-                />
-              </picture>
-            }
-          />
-        </Section>
-        <Section>
-          <SectionTitle>{t("Beaches.Section3")}</SectionTitle>
-          <InfoElement
-            name="Maora Beach"
-            location="Plage de Maora Golfe de Santa Manza , 20169 Bonifacio"
-            locationLink="https://maps.app.goo.gl/1rhc9vqJM15WbkJQ6"
-            picture={
-              <picture>
-                <source
-                  srcSet="
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1600,f_auto,q_auto/v1729091982/MaoraBeach_pxfp7g.jpg 1600w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_1100,f_auto,q_auto/v1729091982/MaoraBeach_pxfp7g.jpg 1100w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_770,f_auto,q_auto/v1729091982/MaoraBeach_pxfp7g.jpg 770w,
-    https://res.cloudinary.com/dqs3mkxnr/image/upload/w_550,f_auto,q_auto/v1729091982/MaoraBeach_pxfp7g.jpg 550w"
-                  sizes="
-    (min-width: 1200px) 1500px,
-    (min-width: 1024px) 1100px,
-    (min-width: 768px) 770px,
-    100vw"
-                />
-                <StyledImage
-                  src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1729091982/MaoraBeach_pxfp7g.jpg"
-                  alt="Maora Beach"
-                />
-              </picture>
-            }
-          />
-        </Section> */}
-        </Section>
+                  />
+                  <SixtStyledImage
+                    src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1733343408/SIXT_aryzms.jpg"
+                    alt="SIXT Car Rental - View"
+                  />
+                </picture>
+              }
+            />
+          </Section>
+        </FadeInSection>
         <StyledBottomBorder />
       </FrameContainer>
     </Wrapper>
@@ -229,18 +146,7 @@ const Wrapper = styled.div`
 `;
 
 const FrameContainer = styled.div`
-  @media ${QUERIES.laptopAndUp} {
-    padding: 2rem;
-    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
-      0 5px 14px 0 rgba(0, 0, 0, 0.18);
-    background-color: var(--color-light-sand);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 4rem;
-  }
+  ${STYLES.frameContainer}
 `;
 
 const Title = styled.h2`
@@ -251,20 +157,22 @@ const Title = styled.h2`
   text-transform: uppercase;
   font-size: 2rem;
 
+  @media ${QUERIES.tabletAndUp} {
+    font-size: 2.5rem;
+  }
+
   @media ${QUERIES.largeTabletAndUp} {
     font-size: 2.5rem;
   }
 `;
 
-const Section = styled.section``;
-
-const SectionTitle = styled.h2`
-  ${FONTS.titleFont};
-  font-size: 1.9rem;
-  color: var(--color-primary-blue);
-  text-align: center;
-  margin-top: 0.5;
+const Section = styled.section`
+  &:last-of-type {
+    padding-top: 1rem;
+  }
 `;
+
+const ImageContainer = styled.div``;
 
 const StyledImage = styled.img`
   object-fit: cover;
@@ -283,10 +191,35 @@ const StyledBottomBorder = styled(StyledBorder)`
   transform: rotate(180deg);
 `;
 
-const StyledSeparator = styled(Separator)`
-  color: var(--color-primary-blue);
-`;
-
 const SixtStyledImage = styled(StyledImage)`
   max-height: 450px;
+`;
+
+const Vans = styled(StyledImage)`
+  max-height: 400px;
+`;
+
+const Questions = styled.p`
+  text-align: center;
+  font-style: italic;
+  padding: 1rem 0;
+`;
+
+const QuestionsLink = styled(Link)`
+  color: var(--color-primary-blue);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--color-light-blue);
+  }
+`;
+
+// JSON i18n text styling
+const Bold = styled.span`
+  font-weight: 600;
+`;
+
+const Colored = styled.span`
+  color: var(--color-primary-blue);
+  text-decoration: underline;
 `;

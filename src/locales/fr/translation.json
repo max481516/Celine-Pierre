@@ -32,7 +32,7 @@
     "WhereLocation": "Restaurant MAORA BEACH",
     "Parking": "<bold>Parking :</bold> Le Maora Beach dispose d’un parking",
     "DressCode": {
-      "Title": "Dress Code : ",
+      "Title": "DRESS CODE : ",
       "Text": "Venez vêtus de blanc de la tête aux pieds ! Optez pour des tenues légères et élégantes pour compléter l’ambiance chic et décontractée de la plage. N’oubliez pas de prendre vos maillots de bain et vos chapeaux ! Il risque de faire très chaud."
     }
   },
@@ -44,31 +44,31 @@
       "Where": "Où : ",
       "WhereLocation": "Église Saint Jean Baptiste, 2-8 Rue Joseph Pietri Maire, 20137 Porto-Vecchio",
       "Transport": {
-        "Text": "<bold>Transport :</bold> Merci de prévoir votre arrivée à l’église par vos propres moyens.",
-        "ItalicText": "À l’issue de la cérémonie religieuse, nous vous invitons à rejoindre vos hôtels respectifs. Une navette viendra ensuite vous chercher pour la soirée. (Pas tous les hôtels sont desservis, rdv sur la page <0>\"Hébergements\"</0> pour plus d'informations)"
+        "Text": "<bold>Transport :</bold> Vous pouvez organiser votre propre trajet ou emprunter les navettes. <TimetableLink>Cliquez ici</TimetableLink> pour consulter les horaires.",
+        "ItalicText": "(Toutes les navettes ne desservent pas tous les hôtels. Consultez la page <0>\"Hébergements\"</0> pour plus d'informations.)"
       },
       "Parking": "Parking : ",
       "ParkingLocation1": "Parking Santa Catalina",
       "OrParking": "ou ",
       "ParkingLocation2": "Parking Rue Pasteur",
       "DressCode": {
-        "Title": "Dress Code : ",
+        "Title": "DRESS CODE : ",
         "Girls": "Les filles, sortez vos plus belles robes de cocktail. Laissez vos pastels au placard et optez pour des teintes éclatantes qui feront briller cette journée encore plus.",
         "Boys": "Les garçons, éblouissez-nous avec vos costumes élégants assortis de vos plus belles cravates."
       }
     },
     "Celebration": {
-      "Title": "SAMEDI : LA CÉLÉBRATION",
+      "Title": "SAMEDI : LA RÉCEPTION",
       "When": "<bold>Quand : </bold> Le 6 Septembre 2025 à partir de 18:30 jusqu’au lever de soleil",
       "Where": "Où : ",
       "WhereLocation": "La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio",
       "Transport": {
-        "Text": "<bold>Transport : </bold> Un service de navette sera assuré entre vos hôtels et La Plage Casadelmar.",
+        "Text": "<bold>Transport : </bold> Un service de navette sera assuré entre vos hôtels et La Plage Casadelmar. <TimetableLink>Cliquez ici</TimetableLink> pour consulter les horaires.",
         "ItalicText": "(Pas tous les hôtels sont desservis, rdv sur la page <0>\"Hébergements\"</0> pour plus d'informations)"
       },
       "Parking": "<bold>Parking : </bold> Si toutefois, vous souhaitez venir à la soirée avec votre voiture, l'hôtel La Plage Casadelmar dispose d’un parking.",
       "DressCode": {
-        "Title": "Dress Code : ",
+        "Title": "DRESS CODE : ",
         "Girls": "Les filles, sortez vos plus belles robes de cocktail. Laissez vos pastels au placard et optez pour des teintes éclatantes qui feront briller cette journée encore plus. Pensez à prendre des chaussures plates pour enflammer le dance floor !",
         "Boys": "Les garçons, éblouissez-nous avec vos costumes élégants assortis de vos plus belles cravates."
       }
@@ -82,7 +82,7 @@
     "WhereLocation": "La plage Casadelmar, Presqu’île du Benedettu, 20137 Porto-Veccio",
     "Parking": "<bold>Parking :</bold> L'hôtel La Plage Casadelmar dispose d’un parking",
     "DressCode": {
-      "Title": "Dress Code : ",
+      "Title": "DRESS CODE : ",
       "Text": "Thème Dolce Vita, laissez libre cours à votre imagination."
     }
   },
@@ -104,15 +104,15 @@
 
   "R&B": {
     "Title": "RESTAURANTS & BARS",
-    "Section1": "CENTRE VILLE",
-    "Section2": "AMBIANCÉS"
+    "Section1": "Centre-ville:",
+    "Section2": "Ambiancés:"
   },
 
   "Beaches": {
     "Title": "PLAGES",
-    "Section1": "Plages de Palombaggia :",
-    "Section2": "Plage de Santa Giulia :",
-    "Section3": "Bonifacio :"
+    "Section1": "Plages de Palombaggia:",
+    "Section2": "Plage de Santa Giulia:",
+    "Section3": "Bonifacio:"
   },
 
   "Activities": {
@@ -121,18 +121,38 @@
 
   "Services": {
     "Title": "SERVICES",
-    "SubTitile": "Baby-sitters :",
+    "SubTitle": "Baby-sitters:",
     "SitterDescription": "Nous avons prévu une baby-sitter pour garder vos petits, afin que vous puissiez profiter pleinement de votre soirée.",
-    "SubTitle2": "BEAUTÉ :"
+    "SubTitle2": "Beauté:"
   },
 
   "Transports": {
     "Title": "TRANSPORTS",
-    "SectionTitle": "Locations Aéroport de Figari:"
+    "SectionTitle": "Locations Aéroport de Figari:",
+    "SectionTitle2": "Navettes du Samedi 6 Septembre:",
+    "ShuttleTimetable1": {
+      "Title": "Trajets vers l’église Saint Jean Baptiste:",
+      "TimetableInfo": "<bold><colored>12h45 :</colored></bold> Départ des navettes depuis les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina</bold> vers l’église.\n<bold><colored>13h15 :</colored></bold> Départ des navettes depuis Casadelmar Plage vers l’église. \n<bold><colored>13h15 :</colored></bold> Départ des navettes depuis <bold>Le Belvédère</bold> vers l’église."
+    },
+    "ShuttleTimetable2": {
+      "Title": "Après la cérémonie:",
+      "TimetableInfo": "<bold><colored>16h00 :</colored></bold> Navettes retour de l’église vers Casadelmar Plage. \n<bold><colored>16h00 :</colored></bold> Navettes retour de l’église vers les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina.</bold>"
+    },
+    "ShuttleTimetable3": {
+      "Title": "Trajets vers la réception:",
+      "TimetableInfo": "<bold><colored>18h15 :</colored></bold> Départ des navettes depuis les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina</bold> vers Casadelmar Plage."
+    },
+    "ShuttleTimetable4": {
+      "Title": "Retour en fin de soirée:",
+      "TimetableInfo": "<bold><colored>De minuit à 4h00 :</colored></bold> Navettes en continu depuis Casadelmar Plage vers les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina.</bold>"
+    },
+    "Questions": "N’hésitez pas à nous contacter, <QuestionsLink>en cliquant ici</QuestionsLink>, si vous avez des questions concernant les navettes."
   },
 
   "List": {
-    "Text": "Bientôt disponible!"
+    "Text": "Votre présence à nos côtés est le plus beau cadeau que nous pouvions espérer. Mais si vous souhaitez malgré tout marquer l’occasion par une attention, nous avons préparé une petite liste de cadeaux pour nous aider à bien commencer cette nouvelle aventure à deux. ",
+    "Link": "\nCliquez ici",
+    "ContinuedText": "pour consulter la liste et y contribuer, uniquement si vous en avez envie."
   },
 
   "Album": {
@@ -142,7 +162,7 @@
       "Title": "Commentaires",
       "EmptyState": "Rien ici pour le moment...",
       "CommentPlaceholder": "Ajouter un commentaire...",
-      "NamePlaceholder": "Nom (optionnel)",
+      "NamePlaceholder": "Nom",
       "Submit": "Envoyer"
     }
   },
@@ -150,7 +170,15 @@
   "Contacts": {
     "Title": "CONTACTS",
     "Mail": "Email",
-    "Address": "Addresse"
+    "Address": "Addresse",
+    "Form": {
+      "Title": "Des questions?\nLaissez-nous un message ici et nous vous répondrons bientôt.",
+      "Name": "Votre nom :",
+      "NamePlaceholder": "Entrez votre nom",
+      "Message": "Votre message :",
+      "MessagePlaceholder": "Entrez votre message ici:",
+      "Submit": "Soumettre"
+    }
   },
 
   "RSVP": {
@@ -170,7 +198,7 @@
     "Message": "Laissez un message:",
     "MessagePlaceholder": "Avez-vous des questions?",
     "Submit": "Soumettre",
-    "Confirmation": "Merci pour votre réponse!",
+    "Confirmation": "Merci! Nous vous répondrons bientôt.",
     "Error": "Il y a eu une erreur. Veuillez réessayer, ou écrivez-nous un message sur:",
     "ContactText": "Si vous rencontrez des problèmes avec le formulaire, veuillez nous contacter sur:",
     "Info": "Veuillez vérifier que vous n'êtes pas un robot et cliquez sur soumettre:",

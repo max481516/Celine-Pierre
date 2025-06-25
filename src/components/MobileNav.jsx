@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { NavLink, useLocation } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { useEffect, useState } from "react";
-import { FONTS, QUERIES } from "../constants";
+import { QUERIES } from "../constants";
 import { useTranslation } from "react-i18next";
 import { useStore } from "../stores/store.js";
 import i18n from "../i18n/i18n.js";
@@ -82,7 +82,7 @@ export default function MobileNav() {
           </MobileDropdownItem>
         </MobileDropdown>
 
-        <MobileNavItem to="/List" onClick={handleNavItemClick}>
+        <MobileNavItem to="/GiftList" onClick={handleNavItemClick}>
           {t("Nav.List")}
         </MobileNavItem>
         <MobileNavItem to="/Album" onClick={handleNavItemClick}>
@@ -114,19 +114,19 @@ const MobileDropdown = ({ name, children, isOpen, toggleDropdown }) => {
 // Styled Components
 const MobileNavContainer = styled.div`
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   top: 0;
   right: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: var(--color-light-sand);
   transform: ${(props) =>
     props.$isOpen ? "translateX(0)" : "translateX(100%)"};
   transition: transform 0.3s ease-in-out;
   z-index: 999;
-
-  @media ${QUERIES.tabletAndUp} {
-    width: 50%;
-  }
 
   @media ${QUERIES.largeTabletAndUp} {
     display: none;
@@ -162,10 +162,14 @@ const MobileNavMenu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  justify-content: center;
+  width: 100%;
+  max-height: 80vh;
+  padding-bottom: 20px;
+  overflow-y: auto;
 
   @media ${QUERIES.tabletAndUp} {
-    margin-top: 200px;
+    margin-top: -20%;
   }
 `;
 
@@ -174,6 +178,7 @@ const MobileNavItem = styled(NavLink)`
   font-size: 1.5rem;
   padding: 1rem;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover {
     color: var(--color-light-blue);
@@ -182,6 +187,10 @@ const MobileNavItem = styled(NavLink)`
 
   &.active {
     color: var(--color-primary-blue);
+  }
+
+  @media (max-width: 358px) {
+    font-size: 1rem;
   }
 `;
 
@@ -204,9 +213,10 @@ const MobileDropdownItem = styled(NavLink)`
   padding: 12px 16px;
   display: block;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover {
-    background-color: var(--color-dark-sand);
+    color: var(--color-primary-blue);
     transition: all 0.2s ease-in-out;
   }
 

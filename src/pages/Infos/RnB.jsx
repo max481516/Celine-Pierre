@@ -1,9 +1,10 @@
 import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
-import { FONTS, QUERIES } from "../../constants";
+import { FONTS, QUERIES, STYLES } from "../../constants";
 import Border from "../../media/Border.svg?react";
-import Separator from "../../media/Separator.svg?react";
 import { useTranslation } from "react-i18next";
+import StyledSeparator from "../../components/Separator";
+import SectionTitle from "../../components/SectionTitle";
 
 export default function RnB() {
   const { t } = useTranslation();
@@ -14,7 +15,7 @@ export default function RnB() {
         <StyledBorder />
         <Title>{t("R&B.Title")}</Title>
         <Section>
-          <SectionTitle>{t("R&B.Section1")}</SectionTitle>
+          <SectionTitle title={t("R&B.Section1")} />
           <InfoElement
             name="Restaurant Corse FURANA"
             location="Rue de la Porte Génoise, 20137 Porto-Vecchio"
@@ -120,7 +121,7 @@ export default function RnB() {
           />
         </Section>
         <Section style={{ paddingTop: "1rem" }}>
-          <SectionTitle>{t("R&B.Section2")}</SectionTitle>
+          <SectionTitle title={t("R&B.Section2")} />
           <InfoElement
             name="B 52"
             location="Quai Jérôme Comparetti, 20169 Bonifacio"
@@ -223,18 +224,7 @@ const Wrapper = styled.div`
 `;
 
 const FrameContainer = styled.div`
-  @media ${QUERIES.laptopAndUp} {
-    padding: 2rem;
-    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
-      0 5px 14px 0 rgba(0, 0, 0, 0.18);
-    background-color: var(--color-light-sand);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 4rem;
-  }
+  ${STYLES.frameContainer}
 `;
 
 const Title = styled.h2`
@@ -245,20 +235,16 @@ const Title = styled.h2`
   text-align: center;
   text-transform: uppercase;
 
+  @media ${QUERIES.tabletAndUp} {
+    font-size: 2.5rem;
+  }
+
   @media ${QUERIES.largeTabletAndUp} {
     font-size: 2.5rem;
   }
 `;
 
 const Section = styled.section``;
-
-const SectionTitle = styled.h2`
-  ${FONTS.titleFont};
-  font-size: 1.9rem;
-  color: var(--color-primary-blue);
-  text-align: center;
-  margin-top: 0.5;
-`;
 
 const StyledImage = styled.img`
   object-fit: cover;
@@ -275,8 +261,4 @@ const StyledBottomBorder = styled(StyledBorder)`
   padding-bottom: 0;
   padding-top: 1rem;
   transform: rotate(180deg);
-`;
-
-const StyledSeparator = styled(Separator)`
-  color: var(--color-primary-blue);
 `;

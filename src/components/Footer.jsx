@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import styled, { keyframes, css } from "styled-components";
 import BackToTopIcon from "../media/BackToTop.svg?react";
 import { useLocation } from "react-router-dom";
+import { QUERIES } from "../constants";
 
 export default function Footer() {
   const iconRef = useRef(null);
@@ -82,8 +83,7 @@ const moveUpDown = keyframes`
 const FooterContainer = styled.footer`
   background: var(--color-element-sand);
   text-align: center;
-  border-top: ${({ $isHomePage }) =>
-    $isHomePage ? "none" : "1px solid var(--color-darker-sand)"};
+  border-top: 1px solid var(--color-darker-sand);
   width: 100%;
   height: 5rem;
   position: relative;
@@ -97,6 +97,10 @@ const BackToTop = styled.a`
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
   z-index: 3000;
+
+  @media ${QUERIES.laptopAndUp} {
+    right: 16px;
+  }
 
   animation: ${({ $isAnimating }) =>
     $isAnimating

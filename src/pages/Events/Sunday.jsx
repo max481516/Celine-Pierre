@@ -3,7 +3,7 @@ import { IoMdClock } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaSquareParking } from "react-icons/fa6";
 import People from "../../media/People.svg?react";
-import { FONTS, QUERIES } from "../../../src/constants";
+import { FONTS, QUERIES, STYLES } from "../../../src/constants";
 import Border from "../../media/Border.svg?react";
 import { Trans, useTranslation } from "react-i18next";
 import FadeInSection from "../../components/FadeInSection";
@@ -71,13 +71,15 @@ export default function Sunday() {
                 />
               </Text>
             </IconTextContainer>
-            <DressCodeWrapper>
-              <DressCodeTitle>{t("Sunday.DressCode.Title")}</DressCodeTitle>
-              <DressCodeIconTextContainer>
-                <StyledIcon as={People} />
-                <Text>{t("Sunday.DressCode.Text")}</Text>
-              </DressCodeIconTextContainer>
-            </DressCodeWrapper>
+            <FadeInSection>
+              <DressCodeWrapper>
+                <DressCodeTitle>{t("Sunday.DressCode.Title")}</DressCodeTitle>
+                <DressCodeIconTextContainer>
+                  <StyledIcon as={People} />
+                  <Text>{t("Sunday.DressCode.Text")}</Text>
+                </DressCodeIconTextContainer>
+              </DressCodeWrapper>
+            </FadeInSection>
           </EventContainer>
         </FadeInSection>
         <StyledBottomBorder />
@@ -104,18 +106,7 @@ const Wrapper = styled.div`
 `;
 
 const FrameContainer = styled.div`
-  @media ${QUERIES.laptopAndUp} {
-    padding: 2rem;
-    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
-      0 5px 14px 0 rgba(0, 0, 0, 0.18);
-    background-color: var(--color-light-sand);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 4rem;
-  }
+  ${STYLES.frameContainer}
 `;
 
 const EventContainer = styled.div`
@@ -130,6 +121,10 @@ const Title = styled.h2`
   padding: 0.5rem 0;
   text-align: center;
   text-transform: uppercase;
+
+  @media ${QUERIES.tabletAndUp} {
+    font-size: 2.5rem;
+  }
 
   @media ${QUERIES.largeTabletAndUp} {
     font-size: 2.5rem;
@@ -148,18 +143,15 @@ const LocationLink = styled.a`
 `;
 
 const DressCodeWrapper = styled.div`
-  border: 1px solid var(--color-primary-blue);
-  background: var(--color-element-sand);
-  border-radius: 8px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  width: 90%;
-  margin: 0.5rem auto 0;
+  ${STYLES.dresscodeWrapper}
 `;
 
 const DressCodeTitle = styled.h2`
+  ${FONTS.titleFont};
+  color: var(--color-primary-blue);
+  text-transform: uppercase;
   text-align: center;
-  font-size: 1.2rem;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
 `;
 
 const DressCodeIconTextContainer = styled.div`

@@ -119,8 +119,10 @@ const Container = styled.div`
   max-height: 50%;
   max-width: 500px;
   background-color: var(--color-element-sand);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
   z-index: 20000;
   overflow: auto;
@@ -191,7 +193,7 @@ const Comment = styled.div`
   position: relative;
   padding: 8px;
   margin-bottom: 24px;
-  background-color: var(--color-lighter-sand);
+  background-color: var(--color-dark-sand);
   border-radius: 8px;
   color: #000;
   white-space: pre-wrap;
@@ -219,7 +221,8 @@ const CommentInput = styled.textarea`
   padding: 8px;
   margin: 0;
   border: 1px solid #ccc;
-
+  border: 1px solid var(--color-dark-sand);
+  background-color: var(--color-lighter-sand);
   border-radius: 8px;
   margin-right: 8px;
   resize: none;
@@ -234,13 +237,18 @@ const CommentInput = styled.textarea`
     border-color: var(--color-primary-blue);
     max-height: 150px;
   }
+
+  &::placeholder {
+    font-size: calc(14rem / 16);
+  }
 `;
 
 const NameInput = styled.input`
   flex: 0.4;
   padding: 8px;
   margin: 0;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-dark-sand);
+  background-color: var(--color-lighter-sand);
   border-radius: 8px;
   margin-right: 8px;
   font-size: 1rem;
@@ -249,6 +257,10 @@ const NameInput = styled.input`
   &:focus {
     outline: none;
     border-color: var(--color-primary-blue);
+  }
+
+  &::placeholder {
+    font-size: calc(14rem / 16);
   }
 `;
 

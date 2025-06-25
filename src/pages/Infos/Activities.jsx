@@ -1,9 +1,10 @@
 import InfoElement from "../../components/InfoElement";
 import styled from "styled-components";
-import { FONTS, QUERIES } from "../../constants";
+import { FONTS, QUERIES, STYLES } from "../../constants";
 import Border from "../../media/Border.svg?react";
-import Separator from "../../media/Separator.svg?react";
+
 import { useTranslation } from "react-i18next";
+import StyledSeparator from "../../components/Separator";
 
 export default function RnB() {
   const { t } = useTranslation();
@@ -90,18 +91,7 @@ const Wrapper = styled.div`
 `;
 
 const FrameContainer = styled.div`
-  @media ${QUERIES.laptopAndUp} {
-    padding: 2rem;
-    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
-      0 5px 14px 0 rgba(0, 0, 0, 0.18);
-    background-color: var(--color-light-sand);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 4rem;
-  }
+  ${STYLES.frameContainer}
 `;
 
 const Title = styled.h2`
@@ -111,6 +101,10 @@ const Title = styled.h2`
   padding: 0.5rem 0;
   text-align: center;
   text-transform: uppercase;
+
+  @media ${QUERIES.tabletAndUp} {
+    font-size: 2.5rem;
+  }
 
   @media ${QUERIES.largeTabletAndUp} {
     font-size: 2.5rem;
@@ -134,8 +128,4 @@ const StyledBottomBorder = styled(StyledBorder)`
   padding-bottom: 0;
   padding-top: 1rem;
   transform: rotate(180deg);
-`;
-
-const StyledSeparator = styled(Separator)`
-  color: var(--color-primary-blue);
 `;

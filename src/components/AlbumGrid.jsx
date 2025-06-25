@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Masonry from "react-masonry-css";
 import Lightbox, {
   IconButton,
@@ -8,9 +8,7 @@ import "yet-another-react-lightbox/styles.css";
 import Video from "yet-another-react-lightbox/plugins/video";
 import Share from "yet-another-react-lightbox/plugins/share";
 import styled from "styled-components";
-import { FaPlay, FaRegCommentDots } from "react-icons/fa6";
-import { RiDownloadLine } from "react-icons/ri";
-import { IoIosShareAlt, IoMdClose } from "react-icons/io";
+import { FaPlay } from "react-icons/fa6";
 
 import {
   collection,
@@ -23,12 +21,46 @@ import {
 import { firestore } from "../firebase/firebaseConfig";
 import { QUERIES } from "../constants";
 import CommentSection from "./CommentSection";
+import { IoCloseOutline, IoShareSocialOutline } from "react-icons/io5";
+import { LiaCommentAlt } from "react-icons/lia";
+import EmojiReactions from "./EmojiReactions";
+import { GoDownload } from "react-icons/go";
 
 export default function AlbumGrid({ mediaItems }) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [comments, setComments] = useState([]);
   const [isCommentsOpen, setIsCommentsOpen] = useState(false);
+
+  const slides = useMemo(() => {
+    return mediaItems
+      .map((item) => {
+        if (!item || !item.type || !item.url) return null;
+
+        if (item.type.startsWith("image/")) {
+          return {
+            src: item.url,
+            type: "image",
+            alt: item.name,
+            mediaItem: item,
+          };
+        } else if (item.type.startsWith("video/")) {
+          return {
+            type: "video",
+            poster: item.url,
+            sources: [
+              {
+                src: item.url,
+                type: item.type,
+              },
+            ],
+            mediaItem: item,
+          };
+        }
+        return null;
+      })
+      .filter((slide) => slide !== null);
+  }, [mediaItems]);
 
   const openLightbox = (index) => {
     setCurrentIndex(index);
@@ -59,7 +91,6 @@ export default function AlbumGrid({ mediaItems }) {
         alert("Failed to download the file.");
       });
   };
-
   // Function to add a new comment
   const addComment = async (text, name) => {
     const mediaItemId = slides[currentIndex].mediaItem.id;
@@ -79,13 +110,12 @@ export default function AlbumGrid({ mediaItems }) {
   };
 
   // Fetch comments when lightbox opens or current slide changes
+
   useEffect(() => {
     if (isOpen && slides[currentIndex]) {
       const mediaItemId = slides[currentIndex].mediaItem.id;
-      if (!mediaItemId) {
-        console.error("Media item ID is undefined");
-        return;
-      }
+      if (!mediaItemId) return;
+
       const commentsRef = collection(
         firestore,
         `mediaItems/${mediaItemId}/comments`
@@ -102,45 +132,17 @@ export default function AlbumGrid({ mediaItems }) {
 
       return () => unsubscribe();
     }
-  }, [isOpen, currentIndex]);
-
-  const slides = mediaItems
-    .map((item) => {
-      if (!item || !item.type || !item.url) return null;
-
-      if (item.type.startsWith("image/")) {
-        return {
-          src: item.url,
-          type: "image",
-          alt: item.name,
-          mediaItem: item,
-        };
-      } else if (item.type.startsWith("video/")) {
-        return {
-          type: "video",
-          poster: item.url,
-          sources: [
-            {
-              src: item.url,
-              type: item.type,
-            },
-          ],
-          mediaItem: item,
-        };
-      }
-      return null;
-    })
-    .filter((slide) => slide !== null);
+  }, [isOpen, currentIndex, slides]);
 
   // Custom Download Button
   function DownloadButton({ handleDownload }) {
     const { currentSlide } = useLightboxState();
 
     return (
-      <IconButton
-        size={20}
+      <DownloadIconButton
+        className="lightbox-toolbar-button"
         label="Download"
-        icon={RiDownloadLine}
+        icon={GoDownload}
         disabled={!currentSlide}
         onClick={() => {
           if (currentSlide && currentSlide.mediaItem) {
@@ -154,18 +156,18 @@ export default function AlbumGrid({ mediaItems }) {
   // Custom Comments Toggle Button
   function CommentsButton() {
     return (
-      <IconButton
+      <CommentsIconButton
+        className="lightbox-toolbar-button"
         label="Comments"
-        icon={FaRegCommentDots}
+        icon={LiaCommentAlt}
         onClick={() => setIsCommentsOpen(!isCommentsOpen)}
       />
     );
   }
 
-  //Breakpointas for Masonry Grid
+  // Breakpoints for Masonry Grid
   const breakpointColumns = {
     default: 3,
-
     700: 2,
     500: 1,
   };
@@ -190,6 +192,18 @@ export default function AlbumGrid({ mediaItems }) {
       </MasonryGrid>
 
       <Lightbox
+        styles={{
+          container: {
+            padding: "64px 0",
+            background: "var(--color-lighter-sand)",
+          },
+          icon: {
+            color: "var(--color-primary-blue)",
+          },
+          button: {
+            filter: "none",
+          },
+        }}
         open={isOpen}
         close={() => setIsOpen(false)}
         slides={slides}
@@ -202,21 +216,29 @@ export default function AlbumGrid({ mediaItems }) {
         }}
         toolbar={{
           buttons: [
-            <DownloadButton key="download" handleDownload={handleDownload} />,
             <CommentsButton key="comments" />,
+            <DownloadButton key="download" handleDownload={handleDownload} />,
+            "share",
             "close",
           ],
         }}
         render={{
-          iconShare: () => <IoIosShareAlt size={34} />,
-          iconClose: () => <IoMdClose size={36} />,
+          iconShare: () => <ShareButton size={30} />,
+          iconClose: () => <CloseButton size={39} />,
           controls: () => (
-            <CommentSection
-              comments={comments}
-              addComment={addComment}
-              isOpen={isCommentsOpen}
-              toggleOpen={() => setIsCommentsOpen(!isCommentsOpen)}
-            />
+            <>
+              <CommentSection
+                comments={comments}
+                addComment={addComment}
+                isOpen={isCommentsOpen}
+                toggleOpen={() => setIsCommentsOpen(!isCommentsOpen)}
+              />
+              {slides[currentIndex]?.mediaItem?.id && (
+                <EmojiReactions
+                  mediaItemId={slides[currentIndex].mediaItem.id}
+                />
+              )}
+            </>
           ),
         }}
         on={{
@@ -297,5 +319,41 @@ const PlayButton = styled.button`
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.8);
+  }
+`;
+
+const CommentsIconButton = styled(IconButton)`
+  width: 49px;
+  height: 49px;
+  padding-top: 12px;
+  &:hover svg {
+    color: var(--color-light-blue) !important;
+    transition: color 0.3s ease-in-out;
+  }
+`;
+
+const DownloadIconButton = styled(IconButton)`
+  width: 48px;
+  height: 48px;
+  padding-top: 10px;
+  &:hover svg {
+    color: var(--color-light-blue) !important;
+    transition: color 0.3s ease-in-out;
+  }
+`;
+
+const ShareButton = styled(IoShareSocialOutline)`
+  color: var(--color-primary-blue);
+  &:hover {
+    color: var(--color-light-blue);
+    transition: color 0.3s ease-in-out;
+  }
+`;
+
+const CloseButton = styled(IoCloseOutline)`
+  color: var(--color-primary-blue);
+  &:hover {
+    color: var(--color-light-blue);
+    transition: color 0.3s ease-in-out;
   }
 `;

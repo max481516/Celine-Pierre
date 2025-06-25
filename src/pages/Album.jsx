@@ -112,7 +112,7 @@ const Title = styled.h2`
   text-align: center;
   text-transform: uppercase;
 
-  @media ${QUERIES.largeTabletAndUp} {
+  @media ${QUERIES.tabletAndUp} {
     font-size: 2.5rem;
   }
 `;
@@ -129,7 +129,7 @@ const StyledBorder = styled(Border)`
 `;
 
 const StyledBottomBorder = styled(StyledBorder)`
-  padding-bottom: 0;
+  padding-bottom: 1rem;
   padding-top: 1rem;
   transform: rotate(180deg);
 `;

@@ -26,12 +26,12 @@
 
   "Friday": {
     "Title": "FRIDAY : BEACH PARTY",
-    "When": "<bold>When :</bold> Septembre 5, 2025 from Noon until 6:00 PM",
+    "When": "<bold>When :</bold> September 5, 2025 from Noon until 6:00 PM",
     "Where": "Where : ",
     "WhereLocation": "Restaurant MAORA BEACH",
     "Parking": "<bold>Parking :</bold> Parking available on site",
     "DressCode": {
-      "Title": "Dress Code : ",
+      "Title": "DRESS CODE : ",
       "Text": "Come dressed in white from head to toe! Opt for light and elegant outfits to complement the chic and relaxed beach atmosphere. Don’t forget to bring your swimsuits and hats! It might be very hot."
     }
   },
@@ -43,31 +43,31 @@
       "Where": "Where : ",
       "WhereLocation": "Saint John the Baptist Church, 2-8 Rue Joseph Pietri Maire, 20137 Porto-Vecchio",
       "Transport": {
-        "Text": "<bold>Transport :</bold> Please arrange your own transportation to the church.",
-        "ItalicText": "After the religious ceremony, we invite you to return to your respective hotels. A shuttle will then pick you up for the evening. (Not all hotels are served, see the page <0>\"Accommodations\"</0> for more information)"
+        "Text": "<bold>Transport:</bold> You may arrange your own transport or take the shuttles. <TimetableLink>Click here</TimetableLink> to view the timetable.",
+        "ItalicText": "(Not all hotels are served by the shuttles. See the <0>\"Accommodations\"</0> page for more information.)"
       },
       "Parking": "Parking : ",
       "ParkingLocation1": "Parking Santa Catalina",
       "OrParking": "or ",
       "ParkingLocation2": "Parking Rue Pasteur",
       "DressCode": {
-        "Title": "Dress Code : ",
+        "Title": "DRESS CODE : ",
         "Girls": "Ladies, bring out your most beautiful cocktail dresses. Leave your pastels in the closet and opt for vibrant shades that will make this day shine even more.",
         "Boys": "Gentlemen, dazzle us with your elegant suits paired with your finest ties."
       }
     },
     "Celebration": {
-      "Title": "SATURDAY : THE CELEBRATION",
+      "Title": "SATURDAY : THE RECEPTION",
       "When": "<bold>When :</bold> September 6, 2025, from 6:30 PM to sunrise",
       "Where": "Where :",
       "WhereLocation": "Casadelmar Beach, Presqu’île du Benedettu, 20137 Porto-Vecchio",
       "Transport": {
-        "Text": "<bold>Transport :</bold> Shuttle service between your hotel and Plage Casadelmar",
+        "Text": "<bold>Transport :</bold> Shuttle service between your hotel and Plage Casadelmar. <TimetableLink>click here</TimetableLink> to view the timetable.",
         "ItalicText": "(Not all hotels are served, see the page <0>\"Accommodations\"</0> for more information)"
       },
       "Parking": "<bold>Parking :</bold> If you wish to attend the evening with your own car, the La Plage Casadelmar hotel has parking available.",
       "DressCode": {
-        "Title": "Dress Code : ",
+        "Title": "DRESS CODE : ",
         "Girls": "Ladies, bring out your most beautiful cocktail dresses. Leave your pastels in the closet and opt for vibrant shades that will make this day shine even more. Remember to bring flat shoes to set the dance floor on fire!",
         "Boys": "Gentlemen, dazzle us with your elegant suits paired with your finest ties."
       }
@@ -81,7 +81,7 @@
     "WhereLocation": "Casadelmar Beach, Presqu’île du Benedettu, 20137 Porto-Vecchio",
     "Parking": "<bold>Parking :</bold> Parking available on site",
     "DressCode": {
-      "Title": "Dress Code : ",
+      "Title": "DRESS CODE : ",
       "Text": "Dolce Vita theme, let your imagination run wild"
     }
   },
@@ -103,15 +103,15 @@
 
   "R&B": {
     "Title": "RESTAURANTS & BARS",
-    "Section1": "CITY CENTER",
-    "Section2": "FESTIVE RESTAURANTS"
+    "Section1": "City Center:",
+    "Section2": "Festive Restaurants:"
   },
 
   "Beaches": {
     "Title": "BEACHES",
-    "Section1": "Beaches of Palombaggia :",
-    "Section2": "Beaches of Santa Giulia :",
-    "Section3": "Bonifacio :"
+    "Section1": "Beaches of Palombaggia:",
+    "Section2": "Beaches of Santa Giulia:",
+    "Section3": "Bonifacio:"
   },
 
   "Activities": {
@@ -122,16 +122,37 @@
     "Title": "SERVICES",
     "SubTitle": "Baby-sitters:",
     "SitterDescription": "We have arranged for a babysitter to take care of your little ones so you can fully enjoy your evening.",
-    "SubTitle2": "BEAUTY:"
+    "SubTitle2": "Beauty:"
   },
 
   "Transports": {
     "Title": "TRANSPORTS",
-    "SectionTitle": "Figari Airport Rentals:"
+    "SectionTitle": "Figari Airport Rentals:",
+    "SectionTitle2": "Shuttles on Saturday, September 6:",
+    "ShuttleTimetable1": {
+      "Title": "Trips to Saint John the Baptist Church:",
+      "TimetableInfo": "<bold><colored>12:45 PM:</colored></bold> Shuttles depart from the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold> towards the church.\n<bold><colored>1:15 PM:</colored></bold> Shuttles depart from Casadelmar Plage towards the church.\n<bold><colored>1:15 PM:</colored></bold> Shuttles depart from <bold>Le Belvédère</bold> towards the church."
+    },
+    "ShuttleTimetable2": {
+      "Title": "After the ceremony:",
+      "TimetableInfo": "<bold><colored>4:00 PM:</colored></bold> Return shuttles from the church to Casadelmar Plage.\n<bold><colored>4:00 PM:</colored></bold> Return shuttles from the church to the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold>."
+    },
+    "ShuttleTimetable3": {
+      "Title": "Trips to the reception:",
+      "TimetableInfo": "<bold><colored>6:15 PM:</colored></bold> Shuttles depart from the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold> to Casadelmar Plage."
+    },
+    "ShuttleTimetable4": {
+      "Title": "Late-night return:",
+      "TimetableInfo": "<bold><colored>From midnight to 4:00 AM:</colored></bold> Continuous shuttles from Casadelmar Plage to the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold>."
+    },
+
+    "Questions": "Feel free to contact us, <QuestionsLink>by clicking here</QuestionsLink>, if you have any questions about the shuttles."
   },
 
   "List": {
-    "Text": "Coming Soon!"
+    "Text": "Your presence with us is the greatest gift we could wish for. However, if you’d still like to mark the occasion with a present, we’ve put together a small gift list to help us start this new chapter of our life together. ",
+    "Link": "\nСlick here",
+    "ContinuedText": "to view the list and contribute, only if you feel like it."
   },
 
   "Album": {
@@ -141,7 +162,7 @@
       "Title": "Comments",
       "EmptyState": "Nothing here yet...",
       "CommentPlaceholder": "Add a comment...",
-      "NamePlaceholder": "Name (optional)",
+      "NamePlaceholder": "Name",
       "Submit": "Send"
     }
   },
@@ -149,7 +170,15 @@
   "Contacts": {
     "Title": "CONTACTS",
     "Mail": "Email",
-    "Address": "Address"
+    "Address": "Address",
+    "Form": {
+      "Title": "Any questions? \nJust leave us a message here, and we will respond shortly.",
+      "Name": "Your Name :",
+      "NamePlaceholder": "Enter your name",
+      "Message": "Your Message :",
+      "MessagePlaceholder": "Enter your message here",
+      "Submit": "Submit"
+    }
   },
 
   "RSVP": {
@@ -169,7 +198,7 @@
     "Message": "Leave a message:",
     "MessagePlaceholder": "Any questions?",
     "Submit": "Submit",
-    "Confirmation": "Thank you for your answer!",
+    "Confirmation": "Thank you! We will get back to you soon.",
     "Error": "An error occurred. Please try again, or write us a message at:",
     "ContactText": "If you encounter any problems with the form, please contact us at:",
     "Info": "Please verify that you are not a robot and click on submit:",
