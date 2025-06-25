@@ -38,6 +38,7 @@ const STYLES = {
   frameContainer: `
 @media ${QUERIES.laptopAndUp} {
     padding: 2rem;
+    border: 1px solid var(--color-dark-sand);
     box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
       0 5px 14px 0 rgba(0, 0, 0, 0.18);
     background-color: var(--color-light-sand);

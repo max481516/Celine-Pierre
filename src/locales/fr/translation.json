@@ -170,7 +170,15 @@
   "Contacts": {
     "Title": "CONTACTS",
     "Mail": "Email",
-    "Address": "Addresse"
+    "Address": "Addresse",
+    "Form": {
+      "Title": "Des questions?\nLaissez-nous un message ici et nous vous répondrons bientôt.",
+      "Name": "Votre nom :",
+      "NamePlaceholder": "Entrez votre nom",
+      "Message": "Votre message :",
+      "MessagePlaceholder": "Entrez votre message ici:",
+      "Submit": "Soumettre"
+    }
   },
 
   "RSVP": {
@@ -190,7 +198,7 @@
     "Message": "Laissez un message:",
     "MessagePlaceholder": "Avez-vous des questions?",
     "Submit": "Soumettre",
-    "Confirmation": "Merci pour votre réponse!",
+    "Confirmation": "Merci! Nous vous répondrons bientôt.",
     "Error": "Il y a eu une erreur. Veuillez réessayer, ou écrivez-nous un message sur:",
     "ContactText": "Si vous rencontrez des problèmes avec le formulaire, veuillez nous contacter sur:",
     "Info": "Veuillez vérifier que vous n'êtes pas un robot et cliquez sur soumettre:",

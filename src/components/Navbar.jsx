@@ -49,7 +49,7 @@ export default function Navbar() {
                 {t("Nav.Activities")}
               </DropdownItem>
             </Dropdown>
-            <NavItem to="/List" $isHomePage={$isHomePage}>
+            <NavItem to="/GiftList" $isHomePage={$isHomePage}>
               {t("Nav.List")}
             </NavItem>
             <NavItem to="/Album" $isHomePage={$isHomePage}>

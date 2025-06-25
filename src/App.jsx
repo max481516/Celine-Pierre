@@ -9,7 +9,7 @@ import RSVP from "./pages/RSVP";
 import RSVP2 from "./pages/RSVP2";
 import RSVP3 from "./pages/RSVP3";
 import Home from "./pages/Home";
-import List from "./pages/List";
+import GiftList from "./pages/GiftList";
 import Album from "./pages/Album";
 import Accomodations from "./pages/Infos/Accomodations";
 import Transports from "./pages/Infos/Transports";
@@ -46,7 +46,7 @@ function AppContent() {
       {!hideNavAndFooter && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/List" element={<List />} />
+        <Route path="/GiftList" element={<GiftList />} />
         <Route path="/Album" element={<Album />} />
         <Route path="/RSVP" element={<RSVP />} />
         <Route path="/RSVP2" element={<RSVP2 />} />

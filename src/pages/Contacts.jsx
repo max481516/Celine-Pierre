@@ -1,39 +1,121 @@
 import styled from "styled-components";
-import { FONTS, QUERIES } from "../constants";
+import { FONTS, QUERIES, STYLES } from "../constants";
 import { useTranslation } from "react-i18next";
 import Border from "../media/Border.svg?react";
+import { useState } from "react";
+import ConfMessage from "../components/ConfirmationMessage";
+import ErrMessage from "../components/ErrorMessage";
+import backgroundImage from "../media/backgroundRSVP.jpeg";
 
 export default function List() {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formError, setFormError] = useState(false);
   const { t } = useTranslation();
+
+  async function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setFormSubmitted(true);
+      } else {
+        const errorData = await response.json();
+        console.error("Formspree error:", errorData);
+        setFormError(true);
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
+      setFormError(true);
+    }
+  }
+
+  if (formSubmitted) {
+    return <ConfMessage />;
+  }
+
+  if (formError) {
+    return <ErrMessage />;
+  }
 
   return (
     <Wrapper>
       <CardContainer>
         <StyledBorder />
+
         <Title>{t("Contacts.Title")}</Title>
+
+        {/* — existing contact list — */}
         <ContactsContent>
           <ContactItem>
-            <ContactLabel>Céline Mare :</ContactLabel> <br />
+            <ContactLabel>Céline Mare&nbsp;:</ContactLabel>
+            <br />
             <ContactLink href="tel:+33659218728">+33 6 59 21 87 28</ContactLink>
           </ContactItem>
           <ContactItem>
-            <ContactLabel>Pierre Allirot :</ContactLabel> <br />
+            <ContactLabel>Pierre Allirot&nbsp;:</ContactLabel>
+            <br />
             <ContactLink href="tel:+33781643402">+33 7 81 64 34 02</ContactLink>
           </ContactItem>
           <ContactItem>
-            <ContactLabel>{t("Contacts.Mail")} :</ContactLabel> <br />
+            <ContactLabel>{t("Contacts.Mail")}&nbsp;:</ContactLabel>
+            <br />
             <ContactLink href="mailto:celine.pierre2025@gmail.com">
               celine.pierre2025@gmail.com
             </ContactLink>
           </ContactItem>
           <ContactItem>
-            <ContactLabel>{t("Contacts.Address")} :</ContactLabel> <br />
-            <span>
-              105 rue Caulaincourt,
-              <br /> 75018 PARIS
-            </span>
+            <ContactLabel>{t("Contacts.Address")}&nbsp;:</ContactLabel>
+            <br />
+            105 rue Caulaincourt,
+            <br /> 75018 Paris
           </ContactItem>
         </ContactsContent>
+
+        <FormTitle>{t("Contacts.Form.Title")}</FormTitle>
+        <Form
+          action="https://formspree.io/f/xzzgkggr"
+          method="POST"
+          onSubmit={handleFormSubmit}
+        >
+          <Label htmlFor="name">{t("Contacts.Form.Name")}</Label>
+          <Input
+            id="name"
+            name="name"
+            placeholder={t("Contacts.Form.NamePlaceholder")}
+            required
+          />
+
+          <Label htmlFor="email">Email :</Label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="email@domain.com"
+            required
+          />
+
+          <Label htmlFor="message">{t("Contacts.Form.Message")}</Label>
+          <Textarea
+            id="message"
+            name="message"
+            rows={5}
+            placeholder={t("Contacts.Form.MessagePlaceholder")}
+            required
+          />
+
+          <SubmitButton type="submit">{t("Contacts.Form.Submit")}</SubmitButton>
+        </Form>
+
         <StyledBottomBorder />
       </CardContainer>
     </Wrapper>
@@ -41,31 +123,44 @@ export default function List() {
 }
 
 const Wrapper = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 1rem;
+
+  @media ${QUERIES.largeTabletAndUp} {
+    padding: 3rem;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    padding: 8rem 14rem;
+    background-color: var(--color-lighter-sand);
+    background-image: url(${backgroundImage});
+    background-size: cover;
+    background-position: center;
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    padding: 8rem 24rem;
+  }
 `;
 
 const CardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: -7rem;
-  padding: 1rem;
-  border-radius: 4px;
-  border: 1px solid var(--color-primary-blue);
-  background-color: var(--color-light-sand);
-  box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
-    0 5px 14px 0 rgba(0, 0, 0, 0.18);
+  ${STYLES.frameContainer}
+`;
+
+const StyledBorder = styled(Border)`
+  color: var(--color-primary-blue);
+  margin-bottom: 1rem;
+`;
+
+const StyledBottomBorder = styled(StyledBorder)`
+  transform: rotate(180deg);
+  margin-top: 1rem;
 `;
 
 const Title = styled.h2`
   ${FONTS.titleFont};
   font-size: 2rem;
   color: var(--color-primary-blue);
+  text-align: center;
 
   @media ${QUERIES.laptopAndUp} {
     font-size: 2.5rem;
@@ -74,9 +169,10 @@ const Title = styled.h2`
 
 const ContactsContent = styled.div`
   text-align: center;
+  margin-bottom: 1.5rem;
 
   @media ${QUERIES.laptopAndUp} {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
 `;
 
@@ -86,7 +182,6 @@ const ContactItem = styled.p`
 
 const ContactLabel = styled.span`
   font-weight: bold;
-  margin-right: 0.5rem;
 `;
 
 const ContactLink = styled.a`
@@ -97,13 +192,70 @@ const ContactLink = styled.a`
   }
 `;
 
-const StyledBorder = styled(Border)`
-  padding-bottom: 1rem;
+/* — form — */
+
+const FormTitle = styled.h3`
   color: var(--color-primary-blue);
+  font-style: italic;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  white-space: pre-line;
+
+  margin-top: 2rem;
 `;
 
-const StyledBottomBorder = styled(StyledBorder)`
-  padding-bottom: 0;
+const Form = styled.form`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 2rem 0;
 
-  transform: rotate(180deg);
+  @media ${QUERIES.laptopAndUp} {
+    padding: 2rem;
+  }
+`;
+
+const Label = styled.label`
+  font-weight: 600;
+  font-size: 1rem;
+`;
+
+const Input = styled.input`
+  padding: 0.5rem;
+  border: 1px solid var(--color-dark-sand);
+  border-radius: 4px;
+  background-color: var(--color-light-sand);
+
+  @media ${QUERIES.laptopAndUp} {
+    background-color: var(--color-lighter-sand);
+  }
+`;
+
+const Textarea = styled.textarea`
+  padding: 0.5rem;
+  border: 1px solid var(--color-dark-sand);
+  border-radius: 4px;
+  background-color: var(--color-light-sand);
+  resize: vertical;
+
+  @media ${QUERIES.laptopAndUp} {
+    background-color: var(--color-lighter-sand);
+  }
+`;
+
+const SubmitButton = styled.button`
+  align-self: center;
+  padding: 0.6rem 1.5rem;
+  background-color: var(--color-primary-blue);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.25s;
+
+  &:hover {
+    background-color: var(--color-light-blue);
+  }
 `;

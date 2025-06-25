@@ -169,7 +169,15 @@
   "Contacts": {
     "Title": "CONTACTS",
     "Mail": "Email",
-    "Address": "Address"
+    "Address": "Address",
+    "Form": {
+      "Title": "Any questions? \nJust leave us a message here, and we will respond shortly.",
+      "Name": "Your Name :",
+      "NamePlaceholder": "Enter your name",
+      "Message": "Your Message :",
+      "MessagePlaceholder": "Enter your message here",
+      "Submit": "Submit"
+    }
   },
 
   "RSVP": {
@@ -189,7 +197,7 @@
     "Message": "Leave a message:",
     "MessagePlaceholder": "Any questions?",
     "Submit": "Submit",
-    "Confirmation": "Thank you for your answer!",
+    "Confirmation": "Thank you! We will get back to you soon.",
     "Error": "An error occurred. Please try again, or write us a message at:",
     "ContactText": "If you encounter any problems with the form, please contact us at:",
     "Info": "Please verify that you are not a robot and click on submit:",

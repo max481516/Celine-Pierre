@@ -82,7 +82,7 @@ export default function MobileNav() {
           </MobileDropdownItem>
         </MobileDropdown>
 
-        <MobileNavItem to="/List" onClick={handleNavItemClick}>
+        <MobileNavItem to="/GiftList" onClick={handleNavItemClick}>
           {t("Nav.List")}
         </MobileNavItem>
         <MobileNavItem to="/Album" onClick={handleNavItemClick}>
