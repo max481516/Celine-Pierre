@@ -131,20 +131,20 @@
     "SectionTitle": "Прокат в аэропорту Фигари:",
     "SectionTitle2": "Трансфер в субботу, 6 сентября:",
     "ShuttleTimetable1": {
-      "Title": "Трансфер к церкви Святого Иоанна Крестителя:",
-      "TimetableInfo": "<bold><colored>12:45:</colored></bold> Отправление маршруток от отелей <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> и <bold>Kilina</bold> к церкви.\n<bold><colored>13:15:</colored></bold> Отправление маршруток от Casadelmar Plage к церкви.\n<bold><colored>13:15:</colored></bold> Отправление маршруток от <bold>Le Belvédère</bold> к церкви."
+      "Title": "Трансфер от отелей к церкви:",
+      "TimetableInfo": "<bold><colored>12:45:</colored></bold> Отправление маршруток от отелей <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> и <bold>Kilina</bold> к <bold>церкви.</bold><bold><colored>\n13:15:</colored></bold> Отправление маршруток от <bold>Casadelmar Plage</bold> к <bold>церкви.</bold><bold><colored>\n13:15:</colored></bold> Отправление маршруток от <bold>Le Belvédère</bold> к <bold>церкви.</bold>"
     },
     "ShuttleTimetable2": {
-      "Title": "После церемонии:",
-      "TimetableInfo": "<bold><colored>16:00:</colored></bold> Обратные маршрутки от церкви до Casadelmar Plage.\n<bold><colored>16:00:</colored></bold> Обратные маршрутки от церкви до отелей <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> и <bold>Kilina</bold>."
+      "Title": "Трансфер от церкви к отелям:",
+      "TimetableInfo": "<bold><colored>16:00:</colored></bold> Обратные маршрутки от <bold>церкви</bold> до <bold>Casadelmar Plage.</bold><bold><colored>\n16:00:</colored></bold> Обратные маршрутки от <bold>церкви</bold> до отелей <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> и <bold>Kilina.</bold>"
     },
     "ShuttleTimetable3": {
-      "Title": "Трансфер на приём:",
-      "TimetableInfo": "<bold><colored>18:15:</colored></bold> Отправление маршруток от отелей <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> и <bold>Kilina</bold> до Casadelmar Plage."
+      "Title": "Трансфер от отелей к месту приёма:",
+      "TimetableInfo": "<bold><colored>18:15:</colored></bold> Отправление маршруток от отелей <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> и <bold>Kilina</bold> до <bold>Casadelmar Plage.</bold>"
     },
     "ShuttleTimetable4": {
       "Title": "Возвращение поздно ночью:",
-      "TimetableInfo": "<bold><colored>С полуночи до 4:00:</colored></bold> Постоянные маршрутки от Casadelmar Plage до отелей <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> и <bold>Kilina</bold>."
+      "TimetableInfo": "<bold><colored>С полуночи до 4:00:</colored></bold> Постоянные маршрутки от <bold>Casadelmar Plage</bold> до отелей <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> и <bold>Kilina</bold>."
     },
 
     "Questions": "Свяжитесь с нами, <QuestionsLink>нажав сюда</QuestionsLink>, если у вас возникли вопросы по поводу трансферов."

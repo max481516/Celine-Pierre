@@ -131,20 +131,20 @@
     "SectionTitle": "Locations Aéroport de Figari:",
     "SectionTitle2": "Navettes du Samedi 6 Septembre:",
     "ShuttleTimetable1": {
-      "Title": "Trajets vers l’église Saint Jean Baptiste:",
-      "TimetableInfo": "<bold><colored>12h45 :</colored></bold> Départ des navettes depuis les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina</bold> vers l’église.\n<bold><colored>13h15 :</colored></bold> Départ des navettes depuis Casadelmar Plage vers l’église. \n<bold><colored>13h15 :</colored></bold> Départ des navettes depuis <bold>Le Belvédère</bold> vers l’église."
+      "Title": "Trajets des hôtels vers l’église:",
+      "TimetableInfo": "<bold><colored>12h45 :</colored></bold> Départ des navettes depuis les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina</bold> vers <bold>l’église.</bold><bold><colored>\n13h15 :</colored></bold> Départ des navettes depuis <bold>Casadelmar Plage</bold> vers <bold>l’église.</bold><bold><colored>\n13h15 :</colored></bold> Départ des navettes depuis <bold>Le Belvédère</bold> vers <bold>l’église.</bold>"
     },
     "ShuttleTimetable2": {
-      "Title": "Après la cérémonie:",
-      "TimetableInfo": "<bold><colored>16h00 :</colored></bold> Navettes retour de l’église vers Casadelmar Plage. \n<bold><colored>16h00 :</colored></bold> Navettes retour de l’église vers les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina.</bold>"
+      "Title": "Trajets de l'église vers les hôtels:",
+      "TimetableInfo": "<bold><colored>16h00 :</colored></bold> Navettes retour de <bold>l’église</bold> vers <bold>Casadelmar Plage.</bold><bold><colored>\n16h00 :</colored></bold> Navettes retour de <bold>l’église</bold> vers les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina.</bold>"
     },
     "ShuttleTimetable3": {
-      "Title": "Trajets vers la réception:",
-      "TimetableInfo": "<bold><colored>18h15 :</colored></bold> Départ des navettes depuis les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina</bold> vers Casadelmar Plage."
+      "Title": "Trajets des hôtels vers le lieu de célébration:",
+      "TimetableInfo": "<bold><colored>18h15 :</colored></bold> Départ des navettes depuis les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina</bold> vers <bold>Casadelmar Plage.</bold>"
     },
     "ShuttleTimetable4": {
-      "Title": "Retour en fin de soirée:",
-      "TimetableInfo": "<bold><colored>De minuit à 4h00 :</colored></bold> Navettes en continu depuis Casadelmar Plage vers les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina.</bold>"
+      "Title": "Trajets retour en fin de soirée:",
+      "TimetableInfo": "<bold><colored>De minuit à 4h00 :</colored></bold> Navettes en continu depuis <bold>Casadelmar Plage</bold> vers les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina.</bold>"
     },
     "Questions": "N’hésitez pas à nous contacter, <QuestionsLink>en cliquant ici</QuestionsLink>, si vous avez des questions concernant les navettes."
   },

@@ -130,20 +130,20 @@
     "SectionTitle": "Figari Airport Rentals:",
     "SectionTitle2": "Shuttles on Saturday, September 6:",
     "ShuttleTimetable1": {
-      "Title": "Trips to Saint John the Baptist Church:",
-      "TimetableInfo": "<bold><colored>12:45 PM:</colored></bold> Shuttles depart from the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold> towards the church.\n<bold><colored>1:15 PM:</colored></bold> Shuttles depart from Casadelmar Plage towards the church.\n<bold><colored>1:15 PM:</colored></bold> Shuttles depart from <bold>Le Belvédère</bold> towards the church."
+      "Title": "Trips from the hotels to the church:",
+      "TimetableInfo": "<bold><colored>12:45 PM:</colored></bold> Shuttles depart from the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold> towards <bold>the church.</bold><bold><colored>\n1:15 PM:</colored></bold> Shuttles depart from <bold>Casadelmar Plage</bold> towards <bold>the church.</bold><bold><colored>\n1:15 PM:</colored></bold> Shuttles depart from <bold>Le Belvédère</bold> towards <bold>the church.</bold>"
     },
     "ShuttleTimetable2": {
-      "Title": "After the ceremony:",
-      "TimetableInfo": "<bold><colored>4:00 PM:</colored></bold> Return shuttles from the church to Casadelmar Plage.\n<bold><colored>4:00 PM:</colored></bold> Return shuttles from the church to the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold>."
+      "Title": "Trips from the church to the hotels:",
+      "TimetableInfo": "<bold><colored>4:00 PM:</colored></bold> Return shuttles from <bold>the church</bold> to <bold>Casadelmar Plage.</bold><bold><colored>\n4:00 PM:</colored></bold> Return shuttles from <bold>the church</bold> to the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina.</bold>"
     },
     "ShuttleTimetable3": {
-      "Title": "Trips to the reception:",
-      "TimetableInfo": "<bold><colored>6:15 PM:</colored></bold> Shuttles depart from the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold> to Casadelmar Plage."
+      "Title": "Trips from the hotels to the reception venue:",
+      "TimetableInfo": "<bold><colored>6:15 PM:</colored></bold> Shuttles depart from the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold> to <bold>Casadelmar Plage.</bold>"
     },
     "ShuttleTimetable4": {
-      "Title": "Late-night return:",
-      "TimetableInfo": "<bold><colored>From midnight to 4:00 AM:</colored></bold> Continuous shuttles from Casadelmar Plage to the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold>."
+      "Title": "Late-night return trips:",
+      "TimetableInfo": "<bold><colored>From midnight to 4:00 AM:</colored></bold> Continuous shuttles from <bold>Casadelmar Plage</bold> to the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold>."
     },
 
     "Questions": "Feel free to contact us, <QuestionsLink>by clicking here</QuestionsLink>, if you have any questions about the shuttles."
