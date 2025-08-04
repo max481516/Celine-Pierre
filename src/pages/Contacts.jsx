@@ -205,9 +205,10 @@ const FormTitle = styled.h3`
 `;
 
 const Form = styled.form`
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   gap: 0.25rem;
   padding: 2rem 0;
 

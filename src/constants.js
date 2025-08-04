@@ -27,9 +27,8 @@ const FONTS = {
 // Style Constants
 const STYLES = {
   dresscodeWrapper: `
- background: var(--color-light-sand);
-  border-radius: 2px;
-  border: 1px solid var(--color-dark-sand);
+  background: var(--color-light-sand);
+  border: 5px double var(--color-darker-sand);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   width: 90%;
   margin: 0.5rem auto 0;
@@ -40,7 +39,7 @@ const STYLES = {
   frameContainer: `
 @media ${QUERIES.laptopAndUp} {
     padding: 2rem;
-    border: 1px solid var(--color-dark-sand);
+    border: 3px double var(--color-darker-sand);
     box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
       0 5px 14px 0 rgba(0, 0, 0, 0.18);
     background-color: var(--color-light-sand);
@@ -50,7 +49,7 @@ const STYLES = {
 
   @media ${QUERIES.desktopAndUp} {
     padding: 4rem;
-    max-width: 80%;
+    max-width: 70%;
   }`,
 };
 

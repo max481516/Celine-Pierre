@@ -31,7 +31,7 @@ const GlobalStyles = createGlobalStyle`
        url('/fonts/adventure.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 //KEYFRAMES
@@ -173,6 +173,12 @@ body {
     background-color: var(--color-lighter-sand); 
     
     font-family: "Raleway", sans-serif;
+}
+
+p {
+  
+    line-height: 1.3;
+   
 }
 
 
