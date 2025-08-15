@@ -220,20 +220,7 @@ export default function Accomodations() {
 
 // Styled Components
 const Wrapper = styled.div`
-  padding: 1rem;
-
-  @media ${QUERIES.largeTabletAndUp} {
-    padding: 3rem;
-  }
-
-  @media ${QUERIES.laptopAndUp} {
-    padding: 8rem 14rem;
-    background-color: var(--color-lighter-sand);
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 8rem 24rem;
-  }
+  ${STYLES.pageWrapper}
 `;
 
 const FrameContainer = styled.div`

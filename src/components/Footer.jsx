@@ -53,16 +53,17 @@ export default function Footer() {
 
   return (
     <FooterContainer ref={footerRef} $isHomePage={$isHomePage}>
-      <BackToTop
-        href="#nav"
-        title="back to top"
-        ref={iconRef}
-        onClick={handleScrollToTop}
-        $isAnimating={$isAnimating}
-        $isHomePage={$isHomePage}
-      >
-        <StyledBackToTopIcon $isAnimating={$isAnimating} />
-      </BackToTop>
+      {!$isHomePage && (
+        <BackToTop
+          href="#nav"
+          title="back to top"
+          ref={iconRef}
+          onClick={handleScrollToTop}
+          $isAnimating={$isAnimating}
+        >
+          <StyledBackToTopIcon $isAnimating={$isAnimating} />
+        </BackToTop>
+      )}
     </FooterContainer>
   );
 }

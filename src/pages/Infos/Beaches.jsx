@@ -213,19 +213,7 @@ export default function RnB() {
 }
 
 const Wrapper = styled.div`
-  padding: 1rem;
-
-  media ${QUERIES.largeTabletAndUp} {
-    padding: 3rem;
-  }
-
-  @media ${QUERIES.laptopAndUp} {
-    padding: 8rem 14rem;
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 8rem 24rem;
-  }
+  ${STYLES.pageWrapper}
 `;
 
 const FrameContainer = styled.div`

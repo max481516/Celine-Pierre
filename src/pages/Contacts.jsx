@@ -54,6 +54,7 @@ export default function List() {
         <Title>{t("Contacts.Title")}</Title>
 
         {/* — existing contact list — */}
+        
         <ContactsContent>
           <ContactItem>
             <ContactLabel>Céline Mare&nbsp;:</ContactLabel>
@@ -80,6 +81,7 @@ export default function List() {
           </ContactItem>
         </ContactsContent>
 
+        <FormWrapper>
         <FormTitle>{t("Contacts.Form.Title")}</FormTitle>
         <Form
           action="https://formspree.io/f/xzzgkggr"
@@ -107,13 +109,14 @@ export default function List() {
           <Textarea
             id="message"
             name="message"
-            rows={5}
+            rows={3}
             placeholder={t("Contacts.Form.MessagePlaceholder")}
             required
           />
 
           <SubmitButton type="submit">{t("Contacts.Form.Submit")}</SubmitButton>
         </Form>
+        </FormWrapper>
 
         <StyledBottomBorder />
       </CardContainer>
@@ -122,20 +125,7 @@ export default function List() {
 }
 
 const Wrapper = styled.div`
-  padding: 1rem;
-
-  @media ${QUERIES.largeTabletAndUp} {
-    padding: 3rem;
-  }
-
-  @media ${QUERIES.laptopAndUp} {
-    padding: 8rem 14rem;
-    background-color: var(--color-lighter-sand);
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 8rem 24rem;
-  }
+  ${STYLES.pageWrapper} 
 `;
 
 const CardContainer = styled.div`
@@ -193,6 +183,14 @@ const ContactLink = styled.a`
 
 /* — form — */
 
+const FormWrapper = styled.div`
+  ${STYLES.dresscodeWrapper}
+  width: 100%;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+  
+`;
+
 const FormTitle = styled.h3`
   color: var(--color-primary-blue);
   font-style: italic;
@@ -205,7 +203,7 @@ const FormTitle = styled.h3`
 `;
 
 const Form = styled.form`
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -226,23 +224,15 @@ const Input = styled.input`
   padding: 0.5rem;
   border: 1px solid var(--color-dark-sand);
   border-radius: 4px;
-  background-color: var(--color-light-sand);
-
-  @media ${QUERIES.laptopAndUp} {
-    background-color: var(--color-lighter-sand);
-  }
+  background-color: var(--color-dark-sand);
 `;
 
 const Textarea = styled.textarea`
   padding: 0.5rem;
   border: 1px solid var(--color-dark-sand);
   border-radius: 4px;
-  background-color: var(--color-light-sand);
+  background-color: var(--color-dark-sand);
   resize: vertical;
-
-  @media ${QUERIES.laptopAndUp} {
-    background-color: var(--color-lighter-sand);
-  }
 `;
 
 const SubmitButton = styled.button`

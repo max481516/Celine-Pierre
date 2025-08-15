@@ -12,7 +12,7 @@ import {
 } from "firebase/firestore";
 import { ref, deleteObject } from "firebase/storage";
 import styled from "styled-components";
-import { FONTS, QUERIES } from "../constants";
+import { FONTS, QUERIES, STYLES } from "../constants";
 import Border from "../media/Border.svg?react";
 import { useTranslation } from "react-i18next";
 
@@ -75,20 +75,7 @@ export default function Album() {
 }
 
 const Wrapper = styled.div`
-  padding: 1rem;
-
-  @media ${QUERIES.largeTabletAndUp} {
-    padding: 3rem;
-  }
-
-  @media ${QUERIES.laptopAndUp} {
-    padding: 8rem 14rem;
-    background-color: var(--color-lighter-sand);
-  }
-
-  @media ${QUERIES.desktopAndUp} {
-    padding: 8rem 20rem;
-  }
+  ${STYLES.pageWrapper}
 `;
 
 const FrameContainer = styled.div`

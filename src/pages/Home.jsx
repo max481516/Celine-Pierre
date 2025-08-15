@@ -94,11 +94,12 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  border: 5px double var(--color-darker-sand);
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
   justify-content: center;
   color: white;
-  min-height: 100vh;
-  margin: 20px;
+  
+  margin: 20px 15px;
 
   @media ${QUERIES.tabletAndUp} {
     margin: 40px;
@@ -127,18 +128,18 @@ const PhotoBackground = styled.img`
 const TextContainer = styled.div`
   background-color: var(--color-dark-sand);
   width: 100%;
-  padding: 2rem 2rem 2rem;
+  padding: 2rem 1rem 2rem;
   flex-grow: 1;
 
   @media ${QUERIES.largeTabletAndUp} {
-    padding-top: 3rem;
+    padding: 3rem 1rem 2rem;
   }
 `;
 
 const Title = styled.h1`
   ${FONTS.titleFont};
   color: white;
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-align: center;
   margin-bottom: 1rem;
 `;

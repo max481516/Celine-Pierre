@@ -26,12 +26,36 @@ const FONTS = {
 
 // Style Constants
 const STYLES = {
+  pageWrapper: `
+padding: 1rem;
+
+   @media ${QUERIES.tabletAndUp} {
+      padding: 2rem;
+    }
+
+  @media ${QUERIES.largeTabletAndUp} {
+    padding: 3rem;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    padding: 8rem 14rem;
+    background-color: var(--color-lighter-sand);
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    padding: 8rem 20rem;
+  }`,
   dresscodeWrapper: `
   background: var(--color-light-sand);
   border: 5px double var(--color-darker-sand);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   width: 90%;
   margin: 0.5rem auto 0;
+
+  @media ${QUERIES.tabletAndUp} {
+    width: 60%;
+  }
+
   @media ${QUERIES.laptopAndUp} {
     background: HSL(21, 45%, 85%);
   }
