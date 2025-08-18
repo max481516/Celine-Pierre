@@ -139,7 +139,7 @@ const FrameContainer = styled.div`
 const Title = styled.h2`
   ${FONTS.titleFont};
   color: var(--color-primary-blue);
-  padding: 0.5rem 0;
+  padding-top: 0.5rem;
   text-align: center;
   text-transform: uppercase;
   font-size: 2rem;
@@ -153,11 +153,7 @@ const Title = styled.h2`
   }
 `;
 
-const Section = styled.section`
-  &:last-of-type {
-    padding-top: 1rem;
-  }
-`;
+const Section = styled.section``;
 
 const ImageContainer = styled.div``;
 

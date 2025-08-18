@@ -16,6 +16,9 @@ const Wrapper = styled.div`
 const Title = styled.h3`
   font-size: 1.2rem;
   font-weight: 600;
+  margin-bottom: 0.2rem;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
 `;
 
 const TimetableInfo = styled.p`
