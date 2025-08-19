@@ -5,6 +5,7 @@ import Border from "../../media/Border.svg?react";
 
 import { useTranslation } from "react-i18next";
 import StyledSeparator from "../../components/Separator";
+import FadeInSection from "../../components/FadeInSection";
 
 export default function RnB() {
   const { t } = useTranslation();
@@ -12,6 +13,8 @@ export default function RnB() {
   return (
     <Wrapper>
       <FrameContainer>
+        <FadeInSection> 
+
         <StyledBorder />
         <Title>{t("Activities.Title")}</Title>
         <Section>
@@ -68,6 +71,7 @@ export default function RnB() {
           />
         </Section>
         <StyledBottomBorder />
+        </FadeInSection>
       </FrameContainer>
     </Wrapper>
   );
@@ -85,7 +89,7 @@ const Title = styled.h2`
   ${FONTS.titleFont};
   font-size: 2rem;
   color: var(--color-primary-blue);
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 0;
   text-align: center;
   text-transform: uppercase;
 

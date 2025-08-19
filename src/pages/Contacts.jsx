@@ -5,6 +5,7 @@ import Border from "../media/Border.svg?react";
 import { useState } from "react";
 import ConfMessage from "../components/ConfirmationMessage";
 import ErrMessage from "../components/ErrorMessage";
+import FadeInSection from "../components/FadeInSection";
 
 export default function List() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -49,12 +50,9 @@ export default function List() {
   return (
     <Wrapper>
       <CardContainer>
+        <FadeInSection> 
         <StyledBorder />
-
         <Title>{t("Contacts.Title")}</Title>
-
-        {/* — existing contact list — */}
-        
         <ContactsContent>
           <ContactItem>
             <ContactLabel>Céline Mare&nbsp;:</ContactLabel>
@@ -80,21 +78,20 @@ export default function List() {
             <br /> 75018 Paris
           </ContactItem>
         </ContactsContent>
-
         <FormWrapper>
         <FormTitle>{t("Contacts.Form.Title")}</FormTitle>
         <Form
           action="https://formspree.io/f/xzzgkggr"
           method="POST"
           onSubmit={handleFormSubmit}
-        >
+          >
           <Label htmlFor="name">{t("Contacts.Form.Name")}</Label>
           <Input
             id="name"
             name="name"
             placeholder={t("Contacts.Form.NamePlaceholder")}
             required
-          />
+            />
 
           <Label htmlFor="email">Email :</Label>
           <Input
@@ -103,7 +100,7 @@ export default function List() {
             type="email"
             placeholder="email@domain.com"
             required
-          />
+            />
 
           <Label htmlFor="message">{t("Contacts.Form.Message")}</Label>
           <Textarea
@@ -112,13 +109,14 @@ export default function List() {
             rows={3}
             placeholder={t("Contacts.Form.MessagePlaceholder")}
             required
-          />
+            />
 
           <SubmitButton type="submit">{t("Contacts.Form.Submit")}</SubmitButton>
         </Form>
         </FormWrapper>
 
         <StyledBottomBorder />
+            </FadeInSection>
       </CardContainer>
     </Wrapper>
   );

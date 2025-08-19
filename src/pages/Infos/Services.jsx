@@ -5,6 +5,7 @@ import Border from "../../media/Border.svg?react";
 
 import { useTranslation } from "react-i18next";
 import SectionTitle from "../../components/SectionTitle";
+import FadeInSection from "../../components/FadeInSection";
 
 export default function Services() {
   const { t } = useTranslation();
@@ -12,10 +13,11 @@ export default function Services() {
   return (
     <Wrapper>
       <FrameContainer>
+        <FadeInSection>
         <StyledBorder />
         <Title>{t("Services.Title")}</Title>
         <SectionTitle title={t("Services.SubTitle")} />
-        <SitterDescription>{t("Services.SitterDescription")}</SitterDescription>
+        <FadeInSection><SitterDescription>{t("Services.SitterDescription")}</SitterDescription></FadeInSection>
         <InfoElement
           picture={
             <picture>
@@ -65,6 +67,7 @@ export default function Services() {
           }
         />
         <StyledBottomBorder />
+        </FadeInSection>
       </FrameContainer>
     </Wrapper>
   );

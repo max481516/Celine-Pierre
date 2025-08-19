@@ -5,6 +5,7 @@ import Border from "../../media/Border.svg?react";
 import { useTranslation } from "react-i18next";
 import StyledSeparator from "../../components/Separator";
 import SectionTitle from "../../components/SectionTitle";
+import FadeInSection from "../../components/FadeInSection";
 
 export default function RnB() {
   const { t } = useTranslation();
@@ -12,6 +13,7 @@ export default function RnB() {
   return (
     <Wrapper>
       <FrameContainer>
+        <FadeInSection> 
         <StyledBorder />
         <Title>{t("Beaches.Title")}</Title>
         <Section>
@@ -207,6 +209,7 @@ export default function RnB() {
           />
         </Section>
         <StyledBottomBorder />
+        </FadeInSection>
       </FrameContainer>
     </Wrapper>
   );

@@ -18,8 +18,8 @@ export default function Saturday() {
   return (
     <Wrapper>
       <FrameContainer>
-        <StyledBorder />
         <FadeInSection>
+        <StyledBorder />
           <EventContainer>
             <Title>{t("Saturday.Ceremony.Title")}</Title>
             <ImageContainer>
@@ -42,6 +42,7 @@ export default function Saturday() {
                 <StyledImage src="https://res.cloudinary.com/dqs3mkxnr/image/upload/w_800/v1728917317/Church_wumwhm.png" />
               </picture>
             </ImageContainer>
+            <FadeInSection>
             <IconTextContainer>
               <StyledIcon as={IoMdClock} />
               <Text>
@@ -51,6 +52,8 @@ export default function Saturday() {
                 />
               </Text>
             </IconTextContainer>
+            </FadeInSection>
+            <FadeInSection>
             <IconTextContainer>
               <StyledIcon as={FaLocationDot} />
               <Text>
@@ -64,7 +67,9 @@ export default function Saturday() {
                 </LocationLink>
               </Text>
             </IconTextContainer>
-            <IconTextContainer>
+            </FadeInSection>
+            <FadeInSection>
+              <IconTextContainer>
               <StyledIcon as={FaBus} busIcon={true} />
               <Text>
                 <Trans
@@ -87,6 +92,8 @@ export default function Saturday() {
                 </ItalicText>
               </Text>
             </IconTextContainer>
+            </FadeInSection>
+            <FadeInSection>
             <IconTextContainer>
               <StyledIcon as={FaSquareParking} />
               <Text>
@@ -108,7 +115,8 @@ export default function Saturday() {
                 </LocationLink>
               </Text>
             </IconTextContainer>
-            <FadeInSection>
+            </FadeInSection>
+              <FadeInSection>
               <DressCodeWrapper>
                 <DressCodeTitle>
                   {t("Saturday.Ceremony.DressCode.Title")}
@@ -154,6 +162,7 @@ export default function Saturday() {
                 />
               </picture>
             </ImageContainer>
+            <FadeInSection>
             <IconTextContainer>
               <StyledIcon as={IoMdClock} />
               <Text>
@@ -163,6 +172,8 @@ export default function Saturday() {
                 />
               </Text>
             </IconTextContainer>
+            </FadeInSection>
+            <FadeInSection>
             <IconTextContainer>
               <StyledIcon as={FaLocationDot} />
               <Text>
@@ -176,6 +187,8 @@ export default function Saturday() {
                 </LocationLink>
               </Text>
             </IconTextContainer>
+            </FadeInSection>
+            <FadeInSection>
             <IconTextContainer>
               <StyledIcon as={FaBus} busIcon={true} />
               <Text>
@@ -199,6 +212,8 @@ export default function Saturday() {
                 </ItalicText>
               </Text>
             </IconTextContainer>
+            </FadeInSection>
+            <FadeInSection>
             <IconTextContainer>
               <StyledIcon as={FaSquareParking} />
               <Text>
@@ -208,6 +223,7 @@ export default function Saturday() {
                 />
               </Text>
             </IconTextContainer>
+            </FadeInSection>
             <FadeInSection>
               <DressCodeWrapper>
                 <DressCodeTitle>
@@ -321,8 +337,9 @@ const DressCodeIconTextContainer = styled.div`
   width: 100%;
   gap: 8px;
   padding: 16px;
-
-  &:nth-child(2) {
+    
+    &:nth-child(2) {
+      padding-top: 8px;
     padding-bottom: 0;
   }
 `;

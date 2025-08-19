@@ -16,6 +16,7 @@ import { FONTS, QUERIES, STYLES } from "../constants";
 import Border from "../media/Border.svg?react";
 import { useTranslation } from "react-i18next";
 
+
 export default function Album() {
   const [mediaFiles, setMediaFiles] = useState([]);
   const { t } = useTranslation();

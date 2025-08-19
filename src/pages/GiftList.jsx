@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { FONTS, QUERIES } from "../constants";
 import { useTranslation } from "react-i18next";
+import FadeInSection from "../components/FadeInSection";
 
 export default function List() {
   const { t } = useTranslation();
   return (
     <Wrapper>
+      <FadeInSection> 
       <Text>
         {t("List.Text")}
         <Link
@@ -17,6 +19,7 @@ export default function List() {
         </Link>{" "}
         {t("List.ContinuedText")}
       </Text>
+      </FadeInSection>
     </Wrapper>
   );
 }

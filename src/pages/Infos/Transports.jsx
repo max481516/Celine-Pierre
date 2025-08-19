@@ -15,9 +15,9 @@ export default function Transports() {
   return (
     <Wrapper>
       <FrameContainer>
+        <FadeInSection>
         <StyledBorder />
         <Title>{t("Transports.Title")}</Title>
-        <FadeInSection>
           <Section>
             <SectionTitle title={t("Transports.SectionTitle2")} />
             <ImageContainer>
@@ -81,6 +81,7 @@ export default function Transports() {
                 />
               }
             />
+            <FadeInSection>
             <Questions>
               <Trans
                 i18nKey="Transports.Questions"
@@ -89,6 +90,7 @@ export default function Transports() {
                 }}
               />
             </Questions>
+            </FadeInSection>
           </Section>
         </FadeInSection>
         <StyledSeparator />
@@ -153,7 +155,11 @@ const Title = styled.h2`
   }
 `;
 
-const Section = styled.section``;
+const Section = styled.section`
+&:last-child {
+  padding-top: 1rem;
+}
+`;
 
 const ImageContainer = styled.div``;
 
@@ -167,6 +173,8 @@ const StyledBorder = styled(Border)`
   padding-bottom: 1rem;
   color: var(--color-primary-blue);
 `;
+
+
 
 const StyledBottomBorder = styled(StyledBorder)`
   padding-bottom: 0;

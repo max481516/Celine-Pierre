@@ -14,8 +14,8 @@ export default function Sunday() {
   return (
     <Wrapper>
       <FrameContainer>
-        <StyledBorder />
         <FadeInSection>
+        <StyledBorder />
           <EventContainer>
             <Title>{t("Sunday.Title")}</Title>
             <ImageContainer>
@@ -42,12 +42,15 @@ export default function Sunday() {
                 />
               </picture>
             </ImageContainer>
+            <FadeInSection>
             <IconTextContainer>
               <StyledIcon as={IoMdClock} />
               <Text>
                 <Trans i18nKey="Sunday.When" components={{ bold: <Bold /> }} />
               </Text>
             </IconTextContainer>
+            </FadeInSection>
+            <FadeInSection>
             <IconTextContainer>
               <StyledIcon as={FaLocationDot} />
               <Text>
@@ -61,7 +64,8 @@ export default function Sunday() {
                 </LocationLink>
               </Text>
             </IconTextContainer>
-
+            </FadeInSection>
+            <FadeInSection>
             <IconTextContainer>
               <StyledIcon as={FaSquareParking} />
               <Text>
@@ -71,6 +75,7 @@ export default function Sunday() {
                 />
               </Text>
             </IconTextContainer>
+            </FadeInSection>
             <FadeInSection>
               <DressCodeWrapper>
                 <DressCodeTitle>{t("Sunday.DressCode.Title")}</DressCodeTitle>
@@ -146,7 +151,7 @@ const DressCodeIconTextContainer = styled.div`
   justify-content: center;
   width: 100%;
   gap: 8px;
-  padding: 16px;
+  padding: 8px 16px 16px;
 `;
 
 const Text = styled.p``;

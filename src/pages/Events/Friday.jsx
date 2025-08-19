@@ -14,8 +14,8 @@ export default function Sunday() {
   return (
     <Wrapper>
       <FrameContainer>
-        <StyledBorder />
         <FadeInSection>
+        <StyledBorder />
           <EventContainer>
             <Title>{t("Friday.Title")}</Title>
             <ImageContainer>
@@ -42,12 +42,15 @@ export default function Sunday() {
                 />
               </picture>
             </ImageContainer>
+            <FadeInSection>
             <IconTextContainer>
               <StyledIcon as={IoMdClock} />
               <Text>
                 <Trans i18nKey="Friday.When" components={{ bold: <Bold /> }} />
               </Text>
             </IconTextContainer>
+            </FadeInSection>
+            <FadeInSection>
             <IconTextContainer>
               <StyledIcon as={MdLocationPin} />
               <Text>
@@ -61,7 +64,9 @@ export default function Sunday() {
                 </LocationLink>
               </Text>
             </IconTextContainer>
-            <IconTextContainer>
+            </FadeInSection>
+            <FadeInSection>
+              <IconTextContainer>
               <StyledIcon as={FaSquareParking} />
               <Text>
                 <Trans
@@ -70,6 +75,7 @@ export default function Sunday() {
                 />
               </Text>
             </IconTextContainer>
+            </FadeInSection>
             <FadeInSection>
               <DressCodeWrapper>
                 <DressCodeTitle>{t("Friday.DressCode.Title")}</DressCodeTitle>

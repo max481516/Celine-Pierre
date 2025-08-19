@@ -9,6 +9,7 @@ import StyledSeparator from "../../components/Separator";
 import { useTranslation } from "react-i18next";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { BiErrorCircle } from "react-icons/bi";
+import FadeInSection from "../../components/FadeInSection";
 
 export default function Accomodations() {
   const { t } = useTranslation();
@@ -58,11 +59,11 @@ export default function Accomodations() {
     <Wrapper>
       <FrameContainer>
         <StyledBorder />
-        <Title>{t("Accomodations.Title")}</Title>
+        <FadeInSection><Title>{t("Accomodations.Title")}</Title></FadeInSection>
         <AboutTransfer>
-          {t("Accomodations.AboutTransfer.Text")}{" "}
+        <FadeInSection>{t("Accomodations.AboutTransfer.Text")}</FadeInSection>{" "}
           <OpenForm onClick={toggleForm}>
-            {t("Accomodations.AboutTransfer.OpenForm")}
+            <FadeInSection> {t("Accomodations.AboutTransfer.OpenForm")} </FadeInSection>
           </OpenForm>
           .
           {isFormOpen && (
@@ -233,14 +234,12 @@ const Title = styled.h2`
   padding: 0.5rem 0;
   text-align: center;
   text-transform: uppercase;
+  font-size: 2rem;
 
   @media ${QUERIES.tabletAndUp} {
     font-size: 2.5rem;
   }
 
-  @media ${QUERIES.largeTabletAndUp} {
-    font-size: 2.5rem;
-  }
 `;
 
 const AboutTransfer = styled.p`
