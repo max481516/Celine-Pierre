@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import FadeInSection from "./FadeInSection";
+import { QUERIES } from "../constants";
 
 export default function ShuttleTimetable({ title, timetableInfo }) {
   return (
@@ -14,15 +15,28 @@ export default function ShuttleTimetable({ title, timetableInfo }) {
 
 const Wrapper = styled.div`
   padding: 1rem 0;
-`;
-
-const Title = styled.h3`
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 0.2rem;
  
 `;
 
+const Title = styled.h3`
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+ text-decoration: underline;
+ text-decoration-thickness: 1.3px;
+ 
+
+  @media ${QUERIES.tabletAndUp} {
+    font-size: 1.2rem;
+  }
+`;
+
 const TimetableInfo = styled.p`
+ font-size: 0.9rem;
   white-space: pre-line;
+  
+
+  @media ${QUERIES.tabletAndUp} {
+    font-size: 1rem;
+  }
 `;

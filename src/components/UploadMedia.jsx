@@ -109,7 +109,7 @@ const UploadContainer = styled.label`
   height: 65px;
   bottom: 8px;
   left: 8px;
-  z-index: 10;
+  z-index: 9;
   background-color: var(--color-primary-blue);
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

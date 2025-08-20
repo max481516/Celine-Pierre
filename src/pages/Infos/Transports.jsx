@@ -212,5 +212,7 @@ const Bold = styled.span`
 
 const Colored = styled.span`
   color: var(--color-primary-blue);
-  text-decoration: underline;
 `;
+
+
+  
