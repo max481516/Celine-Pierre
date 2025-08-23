@@ -22,17 +22,6 @@ const GlobalStyles = createGlobalStyle`
   --color-body-secondary: #ad9a94;
 }
 
-//FONTS
-
-
-@font-face {
-  font-family: 'TitleFont';
-  src: url('/fonts/adventure.woff2') format('woff2'),
-       url('/fonts/adventure.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
 
 //KEYFRAMES
 @keyframes fadeIn {
