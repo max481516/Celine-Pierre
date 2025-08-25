@@ -132,11 +132,11 @@
     "SectionTitle2": "Navettes du Samedi 6 Septembre:",
     "ShuttleTimetable1": {
       "Title": "Trajets des hôtels vers l’église:",
-      "TimetableInfo": "<bold><colored>12h45 :</colored></bold> Départ des navettes depuis les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina</bold> vers <bold>l’église.</bold><bold><colored>\n13h15 :</colored></bold> Départ des navettes depuis <bold>Casadelmar Plage</bold> vers <bold>l’église.</bold><bold><colored>\n13h15 :</colored></bold> Départ des navettes depuis <bold>Le Belvédère</bold> vers <bold>l’église.</bold>"
+      "TimetableInfo": "<bold><colored>12h45 :</colored></bold> Départ des navettes depuis les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina</bold> vers <bold>l’église.</bold><bold><colored><space/>\n13h15 :</colored></bold> Départ des navettes depuis <bold>Casadelmar Plage</bold> vers <bold>l’église.</bold><bold><colored><space/>\n13h15 :</colored></bold> Départ des navettes depuis <bold>Le Belvédère</bold> vers <bold>l’église.</bold>"
     },
     "ShuttleTimetable2": {
       "Title": "Trajets de l'église vers les hôtels:",
-      "TimetableInfo": "<bold><colored>16h00 :</colored></bold> Navettes retour de <bold>l’église</bold> vers <bold>Casadelmar Plage.</bold><bold><colored>\n16h00 :</colored></bold> Navettes retour de <bold>l’église</bold> vers les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina.</bold>"
+      "TimetableInfo": "<bold><colored>16h00 :</colored></bold> Navettes retour de <bold>l’église</bold> vers <bold>Casadelmar Plage.</bold><bold><colored><space/>\n16h00 :</colored></bold> Navettes retour de <bold>l’église</bold> vers les hôtels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> et <bold>Kilina.</bold>"
     },
     "ShuttleTimetable3": {
       "Title": "Trajets des hôtels vers le lieu de célébration:",
@@ -179,6 +179,10 @@
       "MessagePlaceholder": "Entrez votre message ici:",
       "Submit": "Soumettre"
     }
+  },
+
+  "Footer": {
+    "Developer": "Élaboré par MBrunet"
   },
 
   "RSVP": {

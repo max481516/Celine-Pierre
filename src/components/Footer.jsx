@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import styled, { keyframes, css } from "styled-components";
 import BackToTopIcon from "../media/BackToTop.svg?react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { QUERIES } from "../constants";
 
 // ---------------------------------------------
@@ -110,6 +111,8 @@ export default function Footer() {
     }, longestAnimMs);
   };
 
+  const { t } = useTranslation();
+
   return (
     <FooterContainer ref={footerRef} $isHomePage={$isHomePage}>
       {!$isHomePage && (
@@ -155,6 +158,13 @@ export default function Footer() {
           })}
         </BackToTop>
       )}
+      <DeveloperLink 
+        href="https://mbrunet.contact" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        {t("Footer.Developer")}
+      </DeveloperLink>
     </FooterContainer>
   );
 }
@@ -196,6 +206,18 @@ const FooterContainer = styled.footer`
   width: 100%;
   height: 5rem;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const DeveloperLink = styled.a`
+  color: var(--color-sandstone);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  &:hover {
+    color: var(--color-primary-blue);
+  }
 `;
 
 const BackToTop = styled.a`
@@ -232,7 +254,7 @@ const StyledBackToTopIcon = styled(BackToTopIcon)`
       : "none"};
 `;
 
-// Bubble element
+// Bubbles element
 const Bubble = styled.span`
   position: absolute;
   bottom: 8px;
@@ -243,7 +265,7 @@ const Bubble = styled.span`
   border-radius: 50%;
   pointer-events: none;
   transform: translateX(-50%);
-  will-change: transform, opacity; /* performance hint */
+  will-change: transform, opacity; 
   /* We chain two animations:
      1) bubbleDown: from under the jellyfish to 60px lower (fall) with per-bubble stagger
      2) bubbleReturnUp: all together return upward to their starting point when the jellyfish descends */

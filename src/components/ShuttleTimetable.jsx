@@ -24,7 +24,6 @@ const Title = styled.h3`
   margin-bottom: 0.2rem;
  text-decoration: underline;
  text-decoration-thickness: 1.3px;
- 
 
   @media ${QUERIES.tabletAndUp} {
     font-size: 1.2rem;
@@ -34,7 +33,6 @@ const Title = styled.h3`
 const TimetableInfo = styled.p`
  font-size: 0.9rem;
   white-space: pre-line;
-  
 
   @media ${QUERIES.tabletAndUp} {
     font-size: 1rem;

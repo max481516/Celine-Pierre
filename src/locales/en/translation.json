@@ -131,11 +131,11 @@
     "SectionTitle2": "Shuttles on Saturday, September 6:",
     "ShuttleTimetable1": {
       "Title": "Trips from the hotels to the church:",
-      "TimetableInfo": "<bold><colored>12:45 PM:</colored></bold> Shuttles depart from the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold> towards <bold>the church.</bold><bold><colored>\n1:15 PM:</colored></bold> Shuttles depart from <bold>Casadelmar Plage</bold> towards <bold>the church.</bold><bold><colored>\n1:15 PM:</colored></bold> Shuttles depart from <bold>Le Belvédère</bold> towards <bold>the church.</bold>"
+      "TimetableInfo": "<bold><colored>12:45 PM:</colored></bold> Shuttles depart from the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina</bold> towards <bold>the church.</bold><bold><colored><space/>\n1:15 PM:</colored></bold> Shuttles depart from <bold>Casadelmar Plage</bold> towards <bold>the church.</bold><bold><colored><space/>\n1:15 PM:</colored></bold> Shuttles depart from <bold>Le Belvédère</bold> towards <bold>the church.</bold>"
     },
     "ShuttleTimetable2": {
       "Title": "Trips from the church to the hotels:",
-      "TimetableInfo": "<bold><colored>4:00 PM:</colored></bold> Return shuttles from <bold>the church</bold> to <bold>Casadelmar Plage.</bold><bold><colored>\n4:00 PM:</colored></bold> Return shuttles from <bold>the church</bold> to the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina.</bold>"
+      "TimetableInfo": "<bold><colored>4:00 PM:</colored></bold> Return shuttles from <bold>the church</bold> to <bold>Casadelmar Plage.</bold><bold><colored><space/>\n4:00 PM:</colored></bold> Return shuttles from <bold>the church</bold> to the hotels <bold>Cala Rossa Bay Resort, Grand Hôtel Cala Rossa</bold> and <bold>Kilina.</bold>"
     },
     "ShuttleTimetable3": {
       "Title": "Trips from the hotels to the reception venue:",
@@ -179,6 +179,10 @@
       "MessagePlaceholder": "Enter your message here",
       "Submit": "Submit"
     }
+  },
+
+  "Footer": {
+    "Developer": "Crafted by MBrunet"
   },
 
   "RSVP": {

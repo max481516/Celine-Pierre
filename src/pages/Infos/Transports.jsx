@@ -50,7 +50,7 @@ export default function Transports() {
               timetableInfo={
                 <Trans
                   i18nKey="Transports.ShuttleTimetable1.TimetableInfo"
-                  components={{ bold: <Bold />, colored: <Colored /> }}
+                  components={{ bold: <Bold />, colored: <Colored /> , space: <Space /> }}
                 />
               }
             />
@@ -59,7 +59,7 @@ export default function Transports() {
               timetableInfo={
                 <Trans
                   i18nKey="Transports.ShuttleTimetable2.TimetableInfo"
-                  components={{ bold: <Bold />, colored: <Colored /> }}
+                  components={{ bold: <Bold />, colored: <Colored />, space: <Space /> }}
                 />
               }
             />
@@ -213,6 +213,12 @@ const Bold = styled.span`
 const Colored = styled.span`
   color: var(--color-primary-blue);
 `;
+
+const Space = styled.span`
+  display: block;
+  margin-bottom: -12px;
+  `
+  
 
 
   

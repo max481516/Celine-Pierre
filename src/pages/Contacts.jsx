@@ -196,8 +196,7 @@ const FormTitle = styled.h3`
   font-size: 1.2rem;
   font-weight: 500;
   white-space: pre-line;
-
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 `;
 
 const Form = styled.form`
@@ -206,7 +205,7 @@ const Form = styled.form`
   flex-direction: column;
   margin: 0 auto;
   gap: 0.25rem;
-  padding: 2rem 0;
+  padding: 1rem 0;
 
   @media ${QUERIES.tabletAndUp} {
     padding: 2rem;
@@ -216,10 +215,12 @@ const Form = styled.form`
 const Label = styled.label`
   font-weight: 600;
   font-size: 1rem;
+  margin: 0;
 `;
 
 const Input = styled.input`
   padding: 0.5rem;
+  margin-bottom: 1rem;
   border: 1px solid var(--color-dark-sand);
   border-radius: 4px;
   background-color: var(--color-dark-sand);
